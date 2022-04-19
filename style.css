@@ -1,0 +1,48 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html, body {
+    height: 100%;
+    overflow: auto;
+}
+
+a {
+    user-select: none
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    margin-top: 2px;
+    position: fixed;
+    top: 0;
+}
+
+#nav-left {
+    position: relative;
+    display: flex;
+    float: left;
+    width: 50%;
+    justify-content: flex-start;
+}
+
+#nav-right {
+    position: relative;
+    display: flex;
+    float: right;
+    width: 50%;
+    justify-content: flex-end;
+}
+
+#nav-right:last-child {
+    padding-right:10px;
+}
+
+.nav a {
+    padding: 10px;
+}
