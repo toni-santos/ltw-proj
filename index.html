@@ -11,8 +11,8 @@
 <body>
     <header class="nav">
         <ul class="nav" id="nav-left">
-            <li><a><span class="material-icons">fastfood</span></a></li>
-            <li><a>Restaurants</a></li>
+            <li><a ><span onclick="window.location.href = 'index.html';" class="material-icons">fastfood</span></a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
             <li><a>About Us</a></li>
         </ul>
         <ul class="nav" id="nav-right">
@@ -20,6 +20,18 @@
             <li><a>Register</a></li>
         </ul>
     </header>
+    <header class="nav-hamburger">
+        <a id="logo"><span onclick="window.location.href = 'index.html';" class="material-icons">fastfood</span></a>
+        <a id="hamburger-icon"><span id="hamburger-icon-menu" class="material-icons">menu</span></a>
+    </header>
+    <div id="hamburger-content" style="display: none;">
+        <ul class="hamburger-content-ul" id="hcul">
+            <li><a>Restaurants</a></li>
+            <li><a>About Us</a></li>
+            <li><a>Login</a></li>
+            <li><a>Register</a></li>
+        </ul>
+    </div>
     <main>
         <br>
         <br>
@@ -32,7 +44,7 @@
         <br>
         <br>
         <br>
-        <br>        <br>
+        <br>        
         <br>
         <br>
         <br>
@@ -76,7 +88,6 @@
         <br>
         <br>
         <br>
-
         <br>
         <br>
         <br>
@@ -86,7 +97,8 @@
         <br>
         <br>
         <br>
-        a
+        <br>
+        asdkjfaskjfaskdhfsakdjfaskdjfhweoirwoiruwoiruwoeiru
         <br>
         <br>
         <br>
@@ -99,5 +111,17 @@
     <footer>
 
     </footer>
+    <script type="text/javascript">
+        const hc = document.getElementById("hamburger-content");
+        const hi = document.getElementById("hamburger-icon-menu");
+        const hcul = document.getElementById("hcul");
+        hi.addEventListener("click", function() {
+            if (hc.style.display == "none"){
+                hc.style.display = "block";
+            } else {
+                hc.style.display = "none";
+            }
+        }, false);
+    </script>
 </body>
 </html>
