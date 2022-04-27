@@ -8,7 +8,7 @@
     <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
+<body style="overflow: scroll;">
     <header class="nav">
         <ul class="nav" id="nav-left">
             <li><a ><span onclick="window.location.href = 'index.html';" class="material-icons">fastfood</span></a></li>
@@ -25,12 +25,14 @@
         <a id="hamburger-icon"><span id="hamburger-icon-menu" class="material-icons">menu</span></a>
     </header>
     <div id="hamburger-content" style="display: none;">
-        <ul class="hamburger-content-ul" id="hcul">
-            <li><a>Restaurants</a></li>
-            <li><a>About Us</a></li>
-            <li><a>Login</a></li>
-            <li><a>Register</a></li>
-        </ul>
+        <div id="hamburger-top">
+            <a href="restaurants.html">Restaurants</a>
+            <a>About Us</a>            
+        </div>
+        <div id="hamburger-bottom">
+            <a>Login</a>
+            <a>Register</a>
+        </div>
     </div>
     <main>
         <br>
@@ -106,7 +108,7 @@
         <br>
         <br>
         <br>
-        <br>
+        <br>href="restaurants.html"
     </main>    
     <footer>
 
@@ -115,11 +117,14 @@
         const hc = document.getElementById("hamburger-content");
         const hi = document.getElementById("hamburger-icon-menu");
         const hcul = document.getElementById("hcul");
+        const body = document.getElementsByTagName("body")[0];
         hi.addEventListener("click", function() {
             if (hc.style.display == "none"){
-                hc.style.display = "block";
+                hc.style.display = "flex";
+                body.style.overflow = "hidden";
             } else {
                 hc.style.display = "none";
+                body.style.overflow = "scroll";
             }
         }, false);
     </script>

@@ -75,8 +75,11 @@ a {
 
     .nav-hamburger {
         display: flex;
+        margin-bottom: 4px;
+        z-index: 9999999;
     }
-
+    
+    
     .hamburger-content-ul {
         display: flex;
         flex-direction: column;
@@ -87,20 +90,47 @@ a {
         top: 0;
         background-color: azure;
     }
-
+    
     #hamburger-content {
         width: 100%;
         z-index: 9999;
-        margin-top: 50px;
     }
 
     .hamburger-content-ul > li {
         margin-bottom: 50px;
-    }
-
-    .hamburger-content-ul > li {
         margin-top: 50px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .hamburger-content-ul > li > a {
+        display: block;
+        width: 100%;
     }
 
+    #hamburger-top, #hamburger-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+        height:50%;
+    }
+    
+    #hamburger-top {
+        justify-content: flex-start;
+        margin-top: 32px;
+    }
 
+    #hamburger-bottom {
+        justify-content: flex-end;
+    }
+
+    #hamburger-content {
+        position: fixed;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
 }
