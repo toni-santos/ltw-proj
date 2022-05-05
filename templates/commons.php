@@ -1,4 +1,4 @@
-<?php function drawHeader() {?>
+<?php function drawTop() {?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -48,8 +48,39 @@
 <?php function drawFooter() { ?>
     </main>    
     <footer>
-
+        <section class="links">
+            <ul>
+                <li><a>Home</a></li>
+                <li><a>Restaurants</a></li>
+                <li><a>About Us</a></li>
+            </ul>
+        </section>
+        <section class="contacts">
+            <ul>
+                <li>PhoneNumber</li>
+                <li>Email</li>
+                <li>Address</li>
+            </ul>
+        </section>
+        <section class="socials">
+            <a>
+                <img src="./images/twitter.svg" width="24px">
+                @(not)UberEats
+            </a>
+            <a>
+                <img src="./images/facebook.svg" width="24px">
+                @(not)UberEats
+            </a>
+            <a>
+                <img src="./images/instagram.svg" width="24px">
+                @(not)UberEats
+            </a>
+        </section>
     </footer>
+<?php }?>
+
+<?php function drawBot() { 
+    drawFooter(); ?>
     <script type="text/javascript">
         const hc = document.getElementById("hamburger-content");
         const hi = document.getElementById("hamburger-icon-menu");

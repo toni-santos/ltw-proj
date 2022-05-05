@@ -1,6 +1,6 @@
 <?php
     include('templates/commons.php');
-    drawHeader();
+    drawTop();
 ?>
 <br>
 <br>
@@ -13,7 +13,6 @@
 <br>
 <br>
 <br>
-<br>        
 <br>
 <br>
 <br>
@@ -29,45 +28,6 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-asdkjfaskjfaskdhfsakdjfaskdjfhweoirwoiruwoiruwoeiru
 <br>
 <br>
 <br>
@@ -77,6 +37,6 @@ asdkjfaskjfaskdhfsakdjfaskdjfhweoirwoiruwoiruwoeiru
 <br>
 <br>
 <?php 
-    drawFooter();
+    drawBot();
 ?>
 

@@ -12,6 +12,11 @@ a {
     user-select: none
 }
 
+ul {
+    list-style: none;
+}
+
+/* NAVBAR STYLING */
 .nav, .nav-hamburger {
     display: flex;
     flex-direction: row;
@@ -133,4 +138,51 @@ a {
         align-items: center;
         align-content: center;
     }
+}
+
+/* FOOTER STYLING */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media only screen and (max-width: 350px) {
+    footer {
+        flex-direction: column;
+    }
+
+    .links, .contacts, .socials {
+        margin-bottom: 20px;
+    }
+}
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.socials > a {
+    display: flex;
+    align-items: center;
+    margin-top: 7px;
+}
+
+.socials > a:first-child {
+    margin-top: 0px;
+}
+
+.socials > a > img {
+    margin-right: 10px;
+    width: 24px;
 }
