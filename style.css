@@ -5,7 +5,10 @@
 
 html, body {
     height: 100%;
-    overflow: auto;
+}
+
+main {
+    width: 100%;
 }
 
 a {
@@ -23,9 +26,11 @@ ul {
     align-items: center;
     list-style: none;
     width: 100%;
-    margin-top: 2px;
+    padding-top: 2px;
     position: fixed;
     top: 0;
+    background-color: blue;
+    z-index: 999999999;
 }
 
 #nav-left {
