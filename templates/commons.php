@@ -1,4 +1,8 @@
-<?php function drawTop() {?>
+<?php
+declare(strict_types = 1);
+?>
+
+<?php function drawTop(array $styles, array $scripts) { ?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -6,13 +10,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>(not) UberEats</title>
-        <link href="style.css" rel="stylesheet">
-        <link href="index.css" rel="stylesheet">
+        <?php 
+            foreach ($styles as $style) {
+                ?><link href="styles/<?php echo $style;?>.css" rel="stylesheet"><?php
+            }
+        ?>
+        <?php 
+            foreach ($scripts as $script) {
+                ?><script type="text/javascript" src="scripts/<?php echo $script;?>.js" defer></script><?php
+            }
+        ?>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body style="overflow: scroll;">
-        <?php
-            include('templates/navbar.php');
+        <?php 
             drawNavbar();
         ?>
         <main>
@@ -21,8 +32,8 @@
 <?php function drawNavbar() { ?>
     <header class="nav">
         <ul class="nav" id="nav-left">
-            <li><a ><span onclick="window.location.href = 'index.html';" class="material-icons">fastfood</span></a></li>
-            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a ><span onclick="window.location.href = 'index.php';" class="material-icons">fastfood</span></a></li>
+            <li><a href="restaurants.php">Restaurants</a></li>
             <li><a>About Us</a></li>
         </ul>
         <ul class="nav" id="nav-right">
@@ -31,12 +42,12 @@
         </ul>
     </header>
     <header class="nav-hamburger">
-        <a id="logo"><span onclick="window.location.href = 'index.html';" class="material-icons">fastfood</span></a>
-        <a id="hamburger-icon"><span id="hamburger-icon-menu" class="material-icons">menu</span></a>
+        <a id="logo"><span onclick="window.location.href = 'index.php';" class="material-icons">fastfood</span></a>
+        <a id="hamburger-icon" ><span onclick="showHamburger()" id="hamburger-icon-menu" class="material-icons">menu</span></a>
     </header>
     <div id="hamburger-content" style="display: none;">
         <div id="hamburger-top">
-            <a href="restaurants.html">Restaurants</a>
+            <a href="restaurants.php">Restaurants</a>
             <a>About Us</a>            
         </div>
         <div id="hamburger-bottom">
@@ -78,25 +89,6 @@
             </a>
         </section>
     </footer>
-<?php }?>
-
-<?php function drawBot() { 
-    drawFooter(); ?>
-    <script type="text/javascript">
-        const hc = document.getElementById("hamburger-content");
-        const hi = document.getElementById("hamburger-icon-menu");
-        const hcul = document.getElementById("hcul");
-        const body = document.getElementsByTagName("body")[0];
-        hi.addEventListener("click", function() {
-            if (hc.style.display == "none"){
-                hc.style.display = "flex";
-                body.style.overflow = "hidden";
-            } else {
-                hc.style.display = "none";
-                body.style.overflow = "scroll";
-            }
-        }, false);
-    </script>
-    </body>
-    </html>
+</body>
+</html>
 <?php }?>

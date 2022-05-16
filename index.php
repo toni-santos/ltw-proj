@@ -1,6 +1,8 @@
 <?php
-    include('templates/commons.php');
-    drawTop();
+require_once('templates/commons.php');
+require_once('templates/index.tpl.php');
+
+drawTop(["index", "commons"], ["hamburger", "carousel"]);
 ?>
 <div class="main-top">
     <div class="top-text">
@@ -14,23 +16,23 @@
 <div class="main-bottom">
     <h2>Our top picks</h2>
     <div class="carousel">
-        <a class="prev"><</a>
-        <a class="next">></a>
-        <div id="carousel-item">
-            <img src="images/placeholder.jpg" id="restaurant-pfp">
-            <p>RESTAURANT 1</p>
+        <div id="spotlight-restaurant">
+            <?php
+            restaurant_card((int) 1);
+            ?>
         </div>
-        <div id="carousel-item">
-            <img src="images/placeholder.jpg" id="restaurant-pfp">
-            <p>RESTAURANT 1</p>
-        </div>
-        <div id="carousel-item">
-            <img src="images/placeholder.jpg" id="restaurant-pfp">
-            <p>RESTAURANT 1</p>
+        <div class="carousel-preview">
+            <?php
+            restaurant_preview(true, intval(1));
+
+            for ($i = 2; $i < 4; $i++) {
+                restaurant_preview(false, (int) $i);
+            }
+            ?>
         </div>
     </div>
+    <?php promos(); ?>
 </div>
-<?php 
-    drawBot();
+<?php
+drawFooter();
 ?>
-

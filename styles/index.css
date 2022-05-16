@@ -1,0 +1,181 @@
+
+#top-background {
+    width: 100%;
+    height: 500px;
+    object-fit: none;
+    z-index: -99999999;
+    position: relative;
+}
+
+.main-bottom {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.main-bottom > h2 {
+    margin-left: 5%;
+}
+
+.top-text {
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+#top-desc {
+    width: 400px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 500px) {
+    #top-desc {
+        width: 350px
+    }
+
+    .top-text {
+        left: 40px
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #top-desc {
+        width: 250px
+    }
+
+    .top-text {
+        left: 30px
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    #top-desc {
+        width: 150px
+    }
+
+    
+    .top-text {
+        left: 20px
+    }
+}
+
+.carousel-preview {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-evenly;
+}
+
+.carousel {
+    position: relative;
+}
+
+.rest-preview {
+    width: 150px;
+    border-radius: 12px;
+}
+
+.inactive {
+    opacity: 0.4;
+}
+
+.active {
+    opacity: 1;
+}
+
+.inactive:hover {
+    opacity: 0.7;
+}
+
+div[id^="restaurant-card-"] {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 20% 1fr 1fr;
+    margin-top: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+.restaurant-description {
+    margin-left: -50%;
+    grid-column-start: 3;
+}
+
+.restaurant-description > ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.rest-img {
+    width: 300px;
+    grid-column-start: 2;
+}
+
+@media (max-width: 899px) {
+    div[id^="restaurant-card-"] {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .restaurant-description {
+        margin-left: -50%;
+        grid-column-start: 2;
+    }
+    
+    .rest-img {
+        width: 200px;
+        grid-column-start: 1;
+    }
+
+    .rest-preview {
+        width: 100px;
+        border-radius: 12px;
+    }
+
+}
+
+@media (max-width: 550px) {
+    .rest-preview {
+        width: 50px;
+        border-radius: 12px;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .restaurant-description {
+        margin-right: 5%;
+        grid-column-start: 2;
+    }
+
+    div[id^="restaurant-card-"] {
+        justify-items: flex-end;
+    }
+}
+
+.promo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-promo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#promo-img {
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.promo-user {
+    margin-right: 10px;
+}
+
+.promo-restaurant {
+    margin-left: 10px;
+}
