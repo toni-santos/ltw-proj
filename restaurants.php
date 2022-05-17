@@ -1,22 +1,21 @@
 <?php
+declare(strict_types = 1);
 require_once('templates/commons.php');
+require_once('templates/restaurants.tpl.php');
 
 drawTop(["restaurants", "commons"], ["hamburger.js"]);
 ?>
-<div>
-    <h2>Restaurants</h2>
-    <img src="images/placeholder_bg.jpg">
+<div class="search-box">
+    <input id="restaurant-search" type="search">
 </div>
-<div>
-    <input type="search">
+<div id="results-container">
+    <section id="search-results">
+        <?php
+            for ( $i = 0; $i < 15; $i++)
+                searchCards();
+        ?>
+    </section>
 </div>
-<section>
-    <!-- MAKE IT INTO A TEMPLATE -->
-    <div>
-        <img src="images/placeholder.jpg">
-        <h4>Restaurant name</h4>
-    </div>
-</section>
 <?php
 drawFooter();
 ?>

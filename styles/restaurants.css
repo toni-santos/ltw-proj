@@ -1,0 +1,78 @@
+:root {
+    --card-width: 275px;    
+    --col-count: 3;
+}
+
+#top-background {
+    width: 100%;
+    height: 300px;
+    object-fit: none;
+    z-index: -99999999;
+    position: relative;
+}
+
+#top-text {
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    margin-top: 70px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#restaurant-search {
+    width: 40%;
+}
+
+#restaurant-card {
+    background-image: url("../images/placeholder.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    width: var(--card-width);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#restaurant-card:hover #info-overlay {
+    transform: translateY(0%);
+}
+
+#info-overlay {
+    padding: 10px;
+    height: 100%;
+    transform: translateY(80%);
+    transition: transform 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+#restaurant-info {
+    height: 100%;
+}
+
+#results-container {
+    display: grid;
+    grid-template-columns: calc((var(--card-width) * var(--col-count)) + (10px * (var(--col-count) - 1)));
+    justify-content: center;
+}
+
+#search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    gap: 10px;
+}
+
+h4,
+h5 {
+    color: white;
+}
