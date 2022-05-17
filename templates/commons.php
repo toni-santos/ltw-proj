@@ -34,7 +34,7 @@ declare(strict_types = 1);
         <ul class="nav" id="nav-left">
             <li><a ><span onclick="window.location.href = 'index.php';" class="material-icons">fastfood</span></a></li>
             <li><a href="restaurants.php">Restaurants</a></li>
-            <li><a>About Us</a></li>
+            <li><a href="about.php">About Us</a></li>
         </ul>
         <ul class="nav" id="nav-right">
             <li><a href="login.php">Login</a></li>
@@ -48,11 +48,11 @@ declare(strict_types = 1);
     <div id="hamburger-content" style="display: none;">
         <div id="hamburger-top">
             <a href="restaurants.php">Restaurants</a>
-            <a>About Us</a>            
+            <a href="about.php">About Us</a>            
         </div>
         <div id="hamburger-bottom">
-            <a>Login</a>
-            <a>Register</a>
+            <a href="login.php">Login</a>
+            <a href="signup.php">Register</a>
         </div>
     </div>
 <?php }?>

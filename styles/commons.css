@@ -1,6 +1,7 @@
 * {
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
 }
 
 html,
@@ -10,6 +11,7 @@ body {
 
 main {
     width: 100%;
+    min-height: 100%;
 }
 
 a {
