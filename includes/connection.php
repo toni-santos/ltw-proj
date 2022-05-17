@@ -1,10 +1,10 @@
 <?php
 	//check if the database file exists and create a new if not
-	if(!is_file('database/create.sql')){
-		file_put_contents('database/create.sql', null);
+	if(!is_file('../database/database.db')){
+		file_put_contents('../database/database.db', null);
 	}
 	// connecting the database
-	$conn = new PDO('sqlite:database/create.sql');
+	$conn = new PDO('sqlite:../database/database.db');
 	//Setting connection attributes
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	//Query for creating user table in the database if not exist yet.

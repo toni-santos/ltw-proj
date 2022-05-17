@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once 'connection.php';
+	require_once '../database/db_loader.php';
 	
 	if(ISSET($_POST['login'])){
 		$username = $_POST['username'];

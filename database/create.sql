@@ -17,6 +17,7 @@ DROP TABLE IF EXISTS Menu;
 CREATE TABLE User(
     userID              INTEGER,
     username            VARCHAR(255) NOT NULL,
+    email               VARCHAR(255) NOT NULL,
     password            VARCHAR(255) NOT NULL,
     address             TEXT,
     phoneNum            INTEGER,

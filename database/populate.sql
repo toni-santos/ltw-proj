@@ -1,10 +1,10 @@
 PRAGMA FOREIGN_KEYS = ON;
 
 -- User(userID, username, password, address, phoneNum, profilePic)
-INSERT INTO User VALUES (1, "João Lucas", "password123", "Algures", 919988767, "https://d5y9g7a5.rocketcdn.me/wp-content/uploads/2021/03/trollface-origem-significado-e-polemicas-em-torno-do-meme-960x596.jpg");
-INSERT INTO User VALUES (2, "António Santos", "shoegaze4ever", "Vila Nova da Telha", NULL, "https://upload.wikimedia.org/wikipedia/pt/b/b5/Capa_de_Loveless.jpg");
-INSERT INTO User VALUES (3, "Luís Osório", "cringeIRL", "Alfena", 912345678, NULL);
-INSERT INTO User VALUES (4, "Pedro Silva", "valorantGaming", "Maia", NULL, NULL);
+INSERT INTO User VALUES (1, "João Lucas", "joaolucas2000@gmail.com", "password123", "Algures", 919988767, "https://d5y9g7a5.rocketcdn.me/wp-content/uploads/2021/03/trollface-origem-significado-e-polemicas-em-torno-do-meme-960x596.jpg");
+INSERT INTO User VALUES (2, "António Santos", "tonigaming@hotmail.com" , "shoegaze4ever", "Vila Nova da Telha", NULL, "https://upload.wikimedia.org/wikipedia/pt/b/b5/Capa_de_Loveless.jpg");
+INSERT INTO User VALUES (3, "Luís Osório", "zefLux@sapo.pt", "cringeIRL", "Alfena", 912345678, NULL);
+INSERT INTO User VALUES (4, "Pedro Silva", "oneseven@yugioh.com", "valorantGaming", "Maia", NULL, NULL);
 
 -- Restaurant(restaurantID, name, location, category)
 

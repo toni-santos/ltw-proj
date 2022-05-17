@@ -3,7 +3,7 @@
 	session_start();
 
 	//including the database connection
-	require_once 'connection.php';
+	require_once '../database/db_loader.php';
 	
 	if(ISSET($_POST['signup'])){
 		// Setting variables
