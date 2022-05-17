@@ -16,10 +16,10 @@
 		$count = $row['count'];
 		
 		if($count > 0){
-			header('location:index.php');
+			header("Location:index.php");
 		}else{
 			$_SESSION['error'] = "Invalid username or password";
-			header('location:login.php');
+			header("Location:login.php");
 		}
 	}
 ?>

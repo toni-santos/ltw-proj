@@ -7,7 +7,7 @@ drawTop(["restaurants", "commons", "signup"], ["hamburger.js"]);
 <section class="signup-form">
     <div id="box">
         <h2> Login </h2>
-        <form action="login.inc.php" method="POST">
+        <form action="/includes/login.inc.php" method="POST">
         <input id = "text"  type="text" name="name" placeholder="Username/Email"> 
         <input id = "text" type="password" name="pwd" placeholder="Password"> 
         <?php

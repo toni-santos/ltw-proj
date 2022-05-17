@@ -29,7 +29,7 @@ drawTop(["restaurants", "commons", "signup"], ["hamburger.js"]);
             unset($_SESSION['success']);
             }
         ?>
-        <button id="button" type="submit" name="submit"> Sign Up </button>
+        <button id="button" type="submit" name="submit">  Sign Up  </button>
         </form>
         <p> Already have an account? <a href="login.php" > Login now!</a></p>
     </div>
