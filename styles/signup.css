@@ -1,0 +1,31 @@
+body {
+    height: 100%;
+}
+
+#text {
+    height: 25px;
+    border-radius: 5px;
+    padding: 4px;
+    border: solid thin #aaa;
+    width: 100%;
+    margin-top: 5%;
+}
+
+#button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100px;
+    color: black;
+    background-color: rgb(193, 143, 107);
+    border: none;
+    border-radius: 10px;
+}
+
+#box {
+    background-color: rgba(250, 235, 224, 1);
+    margin: auto;
+    margin-top: 100px;
+    width: 300px;
+    padding: 20px;
+    border-radius: 5px;
+}

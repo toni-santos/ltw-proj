@@ -3,7 +3,8 @@
     margin: 0px;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -19,8 +20,11 @@ ul {
     list-style: none;
 }
 
+
 /* NAVBAR STYLING */
-.nav, .nav-hamburger {
+
+.nav,
+.nav-hamburger {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -29,7 +33,7 @@ ul {
     padding-top: 2px;
     position: fixed;
     top: 0;
-    background-color: blue;
+    background-color: rgba(201, 228, 197, 1);
     z-index: 999999999;
 }
 
@@ -50,7 +54,7 @@ ul {
 }
 
 #nav-right:last-child {
-    padding-right:10px;
+    padding-right: 10px;
 }
 
 .nav a {
@@ -61,11 +65,11 @@ ul {
     display: none;
 }
 
-#logo, #hamburger-icon {
+#logo,
+#hamburger-icon {
     display: flex;
     width: 50%;
     padding-top: 2px;
-    
 }
 
 #logo {
@@ -82,14 +86,11 @@ ul {
     .nav {
         display: none;
     }
-
     .nav-hamburger {
         display: flex;
         margin-bottom: 4px;
         z-index: 9999999;
     }
-    
-    
     .hamburger-content-ul {
         display: flex;
         flex-direction: column;
@@ -100,40 +101,34 @@ ul {
         top: 0;
         background-color: azure;
     }
-    
     #hamburger-content {
         width: 100%;
         z-index: 9999;
     }
-
-    .hamburger-content-ul > li {
+    .hamburger-content-ul>li {
         margin-bottom: 50px;
         margin-top: 50px;
         display: flex;
         justify-content: center;
     }
-    
-    .hamburger-content-ul > li > a {
+    .hamburger-content-ul>li>a {
         display: block;
         width: 100%;
     }
-
-    #hamburger-top, #hamburger-bottom {
+    #hamburger-top,
+    #hamburger-bottom {
         display: flex;
         flex-direction: column;
-        align-items: center;    
-        height:50%;
+        align-items: center;
+        height: 50%;
     }
-    
     #hamburger-top {
         justify-content: flex-start;
         margin-top: 32px;
     }
-
     #hamburger-bottom {
         justify-content: flex-end;
     }
-
     #hamburger-content {
         position: fixed;
         display: flex;
@@ -145,7 +140,9 @@ ul {
     }
 }
 
+
 /* FOOTER STYLING */
+
 footer {
     display: flex;
     flex-wrap: wrap;
@@ -165,8 +162,9 @@ footer ul {
     footer {
         flex-direction: column;
     }
-
-    .links, .contacts, .socials {
+    .links,
+    .contacts,
+    .socials {
         margin-bottom: 20px;
     }
 }
@@ -177,17 +175,17 @@ footer ul {
     align-items: center;
 }
 
-.socials > a {
+.socials>a {
     display: flex;
     align-items: center;
     margin-top: 7px;
 }
 
-.socials > a:first-child {
+.socials>a:first-child {
     margin-top: 0px;
 }
 
-.socials > a > img {
+.socials>a>img {
     margin-right: 10px;
     width: 24px;
 }
