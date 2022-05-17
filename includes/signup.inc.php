@@ -8,12 +8,12 @@
 	if(ISSET($_POST['signup'])){
 		// Setting variables
 		$username = $_POST['username'];
-        // $email = $_POST['email'];
+        $email = $_POST['email'];
 		$password = $_POST['password'];
 	
 		
 		// Insertion Query
-		$query = "INSERT INTO `User`(userID, username, password, address, phoneNum, profilePic) VALUES(1, :username, :password, NULL, NULL, NULL)";
+		$query = "INSERT INTO `User`(userID, username, email, password, address, phoneNum, profilePic) VALUES(1, :username, :password, NULL, NULL, NULL)";
 
 		$stmt = $db_loader->prepare($query);
 		$stmt->bindParam(':username', $username);
@@ -27,6 +27,5 @@
 			//redirecting to the index.php 
 			header('location: index.php');
 		}
-
 	}
 ?>
