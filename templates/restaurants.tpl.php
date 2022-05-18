@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 function searchCards()
 { ?>
-    <div class="restaurant-card">
+    <div class="restaurant-card shadow">
         <section class="info-overlay">
             <p class="body1 dark-bg rest-name">Restaurant name</p>
             <div class="sub-info">

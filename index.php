@@ -12,7 +12,7 @@ drawTop(["index", "commons"], ["hamburger", "carousel"]);
             Find your favorite restaurant right now!
         </a>
         <form id="search-container" autocomplete="off" method="GET">
-            <input class="search" type="search body1" name="s" id="restaurant-search" placeholder="Search">
+            <input class="search shadow-nohov" type="search body1" name="s" id="restaurant-search" placeholder="Search">
             <button class="material-icons button">search</button>
         </form>
     </div>

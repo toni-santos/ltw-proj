@@ -31,7 +31,7 @@ declare(strict_types=1);
 <?php function promos()
 { ?>
     <section class="signup-promo">
-        <section class="promo promo-user">
+        <section class="promo promo-user shadow">
             <img src="images/placeholder.jpg" class="promo-img">
             <section class="promo-desc">
                 <h4 class="body1">Start ordering!</h4>
@@ -39,7 +39,7 @@ declare(strict_types=1);
                 <a href="#" class="subtitle1 register-promo">Register</a>
             </section>
         </section>
-        <section class="promo promo-restaurant">
+        <section class="promo promo-restaurant shadow">
             <img src="images/placeholder.jpg" class="promo-img">
             <section class="promo-desc">
                 <h4 class="body1">Get your business out there!</h4>
