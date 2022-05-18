@@ -26,7 +26,7 @@ function profileBottom(array $tabs, int $scrollVal, Pages $page)
     <div id="profile-bottom">
         <section id="tabs" class="h6">
             <?php for ($i = 0; $i < count($tabs); $i++) { ?>
-                <p class="shadow" id="tab-<?php echo $i; ?>" onclick="snapContent(event, <?php echo $scrollVal; ?>)"><?php echo $tabs[$i]; ?></p>
+                <p class="shadow" id="tab-<?php echo $i; ?>" onclick="snapContent(event, <?php echo $scrollVal; ?>, 'bottom-content', 'vertical')"><?php echo $tabs[$i]; ?></p>
             <?php } ?>
         </section>
         <hr class="horizontal-divider solid">

@@ -2,7 +2,7 @@
 require_once('templates/commons.php');
 require_once('templates/index.tpl.php');
 
-drawTop(["index", "commons"], ["hamburger", "carousel"]);
+drawTop(["index", "commons"], ["hamburger", "scrollsnap"]);
 ?>
 <div class="main-top">
     <div class="top-text">
@@ -20,23 +20,10 @@ drawTop(["index", "commons"], ["hamburger", "carousel"]);
 </div>
 <div class="main-bottom">
     <h2 class="h5">Our top picks</h2>
-    <div class="carousel">
-        <div id="spotlight-restaurant">
-            <?php
-            restaurant_card((int) 1);
-            ?>
-        </div>
-        <div class="carousel-preview">
-            <?php
-            restaurantPreview(true, intval(1));
-
-            for ($i = 2; $i < 4; $i++) {
-                restaurantPreview(false, (int) $i);
-            }
-            ?>
-        </div>
-    </div>
-    <?php promos(); ?>
+    <?php
+    drawCarousel();
+    promos();
+    ?>
 </div>
 <?php
 drawFooter();

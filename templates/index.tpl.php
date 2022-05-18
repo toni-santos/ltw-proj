@@ -18,13 +18,33 @@ declare(strict_types=1);
     </div>
 <?php } ?>
 
+<?php function drawCarousel()
+{ ?>
+    <div class="carousel">
+        <div id="carousel-container">
+            <?php
+            restaurant_card((int) 1);
+            restaurant_card((int) 2);
+            restaurant_card((int) 3);
+            ?>
+        </div>
+        <div class="carousel-preview">
+            <?php
+            restaurantPreview(true, intval(0));
+            restaurantPreview(false, intval(1));
+            restaurantPreview(false, intval(2));
+            ?>
+        </div>
+    </div>
+<?php } ?>
+
 <?php function restaurantPreview(bool $active, int $id)
 {
     if ($active) { ?>
-        <img src="images/placeholder.jpg" onclick="changePick(event)" class="rest-preview active" id="rest-preview-<?php echo $id; ?>">
+        <img src="images/placeholder.jpg" onclick="snapContent(event, 500, 'carousel-container', 'horizontal')" class="rest-preview active" id="rest-preview-<?php echo $id; ?>">
     <?php return;
     } else { ?>
-        <img src="images/placeholder.jpg" onclick="changePick(event)" class="rest-preview inactive" id="rest-preview-<?php echo $id; ?>">
+        <img src="images/placeholder.jpg" onclick="snapContent(event, 500, 'carousel-container', 'horizontal')" class="rest-preview inactive" id="rest-preview-<?php echo $id; ?>">
     <?php } ?>
 <?php } ?>
 
