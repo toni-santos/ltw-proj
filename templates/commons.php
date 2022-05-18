@@ -32,13 +32,12 @@ declare(strict_types = 1);
 <?php function drawNavbar() { ?>
     <header class="nav">
         <ul class="nav" id="nav-left">
-            <li><a ><span onclick="window.location.href = 'index.php';" class="material-icons">fastfood</span></a></li>
-            <li><a href="restaurants.php">Restaurants</a></li>
-            <li><a href="about.php">About Us</a></li>
+            <li><a><span onclick="window.location.href = 'index.php';" class="material-icons">fastfood</span></a></li>
+            <li><a class="subtitle1" href="restaurants.php">Restaurants</a></li>
         </ul>
         <ul class="nav" id="nav-right">
-            <li><a href="login.php">Login</a></li>
-            <li><a href="signup.php">Sign-Up</a></li>
+            <li><a class="subtitle1" href="login.php">Login</a></li>
+            <li><a class="subtitle1" href="signup.php">Sign-Up</a></li>
         </ul>
     </header>
     <header class="nav-hamburger">
@@ -48,7 +47,6 @@ declare(strict_types = 1);
     <div id="hamburger-content" style="display: none;">
         <div id="hamburger-top">
             <a href="restaurants.php">Restaurants</a>
-            <a href="about.php">About Us</a>            
         </div>
         <div id="hamburger-bottom">
             <a href="login.php">Login</a>
@@ -62,28 +60,27 @@ declare(strict_types = 1);
     <footer>
         <section class="links">
             <ul>
-                <li><a>Home</a></li>
-                <li><a>Restaurants</a></li>
-                <li><a>About Us</a></li>
+                <li><a class="subtitle2" href="index.php">Home</a></li>
+                <li><a class="subtitle2" href="restaurants.php">Restaurants</a></li>
             </ul>
         </section>
         <section class="contacts">
             <ul>
-                <li>PhoneNumber</li>
-                <li>Email</li>
-                <li>Address</li>
+                <li class="subtitle2">PhoneNumber</li>
+                <li class="subtitle2">Email</li>
+                <li class="subtitle2">Address</li>
             </ul>
         </section>
         <section class="socials">
-            <a>
+            <a class="subtitle2">
                 <img src="./images/twitter.svg" width="24px">
                 @(not)UberEats
             </a>
-            <a>
+            <a class="subtitle2">
                 <img src="./images/facebook.svg" width="24px">
                 @(not)UberEats
             </a>
-            <a>
+            <a class="subtitle2">
                 <img src="./images/instagram.svg" width="24px">
                 @(not)UberEats
             </a>

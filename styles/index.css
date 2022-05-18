@@ -26,7 +26,7 @@
 }
 
 #top-desc {
-    width: 400px;
+    width: 500px;
     margin-bottom: 30px;
 }
 
@@ -104,13 +104,18 @@ div[id^="restaurant-card-"] {
 }
 
 .restaurant-description > ul {
-    display: flex;
-    flex-direction: row;
+    margin-top: 10px;
 }
 
 .rest-img {
     width: 300px;
     grid-column-start: 2;
+    border-radius: 20px;
+    transition: all 0.1s ease-in-out;
+}
+
+.rest-img:hover {
+    transform: scale(101%);
 }
 
 @media (max-width: 899px) {
@@ -136,7 +141,6 @@ div[id^="restaurant-card-"] {
         width: 100px;
         border-radius: 12px;
     }
-
 }
 
 @media (max-width: 550px) {
@@ -147,19 +151,33 @@ div[id^="restaurant-card-"] {
 
 }
 
-@media (max-width: 792px) {
-    .promo-restaurant {
-        margin-top: 20px;
-    }
-}
-
 .promo {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 300px;
+    background-color: var(--sub-color-light);
+    padding: 10px;
+    padding-top: 0px;
+    border-radius:10px;
+    transition: all 0.1s ease-in-out;
+}
+
+.promo:hover {
+    transform: scale(101%);
+}
+
+
+.promo-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .signup-promo {
+    gap: 40px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -167,15 +185,23 @@ div[id^="restaurant-card-"] {
     flex-wrap: wrap;
 }
 
-#promo-img {
+.promo-img {
     width: 300px;
     margin-bottom: 10px;
+    border-radius: 10px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
-.promo-user {
-    margin-right: 10px;
+#search-container {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.promo-restaurant {
-    margin-left: 10px;
+.register-promo {
+    text-align: center;
+    border-top: 7px;
 }

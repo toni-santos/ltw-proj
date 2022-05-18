@@ -1,8 +1,3 @@
-:root {
-    --card-width: 275px;    
-    --col-count: 3;
-}
-
 #top-background {
     width: 100%;
     height: 300px;
@@ -21,58 +16,68 @@
     flex-wrap: wrap;
 }
 
-.search-box {
-    margin-top: 70px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-#restaurant-search {
+#search-container {
+    min-width: 200px;
     width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 40px;
 }
 
-#restaurant-card {
+.restaurant-card {
     background-image: url("../images/placeholder.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 200px;
-    width: var(--card-width);
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     overflow: hidden;
 }
 
-#restaurant-card:hover #info-overlay {
+.restaurant-card:hover .info-overlay {
     transform: translateY(0%);
 }
 
-#info-overlay {
+.info-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 10px;
     height: 100%;
     transform: translateY(80%);
     transition: transform 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-#restaurant-info {
-    height: 100%;
+.results-container {
+    margin: auto;
+    max-width: 1000px;
+    padding: 0px 20px 20px 20px;
 }
 
-#results-container {
-    display: grid;
-    grid-template-columns: calc((var(--card-width) * var(--col-count)) + (10px * (var(--col-count) - 1)));
-    justify-content: center;
-}
-
-#search-results {
+.search-results {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
     gap: 10px;
 }
 
-h4,
-h5 {
-    color: white;
+.rest-name {
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+
+.rest-loc {
+    margin-bottom: 3px;
+}
+
+.sub-info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 7px;
+    margin-left: 5px;
 }

@@ -1,14 +1,20 @@
 <?php
-declare(strict_types = 1);
 
-function searchCards() { ?>
-    <div id="restaurant-card">
-        <article id="restaurant-info">
-            <section id="info-overlay">
-                <h4>Restaurant name</h4>
-                <h5>g1 g2 g3</h4>
-                <h5>location</h4>
-            </section>
-        </article>
+declare(strict_types=1);
+
+function searchCards()
+{ ?>
+    <div class="restaurant-card">
+        <section class="info-overlay">
+            <p class="body1 dark-bg rest-name">Restaurant name</p>
+            <div class="sub-info">
+                <p class="body2 dark-bg rest-loc">location</p>
+                <ul class="body2 dark-bg rest-genres">
+                    <li>g1</li>
+                    <li>g2</li>
+                    <li>g3</li>
+                </ul>
+            </div>
+        </section>
     </div>
 <?php } ?>
