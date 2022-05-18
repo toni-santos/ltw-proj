@@ -8,8 +8,8 @@ declare(strict_types=1);
     <div id="restaurant-card-<?php echo $id; ?>">
         <img src="images/placeholder.jpg" class="rest-img">
         <section class="restaurant-description">
-            <h3>Restaurant Name <?php echo $id; ?></h3>
-            <ul>
+            <h3 class="body1">Restaurant Name <?php echo $id; ?></h3>
+            <ul class="body2">
                 <li>g1</li>
                 <li>g2</li>
                 <li>g3</li>
@@ -18,7 +18,7 @@ declare(strict_types=1);
     </div>
 <?php } ?>
 
-<?php function restaurant_preview(bool $active, int $id)
+<?php function restaurantPreview(bool $active, int $id)
 {
     if ($active) { ?>
         <img src="images/placeholder.jpg" onclick="changePick(event)" class="rest-preview active" id="rest-preview-<?php echo $id; ?>">
@@ -32,19 +32,19 @@ declare(strict_types=1);
 { ?>
     <section class="signup-promo">
         <section class="promo promo-user">
-            <img src="images/placeholder.jpg" id="promo-img">
+            <img src="images/placeholder.jpg" class="promo-img">
             <section class="promo-desc">
-                <h4 class="low-header">Start ordering!</h4>
-                <p>ordering ordering ordering ordering ordering ordering ordering</p>
-                <a href="#">Register</a>
+                <h4 class="body1">Start ordering!</h4>
+                <p class="subtitle2">Get food from your favorite restaurants, simply create an account below!</p>
+                <a href="#" class="subtitle1 register-promo">Register</a>
             </section>
         </section>
         <section class="promo promo-restaurant">
-            <img src="images/placeholder.jpg" id="promo-img">
+            <img src="images/placeholder.jpg" class="promo-img">
             <section class="promo-desc">
-                <h4 class="low-header">Get your business out there!</h4>
-                <p>selling selling selling selling selling selling selling selling</p>
-                <a href="#">Register</a>
+                <h4 class="body1">Get your business out there!</h4>
+                <p class="subtitle2">Create an account and start delivering food through our services!</p>
+                <a href="#" class="subtitle1 register-promo">Register</a>
             </section>
         </section>
         <!-- If we eventually implement driver accounts we should add a promo here! -->
