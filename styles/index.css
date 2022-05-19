@@ -100,23 +100,33 @@ div[id^="restaurant-card-"] {
     gap: 10px;
     scroll-snap-align: center;
     justify-content: center;
-    padding: 10px;
+    padding-inline: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: var(--sub-color-light);
+    height: 245px;
 }
 
 #carousel-container {
     display: grid;
-    width: 450px;
-    height: 275px;
+    width: 500px;
+    height: 270px;
     overflow-x: hidden;
     scroll-snap-type: x mandatory;
     margin: auto;
     grid-template-columns: repeat(3, minmax(450px, 1fr));
     justify-items: center;
     gap: 200px;
+    padding-inline: 10px;
 }
 
 .restaurant-description > ul {
     margin-top: 10px;
+    width: max-content;
+}
+
+.rest-name {
+    width: max-content;
 }
 
 .rest-img {

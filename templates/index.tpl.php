@@ -8,7 +8,7 @@ declare(strict_types=1);
     <div id="restaurant-card-<?php echo $id; ?>">
         <img src="images/placeholder.jpg" class="rest-img">
         <section class="restaurant-description">
-            <h3 class="body1">Restaurant Name <?php echo $id; ?></h3>
+            <h3 class="body1 rest-name">Restaurant Name <?php echo $id; ?></h3>
             <ul class="body2">
                 <li>g1</li>
                 <li>g2</li>
