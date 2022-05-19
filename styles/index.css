@@ -102,7 +102,7 @@ div[id^="restaurant-card-"] {
     justify-content: center;
     padding-inline: 10px;
     margin: 5px;
-    border-radius: 10px;
+    border-radius: 24px;
     background-color: var(--sub-color-light);
     height: 245px;
 }
@@ -145,11 +145,12 @@ div[id^="restaurant-card-"] {
     div[id^="restaurant-card-"] {
         display: flex;
         flex-direction: column;
+        height: 320px;
     }
 
     #carousel-container {
-        width: 300px;
-        height: 300px;
+        width: 350px;
+        height: 400px;
     }
 
     .restaurant-description {

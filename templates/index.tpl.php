@@ -6,7 +6,7 @@ declare(strict_types=1);
 <?php function restaurant_card(int $id)
 { ?>
     <div id="restaurant-card-<?php echo $id; ?>">
-        <img src="images/placeholder.jpg" class="rest-img">
+        <img src="images/placeholder.jpg" class="rest-img shadow">
         <section class="restaurant-description">
             <h3 class="body1 rest-name">Restaurant Name <?php echo $id; ?></h3>
             <ul class="body2">
@@ -41,10 +41,10 @@ declare(strict_types=1);
 <?php function restaurantPreview(bool $active, int $id)
 {
     if ($active) { ?>
-        <img src="images/placeholder.jpg" onclick="snapContent(event, 500, 'carousel-container', 'horizontal')" class="rest-preview active" id="rest-preview-<?php echo $id; ?>">
+        <img src="images/placeholder.jpg" onclick="snapContent(event, 600, 'carousel-container', 'horizontal')" class="rest-preview active" id="rest-preview-<?php echo $id; ?>">
     <?php return;
     } else { ?>
-        <img src="images/placeholder.jpg" onclick="snapContent(event, 500, 'carousel-container', 'horizontal')" class="rest-preview inactive" id="rest-preview-<?php echo $id; ?>">
+        <img src="images/placeholder.jpg" onclick="snapContent(event, 600, 'carousel-container', 'horizontal')" class="rest-preview inactive" id="rest-preview-<?php echo $id; ?>">
     <?php } ?>
 <?php } ?>
 
