@@ -100,6 +100,7 @@ div[id^="restaurant-card-"] {
     gap: 10px;
     scroll-snap-align: center;
     justify-content: center;
+    padding: 10px;
 }
 
 #carousel-container {
@@ -111,6 +112,7 @@ div[id^="restaurant-card-"] {
     margin: auto;
     grid-template-columns: repeat(3, minmax(450px, 1fr));
     justify-items: center;
+    gap: 200px;
 }
 
 .restaurant-description > ul {
