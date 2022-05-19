@@ -322,20 +322,36 @@ footer ul {
 }
 
 /* only use these ones for material icons sizing */
-.material-icons.md-18 {
+.md-18 {
     font-size: 18px;
 }
 
-.material-icons.md-24 {
+.md-24 {
     font-size: 24px;
 }
 
-.material-icons.md-36 {
+.md-36 {
     font-size: 36px;
 }
 
-.material-icons.md-48 {
+.md-48 {
     font-size: 48px;
+}
+
+.md-dark {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.md-dark-inactive {
+    color: rgba(0, 0, 0, 0.26);
+}
+
+.md-light {
+    color: rgba(255, 255, 255, 1);
+}
+
+.md-light-inactive {
+    color: rgba(255, 255, 255, 0.3);
 }
 
 .search {
@@ -377,6 +393,8 @@ footer ul {
     padding-right: 10px;
 }
 
+
+
 .horizontal-divider {
     border-top: 1px solid rgba(0, 0, 0, 0.25);
 }
@@ -396,8 +414,8 @@ footer ul {
     border: none;
     border-bottom: 2px solid black;
     outline: none;
-    padding: 6px;
-    padding-top: 20px;
+    padding-inline: 10px;
+    padding-block: 20px 6px;
     width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -407,4 +425,14 @@ footer ul {
 
 .error {
     color: red;
+}
+
+.transparent {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.opaque {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
 }

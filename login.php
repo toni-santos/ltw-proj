@@ -1,23 +1,24 @@
 <?php
 require_once('templates/commons.php');
 
-drawTop(["restaurants", "commons", "login"], ["hamburger"]);
+drawTop(["restaurants", "commons", "forms"], ["hamburger", "forms"]);
 ?>
 
 <section class="signup-form">
     <div id="box">
         <p class="h5">Login</p>
-        <form action="/includes/login.inc.php" method="POST">
+        <form id="form" action="/includes/login.inc.php" method="POST">
             <section id="inputs-box">
                 <div class="input-container">
-                    <input class="text text-input subtitle2" type="email" name="email" autocomplete="email" placeholder=" " required>
-                    <label class="body2 dark-bg" for="email">Email</label>
-                    <span class="error subtitle2">Required</span>
+                    <input class="text text-input subtitle2" type="email" name="email" autocomplete="email" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
+                    <label class="body2 dark-bg" for="email" onclick="setFocus(event)">Email</label>
+                    <span class="error subtitle2 transparent">Required</span>
                 </div>
                 <div class="input-container">
-                    <input class="text text-input subtitle2" type="password" name="pwd" placeholder=" " autocomplete="current-password" minlength="8" required>
-                    <label class="body2 dark-bg" for="pwd">Password</label>
-                    <span class="error subtitle2">Required</span>
+                    <input id="password" class="text text-input password subtitle2" type="password" name="pwd" placeholder=" " autocomplete="current-password" minlength="8" onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
+                    <label class="body2 dark-bg" for="pwd" onclick="setFocus(event)">Password</label>
+                    <span class="material-icons md-24 md-light password-eye" onclick="showPassword(event)">visibility</span>
+                    <span class="error subtitle2 transparent">Required</span>
                 </div>
             </section>
             <?php
@@ -31,7 +32,7 @@ drawTop(["restaurants", "commons", "login"], ["hamburger"]);
                 session_unset($_SESSION['error']);
             }
             ?>
-            <button id="button" type="submit" name="submit"> Log In </button>
+            <button id="button" type="submit" name="submit" disabled> Log In </button>
         </form>
         <p class="body2 acc-create">Don't have an account? <a class="body1" href="signup.php">Sign-Up</a> now!</p>
     </div>
