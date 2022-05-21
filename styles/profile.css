@@ -22,32 +22,39 @@
 
 #content-wrapper {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 20% 1fr;
     height: 511px;
     padding-block: 20px;
     padding-inline: 30px;
     gap: 10px;
+    min-height: 511px;
+    transition: height 0.7s cubic-bezier(0.38,-0.02, 0.66, 0.96);
 }
 
 #tabs {
-    display: grid;
-    grid-template-rows: repeat(var(--profile-number-tabs), 1fr);
-    justify-items: center;
-    margin-inline: 30px;
-    gap: 20px;
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     padding: 13px;
+    padding-inline: 0px;
     margin-block: auto;
+    height: 100%;
 }
 
 #tabs>p {
     width: 100%;
-    text-align: center;
     text-transform: capitalize;
-    border-radius: 10px;
     padding: 2px;
-    background-color: var(--sub-color-dark);
-    color: rgb(255, 255, 255);
+    padding-inline: 10px;
+    color: rgb(0, 0, 0);
     height: fit-content;
+    transition: all 0.2s ease-in-out;
+}
+
+.current-tab {
+    border-left: 3px solid black;
+    border-bottom: none;
 }
 
 #pfp {
@@ -64,25 +71,6 @@
     margin-inline: 30px;
 }
 
-@media (max-width: 700px) {
-    #pfp-container {
-        flex-direction: column;
-        margin-left: 0px;
-        gap: 5px;
-    }
-
-    #tabs {
-        grid-template-columns: 1fr;
-        gap: 5px;
-        background-color: var(--sub-color-light);
-        border-radius: 24px;
-    }
-
-    #tabs>p {
-        background-color: var(--sub-color-dark);
-    }
-}
-
 #tabs>p:hover {
     transform: scale(101%);
 }
@@ -95,6 +83,7 @@
     justify-content: center;
     grid-column: span 1;
     margin-right: 10px;
+    border-left: 1px solid black;
 }
 
 #bottom-content>* {
@@ -103,7 +92,9 @@
     flex-direction: column;
     scroll-snap-align: start;
     min-height: 471px;
-    justify-content: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    height: min-content;
 }
 
 #menus {
@@ -126,12 +117,16 @@
 
 #gallery {
     display: grid;
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 70% 20% 10%;
     grid-template-rows: repeat(2, 1fr);
+    width: 400px;
+    gap: 4px;
 }
 
 #gallery>img {
-    width: 100px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #gallery>img:nth-child(1) {
@@ -139,9 +134,37 @@
 }
 
 #gallery>img:nth-child(2) {
-    grid-area: 1 / 2 / 2 / 3; 
+    grid-area: 1 / 2 / 2 / 4; 
 }
 
 #gallery>img:nth-child(3) {
-    grid-area: 2 / 2 / 3 / 3;
+    grid-area: 2 / 2 / 3 / 4;
+}
+
+#maps {
+    width: 400px;
+    height: 300px;
+    background-color: pink;
+}
+
+@media (max-width: 800px) {
+    #content-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: fit-content 100%;
+    }
+
+    #bottom-content {
+        border-left: none;
+    }
+
+    #tabs {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        border-radius: 24px;
+    }
+
+    .current-tab {
+        border-left: none;
+        border-bottom: 2px solid black;
+    }
 }
