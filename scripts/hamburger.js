@@ -1,4 +1,4 @@
- function showHamburger(event) {
+function showHamburger(event) {
     const hc = document.getElementById("hamburger-content");
     const body = document.getElementsByTagName("body")[0];
 
@@ -26,5 +26,22 @@ window.addEventListener("resize", () => {
         him.innerHTML = "menu";
     } else if (window.innerWidth <= 500 && hc.style.visibility != "visible") {
         hc.style.visibility = "visible";
+    }
+});
+
+document.getElementsByTagName("body")[0].addEventListener("click", (event) => {
+    if (Object.values(event.composedPath()).includes(document.querySelector("#hamburger-content")) == false) {
+        if (Object.values(event.composedPath()).includes(document.querySelector(".nav-hamburger")) == false) {
+            const hc = document.getElementById("hamburger-content");
+            const body = document.getElementsByTagName("body")[0];
+            const icon = document.getElementById("hamburger-icon-menu");
+
+            if (hc.classList.contains("appear")) {
+                body.style.overflow = "scroll";
+                icon.innerHTML = "menu";
+                hc.classList.add("disappear");
+                hc.classList.remove("appear");
+            }            
+        }
     }
 });

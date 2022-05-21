@@ -45,7 +45,10 @@ declare(strict_types = 1);
     </header>
     <div class="disappear" id="hamburger-content">
         <div id="hamburger-top">
-            <a class="subtitle1" href="index.php">(not) UberEats</a>
+            <div id="top-icons" onclick="window.location.href= 'index.php';">
+                <span class="material-icons">fastfood</span>
+                <a class="subtitle1">(not) UberEats</a>
+            </div>
             <a class="subtitle1" href="restaurants.php">Restaurants</a>
         </div>
         <div id="hamburger-bottom">
