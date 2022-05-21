@@ -10,8 +10,8 @@ drawTop(["restaurants", "commons"], ["hamburger"]);
     <input class="search shadow-nohov" type="search body1" name="s" id="restaurant-search" placeholder="Search">
     <button class="material-icons button">search</button>
 </form>
-<div class="results-container">
-    <section class="search-results">
+<div class="grid-wrapper">
+    <section class="grid-organizer">
         <?php
         for ($i = 0; $i < 15; $i++)
             searchCards();

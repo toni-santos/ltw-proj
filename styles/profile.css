@@ -95,11 +95,7 @@
     justify-content: space-evenly;
     gap: 10px;
     height: min-content;
-}
-
-#menus {
-    background-color: blue;
-
+    padding: 10px;
 }
 
 #reviews {
@@ -167,4 +163,10 @@
         border-left: none;
         border-bottom: 2px solid black;
     }
+}
+
+#menu-wrapper {
+    padding: 0px;
+    width: 100%;
+    margin: 0px;
 }

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 function searchCards()
 { ?>
-    <div class="restaurant-card shadow">
-        <section class="info-overlay">
+    <div class="grid-card shadow">
+        <section class="grid-card-overlay">
             <p class="body1 dark-bg rest-name">Restaurant name</p>
             <div class="sub-info">
                 <p class="body2 dark-bg rest-loc">location</p>

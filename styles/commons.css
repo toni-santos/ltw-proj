@@ -496,3 +496,41 @@ footer ul {
     opacity: 1;
     transition: opacity 0.2s ease-in-out;
 }
+
+.grid-wrapper {
+    max-width: 1000px;
+    padding: 0px 20px 20px 20px;
+    margin: auto;
+}
+
+.grid-organizer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    gap: 10px;
+}
+
+.grid-card {
+    background-image: url("../images/placeholder.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.grid-card-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    height: 100%;
+    transform: translateY(80%);
+    transition: transform 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.grid-card:hover .grid-card-overlay {
+    transform: translateY(0%);
+}

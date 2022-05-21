@@ -57,7 +57,20 @@ function profileBottom(array $tabs, int $scrollVal, Pages $page)
                             <div id="maps"></div>
                         </section>
                         <section id="menus">
-
+                            <p class="h6">Our menus</p>
+                            <div class="grid-wrapper" id="menu-wrapper">
+                                <section class="grid-organizer">
+                                    <article class="grid-card">
+                                    
+                                    </article>
+                                    <article class="grid-card">
+                                    
+                                    </article>                                        
+                                    <article class="grid-card">
+                                    
+                                    </article>                                        
+                                </section>
+                            </div>
                         </section>
                         <section id="reviews">
 
