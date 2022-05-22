@@ -498,15 +498,15 @@ footer ul {
 }
 
 .grid-wrapper {
-    max-width: 1000px;
-    padding: 0px 20px 20px 20px;
-    margin: auto;
-}
-
-.grid-organizer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
     gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    padding: 20px;
 }
 
 .grid-card {
@@ -514,10 +514,12 @@ footer ul {
     background-repeat: no-repeat;
     background-size: cover;
     height: 200px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     overflow: hidden;
+    max-width: 300px;
 }
 
 .grid-card-overlay {
@@ -531,6 +533,6 @@ footer ul {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.grid-card:hover .grid-card-overlay {
-    transform: translateY(0%);
+.grid-card:hover > .grid-card-overlay {
+    transform: translateY(0%)
 }

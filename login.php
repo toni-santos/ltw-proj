@@ -32,7 +32,7 @@ drawTop(["restaurants", "commons", "forms"], ["hamburger", "forms"]);
                 session_unset($_SESSION['error']);
             }
             ?>
-            <button id="button" type="submit" name="submit" disabled> Log In </button>
+            <button class="button" type="submit" name="submit" disabled> Log In </button>
         </form>
         <p class="body2 acc-create">Don't have an account? <a class="body1" href="signup.php">Sign-Up</a> now!</p>
     </div>

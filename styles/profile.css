@@ -1,8 +1,3 @@
-:root {
-    --profile-number-tabs: 3;
-    --max-bottom-content-height: 300px;
-}
-
 #banner {
     width: 100%;
     height: 250px;
@@ -28,7 +23,7 @@
     padding-inline: 30px;
     gap: 10px;
     min-height: 511px;
-    transition: height 0.7s cubic-bezier(0.38,-0.02, 0.66, 0.96);
+    transition: height 0.7s cubic-bezier(0.38, -0.02, 0.66, 0.96);
 }
 
 #tabs {
@@ -98,10 +93,6 @@
     padding: 10px;
 }
 
-#reviews {
-    background-color: green;
-}
-
 #description {
     width: 90%;
     height: fit-content;
@@ -130,7 +121,7 @@
 }
 
 #gallery>img:nth-child(2) {
-    grid-area: 1 / 2 / 2 / 4; 
+    grid-area: 1 / 2 / 2 / 4;
 }
 
 #gallery>img:nth-child(3) {
@@ -165,8 +156,91 @@
     }
 }
 
-#menu-wrapper {
-    padding: 0px;
-    width: 100%;
+.star {
+    color: rgb(235, 223, 0);
+}
+
+.star:hover {
+    color: rgb(162, 144, 10);
+}
+
+.star-selected {
+    color: rgb(203, 181, 11);
+}
+
+.star-container {
+    position: relative;
+}
+
+.textarea-container {
+    position: relative;
+}
+
+.textarea-container>label {
+    position: absolute;
+    left: 10px;
+    top: 13px;
+    padding: 4px;
+    padding-inline: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+#stars-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.review-button {
+    width: 10%;
     margin: 0px;
+    position: relative;
+}
+
+.review {
+    margin-inline: 20px;
+}
+
+.reviewer-pfp {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+}
+
+.review {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-block: 10px;
+}
+
+.review-head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+}
+
+.review>article {
+    padding-inline: 28px;
+    margin-left: 18px;
+    border-left: 1px solid black;
+    padding-top: 5px;
+}
+
+.reviewer-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.reviewer-score {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
