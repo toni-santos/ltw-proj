@@ -1,4 +1,4 @@
-#button {
+.button {
     margin-top: 10px;
     padding: 10px;
     width: 100%;
@@ -8,14 +8,17 @@
     border-radius: 10px;
 }
 
-#button:disabled {
+.button:disabled {
     background-color: blue;
+}
+
+.signup-form {
+    padding-top: 100px;
 }
 
 #box {
     background-color: var(--sub-color-light);
     margin: auto;
-    margin-top: 100px;
     width: 300px;
     padding: 20px;
     border-radius: 12px;
@@ -62,4 +65,21 @@
 .counter {
     position: absolute;
     right: 10px;
+}
+
+.textbox {
+    width: 100%;
+    resize: none;
+    border-radius: 5px;
+    padding: 10px;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.textbox:focus {
+    border-color: rgba(0, 0, 0, 1);
+}
+
+.textbox:is(:not(:placeholder-shown), :focus)+label {
+    top: -13px;
+    background-color: white;
 }

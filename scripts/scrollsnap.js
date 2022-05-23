@@ -6,6 +6,17 @@ function snapContent(event, scrollVal, scrollable, orientation) {
             top: scrollVal * event.target.id.split("-")[1],
             behavior: 'smooth'
         });
+        event.composedPath()[1].children;
+        
+        const parent = event.composedPath()[1];
+        
+        for (child of parent.children) {
+            if (child.classList.contains("current-tab")) {
+                child.classList.remove("current-tab");
+            }    
+        }
+
+        event.target.classList.add("current-tab");
     } else if (orientation == "horizontal") {
         const parent = event.composedPath()[1];
         

@@ -70,7 +70,7 @@ ul {
     align-items: center;
     list-style: none;
     width: 100%;
-    padding: 4px 4px;
+    padding: 2px;
     position: fixed;
     top: 0;
     background-color: var(--main-color-dark);
@@ -93,6 +93,14 @@ ul {
     justify-content: flex-end;
 }
 
+#hamburger-content {
+    height: 0px;
+}
+
+#nav-right>* {
+    display: flex;
+}
+
 #nav-right:last-child {
     padding-right: 10px;
 }
@@ -102,13 +110,12 @@ ul {
 }
 
 .nav-hamburger {
-    display: none;
+    visibility: hidden;
 }
 
 #logo,
 #hamburger-icon {
     display: flex;
-    width: 50%;
     padding-top: 2px;
 }
 
@@ -122,58 +129,76 @@ ul {
     padding-right: 10px;
 }
 
+.nav-pfp {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#hamburger-icon-menu {
+    transition: all 0.1s ease-in-out;
+}
+
+#hamburger-icon-menu:active {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.appear {
+    opacity: 1;
+    transform: translate(0%, 0);
+    box-shadow:0 0 0 10000px rgba(0,0,0,.50);
+}
+
+.disappear {
+    opacity: 0.7;
+    transform: translate(-100%, 0);
+    box-shadow:0 0 0 10000px rgba(0,0,0,0);
+}
+
+
+#top-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    padding-top: 0px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+    gap: 5px;
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 500px) {
     .nav {
-        display: none;
+        visibility: hidden;
     }
 
     .nav-hamburger {
+        visibility: visible;
         display: flex;
         margin-bottom: 4px;
+        padding: 3px;
         z-index: 9999999;
-    }
-
-    .hamburger-content-ul {
-        display: flex;
-        flex-direction: column;
+        align-content: center;
         align-items: center;
-        list-style: none;
-        width: 100%;
-        margin-top: 2px;
-        top: 0;
-        background-color: azure;
     }
-
-    #hamburger-content {
-        width: 100%;
-        z-index: 9999;
-    }
-
-    .hamburger-content-ul>li {
-        margin-bottom: 50px;
-        margin-top: 50px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .hamburger-content-ul>li>a {
-        display: block;
-        width: 100%;
-    }
-
+    
     #hamburger-top,
     #hamburger-bottom {
         display: flex;
         flex-direction: column;
-        align-items: center;
         height: 50%;
+        width: 100%;
+        
     }
-
+    
     #hamburger-top {
         justify-content: flex-start;
         margin-top: 32px;
     }
-
+    
     #hamburger-bottom {
         justify-content: flex-end;
     }
@@ -184,8 +209,43 @@ ul {
         height: 100%;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         align-content: center;
+        width: 50%;
+        z-index: 9999;
+        background-color: var(--main-color-light);
+        padding: 10px 10px 10px 10px;
+        transition: all 0.2s ease-in-out;
+    }
+
+    #hamburger-top>a, #hamburger-bottom>a {
+        padding: 5px;
+    }
+
+    #hamburger-content>li {
+        margin-bottom: 50px;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #hamburger-content>li>a {
+        display: block;
+        width: 100%;
+    }
+
+    #user-info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 3px;
+    }
+
+    #user-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
 }
 
@@ -435,4 +495,44 @@ footer ul {
 .opaque {
     opacity: 1;
     transition: opacity 0.2s ease-in-out;
+}
+
+.grid-wrapper {
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    padding: 20px;
+}
+
+.grid-card {
+    background-image: url("../images/placeholder.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 300px;
+}
+
+.grid-card-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    height: 100%;
+    transform: translateY(80%);
+    transition: transform 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.grid-card:hover > .grid-card-overlay {
+    transform: translateY(0%)
 }

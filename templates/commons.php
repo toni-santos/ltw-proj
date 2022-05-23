@@ -49,16 +49,51 @@ declare(strict_types = 1);
         <?php }?>
     </header>
     <header class="nav-hamburger">
-        <a id="logo"><span onclick="window.location.href = 'index.php';" class="material-icons">fastfood</span></a>
-        <a id="hamburger-icon" ><span onclick="showHamburger()" id="hamburger-icon-menu" class="material-icons">menu</span></a>
+        <a id="hamburger-icon" ><span onmousedown="showHamburger(event)" id="hamburger-icon-menu" class="material-icons">menu</span></a>
     </header>
-    <div id="hamburger-content" style="display: none;">
+    <div class="disappear" id="hamburger-content">
         <div id="hamburger-top">
-            <a href="restaurants.php">Restaurants</a>
+            <div id="top-icons" onclick="window.location.href= 'index.php';">
+                <span class="material-icons">fastfood</span>
+                <a class="subtitle1">(not) UberEats</a>
+            </div>
+            <a class="subtitle1" href="restaurants.php">Restaurants</a>
         </div>
         <div id="hamburger-bottom">
-            <a href="login.php">Login</a>
-            <a href="signup.php">Register</a>
+            <a class="subtitle1" href="login.php">Login</a>
+            <a class="subtitle1" href="signup.php">Register</a>
+        </div>
+    </div>
+<?php }?>
+
+<?php function drawNavbarLoggedIn() { ?>
+    <header class="nav">
+        <ul class="nav" id="nav-left">
+            <li><a><span onclick="window.location.href = 'index.php';" class="material-icons">fastfood</span></a></li>
+            <li><a class="subtitle1" href="restaurants.php">Restaurants</a></li>
+        </ul>
+        <ul class="nav" id="nav-right">
+            <!-- TODO: search bar -->
+            <li><a class="subtitle1" href="user_page.php">Username</a></li>
+            <li><img class="nav-pfp" src="images/placeholder.jpg" onclick="userMenuDrop()"></li>
+        </ul>
+    </header>
+    <header class="nav-hamburger">
+        <a id="hamburger-icon" ><span onmousedown="showHamburger(event)" id="hamburger-icon-menu" class="material-icons">menu</span></a>
+    </header>
+    <div class="disappear" id="hamburger-content">
+        <div id="hamburger-top">
+            <a class="subtitle1" href="index.php">(not) UberEats</a>
+            <a class="subtitle1" href="restaurants.php">Restaurants</a>
+        </div>
+        <div id="hamburger-bottom">
+            <div id="user-bar">
+                <div id="user-info">
+                    <img class="nav-pfp" src="images/placeholder.jpg" onclick="window.location.href = 'index.php';">
+                    <a class="subtitle1" href="user_page.php">Username</a>
+                </div>
+                <span class="material-icons">logout</span>
+            </div>
         </div>
     </div>
 <?php }?>

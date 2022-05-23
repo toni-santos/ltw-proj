@@ -44,7 +44,7 @@ drawTop(["restaurants", "commons", "forms"], ["hamburger", "forms"]);
                 unset($_SESSION['success']);
             }
             ?>
-            <button id="button" type="submit" name="submit" disabled>Sign Up</button>
+            <button class="button" type="submit" name="submit" disabled>Sign Up</button>
 
         </form>
         <p class="body2 acc-create">Already have an account? <a class="body1" href="login.php">Login</a> now!</p>

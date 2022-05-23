@@ -18,52 +18,15 @@
 
 #search-container {
     min-width: 200px;
-    width: 40%;
+    max-width: 500px;
+    width: 60%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     margin: auto;
-    margin-top: 80px;
-    margin-bottom: 40px;
-}
-
-.restaurant-card {
-    background-image: url("../images/placeholder.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.restaurant-card:hover .info-overlay {
-    transform: translateY(0%);
-}
-
-.info-overlay {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px;
-    height: 100%;
-    transform: translateY(80%);
-    transition: transform 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.results-container {
-    margin: auto;
-    max-width: 1000px;
-    padding: 0px 20px 20px 20px;
-}
-
-.search-results {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
-    gap: 10px;
+    padding-top: 80px;
+    padding-bottom: 40px;
 }
 
 .rest-name {

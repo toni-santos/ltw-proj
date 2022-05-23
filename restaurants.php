@@ -10,14 +10,12 @@ drawTop(["restaurants", "commons"], ["hamburger"]);
     <input class="search shadow-nohov" type="search body1" name="s" id="restaurant-search" placeholder="Search">
     <button class="material-icons button">search</button>
 </form>
-<div class="results-container">
-    <section class="search-results">
-        <?php
-        for ($i = 0; $i < 15; $i++)
-            searchCards();
-        ?>
-    </section>
-</div>
+<section class="grid-wrapper">
+    <?php
+    for ($i = 0; $i < 15; $i++)
+        searchCards();
+    ?>
+</section>
 <?php
 drawFooter();
 ?>
