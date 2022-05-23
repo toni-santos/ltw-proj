@@ -7,7 +7,7 @@ drawTop(["restaurants", "commons", "forms"], ["hamburger", "forms"]);
 <section class="signup-form">
     <div id="box">
         <p class="h5">Login</p>
-        <form id="form" action="/includes/login.inc.php" method="POST">
+        <form id="form" action="/includes/login_action.php" method="POST">
             <section id="inputs-box">
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="email" name="email" autocomplete="email" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>

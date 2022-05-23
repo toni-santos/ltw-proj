@@ -3,21 +3,23 @@ declare(strict_types=1);
 
 class User {
         
-    private int $_userID;
-    private string $_username;
-    private string $_password;
-    private ?string $_address = NULL;
-    private ?int $_phoneNumber = NULL;
-    private ?string $_profilePic = NULL;
+    private int $userID;
+    private string $username;
+    private string $email;
+    private string $password;
+    private ?string $address = NULL;
+    private ?int $phoneNumber = NULL;
+    private ?string $profilePic = NULL;
 
-    public function __construct($userID, $username, $password, $address, $phoneNumber, $profilePic) {
+    public function __construct($userID, $username, $email, $password, $address, $phoneNumber, $profilePic) {
         
-        $this->$_userID = $userID;
-        $this->$_username = $username;
-        $this->$_password = hash('sha256', $username);
-        $this->$_address = $address;
-        $this->$_phoneNumber = $phoneNumber;
-        $this->$_profilePic = $profilePic;
+        $this->$userID = $userID;
+        $this->$username = $username;
+        $this->$email = $email;
+        $this->$password = hash('sha256', $username);
+        $this->$address = $address;
+        $this->$phoneNumber = $phoneNumber;
+        $this->$profilePic = $profilePic;
 
     }
 
@@ -28,7 +30,7 @@ class User {
             VALUES(?, ?, ?, ?, ?, ?)
         ');
 
-        $stmt->execute(array ( $this->_userID, $this->_username, $this->_password, $this->_address, $this->_phoneNumber, $this->_profilePic ) );
+        $stmt->execute(array ( $this->userID, $this->username, $this->email, $this->password, $this->address, $this->phoneNumber, $this->profilePic ) );
 
     }
 
@@ -39,9 +41,35 @@ class User {
             WHERE userID = ?
         ');
 
-        $stmt->execute( array( $this->_username, $this->_password, $this->_userID ) );
+        $stmt->execute( array( $this->username,  $this->email, $this->password, $this->userID ) );
 
     }
+
+    function name() {
+        return $this->username;
+      }
+
+    static function getUserWithPassword(PDO $db, string $email, string $password) : ?User {
+        $stmt = $db->prepare('
+          SELECT userID, username, email, password, address, phoneNumber, profilePic
+          FROM User 
+          WHERE lower(email) = ? AND password = ?
+        ');
+  
+        $stmt->execute(array(strtolower($email), sha1($password)));
+    
+        if ($user = $stmt->fetch()) {
+          return new User(
+            $user['userID'],
+            $user['username'],
+            $user['email'],
+            $user['password'],
+            $user['address'],
+            $user['phoneNumber'],
+            $user['profilePic']
+          );
+        } else return null;
+      }
 }
 
 ?>

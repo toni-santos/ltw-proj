@@ -35,10 +35,18 @@ declare(strict_types = 1);
             <li><a><span onclick="window.location.href = 'index.php';" class="material-icons">fastfood</span></a></li>
             <li><a class="subtitle1" href="restaurants.php">Restaurants</a></li>
         </ul>
-        <ul class="nav" id="nav-right">
-            <li><a class="subtitle1" href="login.php">Login</a></li>
-            <li><a class="subtitle1" href="signup.php">Sign-Up</a></li>
-        </ul>
+
+        <?php if (!isset($_SESSION['userID'])){ ?>
+            <ul class="nav" id="nav-right">
+                <li><a class="subtitle1" href="login.php">Login</a></li>
+                <li><a class="subtitle1" href="signup.php">Sign-Up</a></li>
+            </ul>
+        <?php } else {?>
+            <ul class="nav" id="nav-right">
+                <li><a class="subtitle1" href="#">Profile</a></li>
+                <li><a class="subtitle1" href="#">Logout</a></li>
+            </ul>
+        <?php }?>
     </header>
     <header class="nav-hamburger">
         <a id="logo"><span onclick="window.location.href = 'index.php';" class="material-icons">fastfood</span></a>
