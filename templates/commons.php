@@ -36,14 +36,14 @@ declare(strict_types = 1);
             <li><a class="subtitle1" href="restaurants.php">Restaurants</a></li>
         </ul>
 
-        <?php if (!isset($_SESSION['userID'])){ ?>
+        <?php if (!isset($_SESSION['id'])){ ?>
             <ul class="nav" id="nav-right">
                 <li><a class="subtitle1" href="login.php">Login</a></li>
                 <li><a class="subtitle1" href="signup.php">Sign-Up</a></li>
             </ul>
         <?php } else {?>
             <ul class="nav" id="nav-right">
-                <li><a class="subtitle1" href="#">Profile</a></li>
+                <li><a class="subtitle1" href="user_page.php">Profile</a></li>
                 <li><a class="subtitle1" href="#">Logout</a></li>
             </ul>
         <?php }?>

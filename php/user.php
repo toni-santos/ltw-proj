@@ -3,22 +3,20 @@ declare(strict_types=1);
 
 class User {
         
-    private int $userID;
-    private string $username;
-    private string $email;
-    private string $password;
-    private ?string $address = NULL;
-    private ?int $phoneNumber = NULL;
-    private ?string $profilePic = NULL;
+    public ?int $userID = NULL;
+    public ?string $username = NULL;
+    public ?string $email = NULL;
+    public ?string $address = NULL;
+    public ?int $phoneNum = NULL;
+    public ?string $profilePic = NULL;
 
-    public function __construct($userID, $username, $email, $password, $address, $phoneNumber, $profilePic) {
+    public function __construct($userID, $username, $email, $address, $phoneNum, $profilePic) {
         
         $this->$userID = $userID;
         $this->$username = $username;
         $this->$email = $email;
-        $this->$password = hash('sha256', $username);
         $this->$address = $address;
-        $this->$phoneNumber = $phoneNumber;
+        $this->$phoneNum = $phoneNum;
         $this->$profilePic = $profilePic;
 
     }
@@ -30,7 +28,7 @@ class User {
             VALUES(?, ?, ?, ?, ?, ?)
         ');
 
-        $stmt->execute(array ( $this->userID, $this->username, $this->email, $this->password, $this->address, $this->phoneNumber, $this->profilePic ) );
+        $stmt->execute(array ( $this->userID, $this->username, $this->email, $this->password, $this->address, $this->phoneNum, $this->profilePic ) );
 
     }
 
@@ -41,7 +39,7 @@ class User {
             WHERE userID = ?
         ');
 
-        $stmt->execute( array( $this->username,  $this->email, $this->password, $this->userID ) );
+        $stmt->execute( array( $this->username,  $this->email, $this->userID ) );
 
     }
 
@@ -50,25 +48,20 @@ class User {
       }
 
     static function getUserWithPassword(PDO $db, string $email, string $password) : ?User {
-        $stmt = $db->prepare('
-          SELECT userID, username, email, password, address, phoneNumber, profilePic
-          FROM User 
-          WHERE lower(email) = ? AND password = ?
-        ');
-  
-        $stmt->execute(array(strtolower($email), sha1($password)));
-    
+        $stmt = $db->prepare('SELECT userID, username, email, phoneNum, profilePic FROM User WHERE lower(email) = ? AND password = ?');
+        $stmt->execute(array($email, sha1(($password))));
+          
         if ($user = $stmt->fetch()) {
           return new User(
             $user['userID'],
             $user['username'],
             $user['email'],
-            $user['password'],
             $user['address'],
-            $user['phoneNumber'],
-            $user['profilePic']
+            $user['phoneNum'],
+            $user['profilepic']
           );
-        } else return null;
+        }
+        return null;
       }
 }
 

@@ -9,7 +9,13 @@ drawTop(["restaurants", "commons", "forms"], ["hamburger", "forms"]);
 <section class="signup-form">
     <div id="box">
         <p class="h5">Sign Up</p>
-        <form id="form" action="/includes/signup_actions.php" method="POST">
+        <form id="form" action="/includes/signup_action.php" method="POST">
+            <div>
+                <?php
+                if(isset($Error) && $Error != "")
+                    echo $Error;
+                ?>
+            </div>
             <section id="inputs-box">
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
@@ -29,22 +35,7 @@ drawTop(["restaurants", "commons", "forms"], ["hamburger", "forms"]);
                     <span class="error subtitle2 transparent">Required</span>
                 </div>
             </section>
-            <?php
-            //checking if the session 'success' is set. Success session is the message that the credetials are successfully saved.
-            if (isset($_SESSION['success'])) {
-            ?>
-                <!-- Display registration success message -->
-                <div>
-                    <?php
-                    echo $_SESSION['success']
-                    ?>
-                </div>
-            <?php
-                //Unsetting the 'success' session after displaying the message. 
-                unset($_SESSION['success']);
-            }
-            ?>
-            <button class="button" type="submit" name="submit" disabled>Sign Up</button>
+            <button class="button" type="submit" name="submit" value="Signup" disabled>Sign Up</button>
 
         </form>
         <p class="body2 acc-create">Already have an account? <a class="body1" href="login.php">Login</a> now!</p>
