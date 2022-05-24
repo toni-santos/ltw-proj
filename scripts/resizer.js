@@ -9,6 +9,8 @@ window.addEventListener('load', () => {
         const offset = document.getElementById('tabs').offsetHeight + 2;
         wrapper.style.height = h + offset + "px";
     }
+
+    document.getElementById('bottom-content').scrollTo({top: 0});
 });
 
 const bottom_children = document.getElementById('bottom-content').children;
@@ -24,7 +26,7 @@ for (tab in tabs_children) {
         if (window.innerWidth > 800){
             wrapper.style.height = h + "px";
         } else {
-            const offset = document.getElementById('tabs').offsetHeight + 2;
+            const offset = document.getElementById('tabs').offsetHeight + 42;
             wrapper.style.height = bottom_content[event.target.id.split('-')[1]].clientHeight + offset + "px";
         }
     });

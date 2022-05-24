@@ -79,6 +79,7 @@
     grid-column: span 1;
     margin-right: 10px;
     border-left: 1px solid black;
+    grid-auto-rows: minmax(min-content, max-content);
 }
 
 #bottom-content>* {
