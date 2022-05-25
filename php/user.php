@@ -59,7 +59,6 @@ class User
 
     $stmt->execute(array(strtolower($email), sha1($password)));
     if ($user = $stmt->fetch(PDO::FETCH_OBJ)) {
-      print_r($user);
       return new User(
         $user->userID,
         $user->username,
