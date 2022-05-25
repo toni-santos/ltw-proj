@@ -42,7 +42,7 @@
         <?php } else { ?>
             <ul class="nav" id="nav-right">
                 <li><a class="subtitle1" href="user_page.php">Profile</a></li>
-                <li><a class="subtitle1" href="#">Logout</a></li>
+                <li><a class="subtitle1" href="logout.php">Logout</a></li>
             </ul>
         <?php }?>
     </header>
