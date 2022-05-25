@@ -11,7 +11,7 @@
 	 	$_SESSION['id'] = $user->userID;
 	}
 	
-	header('Location: ' . $_SERVER['HTTP_REFERER']);
+	// header('Location: ' . $_SERVER['HTTP_REFERER']);
 	
 	// header('Location: ' . $_SERVER['HTTP_REFERER']);
 
