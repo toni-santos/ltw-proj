@@ -13,7 +13,7 @@ enum Pages
 function profileTop()
 { ?>
     <div id="profile-top">
-        <img id="banner" class="shadow-nohov" src="images/placeholder_bg.jpg">
+        <img id="banner" class="shadow-nohov" src="../images/placeholder_bg.jpg">
         <div id="tabs-container">
             <div id="pfp" class="shadow-nohov"></div>
             <p class="h5">Name</p>
@@ -47,9 +47,9 @@ function profileBottom(array $tabs, int $scrollVal, Pages $page)
                                 <p class="h6">Gallery</p>
                             </div>
                             <p id="gallery">
-                                <img src="images/placeholder.jpg" class="">
-                                <img src="images/placeholder.jpg" class="">
-                                <img src="images/placeholder.jpg" class="">
+                                <img src="../images/placeholder.jpg" class="">
+                                <img src="../images/placeholder.jpg" class="">
+                                <img src="../images/placeholder.jpg" class="">
                             </p>
                             <div>
                                 <p class="h6">Where to find us</p>
@@ -144,7 +144,7 @@ function profileBottom(array $tabs, int $scrollVal, Pages $page)
     <section class="review">
         <div class="review-head">
             <div class="reviewer-info">
-                <img src="images/placeholder.jpg" class="reviewer-pfp">
+                <img src="../images/placeholder.jpg" class="reviewer-pfp">
                 <p class="reviewer-name subtitle1">NAME</p>
             </div>
             <p class="reviewer-score subtitle1">X/5 <span class="material-icons">star</span></p>

@@ -536,3 +536,8 @@ footer ul {
 .grid-card:hover > .grid-card-overlay {
     transform: translateY(0%)
 }
+
+.blank-button {
+    background: none;
+    border: none;
+}

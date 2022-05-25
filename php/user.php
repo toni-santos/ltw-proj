@@ -24,7 +24,6 @@ class User
 
   public function add_to_db($db)
   {
-
     $stmt = $db->prepare('
             INSERT INTO User
             VALUES(?, ?, ?, ?, ?, ?)
@@ -35,7 +34,6 @@ class User
 
   public function save_to_db($db)
   {
-
     $stmt = $db->prepare('
             UPDATE User SET username = ?, password = ?
             WHERE userID = ?
@@ -67,8 +65,27 @@ class User
         $user->phoneNum,
         $user->profilePic
       );
-    }
+    } else return null;
+  }
 
-    return null;
+  static function getUser(PDO $db, int $id): User
+  {
+    $stmt = $db->prepare('
+      SELECT userID, username, email, address, phoneNum, profilePic
+      FROM User 
+      WHERE userID = ?
+    ');
+
+    $stmt->execute(array($id));
+    $user = $stmt->fetch(PDO::FETCH_OBJ);
+
+    return new User(
+      $user->userID,
+      $user->username,
+      $user->email,
+      $user->address,
+      $user->phoneNum,
+      $user->profilePic
+    );
   }
 }

@@ -9,7 +9,6 @@
 
 	if ($user) {
 	 	$_SESSION['id'] = $user->userID;
-	 	$_SESSION['name'] = $user->name();
 	}
 	
 	header('Location: ' . $_SERVER['HTTP_REFERER']);
