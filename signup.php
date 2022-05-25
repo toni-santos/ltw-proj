@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('templates/commons.php');
 
 drawTop(["restaurants", "commons", "forms"], ["hamburger", "forms"]);

@@ -1,6 +1,9 @@
 <?php
+session_start();
+
 require_once('templates/commons.php');
 require_once('templates/index.tpl.php');
+
 
 drawTop(["index", "commons"], ["hamburger", "scrollsnap"]);
 ?>

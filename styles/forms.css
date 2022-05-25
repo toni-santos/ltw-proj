@@ -6,6 +6,7 @@
     background-color: var(--sub-color-dark);
     border: none;
     border-radius: 10px;
+    position: relative;
 }
 
 .button:disabled {

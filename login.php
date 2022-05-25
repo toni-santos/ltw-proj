@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('templates/commons.php');
 
 drawTop(["restaurants", "commons", "forms"], ["hamburger", "forms"]);
@@ -23,14 +24,15 @@ drawTop(["restaurants", "commons", "forms"], ["hamburger", "forms"]);
             </section>
             <?php
             //checking if the session 'error' is set
-            if (isset($_SESSION['error'])) {
+            // if (isset($_SESSION['error'])) {
             ?>
-                <!-- Display Login Error message -->
-                <div><?php echo $_SESSION['error'] ?></div>
+            <!-- Display Login Error message -->
+            <!-- <div><?php // echo $_SESSION['error'] 
+                        ?></div> -->
             <?php
-                //Unsetting the 'error' session after displaying the message. 
-                session_unset($_SESSION['error']);
-            }
+            //     //Unsetting the 'error' session after displaying the message. 
+            //     session_unset($_SESSION['error']);
+            // }
             ?>
             <button class="button" type="submit" name="submit" disabled> Log In </button>
         </form>

@@ -1,21 +1,19 @@
 <?php
-
 	session_start();
+	
 	require_once '../database/db_loader.php';
 	require_once '../php/user.php';
 
-	$email = 'marie@gmail.com';
-	$password = 'mariemarie';
-
 	$db = getDatabase();
 	$user = User::getUserWithPassword($db, $_POST['email'], $_POST['pwd']);
-	
+
 	if ($user) {
 	 	$_SESSION['id'] = $user->userID;
 	 	$_SESSION['name'] = $user->name();
-	 	header("Location:../index.php");
 	}
-
+	
+	header('Location: ' . $_SERVER['HTTP_REFERER']);
+	
 	// header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 	// if(isset($_POST['email'])){

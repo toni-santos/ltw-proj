@@ -1,6 +1,4 @@
-<?php
-declare(strict_types = 1);
-?>
+<?php declare(strict_types = 1); ?>
 
 <?php function drawTop(array $styles, array $scripts) { ?>
     <!DOCTYPE html>
@@ -41,7 +39,7 @@ declare(strict_types = 1);
                 <li><a class="subtitle1" href="login.php">Login</a></li>
                 <li><a class="subtitle1" href="signup.php">Sign-Up</a></li>
             </ul>
-        <?php } else {?>
+        <?php } else { ?>
             <ul class="nav" id="nav-right">
                 <li><a class="subtitle1" href="user_page.php">Profile</a></li>
                 <li><a class="subtitle1" href="#">Logout</a></li>
