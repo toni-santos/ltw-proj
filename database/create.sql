@@ -22,7 +22,8 @@ CREATE TABLE User(
     address             TEXT,
     phoneNum            INTEGER,
     profilePic          TEXT,
-    CONSTRAINT userPK PRIMARY KEY (userID)
+    CONSTRAINT userPK PRIMARY KEY (userID),
+    CONSTRAINT validEmail CHECK (email LIKE "%@%.%")
 );
 
 CREATE TABLE Restaurant(
@@ -30,6 +31,8 @@ CREATE TABLE Restaurant(
     name                VARCHAR(255) NOT NULL,
     location            VARCHAR(255) NOT NULL,
     category            TEXT NOT NULL,
+    opening_time        TEXT,
+    closing_time        TEXT,
     CONSTRAINT restaurantPK PRIMARY KEY (restaurantID)
 );
 

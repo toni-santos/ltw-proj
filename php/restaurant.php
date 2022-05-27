@@ -7,18 +7,22 @@ class Restaurant {
     private string $_name;
     private string $_location;
     private string $_category;
+    private ?string $_opening_time;
+    private ?string $_closing_time;
 
-    public function __construct($restaurantID,$name, $location, $category) {
+    public function __construct($restaurantID,$name, $location, $category, $opening_time = NULL, $closing_time = NULL) {
         $this->_restaurantID = $restaurantID;
         $this->_name = $name;
         $this->_location = $location;
         $this->_category = $category;
+        $this->_opening_time = $opening_time;
+        $this->_closing_time = $closing_time;
     }
 
-    public function getRestaurantID() { return $_restaurantID; }
-    public function getName() { return $_name; }
-    public function getLocation() { return $_location; }
-    public function getCategory() { return $_category; }
+    public function getRestaurantID() { return $this->_restaurantID; }
+    public function getName() { return $this->_name; }
+    public function getLocation() { return $this->_location; }
+    public function getCategory() { return $this->_category; }
 
     public function add_to_db(PDO $db) {
 
