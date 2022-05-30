@@ -11,17 +11,26 @@ enum Pages
 }
 
 function profileTop()
-{ ?>
+{ 
+if (isset($_SESSION['id'])) {
+    $db = getDatabase();
+    global $user;
+    $user = User::getUser($db, $_SESSION['id']);
+}  ?>
     <div id="profile-top">
         <img id="banner" class="shadow-nohov" src="../images/placeholder_bg.jpg">
         <div id="tabs-container">
-            <div id="pfp" class="shadow-nohov"></div>
-            <p class="h5">Name</p>
+            <img id="pfp" class="shadow-nohov" src="../images/placeholder.jpg"></img>
+            <?php if (isset($_SESSION['id'])) { ?>
+                <p class="h5"><?php echo $user->username; ?></p>
+            <?php } else { ?>
+                <p class="h5">name</p>
+            <?php }?>
         </div>
     </div>
-<?php }
+<?php } ?>
 
-function profileBottom(array $tabs, int $scrollVal, Pages $page)
+<?php function profileBottom(array $tabs, int $scrollVal, Pages $page)
 { ?>
     <div id="profile-bottom">
         <div id="content-wrapper">
@@ -134,7 +143,7 @@ function profileBottom(array $tabs, int $scrollVal, Pages $page)
                     star_outline
                 </span>
             </div>
-            <button class="button review-button">CLICK</button>
+            <button class="button review-button">Review</button>
         </div>
     </form>
 <?php } ?>

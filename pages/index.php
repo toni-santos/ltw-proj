@@ -5,7 +5,7 @@ require_once('../templates/commons.php');
 require_once('../templates/index.tpl.php');
 
 
-drawTop(["index", "commons"], ["hamburger", "scrollsnap"]);
+drawTop(["index", "commons", "forms"], ["hamburger", "scrollsnap", "forms"]);
 ?>
 <div class="main-top">
     <div class="top-text">

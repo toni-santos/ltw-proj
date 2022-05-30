@@ -10,7 +10,7 @@ class Dish {
     private string $_category;
 
     public function __construct($dishID, $name, $price, $photo, $category) {
-        $this->_dishID = $dish;
+        $this->_dishID = $dishID;
         $this->_name = $name;
         $this->_price = $price;
         $this->_photo = $photo;

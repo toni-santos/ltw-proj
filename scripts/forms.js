@@ -8,7 +8,8 @@ function updateForm(event) {
 function checkDone(event) {
     // activate button
     let activate = true;
-    const button = form.lastElementChild;
+    const form = event.composedPath()[3];
+    const button = document.getElementById('confirm-' + form.id.split('-')[1])
     Object.values(form.children[0].getElementsByTagName("input")).forEach(element => {
         if (element.value.length == 0) {
             activate = false;
@@ -57,4 +58,24 @@ function setFocus(event) {
     const el = event.composedPath()[1].children[0];
     
     el.focus();
+}
+
+function showLogin() {
+    const dialog = document.getElementById('dialog-login');
+    dialog.showModal();
+}
+
+function closeLogin() {
+    const dialog = document.getElementById('dialog-login');
+    dialog.close();
+}
+
+function showSignup() {
+    const dialog = document.getElementById('dialog-signup');
+    dialog.showModal();
+}
+
+function closeSignup() {
+    const dialog = document.getElementById('dialog-signup');
+    dialog.close();
 }

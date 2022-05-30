@@ -1,4 +1,15 @@
-.button {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.button-form {
     margin-top: 10px;
     padding: 10px;
     width: 100%;
@@ -9,7 +20,7 @@
     position: relative;
 }
 
-.button:disabled {
+.button-form:disabled {
     background-color: blue;
 }
 
@@ -46,7 +57,7 @@
     top: 5px;
 }
 
-#inputs-box {
+#inputs-box, #inputs-extra {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
@@ -83,4 +94,11 @@
 .textbox:is(:not(:placeholder-shown), :focus)+label {
     top: -13px;
     background-color: white;
+}
+
+#top-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }

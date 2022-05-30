@@ -13,7 +13,7 @@
 
 		if(isset($_POST["name"])) {
 			// Setting variables
-			$username = trim($_POST['username']);
+			$username = trim($_POST['name']);
 			if(!preg_match("/^[a-zA-Z]+$/", $username)) {
 				$Error = "Please enter a valid username";
 			}
@@ -36,7 +36,7 @@
 			// Check if the execution of query is success
 			if($exec) {
 				//redirecting to the index.php 
-				header("Location:../login.php");
+				header("Location:../index.php");
 			
 			}
 			// header('Location: ' . $_SERVER['HTTP_REFERER'])
