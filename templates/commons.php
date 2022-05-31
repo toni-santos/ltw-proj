@@ -29,7 +29,7 @@ require_once '../database/db_loader.php';
 <?php } ?>
 
 <?php function drawSignup() { ?> 
-    <form id="form-signup" method="POST" action="../actions/login_action.php">
+    <form id="form-signup" method="POST" action="../actions/signup_action.php">
         <section id="inputs-box">
             <div class="input-container">
                 <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
