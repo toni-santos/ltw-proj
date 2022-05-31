@@ -13,7 +13,7 @@ drawTop(["search", "commons"], ["hamburger"]);
 </form>
 <?php 
 if (isset($_SESSION['id'])) { ?>
-    <p class="h6 search-header">Favourite Restaurants</p>
+<p class="h5 search-header">Favourite Restaurants</p>
     <section class="grid-wrapper">
         <?php
         for ($i = 0; $i < 15; $i++)
@@ -21,21 +21,21 @@ if (isset($_SESSION['id'])) { ?>
         ?>    
     </section>
 <?php } ?>
-<p class="h6 search-header">Restaurants</p>
+<p class="h5 search-header">Restaurants</p>
 <section class="grid-wrapper">
     <?php
     for ($i = 0; $i < 15; $i++)
         searchCards();
     ?>    
 </section>
-<p class="h6 search-header">Dishes</p>
+<p class="h5 search-header">Dishes</p>
 <section class="grid-wrapper">
     <?php
     for ($i = 0; $i < 15; $i++)
         searchCards();
     ?>    
 </section>
-<p class="h6 search-header">Users</p>
+<p class="h5 search-header">Users</p>
 <section class="grid-wrapper">
     <?php
     for ($i = 0; $i < 15; $i++)

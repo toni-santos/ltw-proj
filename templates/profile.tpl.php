@@ -8,14 +8,23 @@ enum Pages
     case Restaurant;
     case UserLogged;
     case User;
-}
+} ?>
 
+<?php
+function drawFAB() { ?>
+    <div id="fab-wrapper" class="shadow-nohov">
+        <span class="material-icons" id="fab">edit</span>
+    </div>
+<?php } ?>
+
+<?php
 function profileTop()
 { 
 if (isset($_SESSION['id'])) {
     $db = getDatabase();
     global $user;
     $user = User::getUser($db, $_SESSION['id']);
+    drawFAB();
 }  ?>
     <div id="profile-top">
         <img id="banner" class="shadow-nohov" src="../images/placeholder_bg.jpg">
@@ -91,13 +100,30 @@ if (isset($_SESSION['id'])) {
                 case Pages::User: ?>
                     <div id="bottom-content">
                         <section id="info">
-
+                            <p id="description" class="body2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam explicabo neque laudantium, asperiores enim, rem architecto sint vel doloribus reiciendis ex, possimus animi ut iure! Atque quam provident saepe autem.
+                            </p>
+                            <div>
+                                <p class="h6">Gallery</p>
+                            </div>
+                            <p id="gallery">
+                                <img src="../images/placeholder.jpg" class="">
+                                <img src="../images/placeholder.jpg" class="">
+                                <img src="../images/placeholder.jpg" class="">
+                            </p>
+                            <div>
+                                <p class="h6">Where to find us</p>
+                            </div>
+                            <!-- geolocation here -->
+                            <div id="maps"></div>
                         </section>
-                        <section id="menus">
 
-                        </section>
                         <section id="reviews">
-
+                                <p class="h6">My Reviews</p>
+                                <?php
+                                for ($i = 0; $i < 10; $i++)
+                                    drawReview();
+                                ?>
                         </section>
                     </div>
             <?php break;

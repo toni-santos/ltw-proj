@@ -242,3 +242,22 @@
     flex-direction: row;
     align-items: center;
 }
+
+#fab {
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--main-color-dark);
+    transition: transform 0.2s ease-in-out;
+}
+
+#fab:hover {
+    transform: rotate(360deg);
+}
+
+#fab-wrapper {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 999999;
+    border-radius: 50%;
+}
