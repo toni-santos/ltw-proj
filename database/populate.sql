@@ -1,11 +1,11 @@
 PRAGMA FOREIGN_KEYS = ON;
 
 -- User(userID, username, password, address, phoneNum, profilePic)
-INSERT INTO User VALUES (1, "João Lucas", "joaolucas2000@gmail.com", "cbfdac6008f9cab4083784cbd1874f76618d2a97", "Algures", 919988767, "https://d5y9g7a5.rocketcdn.me/wp-content/uploads/2021/03/trollface-origem-significado-e-polemicas-em-torno-do-meme-960x596.jpg");
-INSERT INTO User VALUES (2, "António Santos", "tonigaming@hotmail.com" , "77d44acbee1aa39f3f17c59ebfcdcf83eab61b20", "Vila Nova da Telha", NULL, "https://upload.wikimedia.org/wikipedia/pt/b/b5/Capa_de_Loveless.jpg");
-INSERT INTO User VALUES (3, "Luís Osório", "zefLux@sapo.pt", "a83fc9d1ae776f5de63810f41ee682638b74c0df", "Alfena", 912345678, NULL);
-INSERT INTO User VALUES (4, "Pedro Silva", "oneseven@yugioh.com", "e704dd4d2c83f974cc240a56c91392192af6b2d1", "Maia", NULL, NULL);
-INSERT INTO User VALUES (5, "Toino", "invalid@email.XD", "4c6b876312bf4361ceb529aa6fc8201a818d5a9a", "Mealheira", NULL, NULL);
+INSERT INTO User VALUES (1, "João Lucas", "joaolucas2000@gmail.com", "cbfdac6008f9cab4083784cbd1874f76618d2a97", "Algures", 919988767);
+INSERT INTO User VALUES (2, "António Santos", "tonigaming@hotmail.com" , "77d44acbee1aa39f3f17c59ebfcdcf83eab61b20", "Vila Nova da Telha", NULL);
+INSERT INTO User VALUES (3, "Luís Osório", "zefLux@sapo.pt", "a83fc9d1ae776f5de63810f41ee682638b74c0df", "Alfena", 912345678);
+INSERT INTO User VALUES (4, "Pedro Silva", "oneseven@yugioh.com", "e704dd4d2c83f974cc240a56c91392192af6b2d1", "Maia", NULL);
+INSERT INTO User VALUES (5, "Toino", "invalid@email.XD", "4c6b876312bf4361ceb529aa6fc8201a818d5a9a", "Mealheira", NULL);
 
 -- Restaurant(restaurantID, name, location, category)
 
@@ -15,11 +15,11 @@ INSERT INTO Restaurant VALUES(3, "Tomatino's", "Maia", "Italian", NULL, NULL);
 
 -- Dish(dishID, name, price, photo, category)
 
-INSERT INTO Dish VALUES(1, "Big Mac", 4.95, NULL, "Hamburger");     
-INSERT INTO Dish VALUES(2, "Carbonara", 6.99, NULL, "Pasta");     
-INSERT INTO Dish VALUES(3, "Frango", 11.99, NULL, "BBQ");     
-INSERT INTO Dish VALUES(4, "Costelinhas", 8.99, NULL, "BBQ");     
-INSERT INTO Dish VALUES(5, "McRoyal Bacon", 5.05, NULL, "Hamburger");
+INSERT INTO Dish VALUES(1, "Big Mac", 4.95, "Hamburger");     
+INSERT INTO Dish VALUES(2, "Carbonara", 6.99, "Pasta");     
+INSERT INTO Dish VALUES(3, "Frango", 11.99, "BBQ");     
+INSERT INTO Dish VALUES(4, "Costelinhas", 8.99, "BBQ");     
+INSERT INTO Dish VALUES(5, "McRoyal Bacon", 5.05, "Hamburger");
 
 -- Request(userID, restaurantID, state)
 

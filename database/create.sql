@@ -11,6 +11,9 @@ DROP TABLE IF EXISTS Request;
 DROP TABLE IF EXISTS RestOwner;
 DROP TABLE IF EXISTS Review;
 DROP TABLE IF EXISTS Menu;
+DROP TABLE IF EXISTS FavRestaurants;
+DROP TABLE IF EXISTS FavDishes;
+DROP TABLE IF EXISTS OrderedFrom;
 
 -- Create tables
 
@@ -21,7 +24,6 @@ CREATE TABLE User(
     password            VARCHAR(255) NOT NULL,
     address             TEXT,
     phoneNum            INTEGER,
-    profilePic          TEXT,
     CONSTRAINT userPK PRIMARY KEY (userID),
     CONSTRAINT validEmail CHECK (email LIKE "%@%.%")
 );
@@ -40,7 +42,6 @@ CREATE TABLE Dish(
     dishID              INTEGER,
     name                VARCHAR(255) NOT NULL,
     price               REAL NOT NULL,
-    photo               TEXT,
     category            TEXT NOT NULL,
     CONSTRAINT dishPK PRIMARY KEY (dishID)
 );
@@ -70,4 +71,23 @@ CREATE TABLE Menu(
     restaurantID        INTEGER REFERENCES Restaurant(restaurantID),
     dishID              INTEGER REFERENCES Dish(dishID),
     CONSTRAINT menuPK PRIMARY KEY (restaurantID, dishID)
+);
+
+CREATE TABLE FavRestaurants(
+    restaurantID        INTEGER REFERENCES Restaurant(restaurantID),
+    userID              INTEGER REFERENCES User(userID),
+    CONSTRAINT favRestaurantPK PRIMARY KEY (restaurantID, userID)
+);
+
+CREATE TABLE FavDishes(
+    dishID              INTEGER REFERENCES Dish(dishID),
+    userID              INTEGER REFERENCES User(userID),
+    CONSTRAINT favDishesPK PRIMARY KEY (dishID, userID)
+);
+
+CREATE TABLE OrderedFrom(
+    restaurantID        INTEGER REFERENCES Restaurant(restaurantID),
+    userID              INTEGER REFERENCES User(userID),
+    orders_num          INTEGER NOT NULL,
+    CONSTRAINT orderedFromPK PRIMARY KEY (restaurantID, userID)
 );
