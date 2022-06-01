@@ -23,7 +23,7 @@
 			$pass = sha1($password);
 		
 			// Insertion Query
-			$query = 'INSERT INTO User (userID, username, email, password, address, phoneNum, profilePic) VALUES(NULL, :username, :email, :password, NULL, NULL, NULL)';
+			$query = 'INSERT INTO User (userID, username, email, password, address, phoneNum) VALUES(NULL, :username, :email, :password, NULL, NULL)';
 			
 			$stmt = $db->prepare($query);
 		

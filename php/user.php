@@ -10,16 +10,14 @@ class User
   public ?string $email = NULL;
   public ?string $address = NULL;
   public ?int $phoneNum = NULL;
-  public ?string $profilePic = NULL;
 
-  public function __construct($userID, $username, $email, $address, $phoneNum, $profilePic)
+  public function __construct($userID, $username, $email, $address, $phoneNum)
   {
     $this->userID = $userID;
     $this->username = $username;
     $this->email = $email;
     $this->address = $address;
     $this->phoneNum = $phoneNum;
-    $this->profilePic = $profilePic;
   }
 
   public function add_to_db($db)
@@ -29,7 +27,7 @@ class User
             VALUES(?, ?, ?, ?, ?, ?)
         ');
 
-    $stmt->execute(array($this->userID, $this->username, $this->email, $this->password, $this->address, $this->phoneNum, $this->profilePic));
+    $stmt->execute(array($this->userID, $this->username, $this->email, $this->password, $this->address, $this->phoneNum));
   }
 
   public function save_to_db($db)
@@ -50,7 +48,7 @@ class User
   static function getUserWithPassword(PDO $db, string $email, string $password): ?User
   {
     $stmt = $db->prepare('
-      SELECT userID, username, email, address, phoneNum, profilePic 
+      SELECT userID, username, email, address, phoneNum
       FROM User 
       WHERE lower(email) = ? AND password = ?
     ');
@@ -63,7 +61,6 @@ class User
         $user->email,
         $user->address,
         $user->phoneNum,
-        $user->profilePic
       );
     } else return null;
   }
@@ -71,7 +68,7 @@ class User
   static function getUser(PDO $db, int $id): User
   {
     $stmt = $db->prepare('
-      SELECT userID, username, email, address, phoneNum, profilePic
+      SELECT userID, username, email, address, phoneNum
       FROM User 
       WHERE userID = ?
     ');
@@ -85,7 +82,6 @@ class User
       $user->email,
       $user->address,
       $user->phoneNum,
-      $user->profilePic
     );
   }
 }
