@@ -84,4 +84,38 @@ class User
       $user->phoneNum,
     );
   }
+
+  function getUserRestaurants(PDO $db, int $id): array {
+    
+    $stmt = $db->prepare('
+      SELECT restaurantID
+      FROM RestOwners
+      WHERE userID = ?
+    ');
+
+    $stmt->execute(array($id));
+    $restaurants = array();
+
+    while ($restID = $stmt->fetch()) {
+      $stmt2 = $db->prepare('
+        SELECT *
+        FROM Restaurant
+        WHERE restaurantID = ?
+      ');
+
+      $stmt2->execute($restID);
+      $restaurant = $stmt2->fetch(PDO::FETCH_OBJ);
+
+      $restaurants[] = new Restaurant(
+        $restaurant->restaurantID,
+        $restaurant->name,
+        $restaurant->location,
+        $restaurant->category,
+        $restaurant->opening_time,
+        $restaurant->closing_time
+      );
+    }
+
+    return $restaurants;
+  }
 }
