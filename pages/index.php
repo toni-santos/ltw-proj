@@ -7,7 +7,7 @@ require_once('../templates/index.tpl.php');
 
 drawTop(["index", "commons", "forms"], ["hamburger", "scrollsnap", "forms"]);
 ?>
-<div class="main-top">
+<div class="main-top shadow-nohov">
     <div class="top-text">
         <a class="h6" id="top-desc">
             Welcome to (not) UberEats, this is definitely NOT UberEats, and we definitely DO NOT specialize in food delivery, bringing you food from your favourite restaurants.

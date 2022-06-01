@@ -14,14 +14,15 @@ input[type=number] {
     padding: 10px;
     width: 100%;
     color: rgb(255, 255, 255);
-    background-color: var(--sub-color-dark);
+    background-color: var(--main-highlight);
     border: none;
     border-radius: 10px;
     position: relative;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .button-form:disabled {
-    background-color: blue;
+    background-color: var(--sub-highlight);
 }
 
 .signup-form {

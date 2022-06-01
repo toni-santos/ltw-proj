@@ -6,6 +6,10 @@
     position: relative;
 }
 
+.main-top {
+    height: 100vh;
+}
+
 .main-bottom {
     margin-top: 40px;
     margin-bottom: 30px;
@@ -103,7 +107,7 @@ div[id^="restaurant-card-"] {
     padding-inline: 10px;
     margin: 5px;
     border-radius: 24px;
-    background-color: var(--sub-color-light);
+    background-color: var(--off-white);
     height: 245px;
 }
 
@@ -191,7 +195,7 @@ div[id^="restaurant-card-"] {
     align-items: center;
     justify-content: center;
     width: 300px;
-    background-color: var(--sub-color-light);
+    background-color: var(--off-white);
     padding: 10px;
     padding-top: 0px;
     border-radius:10px;

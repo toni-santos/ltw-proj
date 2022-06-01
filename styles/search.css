@@ -90,7 +90,8 @@
     width: 100%;
     text-align: center;
     display: block;
-    background-color: var(--main-color-light);
+    background-color: var(--sub-highlight);
+    transition: all 0.2s ease-in-out;
 }
 
 .checkbox-wrapper input {
@@ -100,7 +101,7 @@
 
 
 .checkbox:checked + span {
-    background-color: var(--main-color-dark);
+    background-color: var(--main-highlight);
 }
 
 #show-more {
@@ -126,7 +127,6 @@ fieldset {
     border: none;
     display: flex;
     flex-direction: row;
-    background-color: var(--main-color-dark);
     border-radius: 10px;
 }
 
@@ -148,6 +148,6 @@ select {
     background-color: transparent;
     border: none;
     border-radius: 12px;
-    background-color: var(--main-color-dark);
+    background-color: var(--main-highlight);
     padding: 8px;
 }

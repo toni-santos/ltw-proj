@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 <?php function restaurant_card(int $id)
 { ?>
-    <div id="restaurant-card-<?php echo $id; ?>">
+    <div id="restaurant-card-<?php echo $id; ?>" class="shadow-nohov">
         <img src="../images/placeholder.jpg" class="rest-img shadow">
         <section class="restaurant-description">
             <h3 class="body1 rest-name">Restaurant Name <?php echo $id; ?></h3>

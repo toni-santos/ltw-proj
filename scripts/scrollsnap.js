@@ -2,7 +2,6 @@ function snapContent(event, scrollVal, scrollable, orientation) {
     const content = document.getElementById(scrollable);
 
     if (orientation == "vertical") {
-        console.log(event.target.id.split("-")[1]);
         content.children[event.target.id.split("-")[1]].scrollIntoView({ behavior: "smooth"});
         
         const parent = event.composedPath()[1];

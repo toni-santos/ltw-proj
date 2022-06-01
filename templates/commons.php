@@ -14,12 +14,12 @@ require_once '../database/db_loader.php';
         <section id="inputs-box">
             <div class="input-container">
                 <input class="text text-input subtitle2" type="email" name="email" autocomplete="email" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
-                <label class="body2 dark-bg" for="email" onclick="setFocus(event)">Email</label>
+                <label class="body2" for="email" onclick="setFocus(event)">Email</label>
                 <span class="error subtitle2 transparent">Required</span>
             </div>
             <div class="input-container">
                 <input class="text text-input password subtitle2" type="password" name="pwd" placeholder=" " autocomplete="current-password" minlength="8" onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
-                <label class="body2 dark-bg" for="pwd" onclick="setFocus(event)">Password</label>
+                <label class="body2" for="pwd" onclick="setFocus(event)">Password</label>
                 <span class="material-icons md-24 md-light password-eye" onclick="showPassword(event)">visibility</span>
                 <span class="error subtitle2 transparent">Required</span>
             </div>
@@ -33,29 +33,29 @@ require_once '../database/db_loader.php';
         <section id="inputs-box">
             <div class="input-container">
                 <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
-                <label class="body2 dark-bg" for="name" onclick="setFocus(event)">Name</label>
+                <label class="body2" for="name" onclick="setFocus(event)">Name</label>
                 <span class="error subtitle2 transparent">Required</span>
             </div>
             <div class="input-container">
                 <input class="text text-input subtitle2" type="email" name="email" autocomplete="email" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
-                <label class="body2 dark-bg" for="email" onclick="setFocus(event)">Email</label>
+                <label class="body2" for="email" onclick="setFocus(event)">Email</label>
                 <span class="error subtitle2 transparent">Required</span>
             </div>
             <div class="input-container">
                 <input class="text text-input password subtitle2" type="password" name="pwd" placeholder=" " autocomplete="current-password" minlength="8" onkeyup="updateForm(event); updateCounter(event)" onkeydown="updateCounter(event)" onfocus="checkFilled(event)" required>
-                <label class="body2 dark-bg" for="pwd" onclick="setFocus(event)">Password</label>
+                <label class="body2" for="pwd" onclick="setFocus(event)">Password</label>
                 <span class="material-icons md-24 md-light password-eye" onclick="showPassword(event)">visibility</span>
                 <span class="subtitle2 counter">0/8</span>
                 <span class="error subtitle2 transparent">Required</span>
             </div>
             <div class="input-container">
                 <input class="text text-input subtitle2" type="text" name="address" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
-                <label class="body2 dark-bg" for="address" onclick="setFocus(event)">Address</label>
+                <label class="body2" for="address" onclick="setFocus(event)">Address</label>
                 <span class="error subtitle2 transparent">Required</span>
             </div>
             <div class="input-container">
                 <input class="text text-input subtitle2" type="number" name="tel" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
-                <label class="body2 dark-bg" for="tel" onclick="setFocus(event)">Phone Number</label>
+                <label class="body2" for="tel" onclick="setFocus(event)">Phone Number</label>
                 <span class="error subtitle2 transparent">Required</span>
             </div>
         </section>
@@ -107,7 +107,7 @@ if (isset($_SESSION['id'])) {
             </button>
         </div>
         <?php drawLogin(); ?>
-        <p class="body2 acc-create">Don't have an account? <a class="body1 pointer" onclick="closeLogin(); showSignup();">Sign-Up</a> now!</p>
+        <p class="body2 acc-create">Don't have an account? <a class="body1 pointer highlight" onclick="closeLogin(); showSignup();">Sign-Up</a> now!</p>
     </dialog>
     <dialog id="dialog-signup" class="shadow-nohov">
         <div id="top-form">
@@ -117,11 +117,11 @@ if (isset($_SESSION['id'])) {
             </button>
         </div>
         <?php drawSignup(); ?>
-        <p class="body2 acc-create">Already have an account? <a class="body1 pointer" onclick="closeSignup(); showLogin();">Login</a> now!</p>
+        <p class="body2 acc-create">Already have an account? <a class="body1 pointer highlight" onclick="closeSignup(); showLogin();">Login</a> now!</p>
     </dialog>
-    <header class="nav">
+    <header class="nav shadow-nohov">
         <ul class="nav" id="nav-left">
-            <li><a><span onclick="window.location.href = 'index.php';" class="material-icons">fastfood</span></a></li>
+            <li><span onclick="window.location.href = 'index.php';" class="material-icons">fastfood</span></li>
             <li><a class="subtitle1" href="search.php">Search</a></li>
         </ul>
         <ul class="nav" id="nav-right">
@@ -129,7 +129,6 @@ if (isset($_SESSION['id'])) {
             <li><a class="subtitle1" onclick="showLogin()">Login</a></li>
             <li><a class="subtitle1" onclick="showSignup()">Sign-Up</a></li>
             <?php } else { ?>
-            <!-- TODO: search bar -->
             <li class="dropdown"><a class="subtitle1"><?php echo $user->username; ?></a></li>
             <li class="dropdown"><img class="nav-pfp" src="../images/placeholder.jpg"></li>
             <section id="dropdown-content">
