@@ -9,7 +9,7 @@ drawTop(["index", "commons", "forms"], ["hamburger", "scrollsnap", "forms"]);
 ?>
 <div class="main-top">
     <div class="top-text">
-        <a class="h6 dark-bg" id="top-desc">
+        <a class="h6" id="top-desc">
             Welcome to (not) UberEats, this is definitely NOT UberEats, and we definitely DO NOT specialize in food delivery, bringing you food from your favourite restaurants.
             <br>
             Find your favorite restaurant right now!
@@ -19,7 +19,7 @@ drawTop(["index", "commons", "forms"], ["hamburger", "scrollsnap", "forms"]);
             <button class="material-icons button">search</button>
         </form>
     </div>
-    <img src="../images/placeholder_bg.jpg" id="top-background">
+    <img src="../images/index-bg.jpg" id="top-background">
 </div>
 <div class="main-bottom">
     <h2 class="h5">Our top picks</h2>
