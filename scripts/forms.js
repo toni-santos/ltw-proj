@@ -79,3 +79,13 @@ function closeSignup() {
     const dialog = document.getElementById('dialog-signup');
     dialog.close();
 }
+
+function showUserEdit() {
+    const dialog = document.getElementById('dialog-user-edit');
+    dialog.showModal();
+}
+
+function closeUserEdit() {
+    const dialog = document.getElementById('dialog-user-edit');
+    dialog.close();
+}

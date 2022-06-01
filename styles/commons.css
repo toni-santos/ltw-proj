@@ -11,7 +11,6 @@
 }
 
 /*
-
 TODO: REPLACE CURRENTLY IN USE COLORS BY THESE
 
 :root {
@@ -24,9 +23,15 @@ TODO: REPLACE CURRENTLY IN USE COLORS BY THESE
   --primary-text-color:#000000;
   --secondary-text-color:#ffffff;
 }
-
-
-
+:root {
+    --erin: #4de935ff;
+    --light-green: #a6f49aff;
+    --black: #000000ff;
+    --onyx: #2d3133ff;
+    --sonic-silver: #77797aff;
+    --silver: #c0c0c0ff;
+    --white: #ffffffff;
+}
 */
 
 * {
@@ -576,7 +581,7 @@ footer ul {
     display: flex;
 }
 
-#dialog-login, #dialog-signup {
+#dialog-login, #dialog-signup, #dialog-user-edit, #dialog-restaurant-edit {
     height: max-content;
     padding: 20px;
     float: left;
@@ -586,4 +591,8 @@ footer ul {
     background-color: var(--main-color-dark);
     border-radius: 10px;
     border: none;
+}
+
+#dialog-user-edit #inputs-box, #dialog-restaurant-edit #inputs-box {
+    margin-bottom: 10px;
 }

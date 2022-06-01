@@ -13,7 +13,7 @@ enum Pages
 <?php
 function drawFAB() { ?>
     <div id="fab-wrapper" class="shadow-nohov">
-        <span class="material-icons" id="fab">edit</span>
+        <span class="material-icons" id="fab" onclick="showUserEdit()">edit</span>
     </div>
 <?php } ?>
 
@@ -25,6 +25,7 @@ if (isset($_SESSION['id'])) {
     global $user;
     $user = User::getUser($db, $_SESSION['id']);
     drawFAB();
+    userEditDialog();
 }  ?>
     <div id="profile-top">
         <img id="banner" class="shadow-nohov" src="../images/placeholder_bg.jpg">
@@ -59,8 +60,6 @@ if (isset($_SESSION['id'])) {
             <?php
 
             switch ($page) {
-                case Pages::RestaurantLogged:
-                    break;
                 case Pages::Restaurant: ?>
                     <div id="bottom-content">
                         <section id="info">
@@ -98,7 +97,6 @@ if (isset($_SESSION['id'])) {
                                 drawReview();
                             ?>
                         </section>
-
                     </div>
                 <?php break;
                 case Pages::UserLogged: ?>
@@ -239,4 +237,53 @@ if (isset($_SESSION['id'])) {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam explicabo neque laudantium, asperiores enim, rem architecto sint vel doloribus reiciendis ex, possimus animi ut iure! Atque quam provident saepe autem.
         </article>
     </section>
+<?php } ?>
+
+<?php function userEditDialog() { ?>
+    <dialog id="dialog-user-edit">
+        <div id="top-form">
+            <p class="h5">Edit Profile</p>
+            <button value="cancel" class="blank-button" onclick="closeUserEdit()">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+        <form method="POST">
+            <section id="inputs-box">
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" ">
+                    <label class="body2 dark-bg" for="name" onclick="setFocus(event)">Name</label>
+                </div>
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="email" name="email" autocomplete="email" placeholder=" ">
+                    <label class="body2 dark-bg" for="email" onclick="setFocus(event)">Email</label>
+                </div>
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="text" name="address" autocomplete="off" placeholder=" ">
+                    <label class="body2 dark-bg" for="address" onclick="setFocus(event)">Address</label>
+                </div>
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="number" name="tel" autocomplete="off" placeholder=" ">
+                    <label class="body2 dark-bg" for="tel" onclick="setFocus(event)">Phone Number</label>
+                </div>
+                <div class="input-container">
+                    <input class="text text-input password subtitle2" type="password" name="pwd" placeholder=" " autocomplete="off" minlength="8">
+                    <label class="body2 dark-bg" for="pwd" onclick="setFocus(event)">Password</label>
+                    <span class="material-icons md-24 md-light password-eye" onclick="showPassword(event)">visibility</span>
+                </div>
+            </section>
+            <button id="confirm-edit" class="button-form" type="submit" name="submit"> Edit </button>
+        </form>
+    </dialog>
+<?php } ?>
+
+<?php function restaurantEditDialog() { ?>
+    <!-- TODO: Figure out necessary info for a restaurant -->
+    <dialog id="restaurant-edit-dialog">
+        <div id="top-form">
+            <p class="h5">Edit Restaurant</p>
+            <button value="cancel" class="blank-button" onclick="closeRestaurantEdit()">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+    </dialog>
 <?php } ?>

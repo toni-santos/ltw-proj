@@ -58,14 +58,16 @@ declare(strict_types=1);
                 <a href="#" class="subtitle1 register-promo">Register</a>
             </section>
         </section>
-        <section class="promo promo-restaurant shadow">
-            <img src="../images/placeholder.jpg" class="promo-img">
-            <section class="promo-desc">
-                <h4 class="body1">Get your business out there!</h4>
-                <p class="subtitle2">Create an account and start delivering food through our services!</p>
-                <a href="#" class="subtitle1 register-promo">Register</a>
-            </section>
+    </section>
+<?php } ?>
+
+<?php function promosUser() { ?>
+    <section class="promo promo-restaurant shadow">
+        <img src="../images/placeholder.jpg" class="promo-img">
+        <section class="promo-desc">
+            <h4 class="body1">Get your business out there!</h4>
+            <p class="subtitle2">Are you a restaurant owner looking to start your business on food delivery?</p>
+            <a href="#" class="subtitle1 register-promo">Register</a>
         </section>
-        <!-- If we eventually implement driver accounts we should add a promo here! -->
     </section>
 <?php } ?>

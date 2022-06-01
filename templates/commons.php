@@ -107,7 +107,7 @@ if (isset($_SESSION['id'])) {
             </button>
         </div>
         <?php drawLogin(); ?>
-        <p class="body2 acc-create">Don't have an account? <a class="body1" href="signup.php">Sign-Up</a> now!</p>
+        <p class="body2 acc-create">Don't have an account? <a class="body1 pointer" onclick="closeLogin(); showSignup();">Sign-Up</a> now!</p>
     </dialog>
     <dialog id="dialog-signup" class="shadow-nohov">
         <div id="top-form">
@@ -116,8 +116,8 @@ if (isset($_SESSION['id'])) {
                 <span class="material-icons">close</span>
             </button>
         </div>
-            <?php drawSignup(); ?>
-            <p class="body2 acc-create">Already have an account? <a class="body1" href="login.php">Login</a> now!</p>
+        <?php drawSignup(); ?>
+        <p class="body2 acc-create">Already have an account? <a class="body1 pointer" onclick="closeSignup(); showLogin();">Login</a> now!</p>
     </dialog>
     <header class="nav">
         <ul class="nav" id="nav-left">
