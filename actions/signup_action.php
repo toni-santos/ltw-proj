@@ -21,15 +21,18 @@
 			$email = $_POST['email'];
 			$password = addslashes($_POST['pwd']);
 			$pass = sha1($password);
-		
+			$address = addslashes($_POST['address']);
+			$phoneNum = addslashes($_POST['tel']);
 			// Insertion Query
-			$query = 'INSERT INTO User (userID, username, email, password, address, phoneNum) VALUES(NULL, :username, :email, :password, NULL, NULL)';
+			$query = 'INSERT INTO User (userID, username, email, password, address, phoneNum) VALUES(NULL, :username, :email, :password, :address, :phoneNum)';
 			
 			$stmt = $db->prepare($query);
 		
 			$stmt->bindParam(':username', $username);
 			$stmt->bindParam(':email', $email);
 			$stmt->bindParam(':password', $pass);
+			$stmt->bindParam(':phoneNum', $phoneNum);
+			$stmt->bindParam(':address', $address);
 			$exec = $stmt->execute();
 
 			

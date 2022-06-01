@@ -40,7 +40,13 @@ if (isset($_SESSION['id'])) {
 <?php } ?>
 
 <?php function profileBottom(array $tabs, int $scrollVal, Pages $page)
-{ ?>
+{ 
+    if (isset($_SESSION['id'])) {
+        $db = getDatabase();
+        global $user;
+        $user = User::getUser($db, $_SESSION['id']);
+    }  
+    ?>
     <div id="profile-bottom">
         <div id="content-wrapper">
             <section id="tabs" class="h6">
@@ -64,11 +70,11 @@ if (isset($_SESSION['id'])) {
                             <div>
                                 <p class="h6">Gallery</p>
                             </div>
-                            <p id="gallery">
+                            <section id="gallery">
                                 <img src="../images/placeholder.jpg" class="">
                                 <img src="../images/placeholder.jpg" class="">
                                 <img src="../images/placeholder.jpg" class="">
-                            </p>
+                            </section>
                             <div>
                                 <p class="h6">Where to find us</p>
                             </div>
@@ -95,8 +101,54 @@ if (isset($_SESSION['id'])) {
 
                     </div>
                 <?php break;
-                case Pages::UserLogged:
-                    break;
+                case Pages::UserLogged: ?>
+                    <div id="bottom-content">
+                        <section id="info">
+                            <div>
+                                <p class="h6">Personal Information</p>
+                            </div>
+                            <div id="personal-info-wrapper" class="shadow-nohov">
+                                <div class="personal-info">
+                                    <span class="material-icons md-48">person</span>
+                                    <p class="body1">Username</p>
+                                    <p class="body2"><?php echo $user->username; ?></p>
+                                </div>
+                                <div class="personal-info">
+                                    <span class="material-icons md-48">email</span>
+                                    <p class="body1">Email</p>
+                                    <p class="body2"><?php echo $user->email; ?></p>
+                                </div>
+                                <div class="personal-info">
+                                    <span class="material-icons md-48">home</span>
+                                    <p class="body1">Address</p>
+                                    <p class="body2"><?php echo $user->address; ?></p>
+                                </div>
+                                <div class="personal-info">
+                                    <span class="material-icons md-48">phone</span>
+                                    <p class="body1">Phone Number</p>
+                                    <p class="body2"><?php echo $user->phoneNum; ?></p>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="h6">Recent Restaurants</p>
+                            </div>
+                            <div id="recent-restaurants">
+                                <?php
+                                    for ($i = 0; $i < 3; $i++) {
+                                        searchCards();
+                                    }
+                                ?>
+                            </div>
+                        </section>
+                        <section id="reviews">
+                                <p class="h6">My Reviews</p>
+                                <?php
+                                for ($i = 0; $i < 10; $i++)
+                                    drawReview();
+                                ?>
+                        </section>
+                    </div>
+                <?php break;
                 case Pages::User: ?>
                     <div id="bottom-content">
                         <section id="info">
@@ -117,9 +169,8 @@ if (isset($_SESSION['id'])) {
                             <!-- geolocation here -->
                             <div id="maps"></div>
                         </section>
-
                         <section id="reviews">
-                                <p class="h6">My Reviews</p>
+                                <p class="h6">Reviews</p>
                                 <?php
                                 for ($i = 0; $i < 10; $i++)
                                     drawReview();
