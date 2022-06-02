@@ -11,34 +11,13 @@
     --silver: #c0c0c0ff;
     --dark-off-white: #f1f1f1ff;
     --white: #ffffffff;
-
     --dark-main-highlight: #43a410;
     --dark-sub-highlight: #2d6b0c;
     --dark-text: #e8e6e3;
     --dark-onyx: #7c7366;
     --dark-off-white: #202324;
     --dark-background: #131516;
-    --darkreader-neutral-text: #d8d4cf;
-    --darkreader-selection-background: #004daa;
-    --darkreader-selection-text: #e8e6e3;
-
 }
-
-/*
-TODO: REPLACE CURRENTLY IN USE COLORS BY THESE
-
-:root {
-  --primary-color:#8bc34a;
-  --primary-light-color:#bef67a;
-  --primary-dark-color:#5a9216;
-  --secondary-color:#795548;
-  --secondary-light-color:#a98274;
-  --secondary-dark-color:#4b2c20;
-  --primary-text-color:#000000;
-  --secondary-text-color:#ffffff;
-}
-
-*/
 
 * {
     padding: 0px;
