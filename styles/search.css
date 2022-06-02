@@ -90,7 +90,7 @@
     width: 100%;
     text-align: center;
     display: block;
-    background-color: var(--sub-highlight);
+    background-color: var(--dark-sub-highlight);
     transition: all 0.2s ease-in-out;
 }
 
@@ -101,7 +101,7 @@
 
 
 .checkbox:checked + span {
-    background-color: var(--main-highlight);
+    background-color: var(--dark-main-highlight);
 }
 
 #show-more {
@@ -120,7 +120,7 @@
 }
 
 #show-more:hover > span {
-    background-color: grey;
+    background-color: var(--dark-off-white);
 }
 
 fieldset {
@@ -148,6 +148,6 @@ select {
     background-color: transparent;
     border: none;
     border-radius: 12px;
-    background-color: var(--main-highlight);
+    background-color: var(--dark-main-highlight);
     padding: 8px;
 }

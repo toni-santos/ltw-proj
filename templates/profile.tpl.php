@@ -108,23 +108,23 @@ if (isset($_SESSION['id'])) {
                             <div id="personal-info-wrapper" class="shadow-nohov">
                                 <div class="personal-info">
                                     <span class="material-icons md-48">person</span>
-                                    <p class="body1">Username</p>
-                                    <p class="body2"><?php echo $user->username; ?></p>
+                                    <p class="body1 light-bg">Username</p>
+                                    <p class="body2 light-bg"><?php echo $user->username; ?></p>
                                 </div>
                                 <div class="personal-info">
                                     <span class="material-icons md-48">email</span>
-                                    <p class="body1">Email</p>
-                                    <p class="body2"><?php echo $user->email; ?></p>
+                                    <p class="body1 light-bg">Email</p>
+                                    <p class="body2 light-bg"><?php echo $user->email; ?></p>
                                 </div>
                                 <div class="personal-info">
                                     <span class="material-icons md-48">home</span>
-                                    <p class="body1">Address</p>
-                                    <p class="body2"><?php echo $user->address; ?></p>
+                                    <p class="body1 light-bg">Address</p>
+                                    <p class="body2 light-bg"><?php echo $user->address; ?></p>
                                 </div>
                                 <div class="personal-info">
                                     <span class="material-icons md-48">phone</span>
-                                    <p class="body1">Phone Number</p>
-                                    <p class="body2"><?php echo $user->phoneNum; ?></p>
+                                    <p class="body1 light-bg">Phone Number</p>
+                                    <p class="body2 light-bg"><?php echo $user->phoneNum; ?></p>
                                 </div>
                             </div>
                             <div>

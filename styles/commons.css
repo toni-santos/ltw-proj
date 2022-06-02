@@ -2,13 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-    --main-color-light: rgb(196, 224, 192);
-    --main-color-dark: rgb(163, 216, 155);
-    --sub-color-light: rgb(250, 235, 224);
-    --sub-color-dark: rgb(143, 104, 76);
-    --sub-color-light-trans: rgba(250, 235, 224, 0.5);
-    --sub-color-light-trans: rgba(143, 104, 76, 0.5);
-
     --main-highlight: #52ec3bff;
     --sub-highlight: #a6f49aff;
     --black: #000000ff;
@@ -16,9 +9,19 @@
     --onyx: #2d3133ff;
     --sonic-silver: #77797aff;
     --silver: #c0c0c0ff;
-    --off-white: #f1f1f1ff;
+    --dark-off-white: #f1f1f1ff;
     --white: #ffffffff;
-    /* --off-white:#fAf9f6ff; */
+
+    --dark-main-highlight: #43a410;
+    --dark-sub-highlight: #2d6b0c;
+    --dark-text: #e8e6e3;
+    --dark-onyx: #7c7366;
+    --dark-off-white: #202324;
+    --dark-background: #131516;
+    --darkreader-neutral-text: #d8d4cf;
+    --darkreader-selection-background: #004daa;
+    --darkreader-selection-text: #e8e6e3;
+
 }
 
 /*
@@ -48,6 +51,9 @@ html,
 body {
     height: 100%;
 }
+html {
+    background-color: var(--dark-background);
+}
 
 main {
     width: 100%;
@@ -57,12 +63,13 @@ main {
 a {
     user-select: none;
     text-decoration: none;
+    color: var(--dark-text);
 }
 
-a,
-a:visited {
-    color: inherit;
+article, button, li, h1, h2, h3, h4, h5, h6, p, a, a:visited {
+    color: var(--dark-text);
 }
+
 
 ul {
     list-style: none;
@@ -71,7 +78,6 @@ ul {
 .pointer {
     cursor: pointer;
 }
-
 
 /* NAVBAR STYLING */
 
@@ -85,7 +91,7 @@ ul {
     padding: 2px;
     position: fixed;
     top: 0;
-    background-color: var(--off-white);
+    background-color: var(--dark-off-white);
     z-index: 999999999;
 }
 
@@ -110,7 +116,7 @@ ul {
 }
 
 #nav-left span:hover, #nav-left a:hover {
-    background-color: var(--main-highlight);
+    background-color: var(--dark-main-highlight);
     transform: scale(102%);
 }
 
@@ -243,7 +249,7 @@ ul {
         align-content: center;
         width: 50%;
         z-index: 9999;
-        background-color: var(--off-white);
+        background-color: var(--dark-off-white);
         padding: 10px 10px 10px 10px;
         transition: all 0.2s ease-in-out;
     }
@@ -289,7 +295,7 @@ footer {
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
-    background-color: var(--off-white);
+    background-color: var(--dark-off-white);
     padding: 10px 10px;
 }
 
@@ -400,11 +406,11 @@ footer ul {
 }
 
 .dark-bg {
-    color: rgb(255, 255, 255);
+    color: var(--dark-text);
 }
 
 .light-bg {
-    color: rgb(0, 0, 0);
+    color: var(--dark-background);
 }
 
 .selectable {
@@ -454,24 +460,24 @@ footer ul {
     border-color: var(--onyx);
     border-style: solid;
     border-width: 2px;
-    background-color: var(--off-white);
+    background-color: var(--dark-off-white);
     transition: all 0.2s ease-in-out;
-    caret-color: var(--black);
-    color: var(--black);
+    caret-color: var(--dark-text);
+    color: var(--dark-text);
 }
 
 .search:focus {
-    background-color: var(--sub-highlight);
+    background-color: var(--dark-sub-highlight);
     border-color: var(--onyx);
-    color: var(--black);
+    color: var(--dark-text);
 }
 
 .search:focus::placeholder {
-    color: rgba(219, 230, 217, 0.5);
+    color: var(--dark-text);
 }
 
 .search::placeholder {
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--dark-text);
 }
 
 .button {
@@ -509,7 +515,7 @@ footer ul {
     width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-color: var(--sub-highlight);
+    background-color: var(--dark-sub-highlight);
     color: var(--black);
 }
 
@@ -581,7 +587,7 @@ footer ul {
     right: -2px;
     gap: 10px;
     margin-top: 90px;
-    background-color: var(--off-white);
+    background-color: var(--dark-off-white);
     padding-top: 50px;
     z-index: 0;
     border-radius: 10px;
@@ -609,7 +615,7 @@ footer ul {
 }
 
 .highlight {
-    color:var(--main-highlight);
+    color:var(--dark-main-highlight);
 }
 
 #dialog-login, #dialog-signup, #dialog-user-edit, #dialog-restaurant-edit {
@@ -619,7 +625,7 @@ footer ul {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--off-white);
+    background-color: var(--dark-off-white);
     border-radius: 10px;
     border: none;
 }

@@ -9,7 +9,7 @@ drawTop(["index", "commons", "forms"], ["hamburger", "scrollsnap", "forms"]);
 ?>
 <div class="main-top shadow-nohov">
     <div class="top-text">
-        <a class="h6" id="top-desc">
+        <a class="h6 light-bg" id="top-desc">
             Welcome to (not) UberEats, this is definitely NOT UberEats, and we definitely DO NOT specialize in food delivery, bringing you food from your favourite restaurants.
             <br>
             Find your favorite restaurant right now!
