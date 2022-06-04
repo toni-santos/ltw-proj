@@ -4,8 +4,10 @@ session_start();
 require_once('../templates/commons.php');
 require_once('../templates/index.tpl.php');
 
-
 drawTop(["index", "commons", "forms"], ["hamburger", "scrollsnap", "forms"]);
+if (isset($_SESSION['id'])) {
+    drawRestaurantDialog();
+}
 ?>
 <div class="main-top shadow-nohov">
     <div class="top-text">
@@ -25,7 +27,11 @@ drawTop(["index", "commons", "forms"], ["hamburger", "scrollsnap", "forms"]);
     <h2 class="h5">Our top picks</h2>
     <?php
     drawCarousel();
-    promos();
+    if (isset($_SESSION['id'])) {
+        promosUser();
+    } else {
+        promos();
+    }
     ?>
 </div>
 <?php

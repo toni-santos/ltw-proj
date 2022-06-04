@@ -89,3 +89,13 @@ function closeUserEdit() {
     const dialog = document.getElementById('dialog-user-edit');
     dialog.close();
 }
+
+function showRestaurantDialog() {
+    const dialog = document.getElementById('dialog-restaurant-registration');
+    dialog.showModal();
+}
+
+function closeRestaurantDialog() {
+    const dialog = document.getElementById('dialog-restaurant-registration');
+    dialog.close();
+}

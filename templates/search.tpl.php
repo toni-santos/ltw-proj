@@ -18,11 +18,3 @@ function searchCards()
         </section>
     </div>
 <?php } ?>
-
-<?php function checkboxButton() { ?>
-    <div class="checkbox-wrapper">
-        <label>
-            <input class="checkbox" type="checkbox" name="a" checked></input><span class="checkbox-text shadow-nohov pointer">Vegan</span>
-        </label>
-    </div>
-<?php } ?>

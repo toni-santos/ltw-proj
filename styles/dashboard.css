@@ -1,0 +1,18 @@
+#main-top {
+    display: flex;
+    border-bottom: 1px solid var(--dark-text);
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 70px;
+    margin-inline: 30px;
+    padding-bottom: 10px;
+}
+
+#add-restaurant {
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+}
+
+#add-restaurant:hover {
+    background-color: var(--dark-main-highlight);
+}

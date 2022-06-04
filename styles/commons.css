@@ -111,6 +111,15 @@ ul {
     height: 0px;
 }
 
+#nav-right-login, #nav-right-signup {
+    padding: 7px;
+    border-radius: 12px;
+}
+
+#nav-right-login:hover, #nav-right-signup:hover {
+    background-color: var(--dark-main-highlight);
+}
+
 #nav-right>* {
     display: flex;
     z-index: 9999;
@@ -422,7 +431,7 @@ footer ul {
 }
 
 .md-light {
-    color: rgba(255, 255, 255, 1);
+    color: var(--dark-text);
 }
 
 .md-light-inactive {
@@ -495,7 +504,7 @@ footer ul {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: var(--dark-sub-highlight);
-    color: var(--black);
+    color: var(--dark-text);
 }
 
 .error {
@@ -597,7 +606,11 @@ footer ul {
     color:var(--dark-main-highlight);
 }
 
-#dialog-login, #dialog-signup, #dialog-user-edit, #dialog-restaurant-edit {
+dialog {
+    color: var(--dark-text);
+}
+
+#dialog-login, #dialog-signup, #dialog-user-edit, #dialog-restaurant-edit, #dialog-restaurant-registration {
     height: max-content;
     padding: 20px;
     float: left;
@@ -609,6 +622,38 @@ footer ul {
     border: none;
 }
 
-#dialog-user-edit #inputs-box, #dialog-restaurant-edit #inputs-box {
+#dialog-user-edit #inputs-box, #dialog-restaurant-edit #inputs-box, #dialog-restaurant-registration #inputs-box {
     margin-bottom: 10px;
+}
+
+.checkbox-text {
+    border-radius: 10px;
+    padding: 0.5em;
+    width: 100%;
+    text-align: center;
+    display: block;
+    background-color: var(--dark-sub-highlight);
+    transition: all 0.2s ease-in-out;
+}
+
+.checkbox-wrapper input {
+    position: relative;
+    display: none;
+}
+
+
+.checkbox:checked + span {
+    background-color: var(--dark-main-highlight);
+}
+
+#category-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-inline: 30px;
+    max-width: 400px;
+    margin-inline: auto;
+    gap: 10px;
+    justify-content: center;
 }

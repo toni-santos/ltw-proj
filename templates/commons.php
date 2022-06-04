@@ -9,6 +9,50 @@ require_once '../database/db_loader.php';
 
 ?>
 
+
+<?php function drawRestaurantDialog() { ?>
+    <dialog id="dialog-restaurant-registration">
+        <div id="top-form">
+            <p class="h5">Register Restaurant</p>
+            <button value="cancel" class="blank-button" onclick="closeRestaurantDialog()">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+        <form id="form-restaurant" method="POST">
+            <section id="inputs-box">
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
+                    <label class="body2" for="name" onclick="setFocus(event)">Name</label>
+                    <span class="error subtitle2 transparent">Required</span>
+                </div>
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="text" name="email" autocomplete="email" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
+                    <label class="body2" for="email" onclick="setFocus(event)">Location</label>
+                    <span class="error subtitle2 transparent">Required</span>
+                </div>
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="time" name="opening-time" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
+                    <label class="body2" for="pwd" onclick="setFocus(event)">Opening Time</label>
+                    <span class="error subtitle2 transparent">Required</span>
+                </div>
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="time" name="closing-time" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
+                    <label class="body2" for="address" onclick="setFocus(event)">Closing Time</label>
+                    <span class="error subtitle2 transparent">Required</span>
+                </div>
+            </section>
+            <section id="category-wrapper">
+                <?php 
+                for ($i = 0; $i < 10; $i++) {
+                    checkboxButton();
+                }
+                ?>
+            </section>
+            <button id="confirm-restaurant" class="button-form" type="submit" name="submit" value="confirm" disabled>Confirm</button>
+        </form>
+    </dialog>
+<?php } ?>
+
 <?php function drawLogin() { ?> 
     <form id="form-login" method="POST" action="../actions/login_action.php">
         <section id="inputs-box">
@@ -126,8 +170,8 @@ if (isset($_SESSION['id'])) {
         </ul>
         <ul class="nav" id="nav-right">
             <?php if (!isset($_SESSION['id'])) { ?>
-            <li><a class="subtitle1" onclick="showLogin()">Login</a></li>
-            <li><a class="subtitle1" onclick="showSignup()">Sign-Up</a></li>
+            <li><a class="subtitle1 pointer" id="nav-right-login" onclick="showLogin()">Login</a></li>
+            <li><a class="subtitle1 pointer" id="nav-right-signup" onclick="showSignup()">Sign-Up</a></li>
             <?php } else { ?>
             <li class="dropdown"><a class="subtitle1"><?php echo $user->username; ?></a></li>
             <li class="dropdown"><img class="nav-pfp" src="../images/placeholder.jpg"></li>
@@ -156,8 +200,8 @@ if (isset($_SESSION['id'])) {
         </div>
         <div id="hamburger-bottom">
             <?php if (!isset($_SESSION['id'])) { ?>
-            <a class="subtitle1" href="login.php">Login</a>
-            <a class="subtitle1" href="signup.php">Register</a>
+            <a class="subtitle1" onclick="showLogin()">Login</a>
+            <a class="subtitle1" onclick="showSignup()">Register</a>
             <?php } else { ?>
             <div id="user-bar">
                 <div id="user-info">
@@ -204,4 +248,12 @@ if (isset($_SESSION['id'])) {
 </body>
 
 </html>
+<?php } ?>
+
+<?php function checkboxButton() { ?>
+    <div class="checkbox-wrapper">
+        <label>
+            <input class="checkbox" type="checkbox" name="a" checked></input><span class="checkbox-text shadow-nohov pointer subtitle2">Vegan</span>
+        </label>
+    </div>
 <?php } ?>

@@ -55,19 +55,21 @@ declare(strict_types=1);
             <section class="promo-desc">
                 <h4 class="body1">Start ordering!</h4>
                 <p class="subtitle2">Get food from your favorite restaurants, simply create an account below!</p>
-                <a href="#" class="subtitle1 register-promo">Register</a>
+                <a class="subtitle1 register-promo pointer" onclick="showSignup()">Register</a>
             </section>
         </section>
     </section>
 <?php } ?>
 
 <?php function promosUser() { ?>
-    <section class="promo promo-restaurant shadow">
-        <img src="../images/placeholder.jpg" class="promo-img">
-        <section class="promo-desc">
-            <h4 class="body1">Get your business out there!</h4>
-            <p class="subtitle2">Are you a restaurant owner looking to start your business on food delivery?</p>
-            <a href="#" class="subtitle1 register-promo">Register</a>
+    <section class="signup-promo">
+        <section class="promo promo-restaurant shadow">
+            <img src="../images/placeholder.jpg" class="promo-img">
+            <section class="promo-desc">
+                <h4 class="body1">Get your business out there!</h4>
+                <p class="subtitle2">Are you a restaurant owner looking to start your business on food delivery?</p>
+                <a class="subtitle1 register-promo" onclick="showRestaurantDialog()">Register</a>
+            </section>
         </section>
     </section>
 <?php } ?>
