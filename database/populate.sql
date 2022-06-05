@@ -36,10 +36,10 @@ INSERT INTO RestOwner VALUES(3, 3);
 
 -- Review(restaurantID, reviewerID, message)
 
-INSERT INTO Review VALUES(1, 4, "MUITO BOM!!");
-INSERT INTO Review VALUES(1, 3, "Mid");
-INSERT INTO Review VALUES(2, 1, "Como cá 3 vezes por dia :)");
-INSERT INTO Review VALUES(3, 2, "É bom, mas não é tão bom como Loveless (\/_o)");
+INSERT INTO Review VALUES(1, 4, "MUITO BOM!!", 5);
+INSERT INTO Review VALUES(1, 3, "Mid", 3);
+INSERT INTO Review VALUES(2, 1, "Como cá 3 vezes por dia :)", 5);
+INSERT INTO Review VALUES(3, 2, "É bom, mas não é tão bom como Loveless (//_o)", 4);
 
 -- Menu(restaurantID, dishID)
 

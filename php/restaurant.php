@@ -28,11 +28,36 @@ class Restaurant {
 
         $stmt = $db->prepare('
             INSERT INTO Restaurant
-            VALUES (?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?)
         ');
 
-        $stmt->execute(array( $this->_restaurantID, $this->_name, $this->_location, $this->_category ));
+        $stmt->execute(array($this->_restaurantID, $this->_name, $this->_location, $this->_category, $this->_opening_time, $this->_closing_time));
     
+    }
+
+    static function searchRestaurants(PDO $db, string $name) {
+        $stmt = $db->prepare('
+            SELECT *
+            FROM Restaurant
+            WHERE name LIKE ?            
+        ');
+
+        $stmt->execute(array($name . "%"));
+
+        $restaurants = array();
+        while ($restaurant = $stmt->fetch(PDO::FETCH_OBJ)) {
+
+            $restaurants[] = new Restaurant(
+                $restaurant->restaurantID,
+                $restaurant->name,
+                $restaurant->location,
+                $restaurant->category,
+                $restaurant->opening_time,
+                $restaurant->closing_time
+            );
+        }
+
+        return $restaurants;
     }
 }
 

@@ -24,10 +24,10 @@ class User
   {
     $stmt = $db->prepare('
             INSERT INTO User
-            VALUES(?, ?, ?, ?, ?, ?)
+            VALUES(?, ?, ?, ?, ?)
         ');
 
-    $stmt->execute(array($this->userID, $this->username, $this->email, $this->password, $this->address, $this->phoneNum));
+    $stmt->execute(array($this->userID, $this->username, $this->email, $this->address, $this->phoneNum));
   }
 
   public function save_to_db($db)
@@ -85,7 +85,30 @@ class User
     );
   }
 
-  function getUserRestaurants(PDO $db, int $id): array {
+  static function searchUsers(PDO $db, string $name) {
+    $stmt = $db->prepare('
+      SELECT *
+      FROM User
+      WHERE username LIKE ?
+    ');
+
+    $stmt->execute(array($name . '%'));
+    $users = array();
+
+    while ($user = $stmt->fetch(PDO::FETCH_OBJ)) {
+      $users[] = new User(
+        $user->userID,
+        $user->username,
+        $user->email,
+        $user->address,
+        $user->phoneNum
+      );
+    }
+
+    return $users;
+  }
+
+  static function getUserRestaurants(PDO $db, int $id): array {
     
     $stmt = $db->prepare('
       SELECT restaurantID
@@ -96,14 +119,14 @@ class User
     $stmt->execute(array($id));
     $restaurants = array();
 
-    while ($restID = $stmt->fetch()) {
+    while ($restID = $stmt->fetch(PDO::FETCH_OBJ)) {
       $stmt2 = $db->prepare('
         SELECT *
         FROM Restaurant
         WHERE restaurantID = ?
       ');
 
-      $stmt2->execute($restID);
+      $stmt2->execute($restID['restaurantID']);
       $restaurant = $stmt2->fetch(PDO::FETCH_OBJ);
 
       $restaurants[] = new Restaurant(
