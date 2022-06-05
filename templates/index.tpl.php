@@ -8,11 +8,14 @@ declare(strict_types=1);
         <img src="../images/placeholder.jpg" class="rest-img shadow">
         <section class="restaurant-description">
             <h3 class="body1 rest-name">Restaurant Name <?php echo $id; ?></h3>
-            <ul class="body2">
-                <li>g1</li>
-                <li>g2</li>
-                <li>g3</li>
-            </ul>
+            <div class="body2 rating dark-bg shadow-nohov">
+                X.X<span class="material-icons">star</span>
+            </div>
+            <div class="genre-list body2">
+                <a class="shadow-nohov">Genre</a>
+                <a class="shadow-nohov">Genre</a>
+                <a class="shadow-nohov">Genre</a>
+            </div>
         </section>
     </div>
 <?php } ?>
@@ -40,10 +43,10 @@ declare(strict_types=1);
 <?php function restaurantPreview(bool $active, int $id)
 {
     if ($active) { ?>
-        <img src="../images/placeholder.jpg" onclick="snapContent(event, 600, 'carousel-container', 'horizontal')" class="rest-preview active" id="rest-preview-<?php echo $id; ?>">
+        <img src="../images/placeholder.jpg" onclick="snapContent(event, 650, 'carousel-container', 'horizontal')" class="rest-preview active" id="rest-preview-<?php echo $id; ?>">
     <?php return;
     } else { ?>
-        <img src="../images/placeholder.jpg" onclick="snapContent(event, 600, 'carousel-container', 'horizontal')" class="rest-preview inactive" id="rest-preview-<?php echo $id; ?>">
+        <img src="../images/placeholder.jpg" onclick="snapContent(event, 650, 'carousel-container', 'horizontal')" class="rest-preview inactive" id="rest-preview-<?php echo $id; ?>">
     <?php } ?>
 <?php } ?>
 

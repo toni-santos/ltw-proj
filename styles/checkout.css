@@ -25,7 +25,69 @@
 #payment-info {
     border-left: 1px solid var(--dark-text);
     margin-left: 10px;
-    padding-left: 20px;
+    padding-left: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 25% ;
+    justify-content: space-between;
+}
+
+#payment-method, #payment-description {
+    display: flex;
+    flex-direction: column
+}
+
+#payment-description {
+    padding: 10px;
+    gap: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 500px;
+}
+
+.pay-desc-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#payment-method {
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+#payment-method > button {
+    margin-inline: 10px;
+    margin-top: 20px;
+}
+
+#payment-method input {
+    margin-right: 10px;
+}
+
+#payment-method > label {
+    margin-left: 10px;
+    
+}
+
+#payment-method :nth-child(3) {
+    margin-top: 5px;
+}
+
+.payment-header {
+    margin-bottom: 20px;
+}
+
+#cart-total {
+    margin-top: 10px;
+    text-align: right;
+}
+
+#confirm-cart {
+    background-color: var(--dark-main-highlight);
+    border: none;
+    border-radius: 12px;
+    padding: 4px;
 }
 
 .item-img {
@@ -74,24 +136,64 @@
     width: 30px;
 }
 
-#items-wrapper {
+#items-wrapper, #payment-description {
     scrollbar-width: thin;
     scrollbar-color: var(--dark-background) var(--dark-off-white);
 }
 
-#items-wrapper::-webkit-scrollbar {
+#items-wrapper::-webkit-scrollbar, #payment-description::-webkit-scrollbar {
     width: 11px;
 }
 
-#items-wrapper::-webkit-scrollbar-track {
+#items-wrapper::-webkit-scrollbar-track, #payment-description::-webkit-scrollbar-track {
     background: var(--dark-background);
 }
 
-#items-wrapper::-webkit-scrollbar-thumb {
+#items-wrapper::-webkit-scrollbar-thumb, #payment-description::-webkit-scrollbar-thumb {
     background-color: var(--dark-off-white);
     border-radius: 12px;
 }
 
-#payment-header {
-    margin-bottom: ;
+@media screen and (max-width: 1300px) {
+    #payment-wrapper {
+        grid-template-columns: 1fr 30%;
+    }
+    
+}
+
+@media screen and (max-width: 800px) {
+    #payment-wrapper {
+        grid-template-columns: 1fr;
+        height: 100%;
+        margin-inline: 10px;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #payment-info {
+        border-left: none;
+        margin-left: 0px;
+        padding-left: 0px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto) ;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    #payment-description {
+        margin-top: 10px;
+        padding: 20px;
+        gap: 10px;
+        height: auto;
+        overflow-y: unset;
+        border-top: 1px solid var(--dark-text);
+    }
+
+    #items-wrapper {
+        padding-right: 0px;
+        height: fit-content;
+    }
 }

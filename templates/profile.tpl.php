@@ -56,7 +56,6 @@ if (isset($_SESSION['id'])) {
                     <p class="" id="tab-<?php echo $i; ?>" onclick="snapContent(event, <?php echo $scrollVal; ?>, 'bottom-content', 'vertical')"><?php echo $tabs[$i]; ?></p>
                 <?php } ?>
             </section>
-            <!-- TODO: fix mobile and resizer -->
             <?php
 
             switch ($page) {

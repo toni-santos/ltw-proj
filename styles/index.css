@@ -118,7 +118,7 @@ div[id^="restaurant-card-"] {
     overflow-x: hidden;
     scroll-snap-type: x mandatory;
     margin: auto;
-    grid-template-columns: repeat(3, minmax(450px, 1fr));
+    grid-template-columns: repeat(3, minmax(550px, 1fr));
     justify-items: center;
     gap: 200px;
     padding-inline: 10px;
@@ -149,7 +149,7 @@ div[id^="restaurant-card-"] {
     div[id^="restaurant-card-"] {
         display: flex;
         flex-direction: column;
-        height: 320px;
+        height: 365px;
     }
 
     #carousel-container {
@@ -248,4 +248,36 @@ div[id^="restaurant-card-"] {
 .register-promo {
     text-align: center;
     border-top: 7px;
+}
+
+.restaurant-description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 3px;
+    padding-inline: 5px;
+    border-radius: 12px;
+    background-color: var(--dark-main-highlight);
+}
+
+.genre-list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.genre-list > a {
+    padding: 3px;
+    padding-inline: 5px;
+    border-radius: 12px;
+    background-color: var(--dark-sub-highlight);
+
 }
