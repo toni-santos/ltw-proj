@@ -126,7 +126,7 @@ class User
         WHERE restaurantID = ?
       ');
 
-      $stmt2->execute($restID['restaurantID']);
+      $stmt2->execute($restID->restaurantID);
       $restaurant = $stmt2->fetch(PDO::FETCH_OBJ);
 
       $restaurants[] = new Restaurant(
