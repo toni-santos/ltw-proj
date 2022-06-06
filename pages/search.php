@@ -51,32 +51,32 @@ drawTop(["search", "commons", "forms"], ["hamburger", "forms", "search", "favori
 <?php 
 if (isset($_SESSION['id'])) { ?>
 <p class="h5 search-header">Favourite Restaurants</p>
-    <section class="grid-wrapper">
-        <?php
-        for ($i = 0; $i < 15; $i++)
-            searchCards();
-        ?>    
-    </section>
+<section class="grid-wrapper">
+    <?php
+    for ($i = 0; $i < 15; $i++)
+        restaurantSearchCards();
+    ?>    
+</section>
 <?php } ?>
 <p class="h5 search-header">Restaurants</p>
 <section class="grid-wrapper">
     <?php
     for ($i = 0; $i < 15; $i++)
-        searchCards();
+        restaurantSearchCards();
     ?>    
 </section>
 <p class="h5 search-header">Dishes</p>
 <section class="grid-wrapper">
     <?php
     for ($i = 0; $i < 15; $i++)
-        searchCards();
+        dishSearchCards();
     ?>    
 </section>
 <p class="h5 search-header">Users</p>
 <section class="grid-wrapper">
     <?php
     for ($i = 0; $i < 15; $i++)
-        searchCards();
+        userSearchCards();
     ?>    
 </section>
 <?php

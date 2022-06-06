@@ -126,13 +126,13 @@ ul {
     z-index: 9999;
 }
 
-#nav-right>li:first-child {
+#cart-icon {
     position: relative;
     border-radius: 50%;
     padding: 5px;
 }
 
-#nav-right>li:first-child:hover {
+#cart-icon:hover {
     background-color: var(--dark-main-highlight);
 }
 

@@ -173,7 +173,7 @@ if (isset($_SESSION['id'])) {
             <li><a class="subtitle1 pointer" id="nav-right-login" onclick="showLogin()">Login</a></li>
             <li><a class="subtitle1 pointer" id="nav-right-signup" onclick="showSignup()">Sign-Up</a></li>
             <?php } else { ?>
-            <li>
+            <li id="cart-icon">
                 <span class="material-icons" onclick="window.location.href = 'checkout.php';">shopping_cart</span>
                 <a id="cart-count" class="subtitle2" onclick="window.location.href = 'checkout.php';">21</a>
             </li>
