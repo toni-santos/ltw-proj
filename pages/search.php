@@ -16,17 +16,17 @@ drawTop(["search", "commons", "forms"], ["hamburger", "forms", "search", "favori
         <fieldset class="shadow-nohov">
             <div class="checkbox-wrapper">
                 <label>
-                    <input class="checkbox" type="checkbox" name="a" checked></input><span class="checkbox-text pointer">Restaurants</span>
+                    <input class="checkbox" type="checkbox" name="r_filter" checked></input><span class="checkbox-text pointer">Restaurants</span>
                 </label>
             </div>
             <div class="checkbox-wrapper">
                 <label>
-                    <input class="checkbox" type="checkbox" name="a" checked></input><span class="checkbox-text pointer">Dishes</span>
+                    <input class="checkbox" type="checkbox" name="d_filter" checked></input><span class="checkbox-text pointer">Dishes</span>
                 </label>
             </div>
             <div class="checkbox-wrapper">
                 <label>
-                    <input class="checkbox" type="checkbox" name="a" checked></input><span class="checkbox-text pointer">Users</span>
+                    <input class="checkbox" type="checkbox" name="u_filter" checked></input><span class="checkbox-text pointer">Users</span>
                 </label>
             </div>
         </fieldset>
@@ -41,7 +41,7 @@ drawTop(["search", "commons", "forms"], ["hamburger", "forms", "search", "favori
     <section id="adv-filters">
         <?php 
         for ($i = 0; $i < 10; $i++) {
-            checkboxButton();
+            checkboxButton("Vegan");
         }
         ?>
     </section>

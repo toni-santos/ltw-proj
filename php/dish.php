@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 class Dish {
 
-    private int $_dishID;
-    private string $_name;
-    private float $_price;
-    private string $_category;
+    public int $_dishID;
+    public string $_name;
+    public float $_price;
+    public string $_category;
 
     public function __construct($dishID, $name, $price, $category) {
         $this->_dishID = $dishID;
@@ -22,7 +22,7 @@ class Dish {
             VALUES (?, ?, ?, ?)
         ');
 
-        $stmt->execute(array( $this->_dishID, $this->_name, $this->_price, $this->_category ));
+        $stmt->execute(array($this->_dishID, $this->_name, $this->_price, $this->_category));
 
     }
 

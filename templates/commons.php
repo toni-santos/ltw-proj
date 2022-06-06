@@ -44,7 +44,7 @@ require_once '../database/db_loader.php';
             <section id="category-wrapper">
                 <?php 
                 for ($i = 0; $i < 10; $i++) {
-                    checkboxButton();
+                    checkboxButton("Test");
                 }
                 ?>
             </section>
@@ -254,10 +254,10 @@ if (isset($_SESSION['id'])) {
 </html>
 <?php } ?>
 
-<?php function checkboxButton() { ?>
+<?php function checkboxButton(string $name) { ?>
     <div class="checkbox-wrapper">
         <label>
-            <input class="checkbox" type="checkbox" name="a" checked></input><span class="checkbox-text shadow-nohov pointer subtitle2">Vegan</span>
+            <input class="checkbox" type="checkbox" name="<?php echo strtolower($name); ?>" checked></input><span class="checkbox-text shadow-nohov pointer subtitle2"><?php echo $name; ?></span>
         </label>
     </div>
 <?php } ?>

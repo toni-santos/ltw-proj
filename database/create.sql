@@ -7,13 +7,16 @@
 DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Restaurant;
 DROP TABLE IF EXISTS Dish;
+DROP TABLE IF EXISTS Category;
 DROP TABLE IF EXISTS Request;
+DROP TABLE IF EXISTS RequestItem;
 DROP TABLE IF EXISTS RestOwner;
 DROP TABLE IF EXISTS Review;
 DROP TABLE IF EXISTS Menu;
 DROP TABLE IF EXISTS FavRestaurants;
 DROP TABLE IF EXISTS FavDishes;
 DROP TABLE IF EXISTS OrderedFrom;
+DROP TABLE IF EXISTS RestaurantCategory;
 
 -- Create tables
 
@@ -32,7 +35,6 @@ CREATE TABLE Restaurant(
     restaurantID        INTEGER,
     name                VARCHAR(255) NOT NULL,
     location            VARCHAR(255) NOT NULL,
-    category            TEXT NOT NULL,
     opening_time        TEXT,
     closing_time        TEXT,
     CONSTRAINT restaurantPK PRIMARY KEY (restaurantID)
@@ -46,12 +48,26 @@ CREATE TABLE Dish(
     CONSTRAINT dishPK PRIMARY KEY (dishID)
 );
 
+CREATE TABLE Category(
+    categoryID          INTEGER,
+    name                TEXT NOT NULL,
+    CONSTRAINT categoryPK PRIMARY KEY (categoryID)
+);
+
 CREATE TABLE Request(
     restaurantID        INTEGER REFERENCES Restaurant(restaurantID),
     userID              INTEGER REFERENCES User(userID),
     state               TEXT NOT NULL,
     CONSTRAINT requestPK PRIMARY KEY (restaurantID, userID),
     CONSTRAINT validState CHECK (state LIKE "Received" OR state LIKE "Preparing" OR state LIKE "Ready" OR state LIKE "Delivered")
+);
+
+CREATE TABLE RequestItem(
+    restaurantID        INTEGER REFERENCES Restaurant(restaurantID),
+    userID              INTEGER REFERENCES User(userID),
+    dishID              INTEGER REFERENCES Dish(dishID),
+    amount              INTEGER CHECK (amount >= 1),
+    CONSTRAINT requestItemPK PRIMARY KEY (restaurantID, userID, dishID)
 );
 
 CREATE TABLE RestOwner(
@@ -91,4 +107,10 @@ CREATE TABLE OrderedFrom(
     userID              INTEGER REFERENCES User(userID),
     orders_num          INTEGER NOT NULL,
     CONSTRAINT orderedFromPK PRIMARY KEY (restaurantID, userID)
+);
+
+CREATE TABLE RestaurantCategory(
+    restaurantID        INTEGER REFERENCES Restaurant(restaurantID),
+    categoryID              INTEGER REFERENCES Category(categoryID),
+    CONSTRAINT restaurantTypePK PRIMARY KEY (restaurantID, categoryID)
 );

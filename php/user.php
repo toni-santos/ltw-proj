@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 class User
 {
-
   public ?int $userID = NULL;
   public ?string $username = NULL;
   public ?string $email = NULL;

@@ -11,17 +11,21 @@
 
     $db = getDatabase();
 
-    $restaurants = Restaurant::searchRestaurants($db, $_GET['s']);
-    $dishes = Dish::searchDishes($db, $_GET['s']);
-    $users = User::searchUsers($db, $_GET['s']);
+    $filters = array($_GET['']);
+
+    $restaurants = isset($_GET['r_filter']) ? Restaurant::searchRestaurants($db, $_GET['s']) : null;
+    $dishes = isset($_GET['d_filter']) ? Dish::searchDishes($db, $_GET['s']) : null;
+    $users = isset($_GET['u_filter']) ? User::searchUsers($db, $_GET['s']) : null;
     
     header("Location: /pages/search.php");
     
     //send info to frontend to be parsed
-
-    //var_dump(json_encode($restaurants));
-    //var_dump(json_encode($dishes));
-    //var_dump(json_encode($users));
-
+    
+    //print_r(json_encode($restaurants));
+    //echo "<br> <br> <br>";
+    //print_r(json_encode($dishes));
+    //echo "<br> <br> <br>";
+    //print_r(json_encode($users));
+    //echo "<br> <br> <br>";
 
 ?>
