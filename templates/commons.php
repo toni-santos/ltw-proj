@@ -257,7 +257,7 @@ if (isset($_SESSION['id'])) {
 <?php function checkboxButton(string $name) { ?>
     <div class="checkbox-wrapper">
         <label>
-            <input class="checkbox" type="checkbox" name="<?php echo strtolower($name); ?>" checked></input><span class="checkbox-text shadow-nohov pointer subtitle2"><?php echo $name; ?></span>
+            <input class="checkbox" type="checkbox" name="filters[]" value="<?php echo $name ?>"checked></input><span class="checkbox-text shadow-nohov pointer subtitle2"><?php echo $name; ?></span>
         </label>
     </div>
 <?php } ?>

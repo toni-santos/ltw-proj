@@ -40,8 +40,10 @@ drawTop(["search", "commons", "forms"], ["hamburger", "forms", "search", "favori
     <a id="show-more"><span class="material-icons pointer" onclick="showAdvanced(event)">expand_more</span></a>
     <section id="adv-filters">
         <?php 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 1; $i++) {
             checkboxButton("Vegan");
+            checkboxButton("BBQ");
+            checkboxButton("American");
         }
         ?>
     </section>

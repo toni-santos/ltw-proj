@@ -49,9 +49,8 @@ CREATE TABLE Dish(
 );
 
 CREATE TABLE Category(
-    categoryID          INTEGER,
-    name                TEXT NOT NULL,
-    CONSTRAINT categoryPK PRIMARY KEY (categoryID)
+    name                TEXT,
+    CONSTRAINT categoryPK PRIMARY KEY (name)
 );
 
 CREATE TABLE Request(
@@ -111,6 +110,6 @@ CREATE TABLE OrderedFrom(
 
 CREATE TABLE RestaurantCategory(
     restaurantID        INTEGER REFERENCES Restaurant(restaurantID),
-    categoryID              INTEGER REFERENCES Category(categoryID),
-    CONSTRAINT restaurantTypePK PRIMARY KEY (restaurantID, categoryID)
+    categoryName        TEXT REFERENCES Category(name),
+    CONSTRAINT restaurantTypePK PRIMARY KEY (restaurantID, categoryName)
 );

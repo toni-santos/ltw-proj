@@ -26,16 +26,26 @@ class Dish {
 
     }
 
-    static function searchDishes(PDO $db, string $name) {
-        $stmt = $db->prepare('
-            SELECT *
-            FROM Dish
-            WHERE name LIKE ?
-        ');
+    static function searchDishes(PDO $db, string $name, array $filters) {
 
-        $stmt->execute(array($name . '%'));
+        $query = "SELECT * FROM Dish WHERE name LIKE '";
+        $query .= $name . "%'";
+
+        if ($filters) {
+
+            $query .= " AND (category = '" . $filters[0] . "'";
+
+            for ($i = 1; $i < count($filters); $i++) {
+                $query .= " OR category = '" . $filters[$i] . "'";
+            }
+
+            $query .= ")";
+        }
+        
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        
         $dishes = array();
-
         while ($dish = $stmt->fetch(PDO::FETCH_OBJ)) {
             $dishes[] = new Dish(
                 $dish->dishID,
@@ -46,8 +56,7 @@ class Dish {
         }
 
         return $dishes;
+    
     }
 
 }
-
-?>

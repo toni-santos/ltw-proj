@@ -50,15 +50,22 @@ INSERT INTO Menu VALUES(2, 5);
 INSERT INTO Menu VALUES(3, 2);
 INSERT INTO Menu VALUES(1, 1);
 
--- Category(categoryID, name)
+-- Category(name)
 
-INSERT INTO Category 
-VALUES (1, 'Vegetarian'), (2, 'Vegan'), (3, 'Gluten Free'), (4, 'Asian'), (5, 'Fast Food'),
-(6, 'Burger'), (7, 'Pizza'), (8, 'Italian'), (9, 'Sushi'), (10, 'Healthy'), (11, 'BBQ'), (12, 'Portuguese'),
-(13, 'Sandwich'), (14, 'Desserts'), (15, 'Poke'), (16, 'Brazilian'), (17, 'Kebab'), (18, 'Chinese'),
-(19, 'Comfort Food'), (20, 'Mexican'), (21, 'Juice and Smoothies'), (22, 'Indian'), (23, 'Chicken'),
-(24, 'Bakery'), (25, 'Pasta'), (26, 'Deli'), (27, 'Soup'), (28, 'Hot Dog'), (29, 'Wings'), (30, 'Thai'),
-(31, 'Salads'), (32, 'Seafood'), (33, 'Pastry'), (34, 'Burritos'), (35, 'American'), (36, 'European'),
-(37, 'Fish and Chips'), (38, 'Ice Cream'), (39, 'Coffee and Tea'), (40, 'Middle Eastern'),
-(41, 'Halal'), (42, 'Japanese'), (43, 'Turkish'), (44, 'Pub'), (45, 'Spanish'), (46, 'Hawaiian'),
-(47, 'South American'), (48, 'Greek'), (49, 'Mediterranean'), (50, 'Falafel');
+INSERT INTO Category
+VALUES ('Vegetarian'), ('Vegan'), ('Gluten Free'), ('Asian'), ('Fast Food'),
+('Burger'), ('Pizza'), ('Italian'), ('Sushi'), ('Healthy'), ('BBQ'), ('Portuguese'),
+('Sandwich'), ('Desserts'), ('Poke'), ('Brazilian'), ('Kebab'), ('Chinese'),
+('Comfort Food'), ('Mexican'), ('Juice and Smoothies'), ('Indian'), ('Chicken'),
+('Bakery'), ('Pasta'), ('Deli'), ('Soup'), ('Hot Dog'), ('Wings'), ('Thai'),
+('Salads'), ('Seafood'), ('Pastry'), ('Burritos'), ('American'), ('European'),
+('Fish and Chips'), ('Ice Cream'), ('Coffee and Tea'), ('Middle Eastern'),
+('Halal'), ('Japanese'), ('Turkish'), ('Pub'), ('Spanish'), ('Hawaiian'),
+('South American'), ('Greek'), ('Mediterranean'), ('Falafel');
+
+-- RestaurantCategory(restaurantID, categoryName)
+
+INSERT INTO RestaurantCategory VALUES (1, "American");
+INSERT INTO RestaurantCategory VALUES (2, "Vegan");
+INSERT INTO RestaurantCategory VALUES (3, "BBQ");
+INSERT INTO RestaurantCategory VALUES (1, "Fast Food");

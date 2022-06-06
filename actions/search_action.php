@@ -10,22 +10,14 @@
     require_once('../php/dish.php');
 
     $db = getDatabase();
+    $filters = array_values(array_diff($_GET['filters'], array(null)));
 
-    $filters = array($_GET['']);
-
-    $restaurants = isset($_GET['r_filter']) ? Restaurant::searchRestaurants($db, $_GET['s']) : null;
-    $dishes = isset($_GET['d_filter']) ? Dish::searchDishes($db, $_GET['s']) : null;
+    $restaurants = isset($_GET['r_filter']) ? Restaurant::searchRestaurants($db, $_GET['s'], $filters) : null;
+    $dishes = isset($_GET['d_filter']) ? Dish::searchDishes($db, $_GET['s'], $filters) : null;
     $users = isset($_GET['u_filter']) ? User::searchUsers($db, $_GET['s']) : null;
     
-    header("Location: /pages/search.php");
+    //header("Location: /pages/search.php");
     
     //send info to frontend to be parsed
-    
-    //print_r(json_encode($restaurants));
-    //echo "<br> <br> <br>";
-    //print_r(json_encode($dishes));
-    //echo "<br> <br> <br>";
-    //print_r(json_encode($users));
-    //echo "<br> <br> <br>";
 
 ?>

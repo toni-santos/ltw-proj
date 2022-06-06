@@ -28,14 +28,32 @@ class Restaurant {
     
     }
 
-    static function searchRestaurants(PDO $db, string $name) {
-        $stmt = $db->prepare('
-            SELECT *
-            FROM Restaurant
-            WHERE name LIKE ?            
-        ');
+    static function searchRestaurants(PDO $db, string $name, array $filters) {
 
-        $stmt->execute(array($name . "%"));
+        $query = "SELECT DISTINCT Restaurant.restaurantID, name, location, opening_time, closing_time FROM Restaurant";
+
+        if ($filters) {
+
+            $query .= "
+            JOIN RestaurantCategory
+            ON RestaurantCategory.restaurantID = Restaurant.restaurantID
+            AND (categoryName = '" . $filters[0] . "'";
+
+            for ($i = 1; $i < count($filters); $i++) {
+                $query .= " OR categoryName = '" . $filters[$i] . "'";
+            }
+
+            $query .= ")";
+
+        }
+
+        $query .= " WHERE name LIKE '";
+        $query .= $name . "%'";
+
+        echo $query;
+
+        $stmt = $db->prepare($query);
+        $stmt->execute();
 
         $restaurants = array();
         while ($restaurant = $stmt->fetch(PDO::FETCH_OBJ)) {
@@ -44,7 +62,6 @@ class Restaurant {
                 $restaurant->restaurantID,
                 $restaurant->name,
                 $restaurant->location,
-                $restaurant->category,
                 $restaurant->opening_time,
                 $restaurant->closing_time
             );
