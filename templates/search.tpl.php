@@ -6,14 +6,22 @@ function searchCards()
 { ?>
     <div class="grid-card shadow">
         <section class="grid-card-overlay">
-            <p class="body1 dark-bg rest-name">Restaurant name</p>
             <div class="sub-info">
-                <p class="body2 dark-bg rest-loc">location</p>
-                <ul class="body2 dark-bg rest-genres">
-                    <li>g1</li>
-                    <li>g2</li>
-                    <li>g3</li>
-                </ul>
+                <div class="sub-info-top">
+                    <p class="body1 dark-bg rest-name">Restaurant name</p>
+                    <form method="POST" action=""> <!-- TODO: toggle favorite action -->
+                        <span class="material-icons dark-bg" onclick="toggleFav(event)">favorite_border</span>
+                    </form>
+                </div>
+                <div class="sub-info-bottom">
+                    <p class="body2 dark-bg rest-loc">location</p>
+                    <p class="body2 dark-bg rating">4<span class="material-icons dark-bg">star</span></p>
+                    <div class="genre-list body2">
+                        <a class="shadow-nohov">Genre</a>
+                        <a class="shadow-nohov">Genre</a>
+                        <a class="shadow-nohov">Genre</a>
+                    </div>
+                </div>
             </div>
         </section>
     </div>

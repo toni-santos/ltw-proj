@@ -173,12 +173,15 @@ if (isset($_SESSION['id'])) {
             <li><a class="subtitle1 pointer" id="nav-right-login" onclick="showLogin()">Login</a></li>
             <li><a class="subtitle1 pointer" id="nav-right-signup" onclick="showSignup()">Sign-Up</a></li>
             <?php } else { ?>
+            <li>
+                <span class="material-icons" onclick="window.location.href = 'checkout.php';">shopping_cart</span>
+                <a id="cart-count" class="subtitle2" onclick="window.location.href = 'checkout.php';">21</a>
+            </li>
             <li class="dropdown"><a class="subtitle1"><?php echo $user->username; ?></a></li>
             <li class="dropdown"><img class="nav-pfp" src="../images/placeholder.jpg"></li>
             <section id="dropdown-content">
                 <a class="subtitle2" href="user_page.php">My Profile</a>
                 <a class="subtitle2" href="dashboard.php">My Dashboard</a>
-                <a class="subtitle2" href="checkout.php">My Cart</a>
                 <form action="../actions/logout_action.php" method="POST">
                     <button type="submit" class="blank-button subtitle2">
                         Logout

@@ -11,181 +11,18 @@ drawTop(["commons", "forms", "checkout"], ["hamburger", "forms"]);
 <div id="payment-wrapper">
     <section id="items-wrapper">
         <?php
-        for ($i = 0; $i < 10; $i++) {
-            cartItem();
+        for ($i = 0; $i < 4; $i++) {
+            cartItem($i);
         }
         ?>
     </section>
     <aside id="payment-info">
         <div id="payment-description">
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
-            <div class="pay-desc-item subtitle2">
-                <a>food</a>
-                <a>1x 10€</a>
-            </div>
+        <?php
+        for ($i = 0; $i < 4; $i++) {
+            itemPrice($i, intval(1));
+        }
+        ?>
         </div>
         <div id="payment-method">
             <p class="h6 payment-header">Payment Method</p>

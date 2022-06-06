@@ -5,7 +5,7 @@ session_start();
 require_once('../templates/commons.php');
 require_once('../templates/search.tpl.php');
 
-drawTop(["search", "commons", "forms"], ["hamburger", "forms", "search"]);
+drawTop(["search", "commons", "forms"], ["hamburger", "forms", "search", "favorite"]);
 ?>
 <form id="search-bar" action="../actions/search_action.php" class="subtitle2" autocomplete="off" method="GET">
     <section id="search-container">

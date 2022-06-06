@@ -43,6 +43,7 @@
     flex-direction: column;
     margin-bottom: 7px;
     margin-left: 5px;
+    height: 100%;
 }
 
 .search-header {
@@ -131,4 +132,41 @@ select {
     border-radius: 12px;
     background-color: var(--dark-main-highlight);
     padding: 8px;
+}
+
+.sub-info-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sub-info-bottom {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 3px;
+    padding-inline: 5px;
+    border-radius: 12px;
+    background-color: var(--dark-main-highlight);
+}
+
+.genre-list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.genre-list > a {
+    padding: 3px;
+    padding-inline: 5px;
+    border-radius: 12px;
+    background-color: var(--dark-sub-highlight);
 }
