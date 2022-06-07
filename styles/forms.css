@@ -103,3 +103,30 @@ input[type=number] {
     align-items: center;
     justify-content: space-between;
 }
+
+.profile-pic-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-pic-input > img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.profile-pic-input span {
+    position: absolute;
+    bottom: 0px;
+    left: 120px;
+    background-color: var(--dark-main-highlight);
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.profile-pic-input > input {
+    display: none;
+}

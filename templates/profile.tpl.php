@@ -106,22 +106,22 @@ if (isset($_SESSION['id'])) {
                             </div>
                             <div id="personal-info-wrapper" class="shadow-nohov">
                                 <div class="personal-info">
-                                    <span class="material-icons md-48">person</span>
+                                    <span class="material-icons md-36">person</span>
                                     <p class="body1 light-bg">Username</p>
                                     <p class="body2 light-bg"><?php echo $user->username; ?></p>
                                 </div>
                                 <div class="personal-info">
-                                    <span class="material-icons md-48">email</span>
+                                    <span class="material-icons md-36">email</span>
                                     <p class="body1 light-bg">Email</p>
                                     <p class="body2 light-bg"><?php echo $user->email; ?></p>
                                 </div>
                                 <div class="personal-info">
-                                    <span class="material-icons md-48">home</span>
+                                    <span class="material-icons md-36">home</span>
                                     <p class="body1 light-bg">Address</p>
                                     <p class="body2 light-bg"><?php echo $user->address; ?></p>
                                 </div>
                                 <div class="personal-info">
-                                    <span class="material-icons md-48">phone</span>
+                                    <span class="material-icons md-36">phone</span>
                                     <p class="body1 light-bg">Phone Number</p>
                                     <p class="body2 light-bg"><?php echo $user->phoneNum; ?></p>
                                 </div>
@@ -248,6 +248,11 @@ if (isset($_SESSION['id'])) {
         </div>
         <form method="POST">
             <section id="inputs-box">
+                <div class="profile-pic-input">
+                    <img src="../images/placeholder.jpg" id="profile-"></img>
+                    <input type="file" name="profile-pic" id="pfp-input">
+                    <label class="body2 dark-bg" for="pwd"  onclick="inputFile(event)"><span class="md-10 material-icons">edit</span></label> 
+                </div>
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" ">
                     <label class="body2 dark-bg" for="name" onclick="setFocus(event)">Name</label>

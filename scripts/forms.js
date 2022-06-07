@@ -99,3 +99,9 @@ function closeRestaurantDialog() {
     const dialog = document.getElementById('dialog-restaurant-registration');
     dialog.close();
 }
+
+function inputFile(event) {
+    const input = document.getElementById('pfp-input');
+    input.click();
+    e.preventDefault();
+}
