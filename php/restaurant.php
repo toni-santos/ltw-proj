@@ -1,16 +1,26 @@
 <?php
 declare(strict_types = 1);
 
+require_once("../database/db_loader.php");
+
 class Restaurant {
 
-    public int $_restaurantID;
+    public ?int $_restaurantID;
     public string $_name;
     public string $_location;
     public ?string $_opening_time;
     public ?string $_closing_time;
 
-    public function __construct($restaurantID, $name, $location, $opening_time = NULL, $closing_time = NULL) {
-        $this->_restaurantID = $restaurantID;
+    public function __construct($restaurantID = NULL, $name, $location, $opening_time = NULL, $closing_time = NULL) {
+
+        if (!isset($restaurantID)) {
+            $db = getDatabase();
+            $stmt = $db->prepare("SELECT max(restaurantID) FROM Restaurant");
+            $stmt->execute();
+
+            $this->_restaurantID = intval($stmt->fetch()['max(restaurantID)']) + 1;
+        } else $this->_restaurantID = $restaurantID;
+        
         $this->_name = $name;
         $this->_location = $location;
         $this->_opening_time = $opening_time;
@@ -49,8 +59,6 @@ class Restaurant {
 
         $query .= " WHERE name LIKE '";
         $query .= $name . "%'";
-
-        echo $query;
 
         $stmt = $db->prepare($query);
         $stmt->execute();

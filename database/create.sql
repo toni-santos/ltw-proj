@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS RestaurantCategory;
 CREATE TABLE User(
     userID              INTEGER,
     username            VARCHAR(255) NOT NULL,
-    email               VARCHAR(255) NOT NULL,
+    email               VARCHAR(255) UNIQUE NOT NULL,
     password            VARCHAR(255) NOT NULL,
     address             TEXT,
     phoneNum            INTEGER,

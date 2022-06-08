@@ -12,10 +12,12 @@
     $db = getDatabase();
     $filters = array_values(array_diff($_GET['filters'], array(null)));
 
-    $restaurants = isset($_GET['r_filter']) ? Restaurant::searchRestaurants($db, $_GET['s'], $filters) : null;
-    $dishes = isset($_GET['d_filter']) ? Dish::searchDishes($db, $_GET['s'], $filters) : null;
-    $users = isset($_GET['u_filter']) ? User::searchUsers($db, $_GET['s']) : null;
-    
+    $restaurants = isset($_GET['r_filter']) ? Restaurant::searchRestaurants($db, htmlspecialchars($_GET['s']), $filters) : null;
+    $dishes = isset($_GET['d_filter']) ? Dish::searchDishes($db, htmlspecialchars($_GET['s']), $filters) : null;
+    $users = isset($_GET['u_filter']) ? User::searchUsers($db, htmlspecialchars($_GET['s'])) : null;
+
+
+    print_r($restaurants);
     //header("Location: /pages/search.php");
     
     //send info to frontend to be parsed
