@@ -246,7 +246,7 @@ if (isset($_SESSION['id'])) {
                 <span class="material-icons">close</span>
             </button>
         </div>
-        <form method="POST">
+        <form method="POST", action="../actions/edit_user_page_action.php">
             <section id="inputs-box">
                 <div class="profile-pic-input">
                     <img src="../images/placeholder.jpg" id="profile-"></img>
@@ -268,12 +268,12 @@ if (isset($_SESSION['id'])) {
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="number" name="tel" autocomplete="off" placeholder=" ">
                     <label class="body2 dark-bg" for="tel" onclick="setFocus(event)">Phone Number</label>
-                </div>
+            <!--    </div>
                 <div class="input-container">
                     <input class="text text-input password subtitle2" type="password" name="pwd" placeholder=" " autocomplete="off" minlength="8">
                     <label class="body2 dark-bg" for="pwd" onclick="setFocus(event)">Password</label>
                     <span class="material-icons md-24 md-light password-eye" onclick="showPassword(event)">visibility</span>
-                </div>
+                </div> -->
             </section>
             <button id="confirm-edit" class="button-form" type="submit" name="submit"> Edit </button>
         </form>

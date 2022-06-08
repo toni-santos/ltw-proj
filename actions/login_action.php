@@ -13,27 +13,4 @@
 	
  	header('Location: /pages/index.php');
 	
-	// header('Location: ' . $_SERVER['HTTP_REFERER']);
-
-	// if(isset($_POST['email'])){
-	// 	$email = $_POST['email'];
-	// 	$password = $_POST['pwd'];
-			
-	// 	$query = 'SELECT COUNT(*) as count FROM User WHERE email = :email AND password = :password';
-	// 	$stmt = $db->prepare($query);
-	// 	$stmt->bindParam(':email', $email);
-	// 	$stmt->bindParam(':password', $password);
-	// 	$stmt->execute();
-	// 	$row = $stmt->fetch();
-		
-	// 	$count = $row['count'];
-
-	// 	if($count > 0){
-	// 		header("Location:../index.php");
-	// 	}else{
-	// 	 	$_SESSION['error'] = "Invalid email or password";
-	// 	 	header("Location:../login.php");
-	// 	}
-	// }
-	
 ?>

@@ -32,11 +32,11 @@ class User
   public function save_to_db($db)
   {
     $stmt = $db->prepare('
-            UPDATE User SET username = ?, password = ?
+            UPDATE User SET username = ?, email = ?, address = ?, phoneNum = ?
             WHERE userID = ?
         ');
 
-    $stmt->execute(array($this->username,  $this->email, $this->userID));
+    $stmt->execute(array($this->username,  $this->email, $this->address, $this->phoneNum, $this->userID));
   }
 
   function name()
@@ -73,14 +73,14 @@ class User
     ');
 
     $stmt->execute(array($id));
-    $user = $stmt->fetch(PDO::FETCH_OBJ);
+    $user = $stmt->fetch();
 
     return new User(
-      $user->userID,
-      $user->username,
-      $user->email,
-      $user->address,
-      $user->phoneNum,
+      $user['userID'],
+      $user['username'],
+      $user['email'],
+      $user['address'],
+      $user['phoneNum']
     );
   }
 
