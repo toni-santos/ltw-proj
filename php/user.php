@@ -10,13 +10,21 @@ class User
   public ?string $address = NULL;
   public ?int $phoneNum = NULL;
 
-  public function __construct($userID, $username, $email, $address, $phoneNum)
-  {
-    $this->userID = $userID;
+  public function __construct($userID, $username, $email, $address, $phoneNum) {
+
+    if (!isset($userID)) {
+      $db = getDatabase();
+      $stmt = $db->prepare("SELECT max(userID) FROM User");
+      $stmt->execute();
+
+      $this->userID = intval($stmt->fetch()['max(userID)']) + 1;
+    } else $this->userID = $userID;
+
     $this->username = $username;
     $this->email = $email;
     $this->address = $address;
     $this->phoneNum = $phoneNum;
+    
   }
 
   public function add_to_db($db)
@@ -94,6 +102,7 @@ class User
     $stmt->execute(array($name . '%'));
     $users = array();
 
+    $i = 0;
     while ($user = $stmt->fetch(PDO::FETCH_OBJ)) {
       $users[] = new User(
         $user->userID,

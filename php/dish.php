@@ -3,13 +3,20 @@ declare(strict_types=1);
 
 class Dish {
 
-    public int $_dishID;
+    public ?int $_dishID;
     public string $_name;
     public float $_price;
     public string $_category;
 
     public function __construct($dishID, $name, $price, $category) {
-        $this->_dishID = $dishID;
+        if (!isset($dishID)) {
+            $db = getDatabase();
+            $stmt = $db->prepare("SELECT max(dishID) FROM Dish");
+            $stmt->execute();
+
+            $this->_dishID = intval($stmt->fetch()['max(dishID)']) + 1;
+        } else $this->_dishID = $dishID;
+        
         $this->_name = $name;
         $this->_price = $price;
         $this->_category = $category;
