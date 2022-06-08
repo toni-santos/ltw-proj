@@ -54,7 +54,7 @@ declare(strict_types=1);
 { ?>
     <section class="signup-promo">
         <section class="promo promo-user shadow">
-            <img src="../images/placeholder.jpg" class="promo-img">
+            <img src="../images/promo_2.jpg" class="promo-img">
             <section class="promo-desc">
                 <h4 class="body1">Start ordering!</h4>
                 <p class="subtitle2">Get food from your favorite restaurants, simply create an account below!</p>
@@ -67,7 +67,7 @@ declare(strict_types=1);
 <?php function promosUser() { ?>
     <section class="signup-promo">
         <section class="promo promo-restaurant shadow">
-            <img src="../images/placeholder.jpg" class="promo-img">
+            <img src="../images/promo_1.jpg" class="promo-img">
             <section class="promo-desc">
                 <h4 class="body1">Get your business out there!</h4>
                 <p class="subtitle2">Are you a restaurant owner looking to start your business on food delivery?</p>

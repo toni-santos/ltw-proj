@@ -36,7 +36,7 @@ function restaurantSearchCards()
                 <div class="sub-info-top">
                     <p class="body1 dark-bg rest-name">Restaurant name</p>
                     <form method="POST" action=""> <!-- TODO: toggle favorite action -->
-                        <span class="material-icons dark-bg" onclick="toggleFav(event)">favorite_border</span>
+                        <button class="blank-button"><span class="material-icons dark-bg" onclick="toggleFav(event)">favorite_border</span></button>
                     </form>
                 </div>
                 <div class="sub-info-bottom">
@@ -62,7 +62,7 @@ function dishSearchCards()
                 <div class="sub-info-top">
                     <p class="body1 dark-bg rest-name">Dish name</p>
                     <form method="POST" action=""> <!-- TODO: toggle favorite action -->
-                        <span class="material-icons dark-bg" onclick="toggleFav(event)">favorite_border</span>
+                        <button class="blank-button"><span class="material-icons dark-bg" onclick="toggleFav(event)">favorite_border</span></button>
                     </form>
                 </div>
                 <div class="sub-info-bottom">
@@ -72,6 +72,9 @@ function dishSearchCards()
                         <a class="shadow-nohov">Genre</a>
                         <a class="shadow-nohov">Genre</a>
                     </div>
+                    <form method="POST" action="">
+                        <button class="body1 blank-button order" >Order</button>
+                    </form>
                 </div>
             </div>
         </section>

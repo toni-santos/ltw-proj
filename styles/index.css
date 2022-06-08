@@ -281,3 +281,23 @@ div[id^="restaurant-card-"] {
     background-color: var(--dark-sub-highlight);
 
 }
+
+@media screen and (max-width: 900px) {
+    .top-text {
+        width: 300px;
+    }
+
+    #top-desc {
+        width: inherit;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .top-text {
+        width: 150px;
+    }
+
+    #top-desc {
+        width: inherit;
+    }
+}

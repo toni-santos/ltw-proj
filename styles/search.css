@@ -154,7 +154,7 @@ select {
     padding: 3px;
     padding-inline: 5px;
     border-radius: 12px;
-    background-color: var(--dark-main-highlight);
+    background-color: var(--dark-sub-highlight);
 }
 
 .genre-list {
@@ -169,4 +169,10 @@ select {
     padding-inline: 5px;
     border-radius: 12px;
     background-color: var(--dark-sub-highlight);
+}
+
+.order {
+    background-color: var(--dark-main-highlight);
+    padding: 5px;
+    border-radius: 15px;
 }

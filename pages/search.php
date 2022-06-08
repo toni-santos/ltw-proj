@@ -48,16 +48,6 @@ drawTop(["search", "commons", "forms"], ["hamburger", "forms", "search", "favori
         ?>
     </section>
 </form>
-<?php 
-if (isset($_SESSION['id'])) { ?>
-<p class="h5 search-header">Favourite Restaurants</p>
-<section class="grid-wrapper">
-    <?php
-    for ($i = 0; $i < 15; $i++)
-        restaurantSearchCards();
-    ?>    
-</section>
-<?php } ?>
 <p class="h5 search-header">Restaurants</p>
 <section class="grid-wrapper">
     <?php

@@ -4,6 +4,7 @@
 
 	//including the database connection
 	require_once "../database/db_loader.php";
+	require_once '../php/user.php';
 
 	$db = getDatabase();
 	$Error = "";
@@ -38,6 +39,12 @@
 			
 			// Check if the execution of query is success
 			if($exec) {
+				$user = User::getUserWithPassword($db, $_POST['email'], $_POST['pwd']);
+
+				if ($user) {
+					 $_SESSION['id'] = $user->userID;
+				}
+			
 				//redirecting to the index.php 
 				header("Location:../index.php");
 			

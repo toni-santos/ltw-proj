@@ -180,7 +180,7 @@ if (isset($_SESSION['id'])) {
             <li class="dropdown"><a class="subtitle1"><?php echo $user->username; ?></a></li>
             <li class="dropdown"><img class="nav-pfp" src="../images/placeholder.jpg"></li>
             <section id="dropdown-content">
-                <a class="subtitle2" href="user_page.php">My Profile</a>
+                <a class="subtitle2" href="user_profile.php">My Profile</a>
                 <a class="subtitle2" href="dashboard.php">My Dashboard</a>
                 <form action="../actions/logout_action.php" method="POST">
                     <button type="submit" class="blank-button subtitle2">
@@ -210,7 +210,7 @@ if (isset($_SESSION['id'])) {
             <div id="user-bar">
                 <div id="user-info">
                     <img class="nav-pfp" src="../images/placeholder.jpg" onclick="window.location.href = 'pages/user_page.php';">
-                    <a class="subtitle1" href="user_page.php"><?php echo $user->username; ?></a>
+                    <a class="subtitle1" href="user_profile.php"><?php echo $user->username; ?></a>
                 </div>
                 <form action="../actions/logout_action.php" method="POST">
                     <button type="submit" class="blank-button">

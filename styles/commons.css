@@ -652,6 +652,10 @@ dialog {
     margin-bottom: 10px;
 }
 
+#dialog-user-edit {
+    width: 300px;
+}
+
 .checkbox-text {
     border-radius: 10px;
     padding: 0.5em;

@@ -4,6 +4,7 @@
     object-fit: cover;
     z-index: -99999999;
     position: relative;
+    background-color: var(--dark-main-highlight);
 }
 
 #tabs-container {
@@ -157,17 +158,26 @@
 
 }
 
-.star {
-    color: rgb(235, 223, 0);
+.input-star {
+    display: none;
 }
 
-.star:hover {
-    color: rgb(162, 144, 10);
+.star + label {
+    color: var(--dark-sub-highlight);
 }
 
-.star-selected {
-    color: rgb(203, 181, 11);
+.star + label:hover  {
+    color: var(--dark-main-highlight);
 }
+
+.star:checked + label {
+    color: var(--dark-main-highlight);
+}
+
+.star:checked + label:hover {
+    color: var(--dark-sub-highlight);
+}
+
 
 .star-container {
     position: relative;
@@ -198,6 +208,9 @@
     width: 10%;
     margin: 0px;
     position: relative;
+    background-color: var(--dark-sub-highlight);
+    padding: 1px;
+    border-radius: 12px;
 }
 
 .review {
@@ -280,6 +293,7 @@
     justify-items: center;
     align-items: center;
     column-gap: 20px;
+    row-gap: 3px;
 }
 
 .personal-info > span {
@@ -290,8 +304,8 @@
 #personal-info-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    background-color: var(--dark-main-highlight);
+    gap: 10px;
+    background-color: var(--dark-sub-highlight);
     padding: 20px;
     padding-inline: 40px;
     border-radius: 12px;
