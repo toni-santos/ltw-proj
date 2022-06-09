@@ -13,4 +13,15 @@
 
     }
 
+    function unfav_restaurant_action($db, $fav_restaurant_id) {
+        
+        if (isset($_SESSION['id']) && isset($fav_restaurant_id)) {
+            $stmt = $db->prepare("DELETE FROM FavRestaurants WHERE restaurantID = ? AND userID = ?");
+            $stmt->execute(array($fav_restaurant_id, $_SESSION['id']));
+            echo json_encode(array('success' => true));
+        } 
+        else echo json_encode(array('success' => false));
+
+    }
+
 ?>
