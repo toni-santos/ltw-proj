@@ -1,7 +1,7 @@
 PRAGMA FOREIGN_KEYS = ON;
 
 -- User(userID, username, password, address, phoneNum)
-INSERT INTO User VALUES (1, "João Lucas", "joaolucas2000@gmail.com", "cbfdac6008f9cab4083784cbd1874f76618d2a97", "Algures", 919988767);
+INSERT INTO User VALUES (NULL, "João Lucas", "joaolucas2000@gmail.com", "cbfdac6008f9cab4083784cbd1874f76618d2a97", "Algures", 919988767);
 INSERT INTO User VALUES (2, "António Santos", "tonigaming@hotmail.com" , "77d44acbee1aa39f3f17c59ebfcdcf83eab61b20", "Vila Nova da Telha", NULL);
 INSERT INTO User VALUES (3, "Luís Osório", "zefLux@sapo.pt", "a83fc9d1ae776f5de63810f41ee682638b74c0df", "Alfena", 912345678);
 INSERT INTO User VALUES (4, "Pedro Silva", "oneseven@yugioh.com", "e704dd4d2c83f974cc240a56c91392192af6b2d1", "Maia", NULL);

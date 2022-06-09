@@ -9,7 +9,13 @@
 
     if (isset($_SESSION['id'])) {
         $stmt = $db->prepare("SELECT * FROM RestOwner WHERE restaurantID = ? AND ownerID = ?");
-        $stmt->execute(array($_POST['cat_restaurant_id'], $_SESSION['id']));
+
+        try {
+            $stmt->execute(array($_POST['cat_restaurant_id'], $_SESSION['id']));
+        } catch (PDOException $e) {
+            echo $e;
+            die (header("Location /pages/index.php"));
+        }
 
         if ($_SESSION['id'] === $stmt->fetch()['ownerID']) {
 

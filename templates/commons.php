@@ -18,7 +18,7 @@ require_once '../database/db_loader.php';
                 <span class="material-icons">close</span>
             </button>
         </div>
-        <form id="form-restaurant" method="POST">
+        <form id="form-restaurant" action="../actions/create_restaurant.php" method="POST">
             <section id="inputs-box">
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>

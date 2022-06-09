@@ -7,6 +7,7 @@ require_once('../templates/search.tpl.php');
 
 drawTop(["search", "commons", "forms"], ["hamburger", "forms", "search", "favorite"]);
 ?>
+
 <form id="search-bar" action="../actions/search_action.php" class="subtitle2" autocomplete="off" method="GET">
     <section id="search-container">
         <input class="search shadow-nohov body1" type="search" name="s" id="restaurant-search" placeholder="Search">

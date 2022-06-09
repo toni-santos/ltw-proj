@@ -15,7 +15,7 @@ drawRestaurantDialog();
 <section class="grid-wrapper">
     <?php
     for ($i = 0; $i < 10; $i++) {
-        searchCards();
+        restaurantSearchCards();
     }
     ?>
 </section>

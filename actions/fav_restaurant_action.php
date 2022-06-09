@@ -1,17 +1,16 @@
 <?php
 
     declare(strict_types = 1);
-    session_start();
 
-    require_once("../database/db_loader.php");
+    function fav_restaurant_action($db, $fav_restaurant_id) {
 
-    $db = getDatabase();
+        if (isset($_SESSION['id']) && isset($fav_restaurant_id)) {
+            $stmt = $db->prepare("INSERT INTO FavRestaurants VALUES (?, ?)");
+            $stmt->execute(array($fav_restaurant_id, $_SESSION['id']));
+            echo json_encode(array('success' => true));
+        } 
+        else echo json_encode(array('success' => false));
 
-    if (isset($_SESSION['id']) && isset($_POST['fav_restaurant_id'])) {
-        $stmt = $db->prepare("INSERT INTO FavRestaurants VALUES (?, ?)");
-        $stmt->execute(array($_POST['fav_restaurant_id'], $_SESSION['id']));
     }
-
-    //header('Location: /pages/index.php');
 
 ?>

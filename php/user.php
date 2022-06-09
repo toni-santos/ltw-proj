@@ -12,14 +12,7 @@ class User
 
   public function __construct($userID, $username, $email, $address, $phoneNum) {
 
-    if (!isset($userID)) {
-      $db = getDatabase();
-      $stmt = $db->prepare("SELECT max(userID) FROM User");
-      $stmt->execute();
-
-      $this->userID = intval($stmt->fetch()['max(userID)']) + 1;
-    } else $this->userID = $userID;
-
+    $this->userID = $userID;
     $this->username = $username;
     $this->email = $email;
     $this->address = $address;

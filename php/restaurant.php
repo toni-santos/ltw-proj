@@ -5,7 +5,7 @@ require_once("../database/db_loader.php");
 
 class Restaurant {
 
-    public int $restaurantID;
+    public ?int $restaurantID;
     public string $name;
     public string $location;
     public ?string $opening_time;
@@ -35,17 +35,9 @@ class Restaurant {
         }
     
         return $restaurants;
-
-        // if (!isset($restaurantID)) {
-        //     $db = getDatabase();
-        //     $stmt = $db->prepare("SELECT max(restaurantID) FROM Restaurant");
-        //     $stmt->execute();
-
-        //     $this->restaurantID = intval($stmt->fetch()['max(restaurantID)']) + 1;
-        // } else $this->restaurantID = $restaurantID;
     }
 
-    public function getRestaurant(PDO $db, int $restaurantID) :Restaurant {
+    public function getRestaurant(PDO $db, int $restaurantID) : Restaurant {
         $stmt = $db->prepare('SELECT restaurantID, name FROM Restaurant WHERE restaurantID = ?');
         $stmt->execute(array($restaurantID));
     

@@ -8,7 +8,11 @@ const fadeIn = [
     {transform: "scale(100%)"}
 ]
 
-function toggleFav(event) {
+async function toggleFav(event) {
+
+    event.preventDefault();
+    event.stopPropagation();
+
     if (event.target.innerHTML == "favorite_border") {
         event.target.animate(fadeOut, {duration: 200, iterations: 1, easing: "ease-in"});
         event.target.innerHTML = "favorite";
@@ -18,4 +22,10 @@ function toggleFav(event) {
         event.target.innerHTML = "favorite_border";
         event.target.animate(fadeIn, {duration: 200, iterations: 1, easing: "ease-in"});
     }
+
+    const id = document.querySelector('.fav-rest-form > input');
+
+    const response = await fetch("/api/api_favourites.php?fvi=" + id.value);
+    const success = await response.json();
+    
 }

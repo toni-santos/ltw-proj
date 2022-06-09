@@ -34,7 +34,13 @@
 			$stmt->bindParam(':password', $pass);
 			$stmt->bindParam(':phoneNum', $phoneNum);
 			$stmt->bindParam(':address', $address);
-			$exec = $stmt->execute();
+
+			try {
+				$exec = $stmt->execute();
+			} catch (PDOException $e) {
+				echo $e;
+				die (header("Location /pages/index.php"));
+			}
 
 			
 			// Check if the execution of query is success
