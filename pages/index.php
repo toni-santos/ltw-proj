@@ -3,6 +3,11 @@ session_start();
 
 require_once('../templates/commons.php');
 require_once('../templates/index.tpl.php');
+require_once('../database/db_loader.php');
+require_once('../php/restaurant.php');
+
+$db = getDatabase();
+$restaurants = Restaurant::getRestaurants($db, 3);
 
 drawTop(["index", "commons", "forms"], ["hamburger", "scrollsnap", "forms"]);
 if (isset($_SESSION['id'])) {
@@ -22,7 +27,8 @@ if (isset($_SESSION['id'])) {
 <div class="main-bottom">
     <h2 class="h5">Our top picks</h2>
     <?php
-    drawCarousel();
+
+    drawCarousel($restaurants);
     if (isset($_SESSION['id'])) {
         promosUser();
     } else {

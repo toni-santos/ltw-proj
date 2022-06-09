@@ -10,7 +10,7 @@ drawTop(["search", "commons", "forms"], ["hamburger", "forms", "search", "favori
 
 <form id="search-bar" action="../actions/search_action.php" class="subtitle2" autocomplete="off" method="GET">
     <section id="search-container">
-        <input class="search shadow-nohov body1" type="search" name="s" id="restaurant-search" placeholder="Search">
+        <input class="search shadow-nohov body1" type="text" name="s" id="restaurant-search" placeholder="Search">
         <button class="material-icons button pointer">search</button>
     </section>
     <section id="filters">

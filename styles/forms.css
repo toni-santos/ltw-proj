@@ -113,15 +113,15 @@ input[type=number] {
 
 .profile-pic-input > img {
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
 }
 
 .profile-pic-input span {
     position: absolute;
     bottom: 0px;
-    left: 140px;
+    left: 150px;
     background-color: var(--dark-main-highlight);
     border-radius: 50%;
     padding: 3px;

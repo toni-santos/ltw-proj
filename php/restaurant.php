@@ -6,21 +6,23 @@ require_once("../database/db_loader.php");
 class Restaurant {
 
     public ?int $restaurantID;
+    public ?int $rating;
     public string $name;
     public string $location;
     public ?string $opening_time;
     public ?string $closing_time;
 
-    public function __construct(int $restaurantID, string $name, string $location, string $opening_time, string $closing_time) {
+    public function __construct(int $restaurantID, string $name, string $location, ?string $opening_time, ?string $closing_time) {
         $this->restaurantID = $restaurantID;
         $this->name = $name;
         $this->location = $location;
         $this->opening_time = $opening_time;
         $this->closing_time = $closing_time;
+        $this->rating = 0;
     }
 
-    public function getRestaurants(PDO $db, int $count) {
-        $stmt = $db->prepare('SELECT restaurantID, name FROM Restaurant LIMIT ?');
+    static function getRestaurants(PDO $db, int $count) {
+        $stmt = $db->prepare('SELECT * FROM Restaurant LIMIT ?');
         $stmt->execute(array($count));
     
         $restaurants = array();
@@ -28,17 +30,17 @@ class Restaurant {
             $restaurants[] = new Restaurant(
                 $restaurant['restaurantID'], 
                 $restaurant['name'],
-                $restaurant ['location'],
-                $restaurant ['opening_time'],
-                $restaurant ['closing_time']
+                $restaurant['location'],
+                $restaurant['opening_time'],
+                $restaurant['closing_time']
             );
         }
     
         return $restaurants;
     }
 
-    public function getRestaurant(PDO $db, int $restaurantID) : Restaurant {
-        $stmt = $db->prepare('SELECT restaurantID, name FROM Restaurant WHERE restaurantID = ?');
+    static function getRestaurant(PDO $db, int $restaurantID) : Restaurant {
+        $stmt = $db->prepare('SELECT * FROM Restaurant WHERE restaurantID = ?');
         $stmt->execute(array($restaurantID));
     
         $restaurant= $stmt->fetch();
@@ -61,7 +63,7 @@ class Restaurant {
         ');
 
         $stmt->execute(array($this->restaurantID, $this->name, $this->location, $this->opening_time, $this->closing_time));
-    
+        $this->restaurantID = PDO::lastInsertId('Restaurant');
     }
 
     static function searchRestaurants(PDO $db, string $name, array $filters) {

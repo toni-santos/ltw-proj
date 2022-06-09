@@ -2,14 +2,14 @@
 declare(strict_types=1);
 ?>
 
-<?php function restaurant_card(int $id)
+<?php function restaurant_card(Restaurant $restaurant)
 { ?>
-    <div id="restaurant-card-<?php echo $id; ?>" class="shadow-nohov">
+    <div id="restaurant-card-<?= $restaurant->restaurantID; ?>" class="shadow-nohov">
         <img src="../images/placeholder.jpg" class="rest-img shadow">
         <section class="restaurant-description">
-            <h3 class="body1 rest-name">Restaurant Name <?php echo $id; ?></h3>
+            <h3 class="body1 rest-name"><?= $restaurant->name; ?></h3>
             <div class="body2 rating dark-bg shadow-nohov">
-                X.X<span class="material-icons">star</span>
+                <?= $restaurant->rating; ?><span class="material-icons">star</span>
             </div>
             <div class="genre-list body2">
                 <a class="shadow-nohov">Genre</a>
@@ -20,21 +20,22 @@ declare(strict_types=1);
     </div>
 <?php } ?>
 
-<?php function drawCarousel()
+<?php function drawCarousel(array $restaurants)
 { ?>
     <div class="carousel">
         <div id="carousel-container">
             <?php
-            restaurant_card((int) 1);
-            restaurant_card((int) 2);
-            restaurant_card((int) 3);
+            for ($i = 0; $i < 3; $i++) {
+                restaurant_card($restaurants[$i]);
+            }
             ?>
         </div>
         <div class="carousel-preview">
+            <img src="../images/placeholder.jpg" onclick="snapContent(event, 0, 'carousel-container', 'horizontal')" class="rest-preview active" id="rest-preview-<?= $restaurants[0]->restaurantID; ?>">
             <?php
-            restaurantPreview(true, intval(0));
-            restaurantPreview(false, intval(1));
-            restaurantPreview(false, intval(2));
+            for ($i = 1; $i <= 2; $i++) {
+                restaurantPreview(false, intval($restaurants[$i]->restaurantID));
+            }
             ?>
         </div>
     </div>
@@ -43,10 +44,10 @@ declare(strict_types=1);
 <?php function restaurantPreview(bool $active, int $id)
 {
     if ($active) { ?>
-        <img src="../images/placeholder.jpg" onclick="snapContent(event, 650, 'carousel-container', 'horizontal')" class="rest-preview active" id="rest-preview-<?php echo $id; ?>">
-    <?php return;
+        <img src="../images/placeholder.jpg" onclick="snapContent(event, 500, 'carousel-container', 'horizontal')" class="rest-preview active" id="rest-preview-<?php echo $id; ?>">
+    <?php 
     } else { ?>
-        <img src="../images/placeholder.jpg" onclick="snapContent(event, 650, 'carousel-container', 'horizontal')" class="rest-preview inactive" id="rest-preview-<?php echo $id; ?>">
+        <img src="../images/placeholder.jpg" onclick="snapContent(event, 500, 'carousel-container', 'horizontal')" class="rest-preview inactive" id="rest-preview-<?php echo $id; ?>">
     <?php } ?>
 <?php } ?>
 

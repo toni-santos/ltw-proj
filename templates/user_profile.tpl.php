@@ -167,4 +167,4 @@ function drawFAB()
     <div id="fab-wrapper" class="shadow-nohov">
         <span class="material-icons" id="fab" onclick="showUserEdit()">edit</span>
     </div>
-<?php } ?>~
+<?php } ?>

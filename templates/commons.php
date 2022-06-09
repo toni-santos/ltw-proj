@@ -209,8 +209,8 @@ if (isset($_SESSION['id'])) {
             <?php } else { ?>
             <div id="user-bar">
                 <div id="user-info">
-                    <img class="nav-pfp" src="../images/placeholder.jpg" onclick="window.location.href = 'pages/user_page.php';">
-                    <a class="subtitle1" href="user_profile.php"><?php echo $user->username; ?></a>
+                    <img class="nav-pfp" src="../images/placeholder.jpg" onclick="window.location.href = 'user_profile.php?id=<?= $user->userID; ?>';">
+                    <a class="subtitle1" href="user_profile.php?id=<?= $user->userID; ?>"><?= $user->username; ?></a>
                 </div>
                 <form action="../actions/logout_action.php" method="POST">
                     <button type="submit" class="blank-button">

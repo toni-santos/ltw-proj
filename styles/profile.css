@@ -148,12 +148,13 @@
         grid-template-columns: 1fr;
         gap: 5px;
         border-radius: 24px;
+        padding-inline: 10px;
     }
 
 
     .current-tab {
         border-left: none;
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid var(--dark-text);
     }
 
 }
