@@ -13,13 +13,13 @@ async function toggleFav(event) {
     event.preventDefault();
     event.stopPropagation();
 
-    if (event.target.innerHTML == "favorite_border") {
+    if (event.target.textContent == "favorite_border") {
         event.target.animate(fadeOut, {duration: 200, iterations: 1, easing: "ease-in"});
-        event.target.innerHTML = "favorite";
+        event.target.textContent = "favorite";
         event.target.animate(fadeIn, {duration: 200, iterations: 1, easing: "ease-in"});
     } else {
         event.target.animate(fadeOut, {duration: 200, iterations: 1, easing: "ease-in"});
-        event.target.innerHTML = "favorite_border";
+        event.target.textContent = "favorite_border";
         event.target.animate(fadeIn, {duration: 200, iterations: 1, easing: "ease-in"});
     }
 

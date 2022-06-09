@@ -4,8 +4,10 @@ session_start();
 
 require_once('../templates/commons.php');
 require_once('../templates/search.tpl.php');
+require_once('../database/db_loader.php');
+require_once('../php/categories.php');
 
-drawTop(["search", "commons", "forms"], ["hamburger", "forms", "search", "favorite"]);
+drawTop(["commons", "forms", "search"], ["hamburger", "forms", "search", "favorite"]);
 ?>
 
 <form id="search-bar" action="../actions/search_action.php" class="subtitle2" autocomplete="off" method="GET">
@@ -41,10 +43,10 @@ drawTop(["search", "commons", "forms"], ["hamburger", "forms", "search", "favori
     <a id="show-more"><span class="material-icons pointer" onclick="showAdvanced(event)">expand_more</span></a>
     <section id="adv-filters">
         <?php 
-        for ($i = 0; $i < 1; $i++) {
-            checkboxButton("Vegan");
-            checkboxButton("BBQ");
-            checkboxButton("American");
+        $db = getDatabase();
+        $categories = getCategories($db);
+        foreach ($categories as $category) {
+            checkboxButton($category, true);
         }
         ?>
     </section>

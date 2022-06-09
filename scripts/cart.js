@@ -1,8 +1,8 @@
 function decreaseAmount(event) {
     const input = event.composedPath()[1].children[1];
 
-    if (parseInt(input.innerHTML) >= 2) {
-        input.innerHTML = parseInt(input.innerHTML) - 1;
+    if (parseInt(input.textContent) >= 2) {
+        input.textContent = parseInt(input.textContent) - 1;
         document.querySelector(`#item-desc-${event.composedPath()[3].id.split('-')[2]} > a:last-child > span`).textContent = input.textContent;
     }
 
@@ -12,8 +12,8 @@ function decreaseAmount(event) {
 function increaseAmount(event) {
     const input = event.composedPath()[1].children[1];
 
-    if (parseInt(input.innerHTML) < 98) {
-        input.innerHTML = parseInt(input.innerHTML) + 1;
+    if (parseInt(input.textContent) < 98) {
+        input.textContent = parseInt(input.textContent) + 1;
         document.querySelector(`#item-desc-${event.composedPath()[3].id.split('-')[2]} > a:last-child > span`).textContent = input.textContent;
     }
 

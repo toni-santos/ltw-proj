@@ -1,16 +1,24 @@
 <?php
 
     declare(strict_types = 1);
-    require_once("../database/db_loader.php");
+    // require_once("../database/db_loader.php");
 
-    function getCategories(){
+    function getCategories(PDO $db){
 
-        $db = getDatabase();
+        // $db = getDatabase();
 
         $stmt = $db->prepare("SELECT name FROM Category");
         $stmt->execute();
 
-        echo json_encode($stmt->fetchAll());
+        $categories = array();
+        while ($category = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $categories[] = $category->name;
+        }
+
+        return $categories;
+
+        // AJAX 
+        // echo json_encode($stmt->fetchAll());
 
     }
 

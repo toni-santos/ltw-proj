@@ -8,9 +8,9 @@ function selectStar(event) {
         let star = star_container.querySelector('#star-label-' + i + ' > span');
 
         if (i <= rating) {
-            star.innerHTML = "star";
+            star.textContent = "star";
         } else {
-            star.innerHTML = "star_outline";
+            star.textContent = "star_outline";
         }
             
     }

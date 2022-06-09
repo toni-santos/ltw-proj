@@ -41,9 +41,9 @@ function showPassword(event) {
 
     if (pwd.type === "password") {
         pwd.type = "text";
-        event.target.innerHTML = "visibility_off";
+        event.target.textContent = "visibility_off";
     } else {
-        event.target.innerHTML = "visibility";
+        event.target.textContent = "visibility";
         pwd.type = "password";
     }
 }
@@ -51,7 +51,7 @@ function showPassword(event) {
 function updateCounter(event) {
     const cnt = event.composedPath()[1].children[3];
 
-    cnt.innerHTML = event.target.value.length + "/8" ;
+    cnt.textContent = event.target.value.length + "/8" ;
 }
 
 function setFocus(event) {

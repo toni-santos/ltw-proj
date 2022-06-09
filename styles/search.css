@@ -70,7 +70,7 @@
 }
 
 #adv-filters {
-    max-width: 400px;
+    max-width: 600px;
     margin-inline: auto;
     gap: 10px;
     justify-content: center;
@@ -175,4 +175,34 @@ select {
     background-color: var(--dark-main-highlight);
     padding: 5px;
     border-radius: 15px;
+}
+
+.search {
+    border-radius: 9999px;
+    padding: 7px;
+    padding-right: 40px;
+    padding-left: 10px;
+    outline: none;
+    width: 100%;
+    border-color: var(--onyx);
+    border-style: solid;
+    border-width: 2px;
+    background-color: var(--dark-off-white);
+    transition: all 0.2s ease-in-out;
+    caret-color: var(--dark-text);
+    color: var(--dark-text);
+}
+
+.search:focus {
+    background-color: var(--dark-sub-highlight);
+    border-color: var(--onyx);
+    color: var(--dark-text);
+}
+
+.search:focus::placeholder {
+    color: var(--dark-text);
+}
+
+.search::placeholder {
+    color: var(--dark-text);
 }

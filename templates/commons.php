@@ -6,6 +6,7 @@ declare(strict_types=1); ?>
 
 require_once '../php/user.php';
 require_once '../database/db_loader.php';
+require_once '../php/categories.php';
 
 ?>
 
@@ -43,8 +44,10 @@ require_once '../database/db_loader.php';
             </section>
             <section id="category-wrapper">
                 <?php 
-                for ($i = 0; $i < 10; $i++) {
-                    checkboxButton("Test");
+                $db = getDatabase();
+                $categories = getCategories($db);
+                foreach ($categories as $category) {
+                    checkboxButton($category, false);
                 }
                 ?>
             </section>
@@ -140,7 +143,6 @@ require_once '../database/db_loader.php';
 { 
 if (isset($_SESSION['id'])) {
     $db = getDatabase();
-    global $user;
     $user = User::getUser($db, $_SESSION['id']);
 } ?>
     <dialog id="dialog-login" class="shadow-nohov">
@@ -180,7 +182,7 @@ if (isset($_SESSION['id'])) {
             <li class="dropdown"><a class="subtitle1"><?php echo $user->username; ?></a></li>
             <li class="dropdown"><img class="nav-pfp" src="../images/placeholder.jpg"></li>
             <section id="dropdown-content">
-                <a class="subtitle2" href="user_profile.php">My Profile</a>
+                <a class="subtitle2" href='user_profile.php?id=<?= $user->userID; ?>'>My Profile</a>
                 <a class="subtitle2" href="dashboard.php">My Dashboard</a>
                 <form action="../actions/logout_action.php" method="POST">
                     <button type="submit" class="blank-button subtitle2">
@@ -254,10 +256,10 @@ if (isset($_SESSION['id'])) {
 </html>
 <?php } ?>
 
-<?php function checkboxButton(string $name) { ?>
+<?php function checkboxButton(string $name, bool $checked) { ?>
     <div class="checkbox-wrapper">
         <label>
-            <input class="checkbox" type="checkbox" name="filters[]" value="<?php echo $name ?>"checked></input><span class="checkbox-text shadow-nohov pointer subtitle2"><?php echo $name; ?></span>
+            <input class="checkbox" type="checkbox" name="filters[]" value="<?php echo $name ?>"<?php if ($checked) echo "checked"; ?>></input><span class="checkbox-text shadow-nohov pointer subtitle2"><?php echo $name; ?></span>
         </label>
     </div>
 <?php } ?>

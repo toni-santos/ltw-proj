@@ -1,6 +1,6 @@
 <?php declare(strict_types=1); ?>
 
-<?php function profileTop()
+<?php function restaurantProfileTop(Restaurant $restaurant)
 {
     if (isset($_SESSION['id'])) { // TODO: Check if owner and enable editing
         $db = getDatabase();
@@ -11,11 +11,7 @@
         <div id="banner" class="shadow-nohov"></div>
         <div id="tabs-container">
             <img id="pfp" class="shadow-nohov" src="../images/placeholder.jpg"></img>
-            <?php if (isset($_SESSION['id'])) { ?>
-                <p class="h5"><?php echo $user->username; ?></p>
-            <?php } else { ?>
-                <p class="h5">name</p>
-            <?php } ?>
+            <p class="h5"><?= $restaurant->name; ?></p>
         </div>
     </div>
 <?php } ?>
@@ -54,7 +50,7 @@
     </dialog>
 <?php } ?>
 
-<?php function profileBottom(array $tabs, int $scrollVal){ 
+<?php function restaurantProfileBottom(array $tabs, int $scrollVal){ 
     if (isset($_SESSION['id'])) {
         $db = getDatabase();
         global $user;

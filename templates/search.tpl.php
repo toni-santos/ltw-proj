@@ -59,11 +59,11 @@ function dishSearchCards()
 <?php
 function userSearchCards()
 { ?>
-    <div class="grid-card shadow">
+    <div class="grid-card-nohov shadow">
         <section class="grid-card-overlay">
             <div class="sub-info">
                 <div class="sub-info-top">
-                    <p class="body1 dark-bg rest-name">Restaurant name</p>
+                    <p class="body1 dark-bg rest-name">User name</p>
                 </div>
             </div>
         </section>

@@ -1,26 +1,21 @@
-<?php function profileTop()
+<?php function userProfileTop(User $user, bool $is_user)
 {
-    if (isset($_SESSION['id'])) {
-        $db = getDatabase();
-        global $user;
-        $user = User::getUser($db, $_SESSION['id']);
+    echo $user->username;
+    if ($is_user) {
         drawFAB();
         userEditDialog();
-    }  ?>
+    } ?>
+    
     <div id="profile-top">
         <div id="banner" class="shadow-nohov"></div>
         <div id="tabs-container">
             <img id="pfp" class="shadow-nohov" src="../images/placeholder.jpg"></img>
-            <?php if (isset($_SESSION['id'])) { ?>
-                <p class="h5"><?php echo $user->username; ?></p>
-            <?php } else { ?>
-                <p class="h5">name</p>
-            <?php } ?>
+            <p class="h5"><?php echo $user->username; ?></p>
         </div>
     </div>
 <?php } ?>
+<?php function userProfileBottom(array $tabs, int $scrollVal, ?User $user) { // TODO: refactor this when get is done?>  
 
-<?php function profileBottom(array $tabs, int $scrollVal, ?User $user) { // TODO: refactor this when get is done?>  
     <div id="profile-bottom">
         <div id="content-wrapper">
             <section id="tabs" class="h6">

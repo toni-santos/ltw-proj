@@ -10,19 +10,34 @@ require_once('../templates/search.tpl.php');
 require_once('../database/db_loader.php');
 require_once('../php/user.php');
 
-if (isset($_SESSION['id'])) {
-    $db = getDatabase();
-    $user = User::getUser($db, $_SESSION['id']);
-} else {
-}
-// TODO: pass information of profile being visited through GET and get user here
+$db = getDatabase();
 
-drawTop(["commons", "forms", "profile", "search"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite"]);
-profileTop();
-if (isset($_SESSION['id'])) {
-    profileBottom(["my information", "my reviews", "favorite restaurants", "favorite dishes"], 600, $user);
+if (!isset($_GET['id']) || intval($_GET['id']) <= 0) {
+    http_response_code(404);
+    require("not_found.php");
+    die;
+}
+
+if (isset($_SESSION['id']) && $_SESSION['id'] == $_GET['id']) {
+    $user = User::getUser($db, $_GET['id']);
+    $is_user = true;
 } else {
-    profileBottom(["reviews", "favorite restaurants", "favorite dishes"], 600, $user);
+    $user = User::getUser($db, intval($_GET['id']));
+    if ($user->userID) {
+        $is_user = false;
+    } else {
+        http_response_code(404);
+        require("not_found.php");
+        die;
+    }
+}
+drawTop(["commons", "forms", "profile", "search"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite"]);
+userProfileTop($user, $is_user);
+
+if (isset($_SESSION['id'])) {
+    userProfileBottom(["my information", "my reviews", "favorite restaurants", "favorite dishes"], 600, $user);
+} else {
+    userProfileBottom(["reviews", "favorite restaurants", "favorite dishes"], 600, $user);
 }
 drawFooter();
 ?>

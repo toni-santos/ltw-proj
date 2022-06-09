@@ -7,12 +7,12 @@ class Restaurant {
 
     public ?int $restaurantID;
     public ?int $rating;
-    public string $name;
-    public string $location;
+    public ?string $name;
+    public ?string $location;
     public ?string $opening_time;
     public ?string $closing_time;
 
-    public function __construct(int $restaurantID, string $name, string $location, ?string $opening_time, ?string $closing_time) {
+    public function __construct(?int $restaurantID, ?string $name, ?string $location, ?string $opening_time, ?string $closing_time) {
         $this->restaurantID = $restaurantID;
         $this->name = $name;
         $this->location = $location;
@@ -48,9 +48,9 @@ class Restaurant {
         return new Restaurant(
             $restaurant['restaurantID'], 
             $restaurant['name'],
-            $restaurant ['location'],
-            $restaurant ['opening_time'],
-            $restaurant ['closing_time']
+            $restaurant['location'],
+            $restaurant['opening_time'],
+            $restaurant['closing_time']
         );
     }
 

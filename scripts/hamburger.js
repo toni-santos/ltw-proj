@@ -4,12 +4,12 @@ function showHamburger(event) {
 
     if (hc.classList.contains("disappear")) {
         body.style.overflow = "hidden";
-        event.target.innerHTML = "close";
+        event.target.textContent = "close";
         hc.classList.add("appear");
         hc.classList.remove("disappear");
     } else {
         body.style.overflow = "scroll";
-        event.target.innerHTML = "menu";
+        event.target.textContent = "menu";
         hc.classList.add("disappear");
         hc.classList.remove("appear");
     }
@@ -23,7 +23,7 @@ window.addEventListener("resize", () => {
     if (window.innerWidth >= 501 && hc.style.visibility != "hidden") {
         hc.style.visibility = "hidden";
         body.style.overflow = "scroll";
-        him.innerHTML = "menu";
+        him.textContent = "menu";
     } else if (window.innerWidth <= 500 && hc.style.visibility != "visible") {
         hc.style.visibility = "visible";
     }
@@ -38,7 +38,7 @@ document.getElementsByTagName("body")[0].addEventListener("click", (event) => {
 
             if (hc.classList.contains("appear")) {
                 body.style.overflow = "scroll";
-                icon.innerHTML = "menu";
+                icon.textContent = "menu";
                 hc.classList.add("disappear");
                 hc.classList.remove("appear");
             }            
