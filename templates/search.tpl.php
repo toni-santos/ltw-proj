@@ -11,7 +11,7 @@ function restaurantSearchCards()
                     <p class="body1 dark-bg rest-name">Restaurant name</p>
                     <form class="fav-rest-form" method="POST" action=""> <!-- TODO: toggle favorite action -->
                         <input type="hidden" name="fav_restaurant_id" value="2"></input>
-                        <button class="blank-button"><span class="material-icons dark-bg" onclick="toggleFav(event)">favorite_border</span></button>
+                        <button class="blank-button"><span class="material-icons dark-bg" onclick="toggleFavRest(event)">favorite_border</span></button>
                     </form>
                 </div>
                 <div class="sub-info-bottom">
@@ -36,8 +36,9 @@ function dishSearchCards()
             <div class="sub-info">
                 <div class="sub-info-top">
                     <p class="body1 dark-bg rest-name">Dish name</p>
-                    <form method="POST" action=""> <!-- TODO: toggle favorite action -->
-                        <button class="blank-button"><span class="material-icons dark-bg" onclick="toggleFav(event)">favorite_border</span></button>
+                    <form class="fav-dish-form" method="POST" action=""> <!-- TODO: toggle favorite action -->
+                        <input type="hidden" name="fav_dish_id" value="2"></input>
+                        <button class="blank-button"><span class="material-icons dark-bg" onclick="toggleFavDish(event)">favorite_border</span></button>
                     </form>
                 </div>
                 <div class="sub-info-bottom">

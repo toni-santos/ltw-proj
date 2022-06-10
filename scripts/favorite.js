@@ -8,7 +8,7 @@ const fadeIn = [
     {transform: "scale(100%)"}
 ]
 
-async function toggleFav(event) {
+async function toggleFavRest(event) {
 
     event.preventDefault();
     event.stopPropagation();
@@ -25,7 +25,29 @@ async function toggleFav(event) {
 
     const id = document.querySelector('.fav-rest-form > input');
 
-    const response = await fetch("/api/api_favourites.php?fvi=" + id.value);
+    const response = await fetch("/api/api_favourite_rest.php?fvi=" + id.value);
+    const success = await response.json();
+    
+}
+
+async function toggleFavDish(event) {
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (event.target.textContent == "favorite_border") {
+        event.target.animate(fadeOut, {duration: 200, iterations: 1, easing: "ease-in"});
+        event.target.textContent = "favorite";
+        event.target.animate(fadeIn, {duration: 200, iterations: 1, easing: "ease-in"});
+    } else {
+        event.target.animate(fadeOut, {duration: 200, iterations: 1, easing: "ease-in"});
+        event.target.textContent = "favorite_border";
+        event.target.animate(fadeIn, {duration: 200, iterations: 1, easing: "ease-in"});
+    }
+
+    const id = document.querySelector('.fav-dish-form > input');
+
+    const response = await fetch("/api/api_favourite_dish.php?fvi=" + id.value);
     const success = await response.json();
     
 }
