@@ -11,11 +11,11 @@
     </div>
 <?php } ?>
 
-<?php function reviewBox()
+<?php function reviewBox(Restaurant $restaurant)
 { ?>
-    <form method="POST" action=""> <!-- TODO: review action -->
+    <form method="POST" action="../actions/add_review_action.php">
         <div class="textarea-container">
-            <textarea placeholder=" " class="subtitle2 textbox" name="content" rows="3" cols="100"></textarea>
+            <textarea placeholder=" " class="subtitle2 textbox" name="message" rows="3" cols="100"></textarea>
             <label class="body2" for="email">Review</label>
         </div>
         <div id="stars-button-container">
@@ -28,7 +28,9 @@
                     </input>
                 <?php } ?>
             </div>
-            <button class="button review-button">Review</button>
+            <input type="hidden" name="restaurantID" value="<?= $restaurant->restaurantID; ?>">
+            <input type="hidden" name="reviewerID" value="<?= $_SESSION['id']; ?>">
+            <button class="button review-button" type="submit" value="Submit">Review</button>
         </div>
     </form>
 <?php } ?>
@@ -96,7 +98,7 @@
                     <p class="h6">Reviews</p>
                     <?php
                         if (isset($_SESSION['id'])) {
-                            reviewBox();
+                            reviewBox($restaurant);
                         }
                         if (!empty($restaurant->reviews)){
                             foreach ($restaurant->reviews as $review) {
