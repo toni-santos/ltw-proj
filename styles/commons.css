@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
 :root {
     --main-highlight: #52ec3bff;
     --sub-highlight: #a6f49aff;
@@ -30,6 +29,7 @@ html,
 body {
     height: 100%;
 }
+
 html {
     background-color: var(--dark-background);
 }
@@ -45,10 +45,20 @@ a {
     color: var(--dark-text);
 }
 
-article, button, li, h1, h2, h3, h4, h5, h6, p, a, a:visited {
+article,
+button,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+a:visited {
     color: var(--dark-text);
 }
-
 
 ul {
     list-style: none;
@@ -57,6 +67,7 @@ ul {
 .pointer {
     cursor: pointer;
 }
+
 
 /* NAVBAR STYLING */
 
@@ -94,7 +105,8 @@ ul {
     transition: all 0.2s ease-in-out;
 }
 
-#nav-left span:hover, #nav-left a:hover {
+#nav-left span:hover,
+#nav-left a:hover {
     background-color: var(--dark-main-highlight);
     transform: scale(102%);
 }
@@ -112,12 +124,14 @@ ul {
     height: 0px;
 }
 
-#nav-right-login, #nav-right-signup {
+#nav-right-login,
+#nav-right-signup {
     padding: 7px;
     border-radius: 12px;
 }
 
-#nav-right-login:hover, #nav-right-signup:hover {
+#nav-right-login:hover,
+#nav-right-signup:hover {
     background-color: var(--dark-main-highlight);
 }
 
@@ -198,15 +212,14 @@ ul {
 .appear {
     opacity: 1;
     transform: translate(0%, 0);
-    box-shadow:0 0 0 10000px rgba(0,0,0,.50);
+    box-shadow: 0 0 0 10000px rgba(0, 0, 0, .50);
 }
 
 .disappear {
     opacity: 0.7;
     transform: translate(-100%, 0);
-    box-shadow:0 0 0 10000px rgba(0,0,0,0);
+    box-shadow: 0 0 0 10000px rgba(0, 0, 0, 0);
 }
-
 
 #top-icons {
     display: flex;
@@ -224,7 +237,6 @@ ul {
     .nav {
         visibility: hidden;
     }
-
     .nav-hamburger {
         visibility: visible;
         display: flex;
@@ -234,25 +246,20 @@ ul {
         align-content: center;
         align-items: center;
     }
-    
     #hamburger-top,
     #hamburger-bottom {
         display: flex;
         flex-direction: column;
         height: 50%;
         width: 100%;
-        
     }
-    
     #hamburger-top {
         justify-content: flex-start;
         margin-top: 32px;
     }
-    
     #hamburger-bottom {
         justify-content: flex-end;
     }
-
     #hamburger-content {
         position: fixed;
         display: flex;
@@ -267,30 +274,26 @@ ul {
         padding: 10px 10px 10px 10px;
         transition: all 0.2s ease-in-out;
     }
-
-    #hamburger-top>a, #hamburger-bottom>a {
+    #hamburger-top>a,
+    #hamburger-bottom>a {
         padding: 5px;
     }
-
     #hamburger-content>li {
         margin-bottom: 50px;
         margin-top: 50px;
         display: flex;
         justify-content: center;
     }
-
     #hamburger-content>li>a {
         display: block;
         width: 100%;
     }
-
     #user-info {
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 3px;
     }
-
     #user-bar {
         display: flex;
         flex-direction: row;
@@ -323,7 +326,6 @@ footer ul {
     footer {
         flex-direction: column;
     }
-
     .links,
     .contacts,
     .socials {
@@ -351,6 +353,7 @@ footer ul {
     margin-right: 10px;
     width: 24px;
 }
+
 
 /* CLASSES */
 
@@ -430,6 +433,7 @@ footer ul {
 .selectable {
     user-select: auto;
 }
+
 
 /* only use these ones for material icons sizing */
 
@@ -528,8 +532,9 @@ footer ul {
     padding: 20px;
 }
 
-.grid-card, .grid-card-nohov {
-    background-image: url("../images/placeholder.jpg");
+.grid-card,
+.grid-card-nohov {
+    /* background-image: url("../images/placeholder.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
     height: 200px;
@@ -553,7 +558,7 @@ footer ul {
 }
 
 @media (hover: hover) {
-    .grid-card:hover > .grid-card-overlay {
+    .grid-card:hover>.grid-card-overlay {
         transform: translateY(0%)
     }
 }
@@ -586,14 +591,14 @@ footer ul {
     align-items: flex-end;
 }
 
-#dropdown-content > a {
+#dropdown-content>a {
     width: 100%;
     text-align: right;
     padding: 0px;
     transition: transform 0.2s ease-in-out;
 }
 
-#dropdown-content > *:hover {
+#dropdown-content>*:hover {
     transform: scale(102%);
 }
 
@@ -601,19 +606,23 @@ footer ul {
     display: flex;
 }
 
-.dropdown:hover ~ #dropdown-content {
+.dropdown:hover~#dropdown-content {
     display: flex;
 }
 
 .highlight {
-    color:var(--dark-main-highlight);
+    color: var(--dark-main-highlight);
 }
 
 dialog {
     color: var(--dark-text);
 }
 
-#dialog-login, #dialog-signup, #dialog-user-edit, #dialog-restaurant-edit, #dialog-restaurant-registration {
+#dialog-login,
+#dialog-signup,
+#dialog-user-edit,
+#dialog-restaurant-edit,
+#dialog-restaurant-registration {
     height: max-content;
     padding: 20px;
     float: left;
@@ -627,20 +636,34 @@ dialog {
     scrollbar-color: var(--dark-background) var(--dark-off-white);
 }
 
-#dialog-login::-webkit-scrollbar, #dialog-signup::-webkit-scrollbar, #dialog-user-edit::-webkit-scrollbar, #dialog-restaurant-edit::-webkit-scrollbar, #dialog-restaurant-registration::-webkit-scrollbar {
+#dialog-login::-webkit-scrollbar,
+#dialog-signup::-webkit-scrollbar,
+#dialog-user-edit::-webkit-scrollbar,
+#dialog-restaurant-edit::-webkit-scrollbar,
+#dialog-restaurant-registration::-webkit-scrollbar {
     width: 11px;
 }
 
-#dialog-login::-webkit-scrollbar-track, #dialog-signup::-webkit-scrollbar-track, #dialog-user-edit::-webkit-scrollbar-track, #dialog-restaurant-edit::-webkit-scrollbar-track, #dialog-restaurant-registration::-webkit-scrollbar-track {
+#dialog-login::-webkit-scrollbar-track,
+#dialog-signup::-webkit-scrollbar-track,
+#dialog-user-edit::-webkit-scrollbar-track,
+#dialog-restaurant-edit::-webkit-scrollbar-track,
+#dialog-restaurant-registration::-webkit-scrollbar-track {
     background: var(--dark-background);
 }
 
-#dialog-login::-webkit-scrollbar-thumb, #dialog-signup::-webkit-scrollbar-thumb, #dialog-user-edit::-webkit-scrollbar-thumb, #dialog-restaurant-edit::-webkit-scrollbar-thumb, #dialog-restaurant-registration::-webkit-scrollbar-thumb {
+#dialog-login::-webkit-scrollbar-thumb,
+#dialog-signup::-webkit-scrollbar-thumb,
+#dialog-user-edit::-webkit-scrollbar-thumb,
+#dialog-restaurant-edit::-webkit-scrollbar-thumb,
+#dialog-restaurant-registration::-webkit-scrollbar-thumb {
     background-color: var(--dark-off-white);
     border-radius: 12px;
 }
 
-#dialog-user-edit #inputs-box, #dialog-restaurant-edit #inputs-box, #dialog-restaurant-registration #inputs-box {
+#dialog-user-edit #inputs-box,
+#dialog-restaurant-edit #inputs-box,
+#dialog-restaurant-registration #inputs-box {
     margin-bottom: 10px;
 }
 
@@ -657,6 +680,7 @@ dialog {
     background-color: var(--dark-sub-highlight);
     transition: all 0.2s ease-in-out;
 }
+
 #adv-filters .checkbox-wrapper {
     display: none;
 }
@@ -666,8 +690,7 @@ dialog {
     display: none;
 }
 
-
-.checkbox:checked + span {
+.checkbox:checked+span {
     background-color: var(--dark-main-highlight);
 }
 

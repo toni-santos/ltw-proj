@@ -10,7 +10,7 @@
     <div id="profile-top">
         <div id="banner" class="shadow-nohov"></div>
         <div id="tabs-container">
-            <img id="pfp" class="shadow-nohov" src="../images/placeholder.jpg"></img>
+            <img id="pfp" class="shadow-nohov" src="../images/rest_images/rest<?= $restaurant->restaurantID; ?>.jpg"></img>
             <p class="h5"><?= $restaurant->name; ?></p>
         </div>
     </div>

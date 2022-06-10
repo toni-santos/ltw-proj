@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 function restaurantSearchCards(Restaurant $restaurant)
 { ?>
-    <div class="grid-card shadow">
-        <section class="grid-card-overlay" onclick="window.location.href='../pages/restaurant_profile.php?id=<?= $restaurant->restaurantID; ?>'">
+    <div class="grid-card shadow" style="background-image: url('../images/rest_images/rest<?= $restaurant->restaurantID;?>.jpg');">
+        <section class="grid-card-overlay" onclick="window.location.href='../pages/restaurant_profile.php?id=<?= $restaurant->restaurantID; ?>'" >
             <div class="sub-info">
-                <div class="sub-info-top">
-                    <p class="body1 dark-bg rest-name"><?= $restaurant->name; ?></p>
+                <div class="sub-info-top" >
+                    <p class="body1 dark-bg rest-name" ><?= $restaurant->name; ?></p>
                     <?php
                     if (isset($_SESSION['id'])) {
                     ?>
