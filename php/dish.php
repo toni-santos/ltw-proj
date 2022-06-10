@@ -66,4 +66,20 @@ class Dish {
     
     }
 
+    public function getAssociatedRestaurant() {
+
+        $db = getDatabase();
+
+        $stmt = $db->prepare("SELECT restaurantID FROM Menu WHERE dishID = ?");
+        $stmt->execute(array($this->_dishID));
+
+        $restaurantID = $stmt->fetch()['restaurantID'];
+
+        $stmt2 = $db->prepare("SELECT name FROM Restaurant WHERE restaurantID = ?");
+        $stmt2->execute(array($restaurantID));
+
+        return $stmt2->fetch()['name'];
+
+    }
+
 }
