@@ -19,7 +19,7 @@ if (!isset($_GET['id']) || intval($_GET['id']) <= 0) {
 }
 
 if (isset($_SESSION['id']) && $_SESSION['id'] == $_GET['id']) {
-    $user = User::getUser($db, $_GET['id']);
+    $user = User::getUser($db, intval($_GET['id']));
     $is_user = true;
 } else {
     $user = User::getUser($db, intval($_GET['id']));
