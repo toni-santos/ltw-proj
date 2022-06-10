@@ -28,6 +28,7 @@ if (empty($_GET)) {
 
 foreach ($restaurants as $restaurant) {
     $restaurant->setRestaurantRating($db);
+    $restaurant->getRestaurantCategories($db);
 }
 
 foreach ($dishes as $dish) {

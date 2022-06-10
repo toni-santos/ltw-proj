@@ -547,7 +547,7 @@ footer ul {
     justify-content: space-between;
     padding: 10px;
     height: 100%;
-    transform: translateY(80%);
+    transform: translateY(73%);
     transition: transform 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
     background-color: rgba(0, 0, 0, 0.5);
 }

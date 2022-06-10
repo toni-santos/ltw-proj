@@ -5,7 +5,7 @@ declare(strict_types=1);
 function restaurantSearchCards(Restaurant $restaurant)
 { ?>
     <div class="grid-card shadow">
-        <section class="grid-card-overlay">
+        <section class="grid-card-overlay" onclick="window.location.href='../pages/restaurant_profile.php?id=<?= $restaurant->restaurantID; ?>'">
             <div class="sub-info">
                 <div class="sub-info-top">
                     <p class="body1 dark-bg rest-name"><?= $restaurant->name; ?></p>
@@ -30,9 +30,10 @@ function restaurantSearchCards(Restaurant $restaurant)
                        echo $restaurant->rating ? $restaurant->rating: "N/A";
                     ?><span class="material-icons dark-bg">star</span></p>
                     <div class="genre-list body2">
-                        <a class="shadow-nohov">Genre</a>
-                        <a class="shadow-nohov">Genre</a>
-                        <a class="shadow-nohov">Genre</a>
+                        <?php 
+                        foreach ($restaurant->categories as $category) {?>
+                            <a class="shadow-nohov"><?= $category['categoryName']; ?></a>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

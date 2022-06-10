@@ -110,7 +110,7 @@ class Restaurant {
         return $restaurants;
     }
 
-    public function getRestaurantCategories($db) {
+    public function getRestaurantCategories(PDO $db) {
 
         $stmt = $db->prepare("SELECT categoryName FROM RestaurantCategory WHERE restaurantID = ?");
         $stmt->execute(array($this->restaurantID));
@@ -119,7 +119,7 @@ class Restaurant {
 
     }
 
-    public function getRestaurantReviews($db) {
+    public function getRestaurantReviews(PDO $db) {
 
         $stmt = $db->prepare("
         SELECT reviewerID, message, rating
