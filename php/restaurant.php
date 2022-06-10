@@ -7,7 +7,7 @@ require_once("review.php");
 class Restaurant {
 
     public ?int $restaurantID;
-    public ?int $rating;
+    public ?float $rating;
     public ?string $name;
     public ?string $location;
     public ?string $opening_time;
@@ -142,6 +142,50 @@ class Restaurant {
 
     }
 
+    public function setRestaurantRating(PDO $db) {
+        $stmt = $db->prepare(
+            'SELECT avg(rating)
+            FROM Review WHERE
+            restaurantID = ?;'
+        );
+
+        $stmt->execute(array($this->restaurantID));
+
+        if ($rating = $stmt->fetch()) {
+            $this->rating = $rating['avg(rating)'];
+        }
+    }
+
+    static function getAllRestaurants(PDO $db) {
+        $stmt = $db->prepare('SELECT * FROM Restaurant');
+        $stmt->execute();
+            
+        $restaurants = array();
+        while ($restaurant = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $restaurants[] = new Restaurant(
+                $restaurant->restaurantID,
+                $restaurant->name,
+                $restaurant->location,
+                $restaurant->opening_time,
+                $restaurant->closing_time
+            );
+        }
+
+        return $restaurants;
+    }
+
+    public function checkFavorite(int $userID) {
+        $db = getDatabase();
+
+        $stmt = $db->prepare('SELECT * FROM FavRestaurants WHERE restaurantID = ? AND userID = ?');
+        $stmt->execute(array($this->restaurantID, $userID));
+
+        if ($fav = $stmt->fetch()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 ?>

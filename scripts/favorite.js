@@ -23,9 +23,9 @@ async function toggleFavRest(event) {
         event.target.animate(fadeIn, {duration: 200, iterations: 1, easing: "ease-in"});
     }
 
-    const id = document.querySelector('.fav-rest-form > input');
+    const id = event.composedPath()[2].querySelector('input').value;
 
-    const response = await fetch("/api/api_favourite_rest.php?fvi=" + id.value);
+    const response = await fetch("/api/api_favourite_rest.php?fvi=" + id);
     const success = await response.json();
     
 }
@@ -45,9 +45,9 @@ async function toggleFavDish(event) {
         event.target.animate(fadeIn, {duration: 200, iterations: 1, easing: "ease-in"});
     }
 
-    const id = document.querySelector('.fav-dish-form > input');
+    const id = event.composedPath()[2].querySelector('input').value;
 
-    const response = await fetch("/api/api_favourite_dish.php?fvi=" + id.value);
+    const response = await fetch("/api/api_favourite_dish.php?fvi=" + id);
     const success = await response.json();
     
 }

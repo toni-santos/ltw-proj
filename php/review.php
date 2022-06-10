@@ -1,7 +1,7 @@
 <?php
 
     declare(strict_types = 1);
-    require("user.php");
+    require_once("user.php");
 
     class Review {
         public int $reviewerID;

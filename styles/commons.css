@@ -649,6 +649,9 @@ dialog {
     background-color: var(--dark-sub-highlight);
     transition: all 0.2s ease-in-out;
 }
+#adv-filters .checkbox-wrapper {
+    display: none;
+}
 
 .checkbox-wrapper input {
     position: relative;

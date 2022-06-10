@@ -4,6 +4,22 @@ session_start();
 require_once('../templates/commons.php');
 require_once('../templates/search.tpl.php');
 
+require_once('../database/db_loader.php');
+require_once('../php/user.php');
+
+if (!isset($_SESSION['id'])) {
+    http_response_code(404);
+    require("not_found.php");
+    die;
+}
+
+$db = getDatabase();
+$restaurants = User::getUserRestaurants($db, intval($_SESSION['id']));
+
+foreach ($restaurants as $restaurant) {
+    $restaurant->setRestaurantRating($db);
+}
+
 drawTop(["commons", "forms", "search", "dashboard"], ["hamburger", "forms"]);
 drawRestaurantDialog();
 ?>
@@ -14,8 +30,8 @@ drawRestaurantDialog();
 </div>
 <section class="grid-wrapper">
     <?php
-    for ($i = 0; $i < 10; $i++) {
-        restaurantSearchCards();
+    foreach ($restaurants as $restaurant) {
+        restaurantSearchCards($restaurant);
     }
     ?>
 </section>

@@ -2,22 +2,33 @@
 
 declare(strict_types=1);
 
-
-function restaurantSearchCards()
+function restaurantSearchCards(Restaurant $restaurant)
 { ?>
     <div class="grid-card shadow">
         <section class="grid-card-overlay">
             <div class="sub-info">
                 <div class="sub-info-top">
-                    <p class="body1 dark-bg rest-name">Restaurant name</p>
+                    <p class="body1 dark-bg rest-name"><?= $restaurant->name; ?></p>
+                    <?php
+                    if (isset($_SESSION['id'])) {
+                    ?>
                     <form class="fav-rest-form" method="POST" action=""> <!-- TODO: toggle favorite action -->
-                        <input type="hidden" name="fav_restaurant_id" value="2"></input>
-                        <button class="blank-button"><span class="material-icons dark-bg" onclick="toggleFavRest(event)">favorite_border</span></button>
+                        <input type="hidden" name="fav_restaurant_id" value="<?= $restaurant->restaurantID; ?>"></input>
+                        <button class="blank-button"><span class="material-icons dark-bg" onclick="toggleFavRest(event)"><?php
+                        if ($restaurant->checkFavorite($_SESSION['id'])) {
+                            echo "favorite";
+                        } else {
+                            echo "favorite_border";
+                        }
+                        ?></span></button>
                     </form>
+                    <?php } ?>
                 </div>
                 <div class="sub-info-bottom">
-                    <p class="body2 dark-bg rest-loc">location</p>
-                    <p class="body2 dark-bg rating">4<span class="material-icons dark-bg">star</span></p>
+                    <p class="body2 dark-bg rest-loc"><?= $restaurant->location; ?></p>
+                    <p class="body2 dark-bg rating"><?php
+                       echo $restaurant->rating ? $restaurant->rating: "N/A";
+                    ?><span class="material-icons dark-bg">star</span></p>
                     <div class="genre-list body2">
                         <a class="shadow-nohov">Genre</a>
                         <a class="shadow-nohov">Genre</a>
@@ -30,74 +41,50 @@ function restaurantSearchCards()
 <?php } ?>
 
 <?php
-function restaurantsSearchCards(array $restaurants) { ?>
-    <?php foreach($restaurants as $restaurant) { ?> 
-        <div class="grid-card shadow">
-            <section class="grid-card-overlay">
-                <div class="sub-info">
-                    <div class="sub-info-top">
-                        <a href="../pages/restaurant_profile.php?id=<?=$restaurant->restaurantID?>"><p class="body1 dark-bg rest-name"><?=$restaurant->name?></p></a>
-                        <form class="fav-rest-form" method="POST" action=""> <!-- TODO: toggle favorite action -->
-                            <input type="hidden" name="fav_restaurant_id" value="2"></input>
-                            <button class="blank-button"><span class="material-icons dark-bg" onclick="toggleFavRest(event)">favorite_border</span></button>
-                        </form>
-                    </div>
-                    <div class="sub-info-bottom">
-                        <p class="body2 dark-bg rest-loc"><?=$restaurant->location?></p>
-                        <p class="body2 dark-bg rating">4<span class="material-icons dark-bg">star</span></p>
-                        <div class="genre-list body2">
-                            <a class="shadow-nohov">Genre</a>
-                            <a class="shadow-nohov">Genre</a>
-                            <a class="shadow-nohov">Genre</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    <?php } ?>
-<?php } ?>
-
-<?php
-function dishSearchCards(array $dishes)
+function dishSearchCards(Dish $dish)
 { ?>
-    <?php foreach($dishes as $dish) { ?>
-        <div class="grid-card shadow">
-            <section class="grid-card-overlay">
-                <div class="sub-info">
-                    <div class="sub-info-top">
-                        <a href="../pages/restaurant_profile.php?id=<?=$dish->dishID?>"><p class="body1 dark-bg rest-name"><?=$dish->name?></p></a>
-                        <form class="fav-dish-form" method="POST" action=""> <!-- TODO: toggle favorite action -->
-                            <input type="hidden" name="fav_dish_id" value="2"></input>
-                            <button class="blank-button"><span class="material-icons dark-bg" onclick="toggleFavDish(event)">favorite_border</span></button>
-                        </form>
-                    </div>
-                    <div class="sub-info-bottom">
-                        <p class="body2 dark-bg rating"><?=$dish->price?></span></p>
-                        <div class="genre-list body2">
-                            <a class="shadow-nohov"><?=$dish->category?></a>
-                        </div>
-                        <form method="POST" action="">
-                            <button class="body1 blank-button order" >Order</button>
-                        </form>
-                    </div>
+<div class="grid-card shadow">
+    <section class="grid-card-overlay">
+        <div class="sub-info">
+            <div class="sub-info-top">
+                <p class="body1 dark-bg rest-name"><?= $dish->_name; ?></p>
+                <?php
+                    if (isset($_SESSION['id'])) {
+                ?>
+                <div class="fav-dish-form"> <!-- TODO: toggle favorite action -->
+                    <input type="hidden" name="fav_dish_id" value="<?= $dish->_dishID; ?>"></input>
+                    <button class="blank-button" onclick="event.preventDefault();"><span class="material-icons dark-bg" onclick="toggleFavDish(event)"><?php
+                        if ($dish->checkFavorite($_SESSION['id'])) {
+                            echo "favorite";
+                        } else {
+                            echo "favorite_border";
+                        }
+                        ?></span></button>
                 </div>
-            </section>
-        </div>
-    <?php } ?>
-<?php } ?>
-
-<?php
-function userSearchCards(array $users)
-{ ?>
-        <?php foreach($users as $user) { ?>
-            <div class="grid-card-nohov shadow">
-                <section class="grid-card-overlay">
-                    <div class="sub-info">
-                        <div class="sub-info-top">
-                        <a href="../pages/user_profile.php?id=<?=$user->userID?>"><p class="body1 dark-bg rest-name"><?=$user->username?></p></a>
-                        </div>
-                    </div>
-                </section>
+                <?php } ?>
             </div>
-    <?php } ?>
+            <div class="sub-info-bottom">
+                <p class="body2 dark-bg"><?= $dish->_restaurant; ?></p>
+                <div class="genre-list body2">
+                    <a class="shadow-nohov"><?= $dish->_category; ?></a>
+                </div>
+                <form method="POST" action="">
+                    <button class="body1 blank-button order" ><?= $dish->_price; ?>€ - Order</button>
+                </form>
+            </div>
+        </section>
+    </div>
+<?php } ?>
+
+<?php
+function userSearchCards(User $user)
+{ ?>
+    <div class="grid-card-nohov shadow">
+        <section class="grid-card-overlay">
+            <div class="sub-info">
+                <div class="sub-info-top">
+                    <p class="body1 dark-bg rest-name"><?= $user->username; ?></p>
+                </div>
+            </section>
+        </div>
 <?php } ?>

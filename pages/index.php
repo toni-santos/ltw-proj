@@ -9,6 +9,10 @@ require_once('../php/restaurant.php');
 $db = getDatabase();
 $restaurants = Restaurant::getRestaurants($db, 3);
 
+foreach ($restaurants as $restaurant) {
+    $restaurant->setRestaurantRating($db);
+}
+
 drawTop(["index", "commons", "forms"], ["hamburger", "scrollsnap", "forms"]);
 if (isset($_SESSION['id'])) {
     drawRestaurantDialog();

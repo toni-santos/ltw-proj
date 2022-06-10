@@ -130,8 +130,8 @@ class User
     
     $stmt = $db->prepare('
       SELECT restaurantID
-      FROM RestOwners
-      WHERE userID = ?
+      FROM RestOwner
+      WHERE ownerID = ?
     ');
 
     $stmt->execute(array($id));
@@ -159,4 +159,22 @@ class User
 
     return $restaurants;
   }
+
+  static function getAllUsers(PDO $db) {
+    $stmt = $db->prepare('SELECT * FROM User');
+    $stmt->execute();
+
+    $users = array();
+    while ($user = $stmt->fetch(PDO::FETCH_OBJ)) {
+      $users[] = new User(
+        $user->userID,
+        $user->username,
+        $user->email,
+        $user->address,
+        $user->phoneNum
+      );
+    }
+
+    return $users;
+}
 }

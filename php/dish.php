@@ -3,23 +3,18 @@ declare(strict_types=1);
 
 class Dish {
 
-    public ?int $dishID;
-    public string $name;
-    public float $price;
-    public string $category;
+    public ?int $_dishID;
+    public string $_name;
+    public float $_price;
+    public string $_category;
+    public ?string $_restaurant = NULL;
 
     public function __construct($dishID, $name, $price, $category) {
-        if (!isset($dishID)) {
-            $db = getDatabase();
-            $stmt = $db->prepare("SELECT max(dishID) FROM Dish");
-            $stmt->execute();
-
-            $this->dishID = intval($stmt->fetch()['max(dishID)']) + 1;
-        } else $this->dishID = $dishID;
-        
-        $this->name = $name;
-        $this->price = $price;
-        $this->category = $category;
+       
+        $this->_dishID = $dishID;
+        $this->_name = $name;
+        $this->_price = $price;
+        $this->_category = $category;
     }
 
     public function add_to_db(PDO $db) {
@@ -30,7 +25,7 @@ class Dish {
         ');
 
         $stmt->execute(array($this->dishID, $this->name, $this->price, $this->category));
-
+        $this->_dishID = PDO::lastInsertId('Dish');
     }
 
     static function searchDishes(PDO $db, string $name, array $filters) {
@@ -83,10 +78,7 @@ class Dish {
         return $dishes;
     }
     
-    public function getAssociatedRestaurant() {
-
-        $db = getDatabase();
-
+    public function getAssociatedRestaurant(PDO $db) {
         $stmt = $db->prepare("SELECT restaurantID FROM Menu WHERE dishID = ?");
         $stmt->execute(array($this->_dishID));
 
@@ -95,8 +87,38 @@ class Dish {
         $stmt2 = $db->prepare("SELECT name FROM Restaurant WHERE restaurantID = ?");
         $stmt2->execute(array($restaurantID));
 
-        return $stmt2->fetch()['name'];
+        $this->_restaurant = $stmt2->fetch()['name'];
 
+    }
+
+    static function getAllDishes(PDO $db) {
+        $stmt = $db->prepare('SELECT * FROM Dish');
+        $stmt->execute();
+            
+        $dishes = array();
+        while ($dish = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $dishes[] = new Dish(
+                $dish->dishID,
+                $dish->name,
+                $dish->price,
+                $dish->category
+            );
+        }
+
+        return $dishes;
+    }
+
+    public function checkFavorite(int $userID) {
+        $db = getDatabase();
+
+        $stmt = $db->prepare('SELECT * FROM FavDishes WHERE dishID = ? AND userID = ?');
+        $stmt->execute(array($this->_dishID, $userID));
+
+        if ($fav = $stmt->fetch()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

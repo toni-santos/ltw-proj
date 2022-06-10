@@ -2,8 +2,11 @@ let down = false;
 
 function showAdvanced(event) {
     const filters = document.getElementById("adv-filters");
-
+    const buttons = document.querySelectorAll("#adv-filters .checkbox-wrapper");
     if (!down) {
+        for (button of buttons) {
+            button.style.display = "block";
+        }
         filters.style.height = "100%";
         event.target.animate([
             { transform: "rotate(0)" },
@@ -19,6 +22,9 @@ function showAdvanced(event) {
             {fill: "forwards", duration: 800, iterations: 1 });
         down = true;
     } else {
+        for (button of buttons) {
+            button.style.display = "none";
+        }
         event.target.animate([
             { transform: "rotate(180deg)" },
             { transform: "rotate(0)" }],
