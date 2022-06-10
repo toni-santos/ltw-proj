@@ -120,10 +120,26 @@ drawTop(["commons", "forms", "search"], ["hamburger", "forms", "search", "favori
             </div>
         </fieldset>
         <select id="filters-order" class="shadow-nohov pointer dark-bg" name="filters-order">
-            <option value="an">Ascending Name</option>
-            <option value="dn">Descending Name</option>
-            <option value="ar">Ascending Rating</option>
-            <option value="dr">Descending Rating</option>
+            <option <?php 
+            if ($_GET['filters-order'] == 'an'){
+                echo "selected";
+            }
+            ?> value="an">Ascending Name</option>
+            <option <?php 
+            if ($_GET['filters-order'] == 'dn'){
+                echo "selected";
+            }
+            ?> value="dn">Descending Name</option>
+            <option <?php 
+            if ($_GET['filters-order'] == 'ar'){
+                echo "selected";
+            }
+            ?> value="ar">Ascending Rating</option>
+            <option <?php 
+            if ($_GET['filters-order'] == 'dr'){
+                echo "selected";
+            }
+            ?> value="dr">Descending Rating</option>
         </select>
     </section>
     <a id="show-more"><span class="material-icons pointer" onclick="showAdvanced(event)">expand_more</span></a>
