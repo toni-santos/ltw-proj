@@ -85,6 +85,23 @@ class User
     );
   }
 
+  static function getUsers(PDO $db, int $count){
+      $stmt = $db->prepare('SELECT * FROM User LIMIT ?');
+      $stmt->execute(array($count));
+
+      $users = array();
+      while ($user = $stmt->fetch()) {
+          $users[] = new User(
+            $user['userID'],
+            $user['username'],
+            $user['email'],
+            $user['address'],
+            $user['phoneNum']
+          );
+      }
+      return $users;
+  }
+
   static function searchUsers(PDO $db, string $name) {
     $stmt = $db->prepare('
       SELECT *

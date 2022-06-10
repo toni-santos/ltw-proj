@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 class Dish {
 
-    public ?int $_dishID;
-    public string $_name;
-    public float $_price;
-    public string $_category;
+    public ?int $dishID;
+    public string $name;
+    public float $price;
+    public string $category;
 
     public function __construct($dishID, $name, $price, $category) {
         if (!isset($dishID)) {
@@ -14,12 +14,12 @@ class Dish {
             $stmt = $db->prepare("SELECT max(dishID) FROM Dish");
             $stmt->execute();
 
-            $this->_dishID = intval($stmt->fetch()['max(dishID)']) + 1;
-        } else $this->_dishID = $dishID;
+            $this->dishID = intval($stmt->fetch()['max(dishID)']) + 1;
+        } else $this->dishID = $dishID;
         
-        $this->_name = $name;
-        $this->_price = $price;
-        $this->_category = $category;
+        $this->name = $name;
+        $this->price = $price;
+        $this->category = $category;
     }
 
     public function add_to_db(PDO $db) {
@@ -29,7 +29,7 @@ class Dish {
             VALUES (?, ?, ?, ?)
         ');
 
-        $stmt->execute(array($this->_dishID, $this->_name, $this->_price, $this->_category));
+        $stmt->execute(array($this->dishID, $this->name, $this->price, $this->category));
 
     }
 
@@ -64,6 +64,23 @@ class Dish {
 
         return $dishes;
     
+    }
+
+    static function getDishes(PDO $db, int $count) {
+        $stmt = $db->prepare('SELECT * FROM Dish LIMIT ?');
+        $stmt->execute(array($count));
+    
+        $dishes = array();
+        while ($dish = $stmt->fetch()) {
+            $dishes[] = new Dish(
+                $dish['dishID'], 
+                $dish['name'],
+                $dish['price'],
+                $dish['category']
+            );
+        }
+    
+        return $dishes;
     }
 
 }

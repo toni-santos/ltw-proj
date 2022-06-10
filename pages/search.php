@@ -6,8 +6,18 @@ require_once('../templates/commons.php');
 require_once('../templates/search.tpl.php');
 require_once('../database/db_loader.php');
 require_once('../php/categories.php');
+require_once('../php/restaurant.php');
+require_once('../php/user.php');
+require_once('../php/dish.php');
 
 drawTop(["commons", "forms", "search"], ["hamburger", "forms", "search", "favorite"]);
+
+$db = getDatabase();
+
+$restaurants = Restaurant::getRestaurants($db, 18);
+$dishes = Dish::getDishes($db, 23);
+$users = User::getUsers($db, 10);
+
 ?>
 
 <form id="search-bar" action="../actions/search_action.php" class="subtitle2" autocomplete="off" method="GET">
@@ -54,22 +64,19 @@ drawTop(["commons", "forms", "search"], ["hamburger", "forms", "search", "favori
 <p class="h5 search-header">Restaurants</p>
 <section class="grid-wrapper">
     <?php
-    for ($i = 0; $i < 15; $i++)
-        restaurantSearchCards();
+        restaurantsSearchCards($restaurants);
     ?>    
 </section>
 <p class="h5 search-header">Dishes</p>
 <section class="grid-wrapper">
     <?php
-    for ($i = 0; $i < 15; $i++)
-        dishSearchCards();
+        dishSearchCards($dishes);
     ?>    
 </section>
 <p class="h5 search-header">Users</p>
 <section class="grid-wrapper">
     <?php
-    for ($i = 0; $i < 15; $i++)
-        userSearchCards();
+        userSearchCards($users);
     ?>    
 </section>
 <?php
