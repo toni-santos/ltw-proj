@@ -67,6 +67,14 @@
     transform: scale(101%);
 }
 
+#info-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
 #bottom-content {
     overflow: hidden;
     scroll-snap-type: y mandatory;

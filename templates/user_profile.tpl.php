@@ -2,7 +2,6 @@
 {
     echo $user->username;
     if ($is_user) {
-        drawFAB();
         userEditDialog();
     } ?>
     
@@ -28,8 +27,11 @@
             if ($is_user) { ?>
                 <div id="bottom-content">
                     <section id="info">
-                        <div>
+                        <div id="info-top">
                             <p class="h6">Personal Information</p>
+                            <?php if ($is_user) {?>
+                            <span class="material-icons" id="fab" onclick="showUserEdit()">settings</span>
+                            <?php }?>
                         </div>
                         <div id="personal-info-wrapper" class="shadow-nohov">
                             <div class="personal-info">
