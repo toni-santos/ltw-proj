@@ -216,6 +216,15 @@
 
 .review {
     margin-inline: 20px;
+    min-width: 100%;
+}
+
+#reviews {
+    justify-content: flex-start;
+}
+
+#no-reviews {
+    margin: auto;
 }
 
 .reviewer-pfp {

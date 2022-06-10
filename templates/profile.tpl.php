@@ -1,19 +1,22 @@
 <?php
 
-declare(strict_types=1); ?>
+declare(strict_types=1);
 
-<?php function drawReview()
+require_once('../database/db_loader.php');
+?>
+
+<?php function drawReview(Review $review, User $user)
 { ?>
     <section class="review">
         <div class="review-head">
             <div class="reviewer-info">
                 <img src="../images/placeholder.jpg" class="reviewer-pfp">
-                <p class="reviewer-name subtitle1">NAME</p>
+                <p class="reviewer-name subtitle1"><a href="../pages/user_profile.php?id=<?= $user->userID; ?>"><?= $user->username; ?></a> - <a href="../pages/restaurant_profile.php?id=<?= $review->getRestaurant(getDatabase())->restaurantID; ?>"><?= $review->getRestaurant(getDatabase())->name; ?></a></p>
             </div>
-            <p class="reviewer-score subtitle1">X/5 <span class="material-icons">star</span></p>
+            <p class="reviewer-score subtitle1"><?= $review->rating; ?> <span class="material-icons">star</span></p>
         </div>
         <article class="subtitle2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam explicabo neque laudantium, asperiores enim, rem architecto sint vel doloribus reiciendis ex, possimus animi ut iure! Atque quam provident saepe autem.
+            <?php echo $review->message; ?>
         </article>
     </section>
 <?php } ?>

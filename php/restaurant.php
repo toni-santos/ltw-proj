@@ -14,6 +14,8 @@ class Restaurant {
     public ?string $closing_time;
     public ?array $categories = null;
     public ?array $reviews = null;
+    public ?array $menus = null;
+    public ?int $ownerID;
 
     public function __construct(?int $restaurantID, ?string $name, ?string $location, ?string $opening_time, ?string $closing_time) {
         $this->restaurantID = $restaurantID;
@@ -122,7 +124,7 @@ class Restaurant {
     public function getRestaurantReviews(PDO $db) {
 
         $stmt = $db->prepare("
-        SELECT reviewerID, message, rating
+        SELECT *
         FROM Review
         WHERE restaurantID = ?
         ");
@@ -132,6 +134,7 @@ class Restaurant {
         $reviews = array();
         while ($review = $stmt->fetch()) {
             $reviews[] = new Review(
+                $review['restaurantID'],
                 $review['reviewerID'],
                 $review['message'],
                 $review['rating']
@@ -185,6 +188,32 @@ class Restaurant {
         } else {
             return false;
         }
+    }
+
+    public function getRestaurantOwner(PDO $db) {
+        $stmt = $db->prepare('SELECT ownerID FROM RestOwner WHERE restaurantID = ?');
+        $stmt->execute(array($this->restaurantID));
+
+        if ($owner = $stmt->fetch()) {
+            $this->ownerID = $owner->ownerID;
+        }
+    }
+
+    public function getRestaurantMenus(PDO $db) {
+        $stmt = $db->prepare('SELECT dishID FROM Menu WHERE restaurantID = ?');
+        $stmt->execute(array($this->restaurantID));
+        
+        $dishesID = array();
+        while ($id = $stmt->fetch(PDO::FETCH_OBJ)) {
+          $dishesID[] = $id->dishID;
+        }
+        
+        $dishes = array();
+        foreach ($dishesID as $id)
+          $dishes[] = Dish::getDish($db, intval($id));
+        
+    
+        $this->menus = $dishes;
     }
 }
 

@@ -14,8 +14,8 @@
         </div>
     </div>
 <?php } ?>
-<?php function userProfileBottom(array $tabs, int $scrollVal, ?User $user) { // TODO: refactor this when get is done?>  
 
+<?php function userProfileBottom(array $tabs, int $scrollVal, ?User $user, bool $is_user) { // TODO: refactor this when get is done?>  
     <div id="profile-bottom">
         <div id="content-wrapper">
             <section id="tabs" class="h6">
@@ -25,7 +25,7 @@
                 <?php } ?>
             </section>
             <?php
-            if (isset($_SESSION['id'])) { ?>
+            if ($is_user) { ?>
                 <div id="bottom-content">
                     <section id="info">
                         <div>
@@ -57,57 +57,80 @@
                     <section id="reviews">
                             <p class="h6">My Reviews</p>
                             <?php
-                            for ($i = 0; $i < 10; $i++)
-                                drawReview();
-                            ?>
+                            if (!empty($user->reviews)){
+                                foreach ($user->reviews as $review) {
+                                    drawReview($review, $user);
+                                }
+                            } else { ?>
+                                <p class="subtitle2" id="no-reviews">There are no reviews! :(</p>
+                            <?php } ?>
                     </section>
                     <section id="favorite-restaurants">
                         <p class="h6">Favorite Restaurants</p>
                         <div class="grid-wrapper">
                             <?php
-                            for ($i = 0; $i < 10; $i++)
-                                restaurantSearchCards();
-                            ?>
+                            if (!empty($user->favRestaurants)){
+                                foreach ($user->favRestaurants as $restaurant) {
+                                    restaurantSearchCards($restaurant);
+                                }
+                            } else { ?>
+                                <p class="subtitle2">There are no favorited restaurants! :(</p>
+                            <?php } ?>
                         </div>
                     </section>
                     <section id="favorite-dishes">
                         <p class="h6">Favorite Dishes</p>
                         <div class="grid-wrapper">
-                            <?php
-                            for ($i = 0; $i < 10; $i++)
-                                dishSearchCards();
-                            ?>
+                        <?php
+                            if (!empty($user->favDishes)){
+                                foreach ($user->favDishes as $dish) {
+                                    dishSearchCards($dish);
+                                }
+                            } else { ?>
+                                <p class="subtitle2">There are no favorited dishes! :(</p>
+                            <?php } ?>
                         </div>
                     </section>
                 </div>
             <?php } else { ?>
                 <div id="bottom-content">
                     <section id="reviews">
-                            <p class="h6">Reviews</p>
+                            <p class="h6">My Reviews</p>
                             <?php
-                            for ($i = 0; $i < 10; $i++)
-                                drawReview();
-                            ?>
+                            if (!empty($user->reviews)){
+                                foreach ($user->reviews as $review) {
+                                    drawReview($review, $user);
+                                }
+                            } else { ?>
+                                <p class="subtitle2" id="no-reviews">There are no reviews! :(</p>
+                            <?php } ?>
                     </section>
                     <section id="favorite-restaurants">
                         <p class="h6">Favorite Restaurants</p>
                         <div class="grid-wrapper">
                             <?php
-                            for ($i = 0; $i < 10; $i++)
-                                restaurantSearchCards();
-                            ?>
+                            if (!empty($user->favRestaurants)){
+                                foreach ($user->favRestaurants as $restaurant) {
+                                    restaurantSearchCards($restaurant);
+                                }
+                            } else { ?>
+                                <p class="subtitle2">There are no favorited restaurants! :(</p>
+                            <?php } ?>
                         </div>
                     </section>
                     <section id="favorite-dishes">
                         <p class="h6">Favorite Dishes</p>
                         <div class="grid-wrapper">
-                            <?php
-                            for ($i = 0; $i < 10; $i++)
-                                dishSearchCards();
-                            ?>
+                        <?php
+                            if (!empty($user->favDishes)){
+                                foreach ($user->favDishes as $dish) {
+                                    dishSearchCards($dish);
+                                }
+                            } else { ?>
+                                <p class="subtitle2">There are no favorited dishes! :(</p>
+                            <?php } ?>
                         </div>
                     </section>
-
                 </div>
             <?php } ?>
         </div>

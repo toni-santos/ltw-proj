@@ -1,12 +1,7 @@
 <?php declare(strict_types=1); ?>
 
 <?php function restaurantProfileTop(Restaurant $restaurant)
-{
-    if (isset($_SESSION['id'])) { // TODO: Check if owner and enable editing
-        $db = getDatabase();
-        global $user;
-        $user = User::getUser($db, $_SESSION['id']);
-    }  ?>
+{ ?>
     <div id="profile-top">
         <div id="banner" class="shadow-nohov"></div>
         <div id="tabs-container">
@@ -50,7 +45,7 @@
     </dialog>
 <?php } ?>
 
-<?php function restaurantProfileBottom(array $tabs, int $scrollVal){ 
+<?php function restaurantProfileBottom(array $tabs, int $scrollVal, Restaurant $restaurant, bool $is_owner){ 
     if (isset($_SESSION['id'])) {
         $db = getDatabase();
         global $user;
@@ -88,18 +83,28 @@
                     <p class="h6">Our menus</p>
                     <div class="grid-wrapper">
                         <?php
-                        for ($i = 0; $i < 10; $i++)
-                            restaurantSearchCards();
-                        ?>
+                        if (!empty($restaurant->menus)){
+                            foreach ($restaurant->menus as $menu) {
+                                dishSearchCards($menu);
+                            }
+                        } else { ?>
+                            <p class="subtitle2">There are no available menus! :(</p>
+                        <?php } ?>
                     </div>
                 </section>
                 <section id="reviews">
                     <p class="h6">Reviews</p>
                     <?php
-                    reviewBox();
-                    for ($i = 0; $i < 10; $i++)
-                        drawReview();
-                    ?>
+                        if (isset($_SESSION['id'])) {
+                            reviewBox();
+                        }
+                        if (!empty($restaurant->reviews)){
+                            foreach ($restaurant->reviews as $review) {
+                                drawReview($review, $review->getReviewer(getDatabase()));
+                            }
+                        } else { ?>
+                            <p class="subtitle2">There are no reviews! :(</p>
+                        <?php } ?>
                 </section>
             </div>
         </div>

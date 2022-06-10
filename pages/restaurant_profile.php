@@ -17,16 +17,24 @@ if (!isset($_GET['id']) || intval($_GET['id']) <= 0) {
     die;
 }
 
+$is_owner = false;
 
 $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
+$restaurant->getRestaurantOwner($db);
+$restaurant->getRestaurantReviews($db);
+
 if (!isset($restaurant->restaurantID)) {
     http_response_code(404);
     require("not_found.php");
     die;
 }
 
+if ($restaurant->ownerID == $_SESSION['id']) {
+    $is_owner = true;
+}
+
 drawTop(["commons", "forms", "profile", "search"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite", "review"]);
 restaurantProfileTop($restaurant);
-restaurantProfileBottom(["info", "menus", "reviews"], 600);
+restaurantProfileBottom(["info", "menus", "reviews"], 600, $restaurant, $is_owner);
 drawFooter();
 ?>

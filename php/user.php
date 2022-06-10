@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+require_once("review.php");
+require_once("dish.php");
+require_once("restaurant.php");
+
 class User
 {
   public ?int $userID = NULL;
@@ -9,6 +13,9 @@ class User
   public ?string $email = NULL;
   public ?string $address = NULL;
   public ?int $phoneNum = NULL;
+  public ?array $reviews = null;
+  public ?array $favRestaurants = null;
+  public ?array $favDishes = null;
 
   public function __construct($userID, $username, $email, $address, $phoneNum) {
 
@@ -176,5 +183,67 @@ class User
     }
 
     return $users;
-}
+  }
+
+  public function getUserReviews(PDO $db) {
+    $stmt = $db->prepare('
+      SELECT *
+      FROM Review
+      WHERE reviewerID = ?;
+    ');
+    $stmt->execute(array($this->userID));
+
+    $reviews = array();
+    while ($review = $stmt->fetch(PDO::FETCH_OBJ)) {
+      $reviews[] = new Review(
+        $review->restaurantID,
+        $review->reviewerID,
+        $review->message,
+        $review->rating
+      );
+    }
+
+    $this->reviews = $reviews;
+  }
+
+  public function getFavoriteRestaurants(PDO $db) {
+    $stmt = $db->prepare('
+      SELECT restaurantID
+      FROM FavRestaurants
+      WHERE userID = ?;
+    ');
+    $stmt->execute(array($this->userID));
+
+    $restaurantsID = array();
+    while ($id = $stmt->fetch(PDO::FETCH_OBJ)) {
+      $restaurantsID[] = $id;
+    }
+
+    $restaurants = array();
+    foreach ($restaurantsID as $id)
+      $restaurants[] = Restaurant::getRestaurant($db, intval($id));
+    
+      $this->favRestaurants = $restaurants;
+  }
+
+  public function getFavoriteDishes(PDO $db) {
+    $stmt = $db->prepare('
+      SELECT dishID
+      FROM FavDishes
+      WHERE userID = ?;
+    ');
+    $stmt->execute(array($this->userID));
+    
+    $dishesID = array();
+    while ($id = $stmt->fetch(PDO::FETCH_OBJ)) {
+      $dishesID[] = $id->dishID;
+    }
+    
+    $dishes = array();
+    foreach ($dishesID as $id)
+      $dishes[] = Dish::getDish($db, intval($id));
+    
+
+    $this->favDishes = $dishes;
+  }
 }

@@ -61,6 +61,20 @@ class Dish {
     
     }
 
+    static function getDish(PDO $db, int $id) {
+        $stmt = $db->prepare('SELECT * FROM Dish WHERE dishID = ?');
+        $stmt->execute(array($id));
+    
+        if ($dish = $stmt->fetch()) {
+            return new Dish(
+                $dish['dishID'], 
+                $dish['name'],
+                $dish['price'],
+                $dish['category']
+            );
+        }
+    }
+
     static function getDishes(PDO $db, int $count) {
         $stmt = $db->prepare('SELECT * FROM Dish LIMIT ?');
         $stmt->execute(array($count));
