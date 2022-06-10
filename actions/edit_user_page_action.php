@@ -12,9 +12,9 @@
     $user = User::getUser($db, $_SESSION['id']);
 
     if ($user) {
-        $user->username = $_POST['name'];
-        $user->email = $_POST['email'];
-        $user->address = $_POST['address'];
+        $user->username = htmlspecialchars($_POST['name']);
+        $user->email = htmlspecialchars($_POST['email']);
+        $user->address = htmlspecialchars($_POST['address']);
         $user->phoneNum = intval($_POST['tel']);
         
         $user-> save_to_db($db);

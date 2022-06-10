@@ -2,6 +2,7 @@
 declare(strict_types = 1);
 
 require_once("../database/db_loader.php");
+require_once("review.php");
 
 class Restaurant {
 
@@ -11,6 +12,8 @@ class Restaurant {
     public ?string $location;
     public ?string $opening_time;
     public ?string $closing_time;
+    public ?array $categories = null;
+    public ?array $reviews = null;
 
     public function __construct(?int $restaurantID, ?string $name, ?string $location, ?string $opening_time, ?string $closing_time) {
         $this->restaurantID = $restaurantID;
@@ -106,6 +109,39 @@ class Restaurant {
 
         return $restaurants;
     }
+
+    public function getRestaurantCategories($db) {
+
+        $stmt = $db->prepare("SELECT categoryName FROM RestaurantCategory WHERE restaurantID = ?");
+        $stmt->execute(array($this->restaurantID));
+
+        $this->categories = $stmt->fetchAll();
+
+    }
+
+    public function getRestaurantReviews($db) {
+
+        $stmt = $db->prepare("
+        SELECT reviewerID, message, rating
+        FROM Review
+        WHERE restaurantID = ?
+        ");
+
+        $stmt->execute(array($this->restaurantID));
+
+        $reviews = array();
+        while ($review = $stmt->fetch()) {
+            $reviews[] = new Review(
+                $review['reviewerID'],
+                $review['message'],
+                $review['rating']
+            );
+        }
+
+        $this->reviews = $reviews;
+
+    }
+
 }
 
 ?>

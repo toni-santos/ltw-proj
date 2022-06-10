@@ -18,12 +18,12 @@
 			if(!preg_match("/^[a-zA-Z]+$/", $username)) {
 				$Error = "Please enter a valid username";
 			}
-			$username = addslashes($_POST['name']);  // avoid ' in username to be used maliciously (escape character)
+			$username = htmlspecialchars($_POST['name']);  // avoid ' in username to be used maliciously (escape character)
 			$email = $_POST['email'];
 			$password = addslashes($_POST['pwd']);
 			$pass = sha1($password);
-			$address = addslashes($_POST['address']);
-			$phoneNum = addslashes($_POST['tel']);
+			$address = htmlspecialchars($_POST['address']);
+			$phoneNum = htmlspecialchars($_POST['tel']);
 			// Insertion Query
 			$query = 'INSERT INTO User (userID, username, email, password, address, phoneNum) VALUES(NULL, :username, :email, :password, :address, :phoneNum)';
 			
