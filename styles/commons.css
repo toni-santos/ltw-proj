@@ -552,8 +552,16 @@ footer ul {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.grid-card:hover > .grid-card-overlay {
-    transform: translateY(0%)
+@media (hover: hover) {
+    .grid-card:hover > .grid-card-overlay {
+        transform: translateY(0%)
+    }
+}
+
+@media (hover: none) {
+    .grid-card-overlay {
+        transform: translateY(0%);
+    }
 }
 
 .blank-button {
