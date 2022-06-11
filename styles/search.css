@@ -226,3 +226,8 @@ select {
     background-color: var(--dark-off-white);
     border-radius: 12px;
 }
+
+.delete-dish {
+    background-color: var(--dark-red);
+    border-radius: 50%;
+}

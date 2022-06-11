@@ -9,7 +9,7 @@ class Dish {
     public string $_category;
     public ?string $_restaurant = NULL;
 
-    public function __construct($dishID, $name, $price, $category) {
+    public function __construct(?int $dishID, string $name, float $price, string $category) {
        
         $this->_dishID = $dishID;
         $this->_name = $name;
@@ -23,9 +23,9 @@ class Dish {
             INSERT INTO Dish
             VALUES (?, ?, ?, ?)
         ');
-
-        $stmt->execute(array($this->dishID, $this->name, $this->price, $this->category));
-        $this->_dishID = $db->lastInsertId('Dish');
+        print_r($this);
+        $stmt->execute(array($this->_dishID, $this->_name, $this->_price, $this->_category));
+        $this->_dishID = intval($db->lastInsertId('Dish'));
     }
 
     static function searchDishes(PDO $db, string $name, array $filters) {

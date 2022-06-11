@@ -42,7 +42,7 @@ function restaurantSearchCards(Restaurant $restaurant)
 <?php } ?>
 
 <?php
-function dishSearchCards(Dish $dish, bool $is_owner)
+function dishSearchCards(Dish $dish, bool $is_owner, ?Restaurant $restaurant)
 { ?>
 <div class="grid-card shadow" style="background-image: url('../images/dish_images/dish<?= $dish->_dishID;?>.jpg');">
     <section class="grid-card-overlay">
@@ -75,8 +75,10 @@ function dishSearchCards(Dish $dish, bool $is_owner)
                         <button class="body1 blank-button order" ><?= $dish->_price; ?>€ - Order</button>
                     </form>
                 <?php } else { ?>
-                    <form method="POST" action="">
-                        <button class="body1 blank-button order" ><span>cross</span></button>
+                    <form method="POST" action="../actions/remove_dish_action.php">
+                        <input type="hidden" name="dishID" value="<?= $dish->_dishID; ?>">
+                        <input type="hidden" name="restaurantID" value="<?= $restaurant->restaurantID; ?>">
+                        <button class="body1 material-icons blank-button order delete-dish"><span>delete</span></button>
                     </form>
                 <?php } ?>
             </div>

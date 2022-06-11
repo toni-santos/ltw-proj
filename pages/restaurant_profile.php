@@ -39,7 +39,7 @@ if ($restaurant->ownerID == intval($_SESSION['id'])) {
 drawTop(["commons", "forms", "profile", "search"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite", "review"]);
 if ($is_owner) {
     restaurantEditDialog($restaurant);
-    addDishDialog();
+    addDishDialog($restaurant);
 }
 restaurantProfileTop($restaurant);
 restaurantProfileBottom(["info", "menus", "reviews"], 600, $restaurant, $is_owner);

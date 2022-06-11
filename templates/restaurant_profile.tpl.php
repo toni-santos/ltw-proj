@@ -81,13 +81,13 @@
                 }
                 ?>
             </section>
-            <input type="hidden" name="restaurantID" value="<?= $restaurant->restaurantID ?>">
+            <input type="hidden" name="restaurantID" value="<?= $restaurant->restaurantID ?>"><?= $restaurant->restaurantID ?>
             <button id="confirm-restaurant" class="button-form" type="submit" name="submit" value="confirm">Confirm</button>
         </form>
     </dialog>
 <?php } ?>
 
-<?php function addDishDialog() { ?>
+<?php function addDishDialog(Restaurant $restaurant) { ?>
     <!-- TODO: backend -->
     <dialog id="dialog-dish-add">
         <div id="top-form">
@@ -104,8 +104,8 @@
                     <span class="error subtitle2 transparent">Required</span>
                 </div>
                 <div class="input-container">
-                    <input class="text text-input subtitle2" type="text" name="location" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
-                    <label class="body2" for="location" onclick="setFocus(event)">Location</label>
+                    <input class="text text-input subtitle2" type="number" name="price" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
+                    <label class="body2" for="location" onclick="setFocus(event)">Price</label>
                     <span class="error subtitle2 transparent">Required</span>
                 </div>
                 <select id="dish-categories" class="shadow-nohov pointer dark-bg" name="dish-categories">
@@ -117,6 +117,7 @@
                     <?php } ?>
                 </select>
             </section>
+            <input type="hidden" name="restaurantID" value="<?= $restaurant->restaurantID ?>">
             <button id="confirm-dish" class="button-form" type="submit" name="submit" value="Signup" disabled>Create Dish</button>
         </form>
     </dialog>
@@ -197,7 +198,7 @@
                         <?php
                         if (!empty($restaurant->menus)){
                             foreach ($restaurant->menus as $menu) {
-                                dishSearchCards($menu, $is_owner);
+                                dishSearchCards($menu, $is_owner, $restaurant);
                             }
                         } else { ?>
                             <p class="subtitle2">There are no available menus! :(</p>
