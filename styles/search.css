@@ -165,6 +165,7 @@ select {
 }
 
 .genre-list > a {
+    min-width: max-content;
     padding: 3px;
     padding-inline: 5px;
     border-radius: 12px;
@@ -205,4 +206,23 @@ select {
 
 .search::placeholder {
     color: var(--dark-text);
+}
+
+.genre-list {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--dark-background) var(--dark-off-white);
+}
+
+.genre-list::-webkit-scrollbar {
+    width: 1px;
+}
+
+.genre-list::-webkit-scrollbar-track {
+    background: var(--dark-background);
+}
+
+.genre-list::-webkit-scrollbar-thumb {
+    background-color: var(--dark-off-white);
+    border-radius: 12px;
 }

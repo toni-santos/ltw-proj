@@ -130,3 +130,7 @@ input[type=number] {
 .profile-pic-input > input {
     display: none;
 }
+
+#dish-categories {
+    margin-bottom: 20px;
+}

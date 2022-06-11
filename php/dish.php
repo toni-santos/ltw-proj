@@ -25,7 +25,7 @@ class Dish {
         ');
 
         $stmt->execute(array($this->dishID, $this->name, $this->price, $this->category));
-        $this->_dishID = PDO::lastInsertId('Dish');
+        $this->_dishID = $db->lastInsertId('Dish');
     }
 
     static function searchDishes(PDO $db, string $name, array $filters) {

@@ -20,7 +20,9 @@ if (!isset($_GET['id']) || intval($_GET['id']) <= 0) {
 $is_owner = false;
 
 $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
+$restaurant->setRestaurantRating($db);
 $restaurant->getRestaurantOwner($db);
+$restaurant->getRestaurantMenus($db);
 $restaurant->getRestaurantReviews($db);
 
 if (!isset($restaurant->restaurantID)) {
@@ -29,11 +31,15 @@ if (!isset($restaurant->restaurantID)) {
     die;
 }
 
-if ($restaurant->ownerID == $_SESSION['id']) {
+if ($restaurant->ownerID == intval($_SESSION['id'])) {
     $is_owner = true;
 }
 
 drawTop(["commons", "forms", "profile", "search"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite", "review"]);
+if ($is_owner) {
+    restaurantEditDialog();
+    addDishDialog();
+}
 restaurantProfileTop($restaurant);
 restaurantProfileBottom(["info", "menus", "reviews"], 600, $restaurant, $is_owner);
 drawFooter();

@@ -27,7 +27,7 @@
             if ($is_user) { ?>
                 <div id="bottom-content">
                     <section id="info">
-                        <div id="info-top">
+                        <div class="bottom-content-top">
                             <p class="h6">Personal Information</p>
                             <?php if ($is_user) {?>
                             <span class="material-icons" id="fab" onclick="showUserEdit()">settings</span>
@@ -57,7 +57,9 @@
                         </div>
                     </section>
                     <section id="reviews">
-                            <p class="h6">My Reviews</p>
+                            <div class="bottom-content-top">
+                                <p class="h6">My Reviews</p>
+                            </div>
                             <?php
                             if (!empty($user->reviews)){
                                 foreach ($user->reviews as $review) {
@@ -68,7 +70,9 @@
                             <?php } ?>
                     </section>
                     <section id="favorite-restaurants">
-                        <p class="h6">Favorite Restaurants</p>
+                        <div class="bottom-content-top">
+                            <p class="h6">Favorite Restaurants</p>
+                        </div>
                         <div class="grid-wrapper">
                             <?php
                             if (!empty($user->favRestaurants)){
@@ -81,12 +85,14 @@
                         </div>
                     </section>
                     <section id="favorite-dishes">
-                        <p class="h6">Favorite Dishes</p>
+                        <div class="bottom-content-top">
+                            <p class="h6">Favorite Dishes</p>
+                        </div>
                         <div class="grid-wrapper">
                         <?php
                             if (!empty($user->favDishes)){
                                 foreach ($user->favDishes as $dish) {
-                                    dishSearchCards($dish);
+                                    dishSearchCards($dish, false);
                                 }
                             } else { ?>
                                 <p class="subtitle2">There are no favorited dishes! :(</p>
@@ -97,18 +103,22 @@
             <?php } else { ?>
                 <div id="bottom-content">
                     <section id="reviews">
-                            <p class="h6">My Reviews</p>
-                            <?php
-                            if (!empty($user->reviews)){
-                                foreach ($user->reviews as $review) {
-                                    drawReview($review, $user);
-                                }
-                            } else { ?>
-                                <p class="subtitle2" id="no-reviews">There are no reviews! :(</p>
-                            <?php } ?>
+                        <div class="bottom-content-top">
+                            <p class="h6">Reviews</p>
+                        </div>
+                        <?php
+                        if (!empty($user->reviews)){
+                            foreach ($user->reviews as $review) {
+                                drawReview($review, $user);
+                            }
+                        } else { ?>
+                            <p class="subtitle2" id="no-reviews">There are no reviews! :(</p>
+                        <?php } ?>
                     </section>
                     <section id="favorite-restaurants">
-                        <p class="h6">Favorite Restaurants</p>
+                        <div class="bottom-content-top">
+                            <p class="h6">Favorite Restaurants</p>
+                        </div>
                         <div class="grid-wrapper">
                             <?php
                             if (!empty($user->favRestaurants)){
@@ -121,12 +131,14 @@
                         </div>
                     </section>
                     <section id="favorite-dishes">
-                        <p class="h6">Favorite Dishes</p>
+                        <div class="bottom-content-top">
+                            <p class="h6">Favorite Dishes</p>
+                        </div>
                         <div class="grid-wrapper">
                         <?php
                             if (!empty($user->favDishes)){
                                 foreach ($user->favDishes as $dish) {
-                                    dishSearchCards($dish);
+                                    dishSearchCards($dish, false);
                                 }
                             } else { ?>
                                 <p class="subtitle2">There are no favorited dishes! :(</p>
@@ -152,15 +164,15 @@
                 <div class="profile-pic-input">
                     <img src="../images/placeholder.jpg" id="profile-"></img>
                     <input type="file" name="profile-pic" id="pfp-input">
-                    <label class="body2 dark-bg" for="pwd"  onclick="inputFile(event)"><span class="md-10 material-icons">edit</span></label> 
+                    <label class="body2 dark-bg" for="pfp-input"  onclick="inputFile(event)"><span class="md-10 material-icons">edit</span></label> 
                 </div>
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" ">
                     <label class="body2 dark-bg" for="name" onclick="setFocus(event)">Name</label>
                 </div>
                 <div class="input-container">
-                    <input class="text text-input subtitle2" type="email" name="email" autocomplete="email" placeholder=" ">
-                    <label class="body2 dark-bg" for="email" onclick="setFocus(event)">Email</label>
+                    <input class="text text-input subtitle2" type="email" name="e-mail" autocomplete="email" placeholder=" ">
+                    <label class="body2 dark-bg" for="e-mail" onclick="setFocus(event)">Email</label>
                 </div>
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="text" name="address" autocomplete="off" placeholder=" ">

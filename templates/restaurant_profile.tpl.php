@@ -7,6 +7,7 @@
         <div id="tabs-container">
             <img id="pfp" class="shadow-nohov" src="../images/rest_images/rest<?= $restaurant->restaurantID; ?>.jpg"></img>
             <p class="h5"><?= $restaurant->name; ?></p>
+            <div><p id="profile-top-rating" class="body1 dark-bg rating"><?= $restaurant->rating;?><span class="material-icons"  style="color:var(--dark-main-highlight);">star</span></p></div>
         </div>
     </div>
 <?php } ?>
@@ -15,8 +16,8 @@
 { ?>
     <form method="POST" action="../actions/add_review_action.php">
         <div class="textarea-container">
-            <textarea placeholder=" " class="subtitle2 textbox" name="message" rows="3" cols="100"></textarea>
-            <label class="body2" for="email">Review</label>
+            <textarea placeholder=" " id="message" class="subtitle2 textbox" name="message" rows="3" cols="100"></textarea>
+            <label class="body2" for="message">Review</label>
         </div>
         <div id="stars-button-container">
             <div class="star-container">
@@ -36,14 +37,79 @@
 <?php } ?>
 
 <?php function restaurantEditDialog() { ?>
-    <!-- TODO: Figure out necessary info for a restaurant -->
-    <dialog id="restaurant-edit-dialog">
+    <!-- TODO: backend -->
+    <dialog id="dialog-restaurant-edit">
         <div id="top-form">
             <p class="h5">Edit Restaurant</p>
             <button value="cancel" class="blank-button" onclick="closeRestaurantEdit()">
                 <span class="material-icons">close</span>
             </button>
         </div>
+        <form id="form-restaurant" action="../actions/edit_restaurant_action.php" method="POST">
+            <section id="inputs-box">
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" ">
+                    <label class="body2" for="name" onclick="setFocus(event)">Name</label>
+                </div>
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="text" name="location" autocomplete="email" placeholder=" ">
+                    <label class="body2" for="location" onclick="setFocus(event)">Location</label>
+                </div>
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="time" name="opening-time" autocomplete="off" placeholder=" ">
+                    <label class="body2" for="opening-time" onclick="setFocus(event)">Opening Time</label>
+                </div>
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="time" name="closing-time" autocomplete="off" placeholder=" ">
+                    <label class="body2" for="closing-time" onclick="setFocus(event)">Closing Time</label>
+                </div>
+            </section>
+            <section id="category-wrapper">
+                <?php 
+                $db = getDatabase();
+                $categories = getCategories($db);
+                foreach ($categories as $category) {
+                    checkboxButton($category, false);
+                }
+                ?>
+            </section>
+            <button id="confirm-restaurant" class="button-form" type="submit" name="submit" value="confirm" disabled>Confirm</button>
+        </form>
+    </dialog>
+<?php } ?>
+
+<?php function addDishDialog() { ?>
+    <!-- TODO: backend -->
+    <dialog id="dialog-dish-add">
+        <div id="top-form">
+            <p class="h5">Add Dish</p>
+            <button value="cancel" class="blank-button" onclick="closeDishAdd()">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+        <form id="form-dish" action="../actions/add_dish_action.php" method="POST">
+            <section id="inputs-box">
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
+                    <label class="body2" for="name" onclick="setFocus(event)">Name</label>
+                    <span class="error subtitle2 transparent">Required</span>
+                </div>
+                <div class="input-container">
+                    <input class="text text-input subtitle2" type="text" name="location" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
+                    <label class="body2" for="location" onclick="setFocus(event)">Location</label>
+                    <span class="error subtitle2 transparent">Required</span>
+                </div>
+                <select id="dish-categories" class="shadow-nohov pointer dark-bg" name="dish-categories">
+                    <?php 
+                    $db = getDatabase();
+                    $categories = getCategories($db);
+                    foreach ($categories as $category) { ?>
+                        <option value="<?= $category ?>"><?= $category ?></option>
+                    <?php } ?>
+                </select>
+            </section>
+            <button id="confirm-dish" class="button-form" type="submit" name="submit" value="Signup" disabled>Create Dish</button>
+        </form>
     </dialog>
 <?php } ?>
 
@@ -64,11 +130,31 @@
             </section>
             <div id="bottom-content">
                 <section id="info">
-                    <p id="description" class="body2">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam explicabo neque laudantium, asperiores enim, rem architecto sint vel doloribus reiciendis ex, possimus animi ut iure! Atque quam provident saepe autem.
-                    </p>
+                    <div class="bottom-content-top">
+                        <p class="h5">Info</p>
+                        <?php if ($is_owner) {?>
+                        <span class="material-icons" id="fab" onclick="showRestaurantEdit()">settings</span>
+                        <?php }?>
+                    </div>
+                    <div id="personal-info-wrapper" class="shadow-nohov">
+                            <div class="personal-info">
+                                <span class="material-icons md-24 dark-bg">place</span>
+                                <p class="body1">Location</p>
+                                <p class="body2"><?php echo $restaurant->location; ?></p>
+                            </div>
+                            <div class="personal-info">
+                                <span class="material-icons md-24 dark-bg">schedule</span>
+                                <p class="body1">Opening Hours</p>
+                                <p class="body2"><?php echo $restaurant->opening_time; ?></p>
+                            </div>
+                            <div class="personal-info">
+                                <span class="material-icons md-24 dark-bg">schedule</span>
+                                <p class="body1">Closing Hours</p>
+                                <p class="body2"><?php echo $restaurant->closing_time; ?></p>
+                            </div>
+                        </div>
                     <div>
-                        <p class="h6">Gallery</p>
+                    <!-- <p class="h6">Gallery</p>
                     </div>
                     <section id="gallery">
                         <img src="../images/placeholder.jpg" class="">
@@ -78,16 +164,21 @@
                     <div>
                         <p class="h6">Where to find us</p>
                     </div>
-                    <!-- geolocation here -->
-                    <div id="maps"></div>
+                    geolocation here
+                    <div id="maps"></div> -->
                 </section>
                 <section id="menus">
-                    <p class="h6">Our menus</p>
+                    <div class="bottom-content-top">
+                        <p class="h5">Menus</p>
+                        <?php if ($is_owner) {?>
+                        <span class="material-icons .md-18" id="fab" onclick="showDishAdd()">add</span>
+                        <?php }?>
+                    </div>
                     <div class="grid-wrapper">
                         <?php
                         if (!empty($restaurant->menus)){
                             foreach ($restaurant->menus as $menu) {
-                                dishSearchCards($menu);
+                                dishSearchCards($menu, $is_owner);
                             }
                         } else { ?>
                             <p class="subtitle2">There are no available menus! :(</p>
@@ -95,9 +186,11 @@
                     </div>
                 </section>
                 <section id="reviews">
-                    <p class="h6">Reviews</p>
+                    <div class="bottom-content-top">
+                        <p class="h5">Reviews</p>
+                    </div>
                     <?php
-                        if (isset($_SESSION['id'])) {
+                        if (isset($_SESSION['id']) && !$is_owner) {
                             reviewBox($restaurant);
                         }
                         if (!empty($restaurant->reviews)){

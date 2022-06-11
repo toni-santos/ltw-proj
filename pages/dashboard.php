@@ -3,8 +3,8 @@ session_start();
 
 require_once('../templates/commons.php');
 require_once('../templates/search.tpl.php');
-
 require_once('../database/db_loader.php');
+
 require_once('../php/user.php');
 
 if (!isset($_SESSION['id'])) {
@@ -20,7 +20,7 @@ foreach ($restaurants as $restaurant) {
     $restaurant->setRestaurantRating($db);
 }
 
-drawTop(["commons", "forms", "search", "dashboard"], ["hamburger", "forms"]);
+drawTop(["commons", "forms", "search", "dashboard"], ["hamburger", "forms", "favorite"]);
 drawRestaurantDialog();
 ?>
 

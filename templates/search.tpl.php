@@ -42,7 +42,7 @@ function restaurantSearchCards(Restaurant $restaurant)
 <?php } ?>
 
 <?php
-function dishSearchCards(Dish $dish)
+function dishSearchCards(Dish $dish, bool $is_owner)
 { ?>
 <div class="grid-card shadow">
     <section class="grid-card-overlay">
@@ -69,18 +69,26 @@ function dishSearchCards(Dish $dish)
                 <div class="genre-list body2">
                     <a class="shadow-nohov"><?= $dish->_category; ?></a>
                 </div>
-                <form method="POST" action="">
-                    <button class="body1 blank-button order" ><?= $dish->_price; ?>€ - Order</button>
-                </form>
+                <?php 
+                if (!$is_owner) { ?>
+                    <form method="POST" action="">
+                        <button class="body1 blank-button order" ><?= $dish->_price; ?>€ - Order</button>
+                    </form>
+                <?php } else { ?>
+                    <form method="POST" action="">
+                        <button class="body1 blank-button order" ><span>cross</span></button>
+                    </form>
+                <?php } ?>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+</div>
 <?php } ?>
 
 <?php
 function userSearchCards(User $user)
 { ?>
-    <div class="grid-card-nohov shadow">
+    <div class="grid-card-nohov shadow" onclick="window.location.href='../pages/user_profile.php?id=<?= $user->userID; ?>'">
         <section class="grid-card-overlay">
             <div class="sub-info">
                 <div class="sub-info-top">

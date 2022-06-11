@@ -68,8 +68,7 @@ class Restaurant {
         ');
 
         $stmt->execute(array($this->restaurantID, $this->name, $this->location, $this->opening_time, $this->closing_time));
-        $this->restaurantID = PDO::lastInsertId('Restaurant');
-    
+        $this->restaurantID = intval($db->lastInsertId('Restaurant'));
     }
 
     static function searchRestaurants(PDO $db, string $name, array $filters) {
@@ -193,8 +192,8 @@ class Restaurant {
     public function getRestaurantOwner(PDO $db) {
         $stmt = $db->prepare('SELECT ownerID FROM RestOwner WHERE restaurantID = ?');
         $stmt->execute(array($this->restaurantID));
-
-        if ($owner = $stmt->fetch()) {
+        
+        if ($owner = $stmt->fetch(PDO::FETCH_OBJ)) {
             $this->ownerID = $owner->ownerID;
         }
     }

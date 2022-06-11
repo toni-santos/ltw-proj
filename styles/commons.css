@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 :root {
     --main-highlight: #52ec3bff;
     --sub-highlight: #a6f49aff;
@@ -237,6 +238,7 @@ ul {
     .nav {
         visibility: hidden;
     }
+
     .nav-hamburger {
         visibility: visible;
         display: flex;
@@ -246,6 +248,7 @@ ul {
         align-content: center;
         align-items: center;
     }
+
     #hamburger-top,
     #hamburger-bottom {
         display: flex;
@@ -253,13 +256,23 @@ ul {
         height: 50%;
         width: 100%;
     }
+
+    #hamburger-bottom > :first-child {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
     #hamburger-top {
         justify-content: flex-start;
         margin-top: 32px;
     }
+
     #hamburger-bottom {
         justify-content: flex-end;
     }
+
     #hamburger-content {
         position: fixed;
         display: flex;
@@ -274,26 +287,31 @@ ul {
         padding: 10px 10px 10px 10px;
         transition: all 0.2s ease-in-out;
     }
+
     #hamburger-top>a,
     #hamburger-bottom>a {
         padding: 5px;
     }
+
     #hamburger-content>li {
         margin-bottom: 50px;
         margin-top: 50px;
         display: flex;
         justify-content: center;
     }
+
     #hamburger-content>li>a {
         display: block;
         width: 100%;
     }
+
     #user-info {
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 3px;
     }
+
     #user-bar {
         display: flex;
         flex-direction: row;
@@ -326,6 +344,7 @@ footer ul {
     footer {
         flex-direction: column;
     }
+
     .links,
     .contacts,
     .socials {
@@ -552,7 +571,7 @@ footer ul {
     justify-content: space-between;
     padding: 10px;
     height: 100%;
-    transform: translateY(73%);
+    transform: translateY(74%);
     transition: transform 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -622,7 +641,8 @@ dialog {
 #dialog-signup,
 #dialog-user-edit,
 #dialog-restaurant-edit,
-#dialog-restaurant-registration {
+#dialog-restaurant-registration,
+#dialog-dish-add {
     height: max-content;
     padding: 20px;
     float: left;
@@ -640,7 +660,8 @@ dialog {
 #dialog-signup::-webkit-scrollbar,
 #dialog-user-edit::-webkit-scrollbar,
 #dialog-restaurant-edit::-webkit-scrollbar,
-#dialog-restaurant-registration::-webkit-scrollbar {
+#dialog-restaurant-registration::-webkit-scrollbar,
+#dialog-dish-add::-webkit-scrollbar {
     width: 11px;
 }
 
@@ -648,7 +669,8 @@ dialog {
 #dialog-signup::-webkit-scrollbar-track,
 #dialog-user-edit::-webkit-scrollbar-track,
 #dialog-restaurant-edit::-webkit-scrollbar-track,
-#dialog-restaurant-registration::-webkit-scrollbar-track {
+#dialog-restaurant-registration::-webkit-scrollbar-track,
+#dialog-dish-add::-webkit-scrollbar-track {
     background: var(--dark-background);
 }
 
@@ -656,7 +678,8 @@ dialog {
 #dialog-signup::-webkit-scrollbar-thumb,
 #dialog-user-edit::-webkit-scrollbar-thumb,
 #dialog-restaurant-edit::-webkit-scrollbar-thumb,
-#dialog-restaurant-registration::-webkit-scrollbar-thumb {
+#dialog-restaurant-registration::-webkit-scrollbar-thumb,
+#dialog-dish-add::-webkit-scrollbar-thumb {
     background-color: var(--dark-off-white);
     border-radius: 12px;
 }

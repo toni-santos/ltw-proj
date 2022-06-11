@@ -19,7 +19,7 @@ require_once '../php/categories.php';
                 <span class="material-icons">close</span>
             </button>
         </div>
-        <form id="form-restaurant" action="../actions/create_restaurant.php" method="POST">
+        <form id="form-restaurant" action="../actions/create_restaurant_action.php" method="POST">
             <section id="inputs-box">
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
@@ -27,18 +27,18 @@ require_once '../php/categories.php';
                     <span class="error subtitle2 transparent">Required</span>
                 </div>
                 <div class="input-container">
-                    <input class="text text-input subtitle2" type="text" name="email" autocomplete="email" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
-                    <label class="body2" for="email" onclick="setFocus(event)">Location</label>
+                    <input class="text text-input subtitle2" type="text" name="location" autocomplete="email" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
+                    <label class="body2" for="location" onclick="setFocus(event)">Location</label>
                     <span class="error subtitle2 transparent">Required</span>
                 </div>
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="time" name="opening-time" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
-                    <label class="body2" for="pwd" onclick="setFocus(event)">Opening Time</label>
+                    <label class="body2" for="opening-time" onclick="setFocus(event)">Opening Time</label>
                     <span class="error subtitle2 transparent">Required</span>
                 </div>
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="time" name="closing-time" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
-                    <label class="body2" for="address" onclick="setFocus(event)">Closing Time</label>
+                    <label class="body2" for="closing-time" onclick="setFocus(event)">Closing Time</label>
                     <span class="error subtitle2 transparent">Required</span>
                 </div>
             </section>
@@ -106,7 +106,6 @@ require_once '../php/categories.php';
                 <span class="error subtitle2 transparent">Required</span>
             </div>
         </section>
-        <!-- TODO: Add animation <section id="inputs-extra"></section> -->
         <button id="confirm-signup" class="button-form" type="submit" name="submit" value="Signup" disabled>Sign Up</button>
     </form>
 <?php } ?>
@@ -209,6 +208,7 @@ if (isset($_SESSION['id'])) {
             <a class="subtitle1" onclick="showLogin()">Login</a>
             <a class="subtitle1" onclick="showSignup()">Register</a>
             <?php } else { ?>
+            <a class="subtitle1" href="checkout.php"><span class="material-icons">shopping_cart</span>Cart</a>
             <div id="user-bar">
                 <div id="user-info">
                     <img class="nav-pfp" src="../images/placeholder.jpg" onclick="window.location.href = 'user_profile.php?id=<?= $user->userID; ?>';">

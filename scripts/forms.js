@@ -100,6 +100,26 @@ function closeRestaurantDialog() {
     dialog.close();
 }
 
+function showRestaurantEdit() {
+    const dialog = document.getElementById('dialog-restaurant-edit');
+    dialog.showModal();
+}
+
+function closeRestaurantEdit() {
+    const dialog = document.getElementById('dialog-restaurant-edit');
+    dialog.close();
+}
+
+function showDishAdd() {
+    const dialog = document.getElementById('dialog-dish-add');
+    dialog.showModal();
+}
+
+function closeDishAdd() {
+    const dialog = document.getElementById('dialog-dish-add');
+    dialog.close();
+}
+
 function inputFile(event) {
     const input = document.getElementById('pfp-input');
     input.click();

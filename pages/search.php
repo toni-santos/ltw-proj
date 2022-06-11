@@ -188,7 +188,7 @@ if (!empty($dishes)) { ?>
 <section class="grid-wrapper">
     <?php
     foreach ($dishes as $dish) {
-        dishSearchCards($dish);
+        dishSearchCards($dish, false);
     }
     ?>    
 </section>

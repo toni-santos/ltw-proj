@@ -1,6 +1,6 @@
 #main-top {
     border-bottom: 1px solid var(--dark-text);
-    margin-top: 70px;
+    padding-top: 70px;
     margin-inline: 30px;
     padding-bottom: 10px;
 }
