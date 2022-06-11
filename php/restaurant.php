@@ -71,6 +71,15 @@ class Restaurant {
         $this->restaurantID = intval($db->lastInsertId('Restaurant'));
     }
 
+    public function save_to_db(PDO $db) {
+      $stmt = $db->prepare('
+              UPDATE Restaurant SET name = ?, location = ?, opening_time = ?, closing_time = ?
+              WHERE restaurantID = ?
+          ');
+  
+      $stmt->execute(array($this->name,  $this->location, $this->opening_time, $this->closing_time, $this->restaurantID));
+    }
+
     static function searchRestaurants(PDO $db, string $name, array $filters) {
 
         $query = "SELECT DISTINCT Restaurant.restaurantID, name, location, opening_time, closing_time FROM Restaurant";
@@ -116,7 +125,9 @@ class Restaurant {
         $stmt = $db->prepare("SELECT categoryName FROM RestaurantCategory WHERE restaurantID = ?");
         $stmt->execute(array($this->restaurantID));
 
-        $this->categories = $stmt->fetchAll();
+        while($category = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $this->categories[] = $category->categoryName;
+        }
 
     }
 

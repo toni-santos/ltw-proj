@@ -24,6 +24,7 @@ $restaurant->setRestaurantRating($db);
 $restaurant->getRestaurantOwner($db);
 $restaurant->getRestaurantMenus($db);
 $restaurant->getRestaurantReviews($db);
+$restaurant->getRestaurantCategories($db);
 
 if (!isset($restaurant->restaurantID)) {
     http_response_code(404);
@@ -37,7 +38,7 @@ if ($restaurant->ownerID == intval($_SESSION['id'])) {
 
 drawTop(["commons", "forms", "profile", "search"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite", "review"]);
 if ($is_owner) {
-    restaurantEditDialog();
+    restaurantEditDialog($restaurant);
     addDishDialog();
 }
 restaurantProfileTop($restaurant);

@@ -32,7 +32,7 @@ function restaurantSearchCards(Restaurant $restaurant)
                     <div class="genre-list body2">
                         <?php 
                         foreach ($restaurant->categories as $category) {?>
-                            <a class="shadow-nohov"><?= $category['categoryName']; ?></a>
+                            <a class="shadow-nohov"><?= $category; ?></a>
                         <?php } ?>
                     </div>
                 </div>

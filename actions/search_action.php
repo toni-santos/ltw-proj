@@ -17,7 +17,6 @@
     $users = isset($_GET['u_filter']) ? User::searchUsers($db, htmlspecialchars($_GET['s'])) : null;
 
 
-    print_r($restaurants);
     //header("Location: /pages/search.php");
     
     //send info to frontend to be parsed

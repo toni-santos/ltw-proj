@@ -27,7 +27,7 @@ class User
     
   }
 
-  public function add_to_db($db)
+  public function add_to_db(PDO $db)
   {
     $stmt = $db->prepare('
             INSERT INTO User
@@ -37,7 +37,7 @@ class User
     $stmt->execute(array($this->userID, $this->username, $this->email, $this->address, $this->phoneNum));
   }
 
-  public function save_to_db($db)
+  public function save_to_db(PDO $db)
   {
     $stmt = $db->prepare('
             UPDATE User SET username = ?, email = ?, address = ?, phoneNum = ?
@@ -218,7 +218,7 @@ class User
 
     $restaurantsID = array();
     while ($id = $stmt->fetch(PDO::FETCH_OBJ)) {
-      $restaurantsID[] = $id;
+      $restaurantsID[] = $id->restaurantID;
     }
 
     $restaurants = array();

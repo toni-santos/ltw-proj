@@ -356,3 +356,18 @@
         width: 300px;
     }
 }
+
+.profile-info-categories {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    max-width: 300px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profile-info-categories a {
+    padding: 4px;
+    background-color: var(--dark-main-highlight);
+    border-radius: 12px;
+}

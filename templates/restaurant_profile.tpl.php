@@ -7,7 +7,12 @@
         <div id="tabs-container">
             <img id="pfp" class="shadow-nohov" src="../images/rest_images/rest<?= $restaurant->restaurantID; ?>.jpg"></img>
             <p class="h5"><?= $restaurant->name; ?></p>
-            <div><p id="profile-top-rating" class="body1 dark-bg rating"><?= $restaurant->rating;?><span class="material-icons"  style="color:var(--dark-main-highlight);">star</span></p></div>
+            <div><p id="profile-top-rating" class="body1 dark-bg rating"><?php
+                if (isset($restaurant->rating)) {
+                    echo $restaurant->rating;
+                } else {
+                    echo "N/A";
+                }?><span class="material-icons"  style="color:var(--dark-main-highlight);">star</span></p></div>
         </div>
     </div>
 <?php } ?>
@@ -36,8 +41,7 @@
     </form>
 <?php } ?>
 
-<?php function restaurantEditDialog() { ?>
-    <!-- TODO: backend -->
+<?php function restaurantEditDialog(Restaurant $restaurant) { ?>
     <dialog id="dialog-restaurant-edit">
         <div id="top-form">
             <p class="h5">Edit Restaurant</p>
@@ -68,12 +72,17 @@
                 <?php 
                 $db = getDatabase();
                 $categories = getCategories($db);
-                foreach ($categories as $category) {
-                    checkboxButton($category, false);
+                for ($i = 0; $i < count($categories); $i++) {
+                    if (in_array($categories[$i], $restaurant->categories)) {
+                        checkboxButton($categories[$i], true);
+                    } else {
+                        checkboxButton($categories[$i], false);
+                    }
                 }
                 ?>
             </section>
-            <button id="confirm-restaurant" class="button-form" type="submit" name="submit" value="confirm" disabled>Confirm</button>
+            <input type="hidden" name="restaurantID" value="<?= $restaurant->restaurantID ?>">
+            <button id="confirm-restaurant" class="button-form" type="submit" name="submit" value="confirm">Confirm</button>
         </form>
     </dialog>
 <?php } ?>
@@ -138,19 +147,29 @@
                     </div>
                     <div id="personal-info-wrapper" class="shadow-nohov">
                             <div class="personal-info">
+                                <span class="material-icons md-24 dark-bg">menu_book</span>
+                                <p class="body1">Categories</p>
+                                <div class="profile-info-categories body2">
+                                    <?php 
+                                    foreach ($restaurant->categories as $category) {?>
+                                        <a class="shadow-nohov"><?= $category; ?></a>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="personal-info">
                                 <span class="material-icons md-24 dark-bg">place</span>
                                 <p class="body1">Location</p>
-                                <p class="body2"><?php echo $restaurant->location; ?></p>
+                                <p class="body2"><?= $restaurant->location; ?></p>
                             </div>
                             <div class="personal-info">
                                 <span class="material-icons md-24 dark-bg">schedule</span>
                                 <p class="body1">Opening Hours</p>
-                                <p class="body2"><?php echo $restaurant->opening_time; ?></p>
+                                <p class="body2"><?= $restaurant->opening_time; ?></p>
                             </div>
                             <div class="personal-info">
                                 <span class="material-icons md-24 dark-bg">schedule</span>
                                 <p class="body1">Closing Hours</p>
-                                <p class="body2"><?php echo $restaurant->closing_time; ?></p>
+                                <p class="body2"><?= $restaurant->closing_time; ?></p>
                             </div>
                         </div>
                     <div>
