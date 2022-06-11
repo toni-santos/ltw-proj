@@ -44,7 +44,7 @@ function restaurantSearchCards(Restaurant $restaurant)
 <?php
 function dishSearchCards(Dish $dish, bool $is_owner)
 { ?>
-<div class="grid-card shadow">
+<div class="grid-card shadow" style="background-image: url('../images/dish_images/dish<?= $dish->_dishID;?>.jpg');">
     <section class="grid-card-overlay">
         <div class="sub-info">
             <div class="sub-info-top">

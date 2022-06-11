@@ -19,9 +19,9 @@
 				$Error = "Please enter a valid username";
 			}
 			$username = htmlspecialchars($_POST['name']);  // avoid ' in username to be used maliciously (escape character)
-			$email = $_POST['email'];
-			$password = addslashes($_POST['pwd']);
-			$pass = sha1($password);
+			$email = htmlspecialchars($_POST['email']);
+			$password = $_POST['pwd'];
+			$pass = password_hash($password, PASSWORD_DEFAULT);
 			$address = htmlspecialchars($_POST['address']);
 			$phoneNum = htmlspecialchars($_POST['tel']);
 			// Insertion Query
