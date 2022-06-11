@@ -10,15 +10,19 @@
     if (!isset($_SESSION['id'])) die(header('Location: /'));
 
     $user = User::getUser($db, $_SESSION['id']);
-
+    
     if ($user) {
-        $user->username = htmlspecialchars($_POST['name']);
-        $user->email = htmlspecialchars($_POST['email']);
-        $user->address = htmlspecialchars($_POST['address']);
-        $user->phoneNum = intval($_POST['tel']);
+        if (!empty($_POST['name']))
+            $user->username = htmlspecialchars($_POST['name']);        
+        if (!empty($_POST['e-mail']))
+            $user->email = htmlspecialchars($_POST['e-mail']);
+        if (!empty($_POST['address']))
+            $user->address = htmlspecialchars($_POST['address']);
+        if (!empty($_POST['tel']))
+            $user->phoneNum = intval($_POST['tel']);
         
-        $user-> save_to_db($db);
+        $user->save_to_db($db);
     }
 
-    header('Location: /pages/user_page.php ');
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>
