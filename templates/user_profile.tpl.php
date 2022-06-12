@@ -92,7 +92,7 @@
                         <?php
                             if (!empty($user->favDishes)){
                                 foreach ($user->favDishes as $dish) {
-                                    dishSearchCards($dish, false);
+                                    dishSearchCards($dish, false, null);
                                 }
                             } else { ?>
                                 <p class="subtitle2">There are no favorited dishes! :(</p>
@@ -138,9 +138,10 @@
                         <?php
                             if (!empty($user->favDishes)){
                                 foreach ($user->favDishes as $dish) {
-                                    dishSearchCards($dish, false);
+                                    dishSearchCards($dish, false, null);
                                 }
-                            } else { ?>
+                            } else {echo "hi"; ?>
+                                 
                                 <p class="subtitle2">There are no favorited dishes! :(</p>
                             <?php } ?>
                         </div>
@@ -191,12 +192,4 @@
             <button id="confirm-edit" class="button-form" type="submit" name="submit"> Edit </button>
         </form>
     </dialog>
-<?php } ?>
-
-<?php
-function drawFAB()
-{ ?>
-    <div id="fab-wrapper" class="shadow-nohov">
-        <span class="material-icons" id="fab" onclick="showUserEdit()">edit</span>
-    </div>
 <?php } ?>

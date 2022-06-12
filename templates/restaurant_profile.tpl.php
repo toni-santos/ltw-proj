@@ -198,7 +198,7 @@
                         <?php
                         if (!empty($restaurant->menus)){
                             foreach ($restaurant->menus as $menu) {
-                                dishSearchCards($menu, $is_owner, $restaurant);
+                                dishSearchCards($menu, $is_owner, $restaurant->restaurantID);
                             }
                         } else { ?>
                             <p class="subtitle2">There are no available menus! :(</p>
