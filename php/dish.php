@@ -8,6 +8,7 @@ class Dish {
     public float $_price;
     public string $_category;
     public ?string $_restaurant = NULL;
+    public ?int $_restaurantID = NULL;
 
     public function __construct(?int $dishID, string $name, float $price, string $category) {
        
@@ -103,6 +104,9 @@ class Dish {
 
         $this->_restaurant = $stmt2->fetch()['name'];
 
+        $stmt2 = $db->prepare("SELECT restaurantID FROM Restaurant WHERE restaurantID = ?");
+        $stmt2->execute(array($restaurantID));
+        $this->_restaurantID = $stmt2->fetch()['restaurantID'];
     }
 
     static function getAllDishes(PDO $db) {

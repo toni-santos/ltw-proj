@@ -14,7 +14,7 @@ drawTop(["commons", "forms"], ["hamburger", "resizer", "favorite"]);
 ?>
 
 <div id="not-found-container">
-    <img src="../images/page_not_found.png" id="not-found-image">
+    <img alt="Not found" src="../images/page_not_found.png" id="not-found-image">
     <p id="not-found-text" class="h4">Page Not Found!</p>
 </div>
 

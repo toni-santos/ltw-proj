@@ -227,7 +227,7 @@
 }
 
 .review-button {
-    width: 10%;
+    width: fit-content;
     margin: 0px;
     position: relative;
     background-color: var(--dark-sub-highlight);
@@ -290,14 +290,14 @@
     align-items: center;
 }
 
-#fab {
+#fab, .settings {
     padding: 10px;
     border-radius: 50%;
     background-color: var(--dark-main-highlight);
     transition: transform 0.2s ease-in-out;
 }
 
-#fab:hover {
+#fab:hover, .settings:hover {
     transform: rotate(360deg);
 }
 

@@ -5,6 +5,7 @@ session_start();
 require_once('../templates/commons.php');
 require_once('../templates/profile.tpl.php');
 require_once('../templates/restaurant_profile.tpl.php');
+require_once('../templates/checkout.tpl.php');
 require_once('../templates/search.tpl.php');
 require_once('../database/db_loader.php');
 require_once('../php/restaurant.php');
@@ -36,10 +37,15 @@ if ($restaurant->ownerID == intval($_SESSION['id'])) {
     $is_owner = true;
 }
 
-drawTop(["commons", "forms", "profile", "search"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite", "review"]);
+
+drawTop(["commons", "forms", "profile", "search", "checkout"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite", "review", "cart"]);
 if ($is_owner) {
     restaurantEditDialog($restaurant);
     addDishDialog($restaurant);
+}
+if (isset($_SESSION['id']) && !$is_owner) {
+    drawCheckoutDialog();
+    drawFAB();
 }
 restaurantProfileTop($restaurant);
 restaurantProfileBottom(["info", "menus", "reviews"], 600, $restaurant, $is_owner);

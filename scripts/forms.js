@@ -120,6 +120,16 @@ function closeDishAdd() {
     dialog.close();
 }
 
+function showCheckout(event) {
+    const dialog = document.getElementById('dialog-checkout');
+    dialog.showModal();
+}
+
+function closeCheckout(event) {
+    const dialog = document.getElementById('dialog-checkout');
+    dialog.close();
+}
+
 function inputFile(event) {
     const input = document.getElementById('pfp-input');
     input.click();

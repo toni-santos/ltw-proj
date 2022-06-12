@@ -174,12 +174,8 @@ if (isset($_SESSION['id'])) {
             <li><a class="subtitle1 pointer" id="nav-right-login" onclick="showLogin()">Login</a></li>
             <li><a class="subtitle1 pointer" id="nav-right-signup" onclick="showSignup()">Sign-Up</a></li>
             <?php } else { ?>
-            <li id="cart-icon">
-                <span class="material-icons" onclick="window.location.href = 'checkout.php';">shopping_cart</span>
-                <a id="cart-count" class="subtitle2" onclick="window.location.href = 'checkout.php';">21</a>
-            </li>
             <li class="dropdown"><a class="subtitle1"><?php echo $user->username; ?></a></li>
-            <li class="dropdown"><img class="nav-pfp" src="../images/placeholder.jpg"></li>
+            <li class="dropdown"><img alt="User profile picture" class="nav-pfp" src="../images/placeholder.jpg"></li>
             <section id="dropdown-content">
                 <a class="subtitle2" href='user_profile.php?id=<?= $user->userID; ?>'>My Profile</a>
                 <a class="subtitle2" href="dashboard.php">My Dashboard</a>
@@ -208,10 +204,9 @@ if (isset($_SESSION['id'])) {
             <a class="subtitle1" onclick="showLogin()">Login</a>
             <a class="subtitle1" onclick="showSignup()">Register</a>
             <?php } else { ?>
-            <a class="subtitle1" href="checkout.php"><span class="material-icons">shopping_cart</span>Cart</a>
             <div id="user-bar">
                 <div id="user-info">
-                    <img class="nav-pfp" src="../images/placeholder.jpg" onclick="window.location.href = 'user_profile.php?id=<?= $user->userID; ?>';">
+                    <img alt="User profile picture" class="nav-pfp" src="../images/placeholder.jpg" onclick="window.location.href = 'user_profile.php?id=<?= $user->userID; ?>';">
                     <a class="subtitle1" href="user_profile.php?id=<?= $user->userID; ?>"><?= $user->username; ?></a>
                 </div>
                 <form action="../actions/logout_action.php" method="POST">
@@ -238,15 +233,15 @@ if (isset($_SESSION['id'])) {
     </section>
     <section class="socials">
         <a class="subtitle2">
-            <img src="../images/twitter.svg" width="24px">
+            <img alt="Twitter" src="../images/twitter.svg" width="24px">
             @(not)UberEats
         </a>
         <a class="subtitle2">
-            <img src="../images/facebook.svg" width="24px">
+            <img alt="Facebook" src="../images/facebook.svg" width="24px">
             @(not)UberEats
         </a>
         <a class="subtitle2">
-            <img src="../images/instagram.svg" width="24px">
+            <img alt="Instagram" src="../images/instagram.svg" width="24px">
             @(not)UberEats
         </a>
     </section>

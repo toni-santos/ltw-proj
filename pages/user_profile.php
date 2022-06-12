@@ -20,6 +20,11 @@ if (!isset($_GET['id']) || intval($_GET['id']) <= 0) {
 $user = User::getUser($db, intval($_GET['id']));
 $user->getUserReviews($db);
 $user->getFavoriteDishes($db);
+
+foreach ($user->favDishes as $dish) {
+    $dish->getAssociatedRestaurant($db);
+}
+
 $user->getFavoriteRestaurants($db);
 
 if (isset($_SESSION['id']) && $_SESSION['id'] == $_GET['id']) {

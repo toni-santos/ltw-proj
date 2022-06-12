@@ -176,6 +176,7 @@ select {
     background-color: var(--dark-main-highlight);
     padding: 5px;
     border-radius: 15px;
+    width: fit-content;
 }
 
 .search {

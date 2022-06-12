@@ -643,7 +643,8 @@ dialog {
 #dialog-user-edit,
 #dialog-restaurant-edit,
 #dialog-restaurant-registration,
-#dialog-dish-add {
+#dialog-dish-add,
+#dialog-checkout {
     height: max-content;
     padding: 20px;
     float: left;
@@ -657,12 +658,17 @@ dialog {
     scrollbar-color: var(--dark-background) var(--dark-off-white);
 }
 
+#dialog-checkout {
+    width: 100%;
+}
+
 #dialog-login::-webkit-scrollbar,
 #dialog-signup::-webkit-scrollbar,
 #dialog-user-edit::-webkit-scrollbar,
 #dialog-restaurant-edit::-webkit-scrollbar,
 #dialog-restaurant-registration::-webkit-scrollbar,
-#dialog-dish-add::-webkit-scrollbar {
+#dialog-dish-add::-webkit-scrollbar,
+#dialog-checkout::-webkit-scrollbar {
     width: 11px;
 }
 
@@ -671,7 +677,8 @@ dialog {
 #dialog-user-edit::-webkit-scrollbar-track,
 #dialog-restaurant-edit::-webkit-scrollbar-track,
 #dialog-restaurant-registration::-webkit-scrollbar-track,
-#dialog-dish-add::-webkit-scrollbar-track {
+#dialog-dish-add::-webkit-scrollbar-track,
+#dialog-checkout::-webkit-scrollbar-track {
     background: var(--dark-background);
 }
 
@@ -680,7 +687,8 @@ dialog {
 #dialog-user-edit::-webkit-scrollbar-thumb,
 #dialog-restaurant-edit::-webkit-scrollbar-thumb,
 #dialog-restaurant-registration::-webkit-scrollbar-thumb,
-#dialog-dish-add::-webkit-scrollbar-thumb {
+#dialog-dish-add::-webkit-scrollbar-thumb,
+#dialog-checkout::-webkit-scrollbar-thumb {
     background-color: var(--dark-off-white);
     border-radius: 12px;
 }

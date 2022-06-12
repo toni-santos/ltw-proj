@@ -8,13 +8,13 @@
     <div id="profile-top">
         <div id="banner" class="shadow-nohov"></div>
         <div id="tabs-container">
-            <img id="pfp" class="shadow-nohov" src="../images/placeholder.jpg"></img>
+            <img alt="User profile picture" id="pfp" class="shadow-nohov" src="../images/placeholder.jpg"></img>
             <p class="h5"><?php echo $user->username; ?></p>
         </div>
     </div>
 <?php } ?>
 
-<?php function userProfileBottom(array $tabs, int $scrollVal, ?User $user, bool $is_user) { // TODO: refactor this when get is done?>  
+<?php function userProfileBottom(array $tabs, int $scrollVal, ?User $user, bool $is_user) { ?>  
     <div id="profile-bottom">
         <div id="content-wrapper">
             <section id="tabs" class="h6">
@@ -30,7 +30,7 @@
                         <div class="bottom-content-top">
                             <p class="h6">Personal Information</p>
                             <?php if ($is_user) {?>
-                            <span class="material-icons" id="fab" onclick="showUserEdit()">settings</span>
+                            <span class="material-icons pointer settings" onclick="showUserEdit()">settings</span>
                             <?php }?>
                         </div>
                         <div id="personal-info-wrapper" class="shadow-nohov">
@@ -92,7 +92,8 @@
                         <?php
                             if (!empty($user->favDishes)){
                                 foreach ($user->favDishes as $dish) {
-                                    dishSearchCards($dish, false, null);
+                                    
+                                    dishSearchCards($dish, false, $restaurant->restaurantID, true);
                                 }
                             } else { ?>
                                 <p class="subtitle2">There are no favorited dishes! :(</p>
@@ -138,10 +139,9 @@
                         <?php
                             if (!empty($user->favDishes)){
                                 foreach ($user->favDishes as $dish) {
-                                    dishSearchCards($dish, false, null);
+                                    dishSearchCards($dish, false, $restaurant->restaurantID, true);
                                 }
-                            } else {echo "hi"; ?>
-                                 
+                            } else {?>
                                 <p class="subtitle2">There are no favorited dishes! :(</p>
                             <?php } ?>
                         </div>
@@ -163,7 +163,7 @@
         <form method="POST", action="../actions/edit_user_page_action.php">
             <section id="inputs-box">
                 <div class="profile-pic-input">
-                    <img src="../images/placeholder.jpg" id="profile-"></img>
+                    <img alt="User profile picture" src="../images/placeholder.jpg" id="profile-"></img>
                     <input type="file" name="profile-pic" id="pfp-input">
                     <label class="body2 dark-bg" for="pfp-input"  onclick="inputFile(event)"><span class="md-10 material-icons">edit</span></label> 
                 </div>

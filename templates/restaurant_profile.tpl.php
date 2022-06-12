@@ -5,7 +5,7 @@
     <div id="profile-top">
         <div id="banner" class="shadow-nohov"></div>
         <div id="tabs-container">
-            <img id="pfp" class="shadow-nohov" src="../images/rest_images/rest<?= $restaurant->restaurantID; ?>.jpg"></img>
+            <img alt="Restaurant picture" id="pfp" class="shadow-nohov" src="../images/rest_images/rest<?= $restaurant->restaurantID; ?>.jpg"></img>
             <p class="h5"><?= $restaurant->name; ?></p>
             <div><p id="profile-top-rating" class="body1 dark-bg rating"><?php
                 if (isset($restaurant->rating)) {
@@ -81,14 +81,13 @@
                 }
                 ?>
             </section>
-            <input type="hidden" name="restaurantID" value="<?= $restaurant->restaurantID ?>"><?= $restaurant->restaurantID ?>
+            <input type="hidden" name="restaurantID" value="<?= $restaurant->restaurantID ?>">
             <button id="confirm-restaurant" class="button-form" type="submit" name="submit" value="confirm">Confirm</button>
         </form>
     </dialog>
 <?php } ?>
 
 <?php function addDishDialog(Restaurant $restaurant) { ?>
-    <!-- TODO: backend -->
     <dialog id="dialog-dish-add">
         <div id="top-form">
             <p class="h5">Add Dish</p>
@@ -143,7 +142,7 @@
                     <div class="bottom-content-top">
                         <p class="h5">Info</p>
                         <?php if ($is_owner) {?>
-                        <span class="material-icons" id="fab" onclick="showRestaurantEdit()">settings</span>
+                        <span class="material-icons settings" onclick="showRestaurantEdit()">settings</span>
                         <?php }?>
                     </div>
                     <div id="personal-info-wrapper" class="shadow-nohov">
@@ -191,14 +190,14 @@
                     <div class="bottom-content-top">
                         <p class="h5">Menus</p>
                         <?php if ($is_owner) {?>
-                        <span class="material-icons .md-18" id="fab" onclick="showDishAdd()">add</span>
+                        <span class="material-icons .md-18 settings" onclick="showDishAdd()">add</span>
                         <?php }?>
                     </div>
                     <div class="grid-wrapper">
                         <?php
                         if (!empty($restaurant->menus)){
                             foreach ($restaurant->menus as $menu) {
-                                dishSearchCards($menu, $is_owner, $restaurant->restaurantID);
+                                dishSearchCards($menu, $is_owner, $restaurant->restaurantID, false);
                             }
                         } else { ?>
                             <p class="subtitle2">There are no available menus! :(</p>
@@ -226,3 +225,10 @@
     </div>
 <?php } ?>
 
+<?php
+function drawFAB()
+{ ?>
+    <div id="fab-wrapper" class="shadow-nohov">
+        <span class="material-icons" id="fab" onclick="showCheckout()">shopping_cart</span>
+    </div>
+<?php } ?>

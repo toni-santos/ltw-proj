@@ -12,7 +12,7 @@ function restaurantSearchCards(Restaurant $restaurant)
                     <?php
                     if (isset($_SESSION['id'])) {
                     ?>
-                    <form class="fav-rest-form" method="POST" action=""> <!-- TODO: toggle favorite action -->
+                    <form class="fav-rest-form" method="POST" action="">
                         <input type="hidden" name="fav_restaurant_id" value="<?= $restaurant->restaurantID; ?>"></input>
                         <button class="blank-button"><span class="material-icons dark-bg" onclick="toggleFavRest(event)"><?php
                         if ($restaurant->checkFavorite($_SESSION['id'])) {
@@ -42,7 +42,7 @@ function restaurantSearchCards(Restaurant $restaurant)
 <?php } ?>
 
 <?php
-function dishSearchCards(Dish $dish, bool $is_owner, ?int $restaurantID)
+function dishSearchCards(Dish $dish, bool $is_owner, ?int $restaurantID, bool $is_search)
 { ?>
 <div class="grid-card shadow" style="background-image: url('../images/dish_images/dish<?= $dish->_dishID;?>.jpg');">
     <section class="grid-card-overlay">
@@ -52,7 +52,7 @@ function dishSearchCards(Dish $dish, bool $is_owner, ?int $restaurantID)
                 <?php
                     if (isset($_SESSION['id'])) {
                 ?>
-                <div class="fav-dish-form"> <!-- TODO: toggle favorite action -->
+                <div class="fav-dish-form">
                     <input type="hidden" name="fav_dish_id" value="<?= $dish->_dishID; ?>"></input>
                     <button class="blank-button" onclick="event.preventDefault();"><span class="material-icons dark-bg" onclick="toggleFavDish(event)"><?php
                         if ($dish->checkFavorite($_SESSION['id'])) {
@@ -70,16 +70,20 @@ function dishSearchCards(Dish $dish, bool $is_owner, ?int $restaurantID)
                     <a class="shadow-nohov"><?= $dish->_category; ?></a>
                 </div>
                 <?php 
-                if (!$is_owner) { ?>
-                    <form method="POST" action="">
-                        <button class="body1 blank-button order" ><?= $dish->_price; ?>€ - Order</button>
-                    </form>
+                if (!$is_search) {
+                    if (!$is_owner) { ?>
+                        <form method="POST" action="">
+                            <button class="body1 blank-button order" ><?= $dish->_price; ?>€ - Order</button>
+                        </form>
+                    <?php } else { ?>
+                        <form method="POST" action="../actions/remove_dish_action.php">
+                            <input type="hidden" name="dishID" value="<?= $dish->_dishID; ?>">
+                            <input type="hidden" name="restaurantID" value="<?= $restaurantID; ?>">
+                            <button class="body1 material-icons blank-button order delete-dish"><span>delete</span></button>
+                        </form>
+                    <?php } ?>
                 <?php } else { ?>
-                    <form method="POST" action="../actions/remove_dish_action.php">
-                        <input type="hidden" name="dishID" value="<?= $dish->_dishID; ?>">
-                        <input type="hidden" name="restaurantID" value="<?= $restaurantID; ?>">
-                        <button class="body1 material-icons blank-button order delete-dish"><span>delete</span></button>
-                    </form>
+                    <a class="subtitle2 order" onclick="window.location.href='../pages/restaurant_profile.php?id=<?= $dish->_restaurantID; ?>'">Visit restaurant</a>   
                 <?php } ?>
             </div>
         </div>

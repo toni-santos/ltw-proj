@@ -26,7 +26,7 @@ if (isset($_SESSION['id'])) {
         </a>
         <a class="h6 dark-bg">Find your favorite restaurant right now!</a>
     </div>
-    <img src="../images/index-bg.jpg" id="top-background">
+    <img alt="Index background image" src="../images/index-bg.jpg" id="top-background">
 </div>
 <div class="main-bottom">
     <h2 class="h5">Our top picks</h2>
