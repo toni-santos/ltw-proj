@@ -15,6 +15,22 @@
     $restaurant = Restaurant::getRestaurant($db, intval($_POST['restaurantID']));
 
     if ($restaurant) {
+        if ($_FILES['restaurant-pic']['size'] != 0) {
+
+            $image = $_FILES['restaurant-pic'];
+            $path = "../images/rest_images/";
+            $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
+
+            if (is_uploaded_file($image['tmp_name'])) {
+
+                $existent_pic = glob("$path/rest{$_POST['restaurantID']}.*");
+                if (!empty($existent_pic)) {
+                    unlink($existent_pic[0]);
+                }
+
+                move_uploaded_file($image['tmp_name'], $path . 'rest' . $_SESSION['id'] . '.' . $ext);
+            }
+        }
         if (!empty($_POST['name']))
             $restaurant->name = htmlspecialchars($_POST['name']);        
         if (!empty($_POST['location']))

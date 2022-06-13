@@ -21,6 +21,20 @@
 
     $dish->add_to_db($db);
 
+    $dish_img = $_FILES['dish-pic'];
+    $path = "../images/dish_images/";
+    $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
+    
+    if (is_uploaded_file($image['tmp_name'])) {
+
+        $existent_pic = glob("$path/dish{$dish->_dishID}.*");
+        if (!empty($existent_pic)) {
+            unlink($existent_pic[0]);
+        }
+        
+        move_uploaded_file($image['tmp_name'], $path . 'dish' . $_SESSION['id'] . '.' . $ext);
+    }
+
     $stmt = $db->prepare('INSERT INTO Menu VALUES (?, ?)');
     $stmt->execute(array($restaurantID, $dish->_dishID));
 

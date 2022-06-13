@@ -160,11 +160,11 @@
                 <span class="material-icons">close</span>
             </button>
         </div>
-        <form method="POST", action="../actions/edit_user_page_action.php">
+        <form method="POST", enctype="multipart/form-data" action="../actions/edit_user_page_action.php">
             <section id="inputs-box">
                 <div class="profile-pic-input">
                     <img alt="User profile picture" src="../images/placeholder.jpg" id="profile-"></img>
-                    <input type="file" name="profile-pic" id="pfp-input">
+                    <input type="file" accept="image/*" name="profile-pic" id="pfp-input">
                     <label class="body2 dark-bg" for="pfp-input"  onclick="inputFile(event)"><span class="md-10 material-icons">edit</span></label> 
                 </div>
                 <div class="input-container">

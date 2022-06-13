@@ -12,6 +12,23 @@
     $user = User::getUser($db, $_SESSION['id']);
     
     if ($user) {
+        if ($_FILES['profile-pic']['size'] != 0) {
+            
+            $image = $_FILES['profile-pic'];
+            $path = "../images/user_images/";
+            $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
+
+            if (is_uploaded_file($image['tmp_name'])) {
+
+                $existent_pic = glob("$path/user{$_SESSION['id']}.*");
+                if (!empty($existent_pic)) {
+                    unlink($existent_pic[0]);
+                }
+
+                move_uploaded_file($image['tmp_name'], $path . 'user' . $_SESSION['id'] . '.' . $ext);
+            }
+
+        }
         if (!empty($_POST['name']))
             $user->username = htmlspecialchars($_POST['name']);        
         if (!empty($_POST['e-mail']))
