@@ -2,37 +2,41 @@
 
 declare(strict_types=1);
 
-function cartItem($id)
+session_start();
+
+require_once('../php/order.php');
+require_once('../php/dish.php');
+
+function cartItem(Dish $dish, Order $order)
 { ?>
     <div class="cart-item" id="cart-item-<?= $id; ?>">
         <div class="left-item">
             <img alt="Item picture" class="item-img" src="../images/placeholder.jpg">
             <section class="item-info">
-                <p class="subtitle1">DISH NAME<?php echo $id; ?></p>
-                <p class="subtitle2">RESTAURANT NAME</p>
+                <p class="subtitle1"><?= $dish->_name?></p>
             </section>
         </div>
         <div class="right-item">
             <div class="right-item-top">
                 <span class="material-icons md-light pointer" onclick="decreaseAmount(event)">chevron_left</span>
-                <a class="subtitle2">1</a>
+                <a class="subtitle2"><?= $order->amount?></a>
                 <span class="material-icons md-light pointer" onclick="increaseAmount(event)">chevron_right</span>
-                <p class="cost subtitle1">10€</p>
+                <p class="cost subtitle1"><?= $dish->_price?>€</p>
             </div>
             <p class="subtitle2 pointer" onclick="removeItem(event)">Remove</p>
         </div>
     </div>
 <?php } ?>
 
-<?php function itemPrice($id, $amnt)
+<?php function itemPrice(Dish $dish, Order $order)
 { ?>
     <div class="pay-desc-item subtitle2" id="item-desc-<?= $id; ?>">
-        <a>food<?= $id; ?></a>
-        <a><span>1</span>x 10€</a>
+        <a><?= $dish->_name; ?></a>
+        <a><span><?= $order->amount; ?></span>x <?= $dish->_price?>€</a>
     </div>
 <?php } ?>
 
-<?php function drawCheckoutDialog() // TODO: ORDERS (backend)
+<?php function drawCheckoutDialog(PDO $db, int $restaurantID) // TODO: ORDERS (backend)
 { ?>
     <dialog id="dialog-checkout">
         <div id="top-form">
@@ -45,16 +49,24 @@ function cartItem($id)
             <div id="payment-wrapper">
                 <section id="items-wrapper">
                     <?php
-                    for ($i = 0; $i < 4; $i++) {
-                        cartItem($i);
+                    foreach ($_SESSION['orders'] as $order) {
+                        $order = Order::getOrderByDish($db, intval($order));
+                        if ($order->restaurantID == $restaurantID) {
+                            $dish = Dish::getDish($db, $order->dishID);
+                            cartItem($dish, $order);
+                        }
                     }
                     ?>
                 </section>
                 <aside id="payment-info">
                     <div id="payment-description">
                         <?php
-                        for ($i = 0; $i < 4; $i++) {
-                            itemPrice($i, intval(1));
+                        foreach ($_SESSION['orders'] as $order) {
+                            $order = Order::getOrderByDish($db, intval($order));
+                            if ($order->restaurantID == $restaurantID) {
+                                $dish = Dish::getDish($db, $order->dishID);
+                                itemPrice($dish, $order);
+                            }
                         }
                         ?>
                     </div>

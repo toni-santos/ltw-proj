@@ -24,7 +24,7 @@ class Dish {
             INSERT INTO Dish
             VALUES (?, ?, ?, ?)
         ');
-        print_r($this);
+
         $stmt->execute(array($this->_dishID, $this->_name, $this->_price, $this->_category));
         $this->_dishID = intval($db->lastInsertId('Dish'));
     }

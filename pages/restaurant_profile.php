@@ -44,7 +44,7 @@ if ($is_owner) {
     addDishDialog($restaurant);
 }
 if (isset($_SESSION['id']) && !$is_owner) {
-    drawCheckoutDialog();
+    drawCheckoutDialog($db, $restaurant->restaurantID);
     drawFAB();
 }
 restaurantProfileTop($restaurant);

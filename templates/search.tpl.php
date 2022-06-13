@@ -72,7 +72,9 @@ function dishSearchCards(Dish $dish, bool $is_owner, ?int $restaurantID, bool $i
                 <?php 
                 if (!$is_search) {
                     if (!$is_owner) { ?>
-                        <form method="POST" action="">
+                        <form method="POST" action="../actions/add_order_action.php">
+                            <input type="hidden" name="dishID" value="<?= $dish->_dishID; ?>">
+                            <input type="hidden" name="restaurantID" value="<?= $restaurantID ?>">
                             <button class="body1 blank-button order" ><?= $dish->_price; ?>€ - Order</button>
                         </form>
                     <?php } else { ?>

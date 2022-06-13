@@ -9,6 +9,7 @@
 
 	if ($user) {
 	 	$_SESSION['id'] = $user->userID;
+		$_SESSION['orders'] = [];
 	}
 	
  	header('Location: /pages/index.php');
