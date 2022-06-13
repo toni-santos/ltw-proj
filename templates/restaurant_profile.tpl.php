@@ -132,9 +132,9 @@
     <div id="profile-bottom">
         <div id="content-wrapper">
             <section id="tabs" class="h6">
-                <p class="current-tab" id="tab-0" onclick="snapContent(event, <?php echo $scrollVal; ?>, 'bottom-content', 'vertical')"><?php echo $tabs[0]; ?></p>
+                <p class="current-tab" id="tab-0" onclick="snapContent(event, 0, 'bottom-content', 'vertical')"><?php echo $tabs[0]; ?></p>
                 <?php for ($i = 1; $i < count($tabs); $i++) { ?>
-                    <p class="" id="tab-<?php echo $i; ?>" onclick="snapContent(event, <?php echo $scrollVal; ?>, 'bottom-content', 'vertical')"><?php echo $tabs[$i]; ?></p>
+                    <p class="" id="tab-<?php echo $i; ?>" onclick="snapContent(event, <?php $scroll = intval($scrollVal) * $i; echo $scroll; ?>, 'bottom-content', 'vertical')"><?php echo $tabs[$i]; ?></p>
                 <?php } ?>
             </section>
             <div id="bottom-content">

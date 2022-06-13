@@ -81,7 +81,7 @@
     scroll-snap-type: y mandatory;
     display: grid;
     grid-template-columns: 1fr;
-    justify-content: center;
+    justify-content: start;
     grid-column: span 1;
     margin-right: 10px;
     border-left: 1px solid var(--white);

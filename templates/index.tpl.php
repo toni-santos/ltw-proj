@@ -31,7 +31,7 @@ declare(strict_types=1);
             ?>
         </div>
         <div class="carousel-preview">
-            <img alt="Restaurant preview picture" src="../images/placeholder.jpg" onclick="snapContent(event, 0, 'carousel-container', 'horizontal')" class="rest-preview active" id="rest-preview-<?= $restaurants[0]->restaurantID; ?>">
+            <img alt="Restaurant preview picture" src="../images/placeholder.jpg" onclick="snapContent(event, 0, 'carousel-container', 'horizontal')" class="rest-preview active pointer" id="rest-preview-<?= $restaurants[0]->restaurantID; ?>">
             <?php
             for ($i = 1; $i <= 2; $i++) {
                 restaurantPreview(false, intval($restaurants[$i]->restaurantID));
