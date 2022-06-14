@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 function restaurantSearchCards(Restaurant $restaurant)
 { ?>
-    <article class="grid-card shadow" style="background-image: url('../images/rest_images/rest<?= $restaurant->restaurantID;?>.jpg');">
+
+    <?php 
+        $check = glob("../images/rest_images/rest{$restaurant->restaurantID}.*"); 
+
+        if (empty($check)) $existent_pic = "../images/placeholder.jpg";
+        else $existent_pic = $check[0];
+    ?>
+    <article class="grid-card shadow" style="background-image: url(<?= $existent_pic?>);">
         <section class="grid-card-overlay" onclick="window.location.href='../pages/restaurant_profile.php?id=<?= $restaurant->restaurantID; ?>'" >
             <div class="sub-info">
                 <div class="sub-info-top" >
@@ -44,7 +51,13 @@ function restaurantSearchCards(Restaurant $restaurant)
 <?php
 function dishSearchCards(Dish $dish, bool $is_owner, ?int $restaurantID, bool $is_search)
 { ?>
-<article class="grid-card shadow" style="background-image: url('../images/dish_images/dish<?= $dish->_dishID;?>.jpg');">
+<?php 
+    $check = glob("../images/dish_images/dish{$dish->_dishID}.*"); 
+
+    if (empty($check)) $existent_pic = "../images/placeholder.jpg";
+    else $existent_pic = $check[0];
+?>
+<article class="grid-card shadow" style="background-image: url(<?= $existent_pic ?>);">
     <section class="grid-card-overlay">
         <div class="sub-info">
             <div class="sub-info-top">
@@ -96,7 +109,13 @@ function dishSearchCards(Dish $dish, bool $is_owner, ?int $restaurantID, bool $i
 <?php
 function userSearchCards(User $user)
 { ?>
-    <article class="grid-card-nohov shadow" onclick="window.location.href='../pages/user_profile.php?id=<?= $user->userID; ?>'">
+    <?php 
+        $check = glob("../images/user_images/user{$user->userID}.*"); 
+
+        if (empty($check)) $existent_pic = "../images/placeholder.jpg";
+        else $existent_pic = $check[0];
+    ?>
+    <article class="grid-card-nohov shadow" style="background-image: url(<?= $existent_pic ?>);" onclick="window.location.href='../pages/user_profile.php?id=<?= $user->userID; ?>'">
         <section class="grid-card-overlay">
             <div class="sub-info">
                 <div class="sub-info-top">

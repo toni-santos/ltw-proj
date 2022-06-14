@@ -5,7 +5,13 @@
     <div id="profile-top">
         <div id="banner" class="shadow-nohov"></div>
         <div id="tabs-container">
-            <img alt="Restaurant picture" id="pfp" class="shadow-nohov" src="../images/rest_images/rest<?= $restaurant->restaurantID; ?>.jpg"></img>
+            <?php 
+                $check = glob("../images/rest_images/rest{$restaurant->restaurantID}.*"); 
+
+                if (empty($check)) $existent_pic = "../images/placeholder.jpg";
+                else $existent_pic = $check[0];
+            ?>
+            <img alt="Restaurant picture" id="pfp" class="shadow-nohov" src=<?= $existent_pic ?>></img>
             <p class="h5"><?= $restaurant->name; ?></p>
             <div><p id="profile-top-rating" class="body1 dark-bg rating"><?php
                 if (isset($restaurant->rating)) {
@@ -52,9 +58,15 @@
         <form id="form-restaurant", enctype="multipart/form-data" action="../actions/edit_restaurant_action.php" method="POST">
             <section id="inputs-box">
                 <div class="profile-pic-input">
-                    <img alt="Restaurant picture" src="../images/rest_images/rest<?=$restaurant->restaurantID?>.png" id="profile-img">
+                <?php 
+                    $check = glob("../images/rest_images/rest{$restaurant->restaurantID}.*"); 
+
+                    if (empty($check)) $existent_pic = "../images/placeholder.jpg";
+                    else $existent_pic = $check[0];
+                ?>
+                    <img alt="Restaurant picture" src=<?= $existent_pic ?> id="profile-img">
                     <input type="file" accept="image/*" name="restaurant-pic" id="pfp-input-restaurant">
-                    <label class="body2 dark-bg" for="pfp-input-restaurant" onclick="inputFile(event)"><span class="md-10 material-icons">edit</span></label> 
+                    <label class="body2 dark-bg" for="pfp-input-restaurant" onclick="inputFileRest(event)"><span class="md-10 material-icons">edit</span></label> 
                 </div>
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" ">
@@ -105,7 +117,7 @@
                 <div class="profile-pic-input">
                     <img alt="Dish picture" src="../images/placeholder.jpg" id="profile-img">
                     <input type="file" accept="image/*" name="dish-pic" id="pfp-input-dish" required>
-                    <label class="body2 dark-bg" for="pfp-input-dish" onclick="inputFile(event)"><span class="md-10 material-icons">edit</span></label> 
+                    <label class="body2 dark-bg" for="pfp-input-dish" onclick="inputFileDish(event)"><span class="md-10 material-icons">edit</span></label> 
                 </div>
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>

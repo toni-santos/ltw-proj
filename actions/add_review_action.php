@@ -9,7 +9,9 @@
     if (isset($_SESSION['id'])) {
 
         $stmt = $db->prepare("INSERT INTO Review VALUES (?, ?, ?, ?)");
-        $stmt->execute(array($_POST['restaurantID'], $_POST['reviewerID'], htmlspecialchars($_POST['message']), $_POST['rating-star']));
+        if (!$stmt->execute(array($_POST['restaurantID'], $_POST['reviewerID'], strip_tags($_POST['message']), $_POST['rating-star']))) {
+            header('Location: pages/index.php');
+        }
     }
 
     header('Location: ' . $_SERVER['HTTP_REFERER']);

@@ -18,9 +18,11 @@
             $path = "../images/user_images/";
             $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
 
+            if (!exif_imagetype($image['tmp_name'])) die("Please upload an image!");
             if (is_uploaded_file($image['tmp_name'])) {
 
                 $existent_pic = glob("$path/user{$_SESSION['id']}.*");
+
                 if (!empty($existent_pic)) {
                     unlink($existent_pic[0]);
                 }
@@ -30,11 +32,11 @@
 
         }
         if (!empty($_POST['name']))
-            $user->username = htmlspecialchars($_POST['name']);        
+            $user->username = htmlspecialchars(strip_tags($_POST['name']));        
         if (!empty($_POST['e-mail']))
-            $user->email = htmlspecialchars($_POST['e-mail']);
+            $user->email = htmlspecialchars(strip_tags($_POST['e-mail']));
         if (!empty($_POST['address']))
-            $user->address = htmlspecialchars($_POST['address']);
+            $user->address = htmlspecialchars(strip_tags($_POST['address']));
         if (!empty($_POST['tel']))
             $user->phoneNum = intval($_POST['tel']);
         

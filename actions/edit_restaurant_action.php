@@ -32,9 +32,9 @@
             }
         }
         if (!empty($_POST['name']))
-            $restaurant->name = htmlspecialchars($_POST['name']);        
+            $restaurant->name = htmlspecialchars(strip_tags($_POST['name']));        
         if (!empty($_POST['location']))
-            $restaurant->location = htmlspecialchars($_POST['location']);
+            $restaurant->location = htmlspecialchars(strip_tags($_POST['location']));
         if (!empty($_POST['opening-time']))
             $restaurant->opening_time = $_POST['opening-time'];
         if (!empty($_POST['closing-time']))

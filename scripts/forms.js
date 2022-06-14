@@ -135,3 +135,15 @@ function inputFile(event) {
     input.click();
     event.preventDefault();
 }
+
+function inputFileRest(event) {
+    const input = document.getElementById('pfp-input-restaurant');
+    input.click();
+    event.preventDefault();
+}
+
+function inputFileDish(event) {
+    const input = document.getElementById('pfp-input-dish');
+    input.click();
+    event.preventDefault();
+}

@@ -182,7 +182,13 @@ if (isset($_SESSION['id'])) {
             <li><a class="subtitle1 pointer" id="nav-right-signup" onclick="showSignup()">Sign-Up</a></li>
             <?php } else { ?>
             <li class="dropdown"><a class="subtitle1"><?php echo $user->username; ?></a></li>
-            <li class="dropdown"><img alt="User profile picture" class="nav-pfp" src="../images/placeholder.jpg"></li>
+            <?php 
+                $check = glob("../images/user_images/user{$_SESSION['id']}.*"); 
+
+                if (empty($check)) $existent_pic = "../images/placeholder.jpg";
+                else $existent_pic = $check[0];
+            ?>
+            <li class="dropdown"><img alt="User profile picture" class="nav-pfp" src=<?= $existent_pic ?>></li>
             <section id="dropdown-content">
                 <a class="subtitle2" href='user_profile.php?id=<?= $user->userID; ?>'>My Profile</a>
                 <a class="subtitle2" href="dashboard.php">My Dashboard</a>

@@ -15,9 +15,6 @@
     $restaurants = isset($_GET['r_filter']) ? Restaurant::searchRestaurants($db, htmlspecialchars($_GET['s']), $filters) : null;
     $dishes = isset($_GET['d_filter']) ? Dish::searchDishes($db, htmlspecialchars($_GET['s']), $filters) : null;
     $users = isset($_GET['u_filter']) ? User::searchUsers($db, htmlspecialchars($_GET['s'])) : null;
-
-
-    //header("Location: /pages/search.php");
     
     //send info to frontend to be parsed
 
