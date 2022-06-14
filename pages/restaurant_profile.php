@@ -38,7 +38,7 @@ if ($restaurant->ownerID == intval($_SESSION['id'])) {
 }
 
 
-drawTop(["commons", "forms", "profile", "search", "checkout"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite", "review", "cart"]);
+drawTop(["commons", "forms", "profile", "search", "checkout"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite", "review", "cart", "images"]);
 if ($is_owner) {
     restaurantEditDialog($restaurant);
     addDishDialog($restaurant);

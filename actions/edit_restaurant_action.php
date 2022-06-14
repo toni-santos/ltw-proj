@@ -28,7 +28,7 @@
                     unlink($existent_pic[0]);
                 }
 
-                move_uploaded_file($image['tmp_name'], $path . 'rest' . $_SESSION['id'] . '.' . $ext);
+                move_uploaded_file($image['tmp_name'], $path . 'rest' . $_POST['restaurantID'] . '.' . $ext);
             }
         }
         if (!empty($_POST['name']))

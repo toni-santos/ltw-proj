@@ -49,8 +49,13 @@
                 <span class="material-icons">close</span>
             </button>
         </div>
-        <form id="form-restaurant" action="../actions/edit_restaurant_action.php" method="POST">
+        <form id="form-restaurant", enctype="multipart/form-data" action="../actions/edit_restaurant_action.php" method="POST">
             <section id="inputs-box">
+                <div class="profile-pic-input">
+                    <img alt="Restaurant picture" src="../images/rest_images/rest<?=$restaurant->restaurantID?>.png" id="profile-img">
+                    <input type="file" accept="image/*" name="restaurant-pic" id="pfp-input-restaurant">
+                    <label class="body2 dark-bg" for="pfp-input-restaurant" onclick="inputFile(event)"><span class="md-10 material-icons">edit</span></label> 
+                </div>
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" ">
                     <label class="body2" for="name" onclick="setFocus(event)">Name</label>
@@ -95,8 +100,13 @@
                 <span class="material-icons">close</span>
             </button>
         </div>
-        <form id="form-dish" action="../actions/add_dish_action.php" method="POST">
+        <form id="form-dish", enctype="multipart/form-data" action="../actions/add_dish_action.php" method="POST">
             <section id="inputs-box">
+                <div class="profile-pic-input">
+                    <img alt="Dish picture" src="../images/placeholder.jpg" id="profile-img">
+                    <input type="file" accept="image/*" name="dish-pic" id="pfp-input-dish" required>
+                    <label class="body2 dark-bg" for="pfp-input-dish" onclick="inputFile(event)"><span class="md-10 material-icons">edit</span></label> 
+                </div>
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
                     <label class="body2" for="name" onclick="setFocus(event)">Name</label>
