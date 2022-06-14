@@ -248,4 +248,26 @@ class User
 
     $this->favDishes = $dishes;
   }
+
+  public function getUserRequests(PDO $db) {
+    $stmt = $db->prepare('
+      SELECT *
+      FROM Request
+      WHERE userID = ?;
+    ');
+    $stmt->execute(array($this->userID));
+
+    $requests = array();
+    while ($req = $stmt->fetch(PDO::FETCH_OBJ)) {
+        $requests[] = new Request(
+            $req->requestID,
+            $req->restaurantID,
+            $req->userID,
+            $req->state,
+            $req->value
+        );
+    }
+
+    return $requests;
+  }
 }

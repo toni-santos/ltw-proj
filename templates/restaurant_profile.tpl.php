@@ -217,6 +217,6 @@
 function drawFAB()
 { ?>
     <div id="fab-wrapper" class="shadow-nohov">
-        <span class="material-icons" id="fab" onclick="showCheckout()">shopping_cart</span>
+        <span class="material-icons dark-bg" id="fab" onclick="showCheckout()">shopping_cart</span>
     </div>
 <?php } ?>

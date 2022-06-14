@@ -88,6 +88,10 @@
     padding: 4px;
 }
 
+#confirm-cart:disabled {
+    background-color: var(--dark-sub-highlight);
+}
+
 .item-img {
     width: 100px;
     height: 100px;

@@ -54,10 +54,12 @@ CREATE TABLE Category(
 );
 
 CREATE TABLE Request(
-    restaurantID        INTEGER REFERENCES Restaurant(restaurantID),
-    userID              INTEGER REFERENCES User(userID),
+    requestID           INTEGER,
+    restaurantID        INTEGER,
+    userID              INTEGER,
     state               TEXT NOT NULL,
-    CONSTRAINT requestPK PRIMARY KEY (restaurantID, userID),
+    value               REAL,
+    CONSTRAINT requestPK PRIMARY KEY (requestID),
     CONSTRAINT validState CHECK (state LIKE "Received" OR state LIKE "Preparing" OR state LIKE "Ready" OR state LIKE "Delivered")
 );
 

@@ -36,7 +36,7 @@ function cartItem(Dish $dish, Order $order, int $id)
     </article>
 <?php } ?>
 
-<?php function drawCheckoutDialog(PDO $db, int $restaurantID) // TODO: ORDERS (backend)
+<?php function drawCheckoutDialog(PDO $db, int $restaurantID)
 { ?>
     <dialog id="dialog-checkout">
         <div class="top-form">
@@ -45,7 +45,7 @@ function cartItem(Dish $dish, Order $order, int $id)
                 <span class="material-icons">close</span>
             </button>
         </div>
-        <form method="POST" action="">
+        <form method="POST" action="../actions/checkout_action.php">
             <div id="payment-wrapper">
                 <section id="items-wrapper">
                     <?php
@@ -79,7 +79,9 @@ function cartItem(Dish $dish, Order $order, int $id)
                         <label for="inperson" class="subtitle2 dark-bg"><input type="radio" name="payment-method" id="inperson" value="inperson" checked>In Person</label>
                         <label for="online" class="subtitle2 dark-bg"><input type="radio" name="payment-method" id="online" value="online" disabled>Online (Coming Soon)</label>
                         <a class="subtitle1" id="cart-total">0€</a>
-                        <button type="submit" class="subtitle1 shadow" id="confirm-cart">Confirm</button>
+                        <input type="hidden" id="postvalue" name="val" value="0">
+                        <input type="hidden" name="restID" value="<?=$restaurantID?>">
+                        <button type="submit" class="subtitle1 shadow pointer" id="confirm-cart">Confirm</button>
                     </div>
                 </aside>
             </div>

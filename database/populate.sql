@@ -62,10 +62,10 @@ INSERT INTO Dish VALUES(23, "Brownie", 3.95, "Deserts");
 
 -- Request(userID, restaurantID, state)
 
-INSERT INTO Request VALUES(1, 1, "Received");
-INSERT INTO Request VALUES(1, 2, "Received");
-INSERT INTO Request VALUES(2, 1, "Preparing");
-INSERT INTO Request VALUES(3, 3, "Ready");
+-- INSERT INTO Request VALUES(1, 1, "Received");
+-- INSERT INTO Request VALUES(1, 2, "Received");
+-- INSERT INTO Request VALUES(2, 1, "Preparing");
+-- INSERT INTO Request VALUES(3, 3, "Ready");
 
 -- RestOwner(restaurantID, ownerID)
 

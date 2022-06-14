@@ -64,6 +64,12 @@ function updateTotal() {
     }
 
     document.getElementById('cart-total').textContent = (total).toFixed(2) + '€'; 
+    document.getElementById('postvalue').value = (total).toFixed(2);
+    const paymentDesc = document.getElementById('payment-description');
+    const confirmButton = document.getElementById('confirm-cart')
+    if (paymentDesc.children.length == 0) {
+        confirmButton.disabled = true;
+    }
 }
 
 window.addEventListener('load', () => {

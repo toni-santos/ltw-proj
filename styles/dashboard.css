@@ -3,7 +3,7 @@
     border-bottom: 1px solid var(--dark-text);
     align-items: center;
     justify-content: space-between;
-    margin-top: 70px;
+    padding-top: 70px;
     margin-inline: 30px;
     padding-bottom: 10px;
 }
@@ -15,4 +15,55 @@
 
 #add-restaurant:hover {
     background-color: var(--dark-main-highlight);
+}
+
+.restaurant-req-top {
+    margin-inline: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--dark-text);
+}
+
+.restaurant-no-req {
+    margin-inline: auto;
+}
+
+.restaurant-req-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-inline: 50px;
+    margin-block: 20px;
+}
+
+.restaurant-req {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    padding: 7px;
+    background-color: var(--dark-off-white);
+    border-radius: 12px;
+}
+
+.restaurant-req-left, .restaurant-req-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 15px;
+}
+
+.req-action-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px
+}
+
+.req-action-buttons :nth-child(2):hover {
+    color: var(--dark-main-highlight);
+}
+
+.req-action-buttons :nth-child(3):hover {
+    color: var(--dark-red);
 }

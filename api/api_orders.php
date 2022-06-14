@@ -1,8 +1,8 @@
 <?php
 
     declare(strict_types = 1);
-    require("../actions/order_amount_action.php");
-    require("../actions/remove_order_action.php");
+    require_once("../actions/order_amount_action.php");
+    require_once("../actions/remove_order_action.php");
     require_once("../database/db_loader.php");
 
     session_start();

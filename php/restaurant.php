@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 require_once("../database/db_loader.php");
 require_once("review.php");
+require_once("request.php");
 
 class Restaurant {
 
@@ -224,6 +225,24 @@ class Restaurant {
         
     
         $this->menus = $dishes;
+    }
+
+    public function getRestaurantRequests(PDO $db) {
+        $stmt = $db->prepare('SELECT * FROM Request WHERE restaurantID = ?');
+        $stmt->execute(array($this->restaurantID));
+
+        $requests = array();
+        while ($req = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $requests[] = new Request(
+                $req->requestID,
+                $req->restaurantID,
+                $req->userID,
+                $req->state,
+                $req->value
+            );
+        }
+
+        return $requests;
     }
 }
 

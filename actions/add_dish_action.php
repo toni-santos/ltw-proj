@@ -20,7 +20,7 @@
     );
 
     $dish->add_to_db($db);
-
+/*
     $dish_img = $_FILES['dish-pic'];
     $path = "../images/dish_images/";
     $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
@@ -34,9 +34,9 @@
         
         move_uploaded_file($image['tmp_name'], $path . 'dish' . $_SESSION['id'] . '.' . $ext);
     }
+    */
 
     $stmt = $db->prepare('INSERT INTO Menu VALUES (?, ?)');
     $stmt->execute(array($restaurantID, $dish->_dishID));
-
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>
