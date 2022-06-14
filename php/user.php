@@ -271,21 +271,13 @@ class User
     return $requests;
   }
 
-  public static function checkOldPassword(PDO $db, int $id, $OldPassword){
-    $sql = "SELECT * FROM User WHERE userID = :id AND password = :password";
+  static function checkOldPassword(PDO $db, int $id, $oldPassword){
 
-    $oldPass = password_hash($OldPassword, PASSWORD_DEFAULT);
+    $stmt = $db->prepare("SELECT password FROM User WHERE userID = ?");
+    $stmt->execute(array($id));
+    $curr_password = $stmt->fetch()['password'];
 
-    $stmt = $db->prepare($sql);
-
-    $stmt->bindValue(':password', $oldPass);
-    $stmt->execute();
-
-    if ($stmt->rowCount() > 0){
-        return true;
-    }else{
-        return false;
-    }   
+    return password_verify($oldPassword, $curr_password);
   } 
 
 }
