@@ -87,7 +87,7 @@ drawTop(["commons", "forms", "search"], ["hamburger", "forms", "search", "favori
                             echo "checked";
                         }
                     }
-                    ?>></input><span class="checkbox-text pointer">Restaurants</span>
+                    ?>><span class="checkbox-text pointer">Restaurants</span>
                 </label>
             </div>
             <div class="checkbox-wrapper">
@@ -101,7 +101,7 @@ drawTop(["commons", "forms", "search"], ["hamburger", "forms", "search", "favori
                             echo "checked";
                         }
                     }
-                    ?>></input><span class="checkbox-text pointer">Dishes</span>
+                    ?>><span class="checkbox-text pointer">Dishes</span>
                 </label>
             </div>
             <div class="checkbox-wrapper">
@@ -115,7 +115,7 @@ drawTop(["commons", "forms", "search"], ["hamburger", "forms", "search", "favori
                             echo "checked";
                         }
                     }
-                    ?>></input><span class="checkbox-text pointer">Users</span>
+                    ?>><span class="checkbox-text pointer">Users</span>
                 </label>
             </div>
         </fieldset>

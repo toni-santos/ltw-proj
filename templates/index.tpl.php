@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 <?php function restaurant_card(Restaurant $restaurant)
 { ?>
-    <div id="restaurant-card-<?= $restaurant->restaurantID; ?>" class="shadow-nohov">
+    <article id="restaurant-card-<?= $restaurant->restaurantID; ?>" class="shadow-nohov">
         <img src="../images/placeholder.jpg" class="rest-img shadow pointer" onclick="window.location.href='../pages/restaurant_profile.php?id=<?= $restaurant->restaurantID; ?>'">
         <section class="restaurant-description">
             <a class="body1 rest-name" href="../pages/restaurant_profile.php?id=<?= $restaurant->restaurantID; ?>"><?= $restaurant->name; ?></a>
@@ -17,7 +17,7 @@ declare(strict_types=1);
                 <a class="shadow-nohov">Genre</a>
             </div>
         </section>
-    </div>
+    </article>
 <?php } ?>
 
 <?php function drawCarousel(array $restaurants)

@@ -154,7 +154,7 @@
 
 <?php function userEditDialog() { ?>
     <dialog id="dialog-user-edit">
-        <div id="top-form">
+        <div class="top-form">
             <p class="h5">Edit Profile</p>
             <button value="cancel" class="blank-button" onclick="closeUserEdit()">
                 <span class="material-icons">close</span>

@@ -219,6 +219,7 @@
 }
 
 #stars-button-container {
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -227,11 +228,12 @@
 }
 
 .review-button {
+    height: fit-content;
     width: fit-content;
     margin: 0px;
     position: relative;
     background-color: var(--dark-sub-highlight);
-    padding: 1px;
+    padding: 0.5em;
     border-radius: 12px;
 }
 

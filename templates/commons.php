@@ -13,7 +13,7 @@ require_once '../php/categories.php';
 
 <?php function drawRestaurantDialog() { ?>
     <dialog id="dialog-restaurant-registration">
-        <div id="top-form">
+        <div class="top-form">
             <p class="h5">Register Restaurant</p>
             <button value="cancel" class="blank-button" onclick="closeRestaurantDialog()">
                 <span class="material-icons">close</span>
@@ -145,7 +145,7 @@ if (isset($_SESSION['id'])) {
     $user = User::getUser($db, $_SESSION['id']);
 } ?>
     <dialog id="dialog-login" class="shadow-nohov">
-        <div id="top-form">
+        <div class="top-form">
             <p class="h5">Login</p>
             <button value="cancel" class="blank-button" onclick="closeLogin()">
                 <span class="material-icons">close</span>
@@ -155,7 +155,7 @@ if (isset($_SESSION['id'])) {
         <p class="body2 acc-create">Don't have an account? <a class="body1 pointer highlight" onclick="closeLogin(); showSignup();">Sign-Up</a> now!</p>
     </dialog>
     <dialog id="dialog-signup" class="shadow-nohov">
-        <div id="top-form">
+        <div class="top-form">
             <p class="h5">Sign Up</p>
             <button value="cancel" class="blank-button" onclick="closeSignup()">
                 <span class="material-icons">close</span>
@@ -254,7 +254,7 @@ if (isset($_SESSION['id'])) {
 <?php function checkboxButton(string $name, bool $checked) { ?>
     <div class="checkbox-wrapper dark-bg">
         <label>
-            <input class="checkbox" type="checkbox" name="filters[]" value="<?php echo $name ?>"<?php if ($checked) echo "checked"; ?>></input><span class="checkbox-text shadow-nohov pointer subtitle2"><?php echo $name; ?></span>
+            <input class="checkbox" type="checkbox" name="filters[]" value="<?php echo $name ?>"<?php if ($checked) echo "checked"; ?>><span class="checkbox-text shadow-nohov pointer subtitle2"><?php echo $name; ?></span>
         </label>
     </div>
 <?php } ?>

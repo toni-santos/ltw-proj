@@ -31,7 +31,7 @@
                         <label id="star-label-<?= $i ?>" class="material-icons" onclick="selectStar(event)">
                             <span>star_outline</span>
                         </label>
-                    </input>
+                    
                 <?php } ?>
             </div>
             <input type="hidden" name="restaurantID" value="<?= $restaurant->restaurantID; ?>">
@@ -43,7 +43,7 @@
 
 <?php function restaurantEditDialog(Restaurant $restaurant) { ?>
     <dialog id="dialog-restaurant-edit">
-        <div id="top-form">
+        <div class="top-form">
             <p class="h5">Edit Restaurant</p>
             <button value="cancel" class="blank-button" onclick="closeRestaurantEdit()">
                 <span class="material-icons">close</span>
@@ -89,7 +89,7 @@
 
 <?php function addDishDialog(Restaurant $restaurant) { ?>
     <dialog id="dialog-dish-add">
-        <div id="top-form">
+        <div class="top-form">
             <p class="h5">Add Dish</p>
             <button value="cancel" class="blank-button" onclick="closeDishAdd()">
                 <span class="material-icons">close</span>
@@ -173,18 +173,6 @@
                             </div>
                         </div>
                     <div>
-                    <!-- <p class="h6">Gallery</p>
-                    </div>
-                    <section id="gallery">
-                        <img src="../images/placeholder.jpg" class="">
-                        <img src="../images/placeholder.jpg" class="">
-                        <img src="../images/placeholder.jpg" class="">
-                    </section>
-                    <div>
-                        <p class="h6">Where to find us</p>
-                    </div>
-                    geolocation here
-                    <div id="maps"></div> -->
                 </section>
                 <section id="menus">
                     <div class="bottom-content-top">
