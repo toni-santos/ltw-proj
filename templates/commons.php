@@ -20,7 +20,7 @@ require_once '../php/categories.php';
             </button>
         </div>
         <form id="form-restaurant" action="../actions/create_restaurant_action.php" method="POST">
-            <section id="inputs-box">
+            <section class="inputs-box">
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
                     <label class="body2" for="name" onclick="setFocus(event)">Name</label>
@@ -58,7 +58,7 @@ require_once '../php/categories.php';
 
 <?php function drawLogin() { ?> 
     <form id="form-login" method="POST" action="../actions/login_action.php">
-        <section id="inputs-box">
+        <section class="inputs-box">
             <div class="input-container">
                 <input class="text text-input subtitle2" type="email" name="email" autocomplete="email" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
                 <label class="body2" for="email" onclick="setFocus(event)">Email</label>
@@ -77,7 +77,7 @@ require_once '../php/categories.php';
 
 <?php function drawSignup() { ?> 
     <form id="form-signup" method="POST" action="../actions/signup_action.php">
-        <section id="inputs-box">
+        <section class="inputs-box">
             <div class="input-container">
                 <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
                 <label class="body2" for="name" onclick="setFocus(event)">Name</label>

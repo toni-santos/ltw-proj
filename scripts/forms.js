@@ -130,6 +130,20 @@ function closeCheckout(event) {
     dialog.close();
 }
 
+function showPasswordChange(event) {
+    const dialog = document.getElementById('dialog-password');
+    const userdialog = document.getElementById('dialog-user-edit');
+    userdialog.close();
+    dialog.showModal();
+}
+
+function closePasswordChange(event) {
+    const dialog = document.getElementById('dialog-password');
+    const userdialog = document.getElementById('dialog-user-edit');
+    dialog.close();
+    userdialog.showModal();
+}
+
 function inputFile(event) {
     const input = document.getElementById('pfp-input');
     input.click();

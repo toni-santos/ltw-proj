@@ -1,8 +1,8 @@
 <?php function userProfileTop(User $user, bool $is_user)
 {
-    echo $user->username;
     if ($is_user) {
         userEditDialog($user);
+        passwordChangeDialog();
     } ?>
     
     <div id="profile-top">
@@ -167,7 +167,7 @@
             </button>
         </div>
         <form method="POST", enctype="multipart/form-data" action="../actions/edit_user_page_action.php">
-            <section id="inputs-box">
+            <section class="inputs-box">
                 <div class="profile-pic-input">
                 <?php 
                     $check = glob("../images/user_images/user{$_SESSION['id']}.*"); 
@@ -194,14 +194,41 @@
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="number" name="tel" autocomplete="off" placeholder=" ">
                     <label class="body2 dark-bg" for="tel" onclick="setFocus(event)">Phone Number</label>
-            <!--    </div>
-                <div class="input-container">
-                    <input class="text text-input password subtitle2" type="password" name="pwd" placeholder=" " autocomplete="off" minlength="8">
-                    <label class="body2 dark-bg" for="pwd" onclick="setFocus(event)">Password</label>
-                    <span class="material-icons md-24 md-light password-eye" onclick="showPassword(event)">visibility</span>
-                </div> -->
+                </div>
             </section>
+            <p class="subtitle2" onclick="showPasswordChange()">Change Password</p>
             <button id="confirm-edit" class="button-form" type="submit" name="submit"> Edit </button>
         </form>
+    </dialog>
+<?php } ?>
+
+<?php 
+function passwordChangeDialog() { ?>
+    <dialog id="dialog-password">
+        <div class="top-form">
+            <p class="h5">Change Password</p>
+            <button value="cancel" class="blank-button" onclick="closePasswordChange()">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+        <form method="POST" action="">
+            <section class="inputs-box">
+                <div class="input-container">
+                    <input class="text text-input password subtitle2" id="curr-pwd" type="password" name="curr-pwd" placeholder=" " autocomplete="current-password" minlength="8" onkeyup="updateForm(event); updateCounter(event)" onkeydown="updateCounter(event)" onfocus="checkFilled(event)" required>
+                    <label class="body2" for="curr-pwd" onclick="setFocus(event)">Current Password</label>
+                    <span class="material-icons md-24 md-light password-eye" onclick="showPassword(event)">visibility</span>
+                    <span class="subtitle2 counter">0/8</span>
+                    <span class="error subtitle2 transparent">Required</span>
+                </div>
+                <div class="input-container">
+                    <input class="text text-input password subtitle2" id="new-pwd" type="password" name="new-pwd" placeholder=" " autocomplete="current-password" minlength="8" onkeyup="updateForm(event); updateCounter(event)" onkeydown="updateCounter(event)" onfocus="checkFilled(event)" required>
+                    <label class="body2" for="new-pwd" onclick="setFocus(event)">New Password</label>
+                    <span class="material-icons md-24 md-light password-eye" onclick="showPassword(event)">visibility</span>
+                    <span class="subtitle2 counter">0/8</span>
+                    <span class="error subtitle2 transparent">Required</span>
+                </div>
+            </section>
+        </form>
+        <button id="confirm-password" class="button-form" type="submit" name="submit"> Confirm </button>
     </dialog>
 <?php } ?>

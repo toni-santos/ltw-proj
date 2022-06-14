@@ -58,7 +58,7 @@ input[type=number] {
     top: 5px;
 }
 
-#inputs-box, #inputs-extra {
+.inputs-box, #inputs-extra {
     display: flex;
     flex-direction: column;
     margin-top: 10px;

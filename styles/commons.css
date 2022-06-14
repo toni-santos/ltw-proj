@@ -644,7 +644,8 @@ dialog {
 #dialog-restaurant-edit,
 #dialog-restaurant-registration,
 #dialog-dish-add,
-#dialog-checkout {
+#dialog-checkout,
+#dialog-password {
     height: max-content;
     padding: 20px;
     float: left;
@@ -668,7 +669,8 @@ dialog {
 #dialog-restaurant-edit::-webkit-scrollbar,
 #dialog-restaurant-registration::-webkit-scrollbar,
 #dialog-dish-add::-webkit-scrollbar,
-#dialog-checkout::-webkit-scrollbar {
+#dialog-checkout::-webkit-scrollbar,
+#dialog-password::-webkit-scrollbar {
     width: 11px;
 }
 
@@ -678,7 +680,8 @@ dialog {
 #dialog-restaurant-edit::-webkit-scrollbar-track,
 #dialog-restaurant-registration::-webkit-scrollbar-track,
 #dialog-dish-add::-webkit-scrollbar-track,
-#dialog-checkout::-webkit-scrollbar-track {
+#dialog-checkout::-webkit-scrollbar-track,
+#dialog-password::-webkit-scrollbar-track {
     background: var(--dark-background);
 }
 
@@ -688,18 +691,21 @@ dialog {
 #dialog-restaurant-edit::-webkit-scrollbar-thumb,
 #dialog-restaurant-registration::-webkit-scrollbar-thumb,
 #dialog-dish-add::-webkit-scrollbar-thumb,
-#dialog-checkout::-webkit-scrollbar-thumb {
+#dialog-checkout::-webkit-scrollbar-thumb,
+#dialog-password::-webkit-scrollbar-thumb {
     background-color: var(--dark-off-white);
     border-radius: 12px;
 }
 
-#dialog-user-edit #inputs-box,
-#dialog-restaurant-edit #inputs-box,
-#dialog-restaurant-registration #inputs-box {
+#dialog-user-edit .inputs-box,
+#dialog-restaurant-edit .inputs-box,
+#dialog-restaurant-registration .inputs-box {
     margin-bottom: 10px;
 }
 
-#dialog-user-edit {
+#dialog-password
+
+#dialog-user-edit, #dialog-password {
     width: 300px;
 }
 

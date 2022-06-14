@@ -56,7 +56,7 @@
             </button>
         </div>
         <form id="form-restaurant", enctype="multipart/form-data" action="../actions/edit_restaurant_action.php" method="POST">
-            <section id="inputs-box">
+            <section class="inputs-box">
                 <div class="profile-pic-input">
                 <?php 
                     $check = glob("../images/rest_images/rest{$restaurant->restaurantID}.*"); 
@@ -113,7 +113,7 @@
             </button>
         </div>
         <form id="form-dish", enctype="multipart/form-data" action="../actions/add_dish_action.php" method="POST">
-            <section id="inputs-box">
+            <section class="inputs-box">
                 <div class="profile-pic-input">
                     <img alt="Dish picture" src="../images/placeholder.jpg" id="profile-img">
                     <input type="file" accept="image/*" name="dish-pic" id="pfp-input-dish" required>
