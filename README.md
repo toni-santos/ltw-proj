@@ -22,4 +22,3 @@
 
 ## Credentials
 
-renatosilva@gmail.com/renatosilva
