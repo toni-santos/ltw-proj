@@ -25,7 +25,6 @@
         public function getRestaurant($db) {
             return Restaurant::getRestaurant($db, $this->restaurantID);
         }
-
     }
-
+    
 ?>

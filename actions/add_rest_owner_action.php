@@ -1,7 +1,7 @@
 <?php
 
     declare(strict_types = 1);
-    session_start();
+    session_start(['cookies_samesite' => 'Lax']);
     
     function setRestOwner($db, $restaurant_id) {
         if (isset($_SESSION['id']) && isset($restaurant_id)) {

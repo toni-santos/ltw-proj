@@ -12,5 +12,6 @@
     $stmt2 = $db->prepare('DELETE FROM DISH WHERE dishID = ?');
     $stmt2->execute(array($_POST['dishID']));
 
+    $_SESSION['messages']['remove_dish_success'] = "Dish removed successfully!";
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

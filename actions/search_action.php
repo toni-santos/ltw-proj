@@ -2,7 +2,7 @@
 
     declare(strict_types = 1);
 
-    session_start();
+    session_start(['cookies_samesite' => 'Lax']);
 
     require_once('../database/db_loader.php');
     require_once('../php/restaurant.php');

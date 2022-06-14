@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(['cookies_samesite' => 'Lax']);
 require_once('../templates/commons.php');
 
 drawTop(["search", "commons", "forms"], ["hamburger", "forms"]);

@@ -81,8 +81,7 @@ CREATE TABLE Review(
     restaurantID        INTEGER REFERENCES Restaurant(restaurantID),
     reviewerID          INTEGER REFERENCES User(userID),
     message             TEXT NOT NULL,
-    rating              INTEGER NOT NULL,
-    CONSTRAINT reviewPK PRIMARY KEY (restaurantID, reviewerID)
+    rating              INTEGER NOT NULL
 );
 
 CREATE TABLE Menu(

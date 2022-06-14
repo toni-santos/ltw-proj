@@ -1,6 +1,6 @@
 <?php
 	//starting the session
-	session_start();
+	session_start(['cookies_samesite' => 'Lax']);
 
 	//including the database connection
 	require_once "../database/db_loader.php";
@@ -49,7 +49,9 @@
 
 				if ($user) {
 					 $_SESSION['id'] = $user->userID;
-				}
+					 $_SESSION['orders'] = [];
+					 $_SESSION['messages']['register_success'] = "Registered successfully!"; 
+				} else $_SESSION['messages']['register_success'] = "Failed to register!";
 			
 				//redirecting to the index.php 
 				header("Location:../index.php");

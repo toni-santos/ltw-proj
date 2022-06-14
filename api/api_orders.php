@@ -5,7 +5,7 @@
     require_once("../actions/remove_order_action.php");
     require_once("../database/db_loader.php");
 
-    session_start();
+    session_start(['cookies_samesite' => 'Lax']);
     $db = getDatabase();
 
     if (isset($_SESSION['id'])) {

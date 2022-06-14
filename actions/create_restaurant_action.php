@@ -28,7 +28,9 @@
         $stmt2 = $db->prepare("
             INSERT INTO RestaurantCategory VALUES (?, ?);
         ");
-        $stmt2->execute(array($restaurant->restaurantID, $category));
+        if ($stmt2->execute(array($restaurant->restaurantID, $category))) {
+            $_SESSION['messages']['create_rest_success'] = "Your restaurant has been successfully created!";
+        } else $_SESSION['messages']['create_rest_success'] = "Failed to create your restaurant!";
     }
     setRestOwner($db, $restaurant->restaurantID);
 
