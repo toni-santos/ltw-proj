@@ -80,7 +80,13 @@ INSERT INTO RestOwner VALUES(7, 1);
 INSERT INTO RestOwner VALUES(12, 2);
 INSERT INTO RestOwner VALUES(17, 1);
 INSERT INTO RestOwner VALUES(5, 3);
-
+INSERT INTO RestOwner VALUES(4, 3);
+INSERT INTO RestOwner VALUES(6, 5);
+INSERT INTO RestOwner VALUES(8, 8);
+INSERT INTO RestOwner VALUES(9, 9);
+INSERT INTO RestOwner VALUES(11, 8);
+INSERT INTO RestOwner VALUES(13, 10);
+INSERT INTO RestOwner VALUES(16, 7);
 
 -- Review(restaurantID, reviewerID, message)
 
