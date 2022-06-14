@@ -214,14 +214,14 @@ function passwordChangeDialog() { ?>
         <form method="POST" action="../actions/change_password_action.php">
             <section class="inputs-box">
                 <div class="input-container">
-                    <input class="text text-input password subtitle2" id="curr-pwd" type="password" name="curr-pwd" placeholder=" " autocomplete="current-password" minlength="8" onkeyup="updateForm(event); updateCounter(event)" onkeydown="updateCounter(event)" onfocus="checkFilled(event)" required>
+                    <input class="text text-input password subtitle2" id="curr-pwd" type="password" name="curr-pwd" placeholder=" " autocomplete="current-password" minlength="8" onkeyup="updateCounter(event)" onfocus="checkFilled(event)" required>
                     <label class="body2" for="curr-pwd" onclick="setFocus(event)">Current Password</label>
                     <span class="material-icons md-24 md-light password-eye" onclick="showPassword(event)">visibility</span>
                     <span class="subtitle2 counter">0/8</span>
                     <span class="error subtitle2 transparent">Required</span>
                 </div>
                 <div class="input-container">
-                    <input class="text text-input password subtitle2" id="new-pwd" type="password" name="new-pwd" placeholder=" " autocomplete="current-password" minlength="8" onkeyup="updateForm(event); updateCounter(event)" onkeydown="updateCounter(event)" onfocus="checkFilled(event)" required>
+                    <input class="text text-input password subtitle2" id="new-pwd" type="password" name="new-pwd" placeholder=" " autocomplete="current-password" minlength="8" onkeyup="updateCounter(event)" onfocus="checkFilled(event)" required>
                     <label class="body2" for="new-pwd" onclick="setFocus(event)">New Password</label>
                     <span class="material-icons md-24 md-light password-eye" onclick="showPassword(event)">visibility</span>
                     <span class="subtitle2 counter">0/8</span>

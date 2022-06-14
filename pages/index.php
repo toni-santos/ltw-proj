@@ -13,12 +13,20 @@ foreach ($restaurants as $restaurant) {
     $restaurant->setRestaurantRating($db);
     $restaurant->getRestaurantCategories($db);
 }
-
-drawTop(["index", "commons", "forms"], ["hamburger", "scrollsnap", "forms"]);
+drawTop(["index", "commons", "forms"], ["hamburger", "scrollsnap", "forms", "commons"]);
 if (isset($_SESSION['id'])) {
     drawRestaurantDialog();
 }
 ?>
+<?php
+if (!empty($_SESSION['messages'])) {
+    $cnt = 0;
+    foreach ($_SESSION['messages'] as $message) {
+        drawMessage($message, $cnt);
+        $cnt++;
+        $_SESSION['messages'] = array_merge(array_diff($_SESSION['messages'], array($message)));
+    }
+}?>
 <div class="main-top shadow-nohov">
     <div class="top-text">
         <a class="h6 dark-bg" id="top-desc">

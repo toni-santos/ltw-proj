@@ -14,6 +14,8 @@ if (!isset($_SESSION['id'])) {
     die;
 }
 
+
+
 $db = getDatabase();
 $restaurants = User::getUserRestaurants($db, intval($_SESSION['id']));
 $user = User::getUser($db, $_SESSION['id']);
@@ -21,10 +23,18 @@ foreach ($restaurants as $restaurant) {
     $restaurant->setRestaurantRating($db);
 }
 
-drawTop(["commons", "forms", "search", "dashboard"], ["hamburger", "forms", "favorite"]);
+drawTop(["commons", "forms", "search", "dashboard"], ["hamburger", "forms", "favorite", "commons"]);
 drawRestaurantDialog();
 ?>
-
+<?php
+if (!empty($_SESSION['messages'])) {
+    $cnt = 0;
+    foreach ($_SESSION['messages'] as $message) {
+        drawMessage($message, $cnt);
+        $cnt++;
+        $_SESSION['messages'] = array_merge(array_diff($_SESSION['messages'], array($message)));
+    }
+}?>
 <div id="main-top">
     <p class="h5">My Restaurants</p>
     <span id="add-restaurant" class="pointer material-icons md-light" onclick="showRestaurantDialog()">add</span>

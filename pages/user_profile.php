@@ -38,7 +38,16 @@ if (isset($_SESSION['id']) && $_SESSION['id'] == $_GET['id']) {
         die;
     }
 }
-drawTop(["commons", "forms", "profile", "search"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite", "images_user"]);
+drawTop(["commons", "forms", "profile", "search"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite", "images_user", "commons"]);
+if (!empty($_SESSION['messages'])) {
+    $cnt = 0;
+    foreach ($_SESSION['messages'] as $message) {
+        drawMessage($message, $cnt);
+        $cnt++;
+        $_SESSION['messages'] = array_merge(array_diff($_SESSION['messages'], array($message)));
+    }
+}
+
 userProfileTop($user, $is_user);
 
 if ($is_user) {

@@ -66,8 +66,17 @@ if ($_GET['filters-order'] == 'an') {
 }
 
 
-drawTop(["commons", "forms", "search"], ["hamburger", "forms", "search", "favorite"]);
+drawTop(["commons", "forms", "search"], ["hamburger", "forms", "search", "favorite", "commons"]);
 ?>
+<?php
+if (!empty($_SESSION['messages'])) {
+    $cnt = 0;
+    foreach ($_SESSION['messages'] as $message) {
+        drawMessage($message, $cnt);
+        $cnt++;
+        $_SESSION['messages'] = array_merge(array_diff($_SESSION['messages'], array($message)));
+    }
+}?>
 
 <form id="search-bar" action="" class="subtitle2" autocomplete="off" method="GET">
     <section id="search-container">

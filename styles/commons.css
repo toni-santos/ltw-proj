@@ -764,3 +764,17 @@ img[id^="profile-img"] {
     gap: 10px;
     align-items: center;
 }
+
+.message-box {
+    position: fixed;
+    z-index: 999999999999999;
+    width: 40%;
+    height: fit-content;
+    background-color: var(--dark-main-highlight);
+    border:3px solid;
+    border-color: var(--dark-sub-highlight);
+    border-radius: 12px;
+    padding: 10px;
+    left:30% ;
+    text-align: center;
+}

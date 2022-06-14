@@ -10,6 +10,12 @@ require_once '../php/categories.php';
 
 ?>
 
+<?php
+function drawMessage(string $str, int $offset) {?>
+    <p class="message-box body1 shadow-nohov" onclick="removeMessage(event)" style="top: <?php
+        echo 60 + ($offset * 60)
+    ?>px"><?=$str?></p>
+<?php } ?>
 
 <?php function drawRestaurantDialog() { ?>
     <dialog id="dialog-restaurant-registration">

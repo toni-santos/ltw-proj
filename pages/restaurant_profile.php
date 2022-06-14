@@ -38,7 +38,17 @@ if ($restaurant->ownerID == intval($_SESSION['id'])) {
 }
 
 
-drawTop(["commons", "forms", "profile", "search", "checkout"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite", "review", "cart", "images_rest"]);
+drawTop(["commons", "forms", "profile", "search", "checkout"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite", "review", "cart", "images_rest", "commons"]);
+
+if (!empty($_SESSION['messages'])) {
+    $cnt = 0;
+    foreach ($_SESSION['messages'] as $message) {
+        drawMessage($message, $cnt);
+        $cnt++;
+        $_SESSION['messages'] = array_merge(array_diff($_SESSION['messages'], array($message)));
+    }
+}
+
 if ($is_owner) {
     restaurantEditDialog($restaurant);
     addDishDialog($restaurant);
