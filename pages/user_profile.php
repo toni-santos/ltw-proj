@@ -38,7 +38,7 @@ if (isset($_SESSION['id']) && $_SESSION['id'] == $_GET['id']) {
         die;
     }
 }
-drawTop(["commons", "forms", "profile", "search"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite"]);
+drawTop(["commons", "forms", "profile", "search"], ["hamburger", "scrollsnap", "resizer", "forms", "favorite", "images"]);
 userProfileTop($user, $is_user);
 
 if ($is_user) {

@@ -133,5 +133,5 @@ function closeCheckout(event) {
 function inputFile(event) {
     const input = document.getElementById('pfp-input');
     input.click();
-    e.preventDefault();
+    event.preventDefault();
 }

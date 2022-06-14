@@ -2,13 +2,13 @@
 {
     echo $user->username;
     if ($is_user) {
-        userEditDialog();
+        userEditDialog($user);
     } ?>
     
     <div id="profile-top">
         <div id="banner" class="shadow-nohov"></div>
         <div id="tabs-container">
-            <img alt="User profile picture" id="pfp" class="shadow-nohov" src="../images/placeholder.jpg"></img>
+            <img alt="User profile picture" id="pfp" class="shadow-nohov" src="../images/user_images/user<?=$user->userID?>.png"></img>
             <p class="h5"><?php echo $user->username; ?></p>
         </div>
     </div>
@@ -152,7 +152,7 @@
     </div>
 <?php } ?>
 
-<?php function userEditDialog() { ?>
+<?php function userEditDialog(User $user) { ?>
     <dialog id="dialog-user-edit">
         <div class="top-form">
             <p class="h5">Edit Profile</p>
@@ -163,7 +163,7 @@
         <form method="POST", enctype="multipart/form-data" action="../actions/edit_user_page_action.php">
             <section id="inputs-box">
                 <div class="profile-pic-input">
-                    <img alt="User profile picture" src="../images/placeholder.jpg" id="profile-"></img>
+                    <img alt="User profile picture" src="../images/user_images/user<?=$user->userID?>.jpg" id="profile-img">
                     <input type="file" accept="image/*" name="profile-pic" id="pfp-input">
                     <label class="body2 dark-bg" for="pfp-input"  onclick="inputFile(event)"><span class="md-10 material-icons">edit</span></label> 
                 </div>
