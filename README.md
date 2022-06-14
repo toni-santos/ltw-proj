@@ -22,3 +22,5 @@
 
 ## Credentials
 
+nuno@pereira.com/nunonuno
+astolfo@carlos.com/12345678
