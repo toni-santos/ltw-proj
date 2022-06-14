@@ -10,7 +10,13 @@ require_once('../database/db_loader.php');
     <section class="review">
         <div class="review-head">
             <div class="reviewer-info">
-                <img alt="User profile picture" src="../images/placeholder.jpg" class="reviewer-pfp">
+                <?php 
+                    $check = glob("../images/user_images/user{$user->userID}.*"); 
+
+                    if (empty($check)) $existent_pic = "../images/user_placeholder.png";
+                    else $existent_pic = $check[0];
+                ?>
+                <img alt="User profile picture" src=<?= $existent_pic ?> class="reviewer-pfp">
                 <p class="reviewer-name subtitle1"><a href="../pages/user_profile.php?id=<?= $user->userID; ?>"><?= $user->username; ?></a> - <a href="../pages/restaurant_profile.php?id=<?= $review->getRestaurant(getDatabase())->restaurantID; ?>"><?= $review->getRestaurant(getDatabase())->name; ?></a></p>
             </div>
             <p class="reviewer-score subtitle1"><?= $review->rating; ?> <span class="material-icons"  style="color:var(--dark-main-highlight);">star</span></p>

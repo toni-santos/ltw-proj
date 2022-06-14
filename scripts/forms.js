@@ -151,7 +151,7 @@ function inputFile(event) {
 }
 
 function inputFileRest(event) {
-    const input = document.getElementById('pfp-input-restaurant');
+    const input = document.getElementById('pfp-input-rest');
     input.click();
     event.preventDefault();
 }

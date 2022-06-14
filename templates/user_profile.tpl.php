@@ -7,11 +7,11 @@
     
     <div id="profile-top">
         <div id="banner" class="shadow-nohov"></div>
-        <div id="tabs-container">
+        <div id="tabs-container-user">
             <?php 
-                $check = glob("../images/user_images/user{$_SESSION['id']}.*"); 
+                $check = glob("../images/user_images/user{$user->userID}.*"); 
 
-                if (empty($check)) $existent_pic = "../images/placeholder.jpg";
+                if (empty($check)) $existent_pic = "../images/user_placeholder.png";
                 else $existent_pic = $check[0];
             ?>
             <img alt="User profile picture" id="pfp" class="shadow-nohov" src=<?= $existent_pic ?>></img>
@@ -169,12 +169,12 @@
         <form method="POST", enctype="multipart/form-data" action="../actions/edit_user_page_action.php">
             <section class="inputs-box">
                 <div class="profile-pic-input">
-                <?php 
-                    $check = glob("../images/user_images/user{$_SESSION['id']}.*"); 
+                    <?php 
+                        $check = glob("../images/user_images/user{$_SESSION['id']}.*"); 
 
-                    if (empty($check)) $existent_pic = "../images/placeholder.jpg";
-                    else $existent_pic = $check[0];
-                ?>
+                        if (empty($check)) $existent_pic = "../images/user_placeholder.png";
+                        else $existent_pic = $check[0];
+                    ?>
                     <img alt="User profile picture" src=<?= $existent_pic ?> id="profile-img">
                     <input type="file" accept="image/*" name="profile-pic" id="pfp-input">
                     <label class="body2 dark-bg" for="pfp-input"  onclick="inputFile(event)"><span class="md-10 material-icons">edit</span></label> 

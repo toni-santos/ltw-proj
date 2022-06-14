@@ -3,15 +3,14 @@
 <?php function restaurantProfileTop(Restaurant $restaurant)
 { ?>
     <div id="profile-top">
-        <div id="banner" class="shadow-nohov"></div>
-        <div id="tabs-container">
-            <?php 
-                $check = glob("../images/rest_images/rest{$restaurant->restaurantID}.*"); 
+        <?php 
+            $check = glob("../images/rest_images/rest{$restaurant->restaurantID}.*"); 
 
-                if (empty($check)) $existent_pic = "../images/placeholder.jpg";
-                else $existent_pic = $check[0];
-            ?>
-            <img alt="Restaurant picture" id="pfp" class="shadow-nohov" src=<?= $existent_pic ?>></img>
+            if (empty($check)) $existent_pic = ""; //"../images/restaurant_placeholder.png";
+            else $existent_pic = $check[0];
+        ?>
+        <div id="banner" style="background-image: url(<?= $existent_pic ?>)"class="shadow-nohov"></div>
+        <div id="tabs-container">
             <p class="h5"><?= $restaurant->name; ?></p>
             <div><p id="profile-top-rating" class="body1 dark-bg rating"><?php
                 if (isset($restaurant->rating)) {
@@ -56,17 +55,17 @@
             </button>
         </div>
         <form id="form-restaurant", enctype="multipart/form-data" action="../actions/edit_restaurant_action.php" method="POST">
-            <section class="inputs-box">
+            <section class="inputs-box">setFocus
                 <div class="profile-pic-input">
                 <?php 
                     $check = glob("../images/rest_images/rest{$restaurant->restaurantID}.*"); 
 
-                    if (empty($check)) $existent_pic = "../images/placeholder.jpg";
+                    if (empty($check)) $existent_pic = "../images/restaurant_placeholder.png";
                     else $existent_pic = $check[0];
                 ?>
-                    <img alt="Restaurant picture" src=<?= $existent_pic ?> id="profile-img">
-                    <input type="file" accept="image/*" name="restaurant-pic" id="pfp-input-restaurant">
-                    <label class="body2 dark-bg" for="pfp-input-restaurant" onclick="inputFileRest(event)"><span class="md-10 material-icons">edit</span></label> 
+                    <img alt="Restaurant picture" src=<?= $existent_pic ?> id="profile-img-rest">
+                    <input type="file" accept="image/*" name="restaurant-pic" id="pfp-input-rest">
+                    <label class="body2 dark-bg" for="pfp-input-rest" onclick="inputFileRest(event)"><span class="md-10 material-icons">edit</span></label> 
                 </div>
                 <div class="input-container">
                     <input class="text text-input subtitle2" type="text" name="name" autocomplete="off" placeholder=" ">
@@ -115,7 +114,13 @@
         <form id="form-dish", enctype="multipart/form-data" action="../actions/add_dish_action.php" method="POST">
             <section class="inputs-box">
                 <div class="profile-pic-input">
-                    <img alt="Dish picture" src="../images/placeholder.jpg" id="profile-img">
+                    <?php 
+                        $check = glob("../images/dish_images/dish{$dish->dishID}.*"); 
+
+                        if (empty($check)) $existent_pic = "../images/dish_placeholder.png";
+                        else $existent_pic = $check[0];
+                    ?>
+                    <img alt="Dish picture" src=<?= $existent_pic ?> id="profile-img-dish">
                     <input type="file" accept="image/*" name="dish-pic" id="pfp-input-dish" required>
                     <label class="body2 dark-bg" for="pfp-input-dish" onclick="inputFileDish(event)"><span class="md-10 material-icons">edit</span></label> 
                 </div>

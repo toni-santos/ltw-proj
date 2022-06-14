@@ -11,6 +11,7 @@ $restaurants = Restaurant::getRestaurants($db, 3);
 
 foreach ($restaurants as $restaurant) {
     $restaurant->setRestaurantRating($db);
+    $restaurant->getRestaurantCategories($db);
 }
 
 drawTop(["index", "commons", "forms"], ["hamburger", "scrollsnap", "forms"]);

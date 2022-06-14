@@ -81,6 +81,8 @@
 
 .rest-preview {
     width: 150px;
+    height: 110px;
+    object-fit: cover;
     border-radius: 12px;
 }
 
@@ -97,7 +99,7 @@
     opacity: 0.7;
 }
 
-div[id^="restaurant-card-"] {
+article[id^="restaurant-card-"] {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -147,7 +149,7 @@ div[id^="restaurant-card-"] {
 }
 
 @media (max-width: 899px) {
-    div[id^="restaurant-card-"] {
+    article[id^="restaurant-card-"] {
         display: flex;
         flex-direction: column;
         height: 365px;
@@ -175,6 +177,7 @@ div[id^="restaurant-card-"] {
 
     .rest-preview {
         width: 150px;
+        height: 100px;
         border-radius: 12px;
     }
 }
@@ -182,6 +185,7 @@ div[id^="restaurant-card-"] {
 @media (max-width: 550px) {
     .rest-preview {
         width: 100px;
+        height: 70px;
     }
 
     .carousel-preview {

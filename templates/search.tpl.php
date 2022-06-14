@@ -8,7 +8,7 @@ function restaurantSearchCards(Restaurant $restaurant)
     <?php 
         $check = glob("../images/rest_images/rest{$restaurant->restaurantID}.*"); 
 
-        if (empty($check)) $existent_pic = "../images/placeholder.jpg";
+        if (empty($check)) $existent_pic = "../images/restaurant_placeholder.png";
         else $existent_pic = $check[0];
     ?>
     <article class="grid-card shadow" style="background-image: url(<?= $existent_pic?>);">
@@ -54,7 +54,7 @@ function dishSearchCards(Dish $dish, bool $is_owner, ?int $restaurantID, bool $i
 <?php 
     $check = glob("../images/dish_images/dish{$dish->_dishID}.*"); 
 
-    if (empty($check)) $existent_pic = "../images/placeholder.jpg";
+    if (empty($check)) $existent_pic = "../images/dish_placeholder.png";
     else $existent_pic = $check[0];
 ?>
 <article class="grid-card shadow" style="background-image: url(<?= $existent_pic ?>);">
@@ -112,7 +112,7 @@ function userSearchCards(User $user)
     <?php 
         $check = glob("../images/user_images/user{$user->userID}.*"); 
 
-        if (empty($check)) $existent_pic = "../images/placeholder.jpg";
+        if (empty($check)) $existent_pic = "../images/user_placeholder.png";
         else $existent_pic = $check[0];
     ?>
     <article class="grid-card-nohov shadow" style="background-image: url(<?= $existent_pic ?>);" onclick="window.location.href='../pages/user_profile.php?id=<?= $user->userID; ?>'">

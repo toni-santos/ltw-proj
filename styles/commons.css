@@ -199,6 +199,7 @@ ul {
     width: 36px;
     height: 36px;
     object-fit: cover;
+    background-color: var(--dark-sub-highlight);
     border-radius: 50%;
 }
 
@@ -557,6 +558,7 @@ footer ul {
     /* background-image: url("../images/placeholder.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: var(--dark-sub-highlight);
     height: 200px;
     width: 300px;
     display: flex;
@@ -703,10 +705,16 @@ dialog {
     margin-bottom: 10px;
 }
 
-#dialog-password
+#dialog-user-edit {
+    width: 320px;
+}
 
 #dialog-user-edit, #dialog-password {
     width: 300px;
+}
+
+img[id^="profile-img"] {
+    background-color: var(--dark-sub-highlight);
 }
 
 .checkbox-text {

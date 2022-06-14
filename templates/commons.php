@@ -185,7 +185,7 @@ if (isset($_SESSION['id'])) {
             <?php 
                 $check = glob("../images/user_images/user{$_SESSION['id']}.*"); 
 
-                if (empty($check)) $existent_pic = "../images/placeholder.jpg";
+                if (empty($check)) $existent_pic = "../images/user_placeholder.png";
                 else $existent_pic = $check[0];
             ?>
             <li class="dropdown"><img alt="User profile picture" class="nav-pfp" src=<?= $existent_pic ?>></li>
@@ -219,7 +219,13 @@ if (isset($_SESSION['id'])) {
             <?php } else { ?>
             <div id="user-bar">
                 <div id="user-info">
-                    <img alt="User profile picture" class="nav-pfp" src="../images/placeholder.jpg" onclick="window.location.href = 'user_profile.php?id=<?= $user->userID; ?>';">
+                    <?php 
+                        $check = glob("../images/user_images/user{$user->userID}.*"); 
+
+                        if (empty($check)) $existent_pic = "../images/user_placeholder.png";
+                        else $existent_pic = $check[0];
+                    ?>
+                    <img alt="User profile picture" class="nav-pfp" src=<?= $existent_pic ?> onclick="window.location.href = 'user_profile.php?id=<?= $user->userID; ?>';">
                     <a class="subtitle1" href="user_profile.php?id=<?= $user->userID; ?>"><?= $user->username; ?></a>
                 </div>
                 <form action="../actions/logout_action.php" method="POST">

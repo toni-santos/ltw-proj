@@ -5,16 +5,25 @@ declare(strict_types=1);
 <?php function restaurant_card(Restaurant $restaurant)
 { ?>
     <article id="restaurant-card-<?= $restaurant->restaurantID; ?>" class="shadow-nohov">
-        <img src="../images/placeholder.jpg" class="rest-img shadow pointer" onclick="window.location.href='../pages/restaurant_profile.php?id=<?= $restaurant->restaurantID; ?>'">
+        <?php 
+            $check = glob("../images/rest_images/rest{$restaurant->restaurantID}.*"); 
+
+            if (empty($check)) $existent_pic = "../images/restaurant_placeholder.png";
+            else $existent_pic = $check[0];
+        ?>
+        <img src=<?= $existent_pic ?> class="rest-img shadow pointer" onclick="window.location.href='../pages/restaurant_profile.php?id=<?= $restaurant->restaurantID; ?>'">
         <section class="restaurant-description">
             <a class="body1 rest-name" href="../pages/restaurant_profile.php?id=<?= $restaurant->restaurantID; ?>"><?= $restaurant->name; ?></a>
             <div class="body2 rating dark-bg shadow-nohov">
                 <?= $restaurant->rating; ?><span class="material-icons">star</span>
             </div>
             <div class="genre-list body2">
-                <a class="shadow-nohov">Genre</a>
-                <a class="shadow-nohov">Genre</a>
-                <a class="shadow-nohov">Genre</a>
+                <?php
+                for ($i = 0; $i < 3; $i++) { 
+                    if ($restaurant->categories[$i] != null) {?>
+                    <a class="shadow-nohov"><?= $restaurant->categories[$i]?></a>
+                <?php }
+                } ?>
             </div>
         </section>
     </article>
@@ -31,7 +40,13 @@ declare(strict_types=1);
             ?>
         </div>
         <div class="carousel-preview">
-            <img alt="Restaurant preview picture" src="../images/placeholder.jpg" onclick="snapContent(event, 0, 'carousel-container', 'horizontal')" class="rest-preview active pointer" id="rest-preview-<?= $restaurants[0]->restaurantID; ?>">
+            <?php
+                $check = glob("../images/rest_images/rest{$restaurants[0]->restaurantID}.*"); 
+
+                if (empty($check)) $existent_pic = "../images/restaurant_placeholder.png";
+                else $existent_pic = $check[0];
+            ?>
+            <img alt="Restaurant preview picture" src=<?= $existent_pic ?> onclick="snapContent(event, 0, 'carousel-container', 'horizontal')" class="rest-preview active pointer" id="rest-preview-<?= $restaurants[0]->restaurantID; ?>">
             <?php
             for ($i = 1; $i <= 2; $i++) {
                 restaurantPreview(false, intval($restaurants[$i]->restaurantID));
@@ -43,11 +58,16 @@ declare(strict_types=1);
 
 <?php function restaurantPreview(bool $active, int $id)
 {
+    $check = glob("../images/rest_images/rest{$id}.*"); 
+
+    if (empty($check)) $existent_pic = "../images/restaurant_placeholder.png";
+    else $existent_pic = $check[0];
+
     if ($active) { ?>
-        <img alt="Restaurant preview picture" src="../images/placeholder.jpg" onclick="snapContent(event, 500, 'carousel-container', 'horizontal')" class="rest-preview active pointer" id="rest-preview-<?php echo $id; ?>">
+        <img alt="Restaurant preview picture" src=<?= $existent_pic ?> onclick="snapContent(event, 500, 'carousel-container', 'horizontal')" class="rest-preview active pointer" id="rest-preview-<?php echo $id; ?>">
     <?php 
     } else { ?>
-        <img alt="Restaurant preview picture" src="../images/placeholder.jpg" onclick="snapContent(event, 500, 'carousel-container', 'horizontal')" class="rest-preview inactive pointer" id="rest-preview-<?php echo $id; ?>">
+        <img alt="Restaurant preview picture" src=<?= $existent_pic ?> onclick="snapContent(event, 500, 'carousel-container', 'horizontal')" class="rest-preview inactive pointer" id="rest-preview-<?php echo $id; ?>">
     <?php } ?>
 <?php } ?>
 
