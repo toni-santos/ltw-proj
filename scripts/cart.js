@@ -21,7 +21,7 @@ async function decreaseAmount(event, itemid) {
 
 async function increaseAmount(event, itemid) {
     const input = event.composedPath()[1].children[2];
-    const id = document.querySelectorAll('#cartItemDishID')[itemid].value;
+    const id = event.composedPath()[1].children[0].value;
 
     if (parseInt(input.textContent) < 98) {
         input.textContent = parseInt(input.textContent) + 1;

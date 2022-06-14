@@ -55,7 +55,7 @@
             </button>
         </div>
         <form id="form-restaurant", enctype="multipart/form-data" action="../actions/edit_restaurant_action.php" method="POST">
-            <section class="inputs-box">setFocus
+            <section class="inputs-box">
                 <div class="profile-pic-input">
                 <?php 
                     $check = glob("../images/rest_images/rest{$restaurant->restaurantID}.*"); 
@@ -115,7 +115,7 @@
             <section class="inputs-box">
                 <div class="profile-pic-input">
                     <?php 
-                        $check = glob("../images/dish_images/dish{$dish->dishID}.*"); 
+                        $check = glob("../images/dish_images/dish{$dish->_dishID}.*"); 
 
                         if (empty($check)) $existent_pic = "../images/dish_placeholder.png";
                         else $existent_pic = $check[0];
@@ -130,7 +130,7 @@
                     <span class="error subtitle2 transparent">Required</span>
                 </div>
                 <div class="input-container">
-                    <input class="text text-input subtitle2" type="number" name="price" autocomplete="off" placeholder=" " onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
+                    <input class="text text-input subtitle2" type="number" name="price" autocomplete="off" placeholder=" " step="0.01" onkeyup="updateForm(event)" onfocus="checkFilled(event)" required>
                     <label class="body2" for="location" onclick="setFocus(event)">Price</label>
                     <span class="error subtitle2 transparent">Required</span>
                 </div>

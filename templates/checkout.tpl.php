@@ -9,7 +9,13 @@ function cartItem(Dish $dish, Order $order, int $id)
 { ?>
     <article class="cart-item" id="cart-item-<?= $id; ?>">
         <div class="left-item">
-            <img alt="Item picture" class="item-img" src="../images/placeholder.jpg">
+            <?php 
+                $check = glob("../images/dish_images/dish{$dish->_dishID}.*"); 
+
+                if (empty($check)) $existent_pic = "../images/dish_placeholder.png";
+                else $existent_pic = $check[0];
+            ?>
+            <img alt="Item picture" class="item-img" src=<?=$existent_pic?>>
             <section class="item-info">
                 <p class="subtitle1"><?= $dish->_name?></p>
             </section>

@@ -61,6 +61,7 @@ function userRequest(Request $request, PDO $db) { ?>
         </section>
         <section class="restaurant-req-right">
             <form method="POST" action="../actions/update_request_state.php">
+                <p class="subtitle2"><?=$request->state?></p>
                 <div class="req-action-buttons">
                     <input type="hidden" name="requestID" value="<?=$request->requestID?>">
                     <input type="hidden">

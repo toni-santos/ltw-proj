@@ -10,7 +10,7 @@ require_once('../templates/search.tpl.php');
 require_once('../database/db_loader.php');
 require_once('../php/user.php');
 
-drawTop(["commons", "forms"], ["hamburger", "resizer", "favorite", "commons"]);
+drawTop(["commons", "forms"], ["hamburger", "resizer", "favorite", "commons", "forms"]);
 ?>
 <?php
 if (!empty($_SESSION['messages'])) {
