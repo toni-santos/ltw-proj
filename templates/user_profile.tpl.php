@@ -211,7 +211,7 @@ function passwordChangeDialog() { ?>
                 <span class="material-icons">close</span>
             </button>
         </div>
-        <form method="POST" action="">
+        <form method="POST" action="../actions/change_password_action.php">
             <section class="inputs-box">
                 <div class="input-container">
                     <input class="text text-input password subtitle2" id="curr-pwd" type="password" name="curr-pwd" placeholder=" " autocomplete="current-password" minlength="8" onkeyup="updateForm(event); updateCounter(event)" onkeydown="updateCounter(event)" onfocus="checkFilled(event)" required>
@@ -228,7 +228,7 @@ function passwordChangeDialog() { ?>
                     <span class="error subtitle2 transparent">Required</span>
                 </div>
             </section>
+            <button id="confirm-password" class="button-form" type="submit" name="submit-pwd"> Confirm </button>
         </form>
-        <button id="confirm-password" class="button-form" type="submit" name="submit"> Confirm </button>
     </dialog>
 <?php } ?>
