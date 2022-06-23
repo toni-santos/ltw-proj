@@ -1,5 +1,7 @@
 # ltw-t09-g02
 
+This website was made as part of the unit of Languages and Web Technologies, and is not a fully realised product. Also taking code from here is not recommended, not only for plagiarism reasons but also due to the dubious quality of the code.
+
 ## Features
 
 - [x] Register
